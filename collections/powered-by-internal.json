@@ -1,0 +1,2992 @@
+{
+  "info": {
+    "_postman_id": "17617cb7-e8bd-4b85-a5f0-b89cbbba36ee",
+    "name": "Powered by (Internal)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2022-02-28T16:32:21.000Z",
+    "updatedAt": "2022-02-28T16:32:23.000Z",
+    "lastUpdatedBy": "2104987",
+    "uid": "2104987-17617cb7-e8bd-4b85-a5f0-b89cbbba36ee"
+  },
+  "item": [
+    {
+      "name": "Accounts",
+      "item": [
+        {
+          "name": "Create Account",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "09db1d56-0a1b-4019-9d60-94058c2aefb6",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"data.id exists and is not empty\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.data.id).to.exist.and.not.to.be.empty;",
+                  "",
+                  "    if (jsonData.data.id && jsonData.data.id.length) {",
+                  "        pm.environment.set('account_id', jsonData.data.id)",
+                  "    }",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "7f4fca92-4a84-472b-9403-5732e5213ef5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Auth-Client",
+                "value": "{{client_id}}"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"A0000001\",\n  \"name\": \"The Austin Partner Group, LLC\",\n  \"user_email\": \"ceo@theaustinpartnergroupcommallc.com\",\n  \"primary_contact\": {\n    \"first_name\": \"Erik\",\n    \"last_name\": \"Lehnsherr\",\n    \"email\": \"ceo@theaustinpartnergroupcommallc.com\",\n    \"address_line_1\": \"211 E 7th St\",\n    \"district\": \"TX\",\n    \"city\": \"Austin\",\n    \"postal_code\": \"78701\",\n    \"country\": \"US\",\n    \"phone_number\": \"512-947-5872\"\n  }\n}"
+            },
+            "url": {
+              "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/accounts",
+              "protocol": "https",
+              "host": [
+                "{{environment}}"
+              ],
+              "path": [
+                "franchises",
+                "{{franchise_uuid}}",
+                "v1",
+                "accounts"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "31353014-73b7-4521-bfe7-cfc144e46f50",
+              "name": "Create Account",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-Auth-Client",
+                    "value": "{{client_id}}"
+                  },
+                  {
+                    "key": "X-Auth-Token",
+                    "value": "{{token}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"S0000001\",\n  \"name\": \"Gummy Bears, LTD\",\n  \"user_email\": \"ceogummybears@bigcommerce.com\",\n  \"primary_contact\": {\n    \"first_name\": \"Randy\",\n    \"last_name\": \"Stepherson\",\n    \"email\": \"randy.stepherson@bigcommerce.com\",\n    \"address_line_1\": \"211 E 7th St\",\n    \"district\": \"TX\",\n    \"city\": \"Austin\",\n    \"postal_code\": \"78701\",\n    \"country\": \"US\",\n    \"phone_number\": \"512-947-5872\"\n  }\n}"
+                },
+                "url": {
+                  "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/accounts",
+                  "protocol": "https",
+                  "host": [
+                    "{{environment}}"
+                  ],
+                  "path": [
+                    "franchises",
+                    "{{franchise_uuid}}",
+                    "v1",
+                    "accounts"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "bc-auth-client",
+                  "value": "8ngkdp608y0fklmkf7217zchuucx291"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Jan 2022 23:41:16 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "55"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"data\": {\n        \"id\": \"S0000001\"\n    },\n    \"meta\": {}\n}",
+              "createdAt": "2022-02-28T16:32:22.000Z",
+              "updatedAt": "2022-02-28T16:32:22.000Z",
+              "uid": "2104987-31353014-73b7-4521-bfe7-cfc144e46f50"
+            }
+          ],
+          "createdAt": "2022-02-28T16:32:22.000Z",
+          "updatedAt": "2022-02-28T20:36:20.000Z",
+          "uid": "2104987-7f4fca92-4a84-472b-9403-5732e5213ef5"
+        },
+        {
+          "name": "Create Account With Password",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "fa9ecf18-f59b-47e0-a875-26d2fc7d9298",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"data.id exists and is not empty\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.data.id).to.exist.and.not.to.be.empty;",
+                  "",
+                  "    if (jsonData.data.id && jsonData.data.id.length) {",
+                  "        pm.environment.set('account_id', jsonData.data.id)",
+                  "    }",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "35361724-0b92-4617-8985-68c2b92f4f3f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Auth-Client",
+                "value": "{{client_id}}"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"A0000001\",\n  \"name\": \"The Austin Partner Group, LLC\",\n  \"user_email\": \"ceo@theaustinpartnergroupcommallc.com\",\n  \"password\": \"UTr!d30rd13\",\n  \"primary_contact\": {\n    \"first_name\": \"Erik\",\n    \"last_name\": \"Lehnsherr\",\n    \"email\": \"ceo@theaustinpartnergroupcommallc.com\",\n    \"address_line_1\": \"211 E 7th St\",\n    \"district\": \"TX\",\n    \"city\": \"Austin\",\n    \"postal_code\": \"78701\",\n    \"country\": \"US\",\n    \"phone_number\": \"512-947-5872\"\n  }\n}"
+            },
+            "url": {
+              "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/accounts/with-password",
+              "protocol": "https",
+              "host": [
+                "{{environment}}"
+              ],
+              "path": [
+                "franchises",
+                "{{franchise_uuid}}",
+                "v1",
+                "accounts",
+                "with-password"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4ff36161-6b30-43da-898b-695289bbe88a",
+              "name": "Create Account With Password (Already Exists)",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-Auth-Client",
+                    "value": "{{client_id}}"
+                  },
+                  {
+                    "key": "X-Auth-Token",
+                    "value": "{{token}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"A0000001\",\n  \"name\": \"The Austin Partner Group, LLC\",\n  \"user_email\": \"ceo@theaustinpartnergroupcommallc.com\",\n  \"password\": \"UTr!d30rd13\",\n  \"primary_contact\": {\n    \"first_name\": \"Erik\",\n    \"last_name\": \"Lehnsherr\",\n    \"email\": \"ceo@theaustinpartnergroupcommallc.com\",\n    \"address_line_1\": \"211 E 7th St\",\n    \"district\": \"TX\",\n    \"city\": \"Austin\",\n    \"postal_code\": \"78701\",\n    \"country\": \"US\",\n    \"phone_number\": \"512-947-5872\"\n  }\n}"
+                },
+                "url": {
+                  "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/accounts/with-password",
+                  "protocol": "https",
+                  "host": [
+                    "{{environment}}"
+                  ],
+                  "path": [
+                    "franchises",
+                    "{{franchise_uuid}}",
+                    "v1",
+                    "accounts",
+                    "with-password"
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "X-Request-ID",
+                  "value": "b14d9b968f24b0102999dbf75cee9f91"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": 409,\n    \"title\": \"Already Exists\",\n    \"type\": \"https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes\",\n    \"errors\": {}\n}",
+              "createdAt": "2022-02-28T16:32:22.000Z",
+              "updatedAt": "2022-02-28T16:32:22.000Z",
+              "uid": "2104987-4ff36161-6b30-43da-898b-695289bbe88a"
+            },
+            {
+              "id": "4e92017c-9261-4fb1-a9e6-4054a79dca53",
+              "name": "Create Account With Password",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-Auth-Client",
+                    "value": "{{client_id}}"
+                  },
+                  {
+                    "key": "X-Auth-Token",
+                    "value": "{{token}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"A0000099\",\n  \"name\": \"The Austin Partner Group, LLC\",\n  \"user_email\": \"ceo@theaustinpartnergroupcommallc.com\",\n  \"password\": \"UTr!d30rd13\",\n  \"primary_contact\": {\n    \"first_name\": \"Erik\",\n    \"last_name\": \"Lehnsherr\",\n    \"email\": \"ceo@theaustinpartnergroupcommallc.com\",\n    \"address_line_1\": \"211 E 7th St\",\n    \"district\": \"TX\",\n    \"city\": \"Austin\",\n    \"postal_code\": \"78701\",\n    \"country\": \"US\",\n    \"phone_number\": \"512-947-5872\"\n  }\n}"
+                },
+                "url": {
+                  "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/accounts/with-password",
+                  "protocol": "https",
+                  "host": [
+                    "{{environment}}"
+                  ],
+                  "path": [
+                    "franchises",
+                    "{{franchise_uuid}}",
+                    "v1",
+                    "accounts",
+                    "with-password"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "X-Request-ID",
+                  "value": "1b8607d3576fe6bef584b85ca904b4cd"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"data\": {\n        \"id\": \"A0000099\"\n    },\n    \"meta\": {}\n}",
+              "createdAt": "2022-02-28T16:32:22.000Z",
+              "updatedAt": "2022-02-28T16:32:22.000Z",
+              "uid": "2104987-4e92017c-9261-4fb1-a9e6-4054a79dca53"
+            }
+          ],
+          "createdAt": "2022-02-28T16:32:22.000Z",
+          "updatedAt": "2022-02-28T20:42:26.000Z",
+          "uid": "2104987-35361724-0b92-4617-8985-68c2b92f4f3f"
+        },
+        {
+          "name": "Get Account",
+          "id": "abf2d47e-1e6b-4078-ad9d-3e3feb1f4c30",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Auth-Client",
+                "value": "{{client_id}}"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/accounts/{{account_id}}",
+              "protocol": "https",
+              "host": [
+                "{{environment}}"
+              ],
+              "path": [
+                "franchises",
+                "{{franchise_uuid}}",
+                "v1",
+                "accounts",
+                "{{account_id}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "05d91287-2495-40e3-8d8f-c3945cf18828",
+              "name": "Get Account",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-Auth-Client",
+                    "value": "{{client_id}}"
+                  },
+                  {
+                    "key": "X-Auth-Token",
+                    "value": "{{token}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/accounts/{{account_id}}",
+                  "protocol": "https",
+                  "host": [
+                    "{{environment}}"
+                  ],
+                  "path": [
+                    "franchises",
+                    "{{franchise_uuid}}",
+                    "v1",
+                    "accounts",
+                    "{{account_id}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "X-Request-ID",
+                  "value": "4f9351d02ed81db4e423d994fc7cd9df"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"data\": {\n        \"id\": \"A0000001\",\n        \"user_email\": \"nonono@scrub.com\",\n        \"name\": \"The Big Account\",\n        \"primary_contact\": {\n            \"first_name\": \"Jonny\",\n            \"last_name\": \"Cash\",\n            \"email\": \"nonono@scrub.com\",\n            \"address_line_1\": \"211 E 7th St\",\n            \"address_line_2\": null,\n            \"city\": \"Austin\",\n            \"district\": \"TX\",\n            \"postal_code\": \"78701\",\n            \"country\": \"US\",\n            \"phone_number\": \"5129475872\"\n        },\n        \"billing_contact\": {\n            \"first_name\": \"Jonny\",\n            \"last_name\": \"Cash\",\n            \"email\": \"nonono@scrub.com\",\n            \"address_line_1\": \"211 E 7th St\",\n            \"address_line_2\": null,\n            \"city\": \"Austin\",\n            \"district\": \"TX\",\n            \"postal_code\": \"78701\",\n            \"country\": \"US\",\n            \"phone_number\": \"5129475872\"\n        },\n        \"zuora_account_id\": \"\"\n    },\n    \"meta\": {}\n}",
+              "createdAt": "2022-02-28T16:32:22.000Z",
+              "updatedAt": "2022-02-28T16:32:22.000Z",
+              "uid": "2104987-05d91287-2495-40e3-8d8f-c3945cf18828"
+            }
+          ],
+          "createdAt": "2022-02-28T16:32:22.000Z",
+          "updatedAt": "2022-02-28T16:32:22.000Z",
+          "uid": "2104987-abf2d47e-1e6b-4078-ad9d-3e3feb1f4c30"
+        },
+        {
+          "name": "Exists With Email",
+          "id": "71ddeaaf-b00e-4c4e-939d-86d190020f4a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Auth-Client",
+                "value": "{{client_id}}"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v0/accounts/exists-with-email?email_address=ceo@theaustinpartnergroupcommallc.com",
+              "protocol": "https",
+              "host": [
+                "{{environment}}"
+              ],
+              "path": [
+                "franchises",
+                "{{franchise_uuid}}",
+                "v0",
+                "accounts",
+                "exists-with-email"
+              ],
+              "query": [
+                {
+                  "key": "email_address",
+                  "value": "ceo@theaustinpartnergroupcommallc.com"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "101072bb-89f3-404f-a460-bb50df9ec6c9",
+              "name": "Exists With Email",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-Auth-Client",
+                    "value": "{{client_id}}"
+                  },
+                  {
+                    "key": "X-Auth-Token",
+                    "value": "{{token}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v0/accounts/exists-with-email?email_address=ceo@theaustinpartnergroupcommallc.com",
+                  "protocol": "https",
+                  "host": [
+                    "{{environment}}"
+                  ],
+                  "path": [
+                    "franchises",
+                    "{{franchise_uuid}}",
+                    "v0",
+                    "accounts",
+                    "exists-with-email"
+                  ],
+                  "query": [
+                    {
+                      "key": "email_address",
+                      "value": "ceo@theaustinpartnergroupcommallc.com"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "X-Request-ID",
+                  "value": "1c51a8fd4fd227ffda2e276e1086b908"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"data\": {\n        \"account_exists\": true\n    },\n    \"meta\": {}\n}",
+              "createdAt": "2022-02-28T16:32:22.000Z",
+              "updatedAt": "2022-02-28T16:32:22.000Z",
+              "uid": "2104987-101072bb-89f3-404f-a460-bb50df9ec6c9"
+            }
+          ],
+          "createdAt": "2022-02-28T16:32:22.000Z",
+          "updatedAt": "2022-02-28T16:32:22.000Z",
+          "uid": "2104987-71ddeaaf-b00e-4c4e-939d-86d190020f4a"
+        },
+        {
+          "name": "Get Accounts",
+          "id": "2650ce59-8a8b-4b3f-a8ce-69b22a2e5a47",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Auth-Client",
+                "value": "{{client_id}}"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/accounts?limit=250&page=1",
+              "protocol": "https",
+              "host": [
+                "{{environment}}"
+              ],
+              "path": [
+                "franchises",
+                "{{franchise_uuid}}",
+                "v1",
+                "accounts"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "250",
+                  "type": "text"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7046f612-3f3d-4a3e-b5eb-e0c0577347ea",
+              "name": "Get Accounts",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-Auth-Client",
+                    "value": "{{client_id}}"
+                  },
+                  {
+                    "key": "X-Auth-Token",
+                    "value": "{{token}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/accounts",
+                  "protocol": "https",
+                  "host": [
+                    "{{environment}}"
+                  ],
+                  "path": [
+                    "franchises",
+                    "{{franchise_uuid}}",
+                    "v1",
+                    "accounts"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "X-Request-ID",
+                  "value": "a6a1f8da1ba32ac0aee128a7af66efdd"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"data\": [\n        {\n            \"id\": \"A0000001\",\n            \"name\": \"The Big Account\",\n            \"status\": \"active\",\n            \"created_at\": \"2022-01-28T19:32:09Z\",\n            \"support_pin\": 25620997\n        },\n        {\n            \"id\": \"A0000099\",\n            \"name\": \"The Austin Partner Group LLC\",\n            \"status\": \"active\",\n            \"created_at\": \"2022-02-03T19:05:48Z\",\n            \"support_pin\": 41452213\n        }\n    ],\n    \"meta\": {\n        \"pagination\": {\n            \"total\": 2,\n            \"count\": 2,\n            \"per_page\": 50,\n            \"current_page\": 1,\n            \"total_pages\": 1\n        }\n    }\n}",
+              "createdAt": "2022-02-28T16:32:22.000Z",
+              "updatedAt": "2022-02-28T16:32:22.000Z",
+              "uid": "2104987-7046f612-3f3d-4a3e-b5eb-e0c0577347ea"
+            }
+          ],
+          "createdAt": "2022-02-28T16:32:22.000Z",
+          "updatedAt": "2022-02-28T20:47:16.000Z",
+          "uid": "2104987-2650ce59-8a8b-4b3f-a8ce-69b22a2e5a47"
+        },
+        {
+          "name": "Update Account",
+          "id": "0af47315-e26a-4ac6-b5fe-ec890ab30ec5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Auth-Client",
+                "value": "{{client_id}}"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Test Company, Inc.\",\n  \"primary_contact\": {\n    \"first_name\": \"Jack\",\n    \"last_name\": \"Johnson\",\n    \"email\": \"test@example.com\",\n    \"address_line_1\": \"123 Main Street\",\n    \"address_line_2\": \"\",\n    \"city\": \"Austin\",\n    \"district\": \"TX\",\n    \"country\": \"US\",\n    \"postal_code\": \"71405\",\n    \"phone_number\": \"555-555-5555\"\n  },\n  \"billing_contact\": {\n    \"first_name\": \"Jack\",\n    \"last_name\": \"Johnson\",\n    \"email\": \"test@example.com\",\n    \"address_line_1\": \"123 Main Street\",\n    \"address_line_2\": \"\",\n    \"city\": \"Austin\",\n    \"district\": \"TX\",\n    \"country\": \"US\",\n    \"postal_code\": \"71405\",\n    \"phone_number\": \"555-555-5555\"\n  }\n}"
+            },
+            "url": {
+              "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/accounts/{{account_id}}",
+              "protocol": "https",
+              "host": [
+                "{{environment}}"
+              ],
+              "path": [
+                "franchises",
+                "{{franchise_uuid}}",
+                "v1",
+                "accounts",
+                "{{account_id}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0ce2d485-6071-4281-9f2b-1eab756a6908",
+              "name": "Update Account",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-Auth-Client",
+                    "value": "{{client_id}}"
+                  },
+                  {
+                    "key": "X-Auth-Token",
+                    "value": "{{token}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Test Company, Inc.\",\n  \"primary_contact\": {\n    \"first_name\": \"Jack\",\n    \"last_name\": \"Johnson\",\n    \"email\": \"test@example.com\",\n    \"address_line_1\": \"123 Main Street\",\n    \"address_line_2\": \"\",\n    \"city\": \"Austin\",\n    \"district\": \"TX\",\n    \"country\": \"US\",\n    \"postal_code\": \"71405\",\n    \"phone_number\": \"555-555-5555\"\n  },\n  \"billing_contact\": {\n    \"first_name\": \"Jack\",\n    \"last_name\": \"Johnson\",\n    \"email\": \"test@example.com\",\n    \"address_line_1\": \"123 Main Street\",\n    \"address_line_2\": \"\",\n    \"city\": \"Austin\",\n    \"district\": \"TX\",\n    \"country\": \"US\",\n    \"postal_code\": \"71405\",\n    \"phone_number\": \"555-555-5555\"\n  }\n}"
+                },
+                "url": {
+                  "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/accounts/{{account_id}}",
+                  "protocol": "https",
+                  "host": [
+                    "{{environment}}"
+                  ],
+                  "path": [
+                    "franchises",
+                    "{{franchise_uuid}}",
+                    "v1",
+                    "accounts",
+                    "{{account_id}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "X-Request-ID",
+                  "value": "abaa1fc007aa92da59d9fef86a19ef07"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"data\": {\n        \"id\": \"A0000001\",\n        \"user_email\": \"nonono@scrub.com\",\n        \"name\": \"Test Company Inc\",\n        \"primary_contact\": {\n            \"first_name\": \"Jack\",\n            \"last_name\": \"Johnson\",\n            \"email\": \"test@example.com\",\n            \"address_line_1\": \"123 Main Street\",\n            \"address_line_2\": null,\n            \"city\": \"Austin\",\n            \"district\": \"TX\",\n            \"postal_code\": \"71405\",\n            \"country\": \"US\",\n            \"phone_number\": \"5555555555\"\n        },\n        \"billing_contact\": {\n            \"first_name\": \"Jack\",\n            \"last_name\": \"Johnson\",\n            \"email\": \"test@example.com\",\n            \"address_line_1\": \"123 Main Street\",\n            \"address_line_2\": null,\n            \"city\": \"Austin\",\n            \"district\": \"TX\",\n            \"postal_code\": \"71405\",\n            \"country\": \"US\",\n            \"phone_number\": \"5555555555\"\n        },\n        \"zuora_account_id\": \"\"\n    },\n    \"meta\": {}\n}",
+              "createdAt": "2022-02-28T16:32:22.000Z",
+              "updatedAt": "2022-02-28T16:32:22.000Z",
+              "uid": "2104987-0ce2d485-6071-4281-9f2b-1eab756a6908"
+            }
+          ],
+          "createdAt": "2022-02-28T16:32:22.000Z",
+          "updatedAt": "2022-02-28T16:32:22.000Z",
+          "uid": "2104987-0af47315-e26a-4ac6-b5fe-ec890ab30ec5"
+        },
+        {
+          "name": "Sync Billing Provider",
+          "id": "641286f5-a4bd-4291-80fe-4d9316d44ecd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Auth-Client",
+                "value": "{{client_id}}"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v0/accounts/{{account_id}}/payment-methods/sync",
+              "protocol": "https",
+              "host": [
+                "{{environment}}"
+              ],
+              "path": [
+                "franchises",
+                "{{franchise_uuid}}",
+                "v0",
+                "accounts",
+                "{{account_id}}",
+                "payment-methods",
+                "sync"
+              ]
+            },
+            "description": "Endpoint created for the POC. This forces BMP to sync with Zuora to get the latest payment method."
+          },
+          "response": [
+            {
+              "id": "784ff278-7053-473e-b0f4-14deefcdfd25",
+              "name": "Sync Billing Provider",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-Auth-Client",
+                    "value": "{{client_id}}"
+                  },
+                  {
+                    "key": "X-Auth-Token",
+                    "value": "{{token}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v0/accounts/{{account_id}}/payment-methods/sync",
+                  "protocol": "https",
+                  "host": [
+                    "{{environment}}"
+                  ],
+                  "path": [
+                    "franchises",
+                    "{{franchise_uuid}}",
+                    "v0",
+                    "accounts",
+                    "{{account_id}}",
+                    "payment-methods",
+                    "sync"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "X-Request-ID",
+                  "value": "090f924f10543972d49aaf012c0e5e21"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"data\": {},\n    \"meta\": {}\n}",
+              "createdAt": "2022-02-28T16:32:22.000Z",
+              "updatedAt": "2022-02-28T16:32:22.000Z",
+              "uid": "2104987-784ff278-7053-473e-b0f4-14deefcdfd25"
+            }
+          ],
+          "createdAt": "2022-02-28T16:32:22.000Z",
+          "updatedAt": "2022-02-28T16:32:22.000Z",
+          "uid": "2104987-641286f5-a4bd-4291-80fe-4d9316d44ecd"
+        }
+      ],
+      "id": "ca8f1ad0-8c1b-43dc-bec8-141d32b1e844",
+      "createdAt": "2022-02-28T16:32:21.000Z",
+      "updatedAt": "2022-02-28T16:32:23.000Z",
+      "uid": "2104987-ca8f1ad0-8c1b-43dc-bec8-141d32b1e844"
+    },
+    {
+      "name": "Stores",
+      "item": [
+        {
+          "name": "Future Endpoints",
+          "item": [
+            {
+              "name": "Get Store Suspension (Future)",
+              "id": "03f4ec50-e414-4785-a612-1b923465ab34",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-Auth-Client",
+                    "value": "{{client_id}}"
+                  },
+                  {
+                    "key": "X-Auth-Token",
+                    "value": "{{token}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/stores/{{store_id}}",
+                  "protocol": "https",
+                  "host": [
+                    "{{environment}}"
+                  ],
+                  "path": [
+                    "franchises",
+                    "{{franchise_uuid}}",
+                    "v1",
+                    "stores",
+                    "{{store_id}}"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2022-02-28T16:32:22.000Z",
+              "updatedAt": "2022-02-28T16:32:22.000Z",
+              "uid": "2104987-03f4ec50-e414-4785-a612-1b923465ab34"
+            },
+            {
+              "name": "Get Store Suspensions (Future)",
+              "id": "ec6e34f6-6f1c-4bbf-8466-8c0c1d506d95",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-Auth-Client",
+                    "value": "{{client_id}}"
+                  },
+                  {
+                    "key": "X-Auth-Token",
+                    "value": "{{token}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/stores/{{store_id}}",
+                  "protocol": "https",
+                  "host": [
+                    "{{environment}}"
+                  ],
+                  "path": [
+                    "franchises",
+                    "{{franchise_uuid}}",
+                    "v1",
+                    "stores",
+                    "{{store_id}}"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2022-02-28T16:32:22.000Z",
+              "updatedAt": "2022-02-28T16:32:22.000Z",
+              "uid": "2104987-ec6e34f6-6f1c-4bbf-8466-8c0c1d506d95"
+            },
+            {
+              "name": "Get Store Cancellation (Future)",
+              "id": "0dc86615-3153-4576-8f96-e95bbc1230f1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-Auth-Client",
+                    "value": "{{client_id}}"
+                  },
+                  {
+                    "key": "X-Auth-Token",
+                    "value": "{{token}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/stores/{{store_id}}/cancellations/{{cancellation_id}}",
+                  "protocol": "https",
+                  "host": [
+                    "{{environment}}"
+                  ],
+                  "path": [
+                    "franchises",
+                    "{{franchise_uuid}}",
+                    "v1",
+                    "stores",
+                    "{{store_id}}",
+                    "cancellations",
+                    "{{cancellation_id}}"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2022-02-28T16:32:22.000Z",
+              "updatedAt": "2022-02-28T16:32:22.000Z",
+              "uid": "2104987-0dc86615-3153-4576-8f96-e95bbc1230f1"
+            },
+            {
+              "name": "Get Store Cancellations (Future)",
+              "id": "b828a07d-3aed-4858-a143-24a6b3b06f07",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-Auth-Client",
+                    "value": "{{client_id}}"
+                  },
+                  {
+                    "key": "X-Auth-Token",
+                    "value": "{{token}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/stores/{{store_id}}/cancellations/{{cancellation_id}}",
+                  "protocol": "https",
+                  "host": [
+                    "{{environment}}"
+                  ],
+                  "path": [
+                    "franchises",
+                    "{{franchise_uuid}}",
+                    "v1",
+                    "stores",
+                    "{{store_id}}",
+                    "cancellations",
+                    "{{cancellation_id}}"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2022-02-28T16:32:22.000Z",
+              "updatedAt": "2022-02-28T16:32:22.000Z",
+              "uid": "2104987-b828a07d-3aed-4858-a143-24a6b3b06f07"
+            },
+            {
+              "name": "Create Store Restoration (Future)",
+              "id": "f67ab210-6321-473b-b4eb-9ee4d024cb65",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-Auth-Client",
+                    "value": "{{client_id}}"
+                  },
+                  {
+                    "key": "X-Auth-Token",
+                    "value": "{{token}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"store1\",\n  \"plan_sku\": \"STORE-STANDARD-NP-MONTHLY\",\n  \"store_name\": \"Store 1\",\n  \"country\": \"US\"\n}"
+                },
+                "url": {
+                  "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/accounts/{{account_id}}/stores",
+                  "protocol": "https",
+                  "host": [
+                    "{{environment}}"
+                  ],
+                  "path": [
+                    "franchises",
+                    "{{franchise_uuid}}",
+                    "v1",
+                    "accounts",
+                    "{{account_id}}",
+                    "stores"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2022-02-28T16:32:22.000Z",
+              "updatedAt": "2022-02-28T16:32:22.000Z",
+              "uid": "2104987-f67ab210-6321-473b-b4eb-9ee4d024cb65"
+            }
+          ],
+          "id": "a11286fe-f24e-4fbc-bbd0-fce948d38c5a",
+          "createdAt": "2022-02-28T16:32:22.000Z",
+          "updatedAt": "2022-02-28T16:32:23.000Z",
+          "uid": "2104987-a11286fe-f24e-4fbc-bbd0-fce948d38c5a"
+        },
+        {
+          "name": "Create Store",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "222434c3-df6e-4ff2-a2aa-1529eac40445",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"data.id exists and is not empty\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.data.id).to.exist.and.not.to.be.empty;",
+                  "",
+                  "    if (jsonData.data.id && jsonData.data.id.length) {",
+                  "        pm.environment.set('store_id', jsonData.data.id)",
+                  "    }",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "1bcccbc1-c54f-465f-84de-aaaf33125777",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Auth-Client",
+                "value": "{{client_id}}"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"the best store\",\n  \"plan_sku\": \"STORE-TRIAL-30DAY\",\n  \"store_name\": \"Bear's Little Gummies\",\n  \"country\": \"US\"\n}"
+            },
+            "url": {
+              "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/accounts/{{account_id}}/stores",
+              "protocol": "https",
+              "host": [
+                "{{environment}}"
+              ],
+              "path": [
+                "franchises",
+                "{{franchise_uuid}}",
+                "v1",
+                "accounts",
+                "{{account_id}}",
+                "stores"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "da001cd9-4fb7-47b1-9912-5179339c9cec",
+              "name": "[409] Already Exists",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-Auth-Client",
+                    "value": "{{client_id}}"
+                  },
+                  {
+                    "key": "X-Auth-Token",
+                    "value": "{{token}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"S000002\",\n  \"plan_sku\": \"STORE-TRIAL-30DAY\",\n  \"store_name\": \"Gummy Bears Online\",\n  \"country\": \"US\"\n}"
+                },
+                "url": {
+                  "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/accounts/{{account_id}}/stores",
+                  "protocol": "https",
+                  "host": [
+                    "{{environment}}"
+                  ],
+                  "path": [
+                    "franchises",
+                    "{{franchise_uuid}}",
+                    "v1",
+                    "accounts",
+                    "{{account_id}}",
+                    "stores"
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "bc-auth-client",
+                  "value": "8ngkdp608y0fklmkf7217zchuucx291"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Jan 2022 23:42:51 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "170"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": 409,\n    \"title\": \"Already Exists\",\n    \"type\": \"https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes\",\n    \"errors\": {\n        \"id\": \"This ID is already assigned to another store.\"\n    }\n}",
+              "createdAt": "2022-02-28T16:32:22.000Z",
+              "updatedAt": "2022-02-28T16:32:22.000Z",
+              "uid": "2104987-da001cd9-4fb7-47b1-9912-5179339c9cec"
+            },
+            {
+              "id": "5b927930-cc35-4a02-bb06-2125c63af419",
+              "name": "[200] Create Store",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-Auth-Client",
+                    "value": "{{client_id}}"
+                  },
+                  {
+                    "key": "X-Auth-Token",
+                    "value": "{{token}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"S000003\",\n  \"plan_sku\": \"STORE-TRIAL-30DAY\",\n  \"store_name\": \"Gummy Bears Online 3\",\n  \"country\": \"US\"\n}"
+                },
+                "url": {
+                  "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/accounts/{{account_id}}/stores",
+                  "protocol": "https",
+                  "host": [
+                    "{{environment}}"
+                  ],
+                  "path": [
+                    "franchises",
+                    "{{franchise_uuid}}",
+                    "v1",
+                    "accounts",
+                    "{{account_id}}",
+                    "stores"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "bc-auth-client",
+                  "value": "8ngkdp608y0fklmkf7217zchuucx291"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 22 Jan 2022 07:10:38 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "72"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"data\": {\n        \"id\": \"S000003\",\n        \"status\": \"queued\"\n    },\n    \"meta\": {}\n}",
+              "createdAt": "2022-02-28T16:32:22.000Z",
+              "updatedAt": "2022-02-28T16:32:22.000Z",
+              "uid": "2104987-5b927930-cc35-4a02-bb06-2125c63af419"
+            }
+          ],
+          "createdAt": "2022-02-28T16:32:22.000Z",
+          "updatedAt": "2022-02-28T20:42:41.000Z",
+          "uid": "2104987-1bcccbc1-c54f-465f-84de-aaaf33125777"
+        },
+        {
+          "name": "Get Store",
+          "id": "667bd5f4-0fb3-462d-9aa9-2beab255ed90",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Auth-Client",
+                "value": "{{client_id}}"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/stores/{{store_id}}",
+              "protocol": "https",
+              "host": [
+                "{{environment}}"
+              ],
+              "path": [
+                "franchises",
+                "{{franchise_uuid}}",
+                "v1",
+                "stores",
+                "{{store_id}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5c54d30a-aef5-454f-ae31-41015bef84ec",
+              "name": "Get Store (active)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-Auth-Client",
+                    "value": "{{client_id}}"
+                  },
+                  {
+                    "key": "X-Auth-Token",
+                    "value": "{{token}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/stores/{{store_id}}",
+                  "protocol": "https",
+                  "host": [
+                    "{{environment}}"
+                  ],
+                  "path": [
+                    "franchises",
+                    "{{franchise_uuid}}",
+                    "v1",
+                    "stores",
+                    "{{store_id}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "bc-auth-client",
+                  "value": "8ngkdp608y0fklmkf7217zchuucx291"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Jan 2022 23:42:56 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "266"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"data\": {\n        \"id\": \"S000002\",\n        \"status\": \"active\",\n        \"plan_sku\": \"STORE-TRIAL-30DAY\",\n        \"store_name\": \"Gummy Bears Online\",\n        \"store_hash\": \"suipqrv4dw\",\n        \"primary_hostname\": \"gummy-bears-online.store.bcdev\",\n        \"canonical_hostname\": \"store-suipqrv4dw.store.bcdev\",\n        \"country\": \"US\",\n        \"allocated_at\": \"2022-01-13T23:42:49Z\",\n        \"expires_at\": \"2022-02-12T23:42:43Z\",\n        \"account_id\": \"S0000001\",\n        \"store_launched\": false\n    },\n    \"meta\": {}\n}",
+              "createdAt": "2022-02-28T16:32:22.000Z",
+              "updatedAt": "2022-02-28T16:32:22.000Z",
+              "uid": "2104987-5c54d30a-aef5-454f-ae31-41015bef84ec"
+            },
+            {
+              "id": "a6ebceb2-4377-46e3-be7c-f5ddfd89672c",
+              "name": "Get Store (Suspended)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-Auth-Client",
+                    "value": "{{client_id}}"
+                  },
+                  {
+                    "key": "X-Auth-Token",
+                    "value": "{{token}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/stores/{{store_id}}",
+                  "protocol": "https",
+                  "host": [
+                    "{{environment}}"
+                  ],
+                  "path": [
+                    "franchises",
+                    "{{franchise_uuid}}",
+                    "v1",
+                    "stores",
+                    "{{store_id}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "bc-auth-client",
+                  "value": "8ngkdp608y0fklmkf7217zchuucx291"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Jan 2022 23:44:18 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "267"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"data\": {\n        \"id\": \"S000002\",\n        \"status\": \"suspended\",\n        \"plan_sku\": \"STORE-TRIAL-30DAY\",\n        \"store_name\": \"Gummy Bears Online\",\n        \"store_hash\": \"suipqrv4dw\",\n        \"primary_hostname\": \"gummy-bears-online.store.bcdev\",\n        \"canonical_hostname\": \"store-suipqrv4dw.store.bcdev\",\n        \"country\": \"US\",\n        \"allocated_at\": \"2022-01-13T23:42:49Z\",\n        \"expires_at\": \"2022-02-12T23:42:43Z\",\n        \"account_id\": \"S0000001\",\n        \"store_launched\": false\n    },\n    \"meta\": {}\n}",
+              "createdAt": "2022-02-28T16:32:22.000Z",
+              "updatedAt": "2022-02-28T16:32:22.000Z",
+              "uid": "2104987-a6ebceb2-4377-46e3-be7c-f5ddfd89672c"
+            },
+            {
+              "id": "66e699d2-acb7-46f5-8643-84b8d74910fd",
+              "name": "Get Store (provisioning)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-Auth-Client",
+                    "value": "{{client_id}}"
+                  },
+                  {
+                    "key": "X-Auth-Token",
+                    "value": "{{token}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/stores/{{store_id}}",
+                  "protocol": "https",
+                  "host": [
+                    "{{environment}}"
+                  ],
+                  "path": [
+                    "franchises",
+                    "{{franchise_uuid}}",
+                    "v1",
+                    "stores",
+                    "{{store_id}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "X-Request-ID",
+                  "value": "670c6bdd113f1f3263885ad1140803c0"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"data\": {\n        \"id\": \"S0000001\",\n        \"status\": \"provisioning\",\n        \"plan_sku\": \"STORE-TRIAL-30DAY\",\n        \"store_name\": \"The Big Store\",\n        \"country\": \"US\",\n        \"account_id\": \"A0000001\",\n        \"store_launched\": false\n    },\n    \"meta\": {}\n}",
+              "createdAt": "2022-02-28T16:32:22.000Z",
+              "updatedAt": "2022-02-28T16:32:22.000Z",
+              "uid": "2104987-66e699d2-acb7-46f5-8643-84b8d74910fd"
+            }
+          ],
+          "createdAt": "2022-02-28T16:32:22.000Z",
+          "updatedAt": "2022-02-28T16:32:22.000Z",
+          "uid": "2104987-667bd5f4-0fb3-462d-9aa9-2beab255ed90"
+        },
+        {
+          "name": "Get Stores",
+          "id": "70cc3bf5-68a4-4ac0-add1-5b6b652ef59a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Auth-Client",
+                "value": "{{client_id}}"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/stores?limit=250&page=1",
+              "protocol": "https",
+              "host": [
+                "{{environment}}"
+              ],
+              "path": [
+                "franchises",
+                "{{franchise_uuid}}",
+                "v1",
+                "stores"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "250",
+                  "type": "text"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cdea5380-7404-4e0f-8e86-87915f673d26",
+              "name": "Get Stores",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-Auth-Client",
+                    "value": "{{client_id}}"
+                  },
+                  {
+                    "key": "X-Auth-Token",
+                    "value": "{{token}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/stores",
+                  "protocol": "https",
+                  "host": [
+                    "{{environment}}"
+                  ],
+                  "path": [
+                    "franchises",
+                    "{{franchise_uuid}}",
+                    "v1",
+                    "stores"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "X-Request-ID",
+                  "value": "b5ad3c3ba244e014365bb79d694ed48e"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"data\": [\n        {\n            \"status\": \"suspended\",\n            \"id\": \"S0000001\",\n            \"account_id\": \"A0000001\",\n            \"name\": \"The Big Store\",\n            \"country\": \"US\",\n            \"allocated_at\": \"2022-01-28T19:33:12Z\",\n            \"primary_hostname\": \"the-big-store.my-staging.zone\",\n            \"canonical_hostname\": \"store-xr6pviavf5.my-staging.zone\",\n            \"store_launched\": false\n        },\n        {\n            \"status\": \"active\",\n            \"id\": \"S0001001\",\n            \"account_id\": \"A0000001\",\n            \"name\": \"Bear's Little Gummies\",\n            \"country\": \"US\",\n            \"allocated_at\": \"2022-02-03T19:12:47Z\",\n            \"primary_hostname\": \"bears-little-gummies.my-staging.zone\",\n            \"canonical_hostname\": \"store-apeuvbit52.my-staging.zone\",\n            \"store_launched\": false\n        }\n    ],\n    \"meta\": {\n        \"pagination\": {\n            \"total\": 2,\n            \"count\": 2,\n            \"per_page\": 25,\n            \"current_page\": 1,\n            \"total_pages\": 1\n        }\n    }\n}",
+              "createdAt": "2022-02-28T16:32:22.000Z",
+              "updatedAt": "2022-02-28T16:32:22.000Z",
+              "uid": "2104987-cdea5380-7404-4e0f-8e86-87915f673d26"
+            }
+          ],
+          "createdAt": "2022-02-28T16:32:22.000Z",
+          "updatedAt": "2022-02-28T20:46:54.000Z",
+          "uid": "2104987-70cc3bf5-68a4-4ac0-add1-5b6b652ef59a"
+        },
+        {
+          "name": "Create Store Change Plan",
+          "id": "1cf7a262-6171-4f57-8cac-4b3a115d247f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Auth-Client",
+                "value": "{{client_id}}"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"plan_sku\":\"STORE-STANDARD-NP-MONTHLY\",\n    \"effective\": \"IMMEDIATELY\"\n}"
+            },
+            "url": {
+              "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/stores/{{store_id}}/change-plan",
+              "protocol": "https",
+              "host": [
+                "{{environment}}"
+              ],
+              "path": [
+                "franchises",
+                "{{franchise_uuid}}",
+                "v1",
+                "stores",
+                "{{store_id}}",
+                "change-plan"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b1330093-3d86-46bb-9d00-f3cec27964df",
+              "name": "[502] Create Store Change Plan",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-Auth-Client",
+                    "value": "{{client_id}}"
+                  },
+                  {
+                    "key": "X-Auth-Token",
+                    "value": "{{token}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"plan_sku\":\"STORE-STANDARD-NP-MONTHLY\"\n}"
+                },
+                "url": {
+                  "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/stores/{{store_id}}/change-plan",
+                  "protocol": "https",
+                  "host": [
+                    "{{environment}}"
+                  ],
+                  "path": [
+                    "franchises",
+                    "{{franchise_uuid}}",
+                    "v1",
+                    "stores",
+                    "{{store_id}}",
+                    "change-plan"
+                  ]
+                }
+              },
+              "status": "Bad Gateway",
+              "code": 502,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "X-Request-ID",
+                  "value": "a421990163ce58b292a62b04a0d9a4ce"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": 502,\n    \"title\": \"Bad Gateway\",\n    \"type\": \"https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes\",\n    \"errors\": {}\n}",
+              "createdAt": "2022-02-28T16:32:22.000Z",
+              "updatedAt": "2022-02-28T16:32:22.000Z",
+              "uid": "2104987-b1330093-3d86-46bb-9d00-f3cec27964df"
+            },
+            {
+              "id": "c1e2c200-2362-4e5e-ad32-9f3334891036",
+              "name": "Create Store Change Plan",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-Auth-Client",
+                    "value": "{{client_id}}"
+                  },
+                  {
+                    "key": "X-Auth-Token",
+                    "value": "{{token}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"plan_sku\":\"STORE-STANDARD-NP-MONTHLY\"\n}"
+                },
+                "url": {
+                  "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/stores/{{store_id}}/change-plan",
+                  "protocol": "https",
+                  "host": [
+                    "{{environment}}"
+                  ],
+                  "path": [
+                    "franchises",
+                    "{{franchise_uuid}}",
+                    "v1",
+                    "stores",
+                    "{{store_id}}",
+                    "change-plan"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "X-Request-ID",
+                  "value": "3b4a41755db49a9c39bc07c07bdff468"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"data\": {\n        \"id\": \"S0001001\",\n        \"status\": \"active\",\n        \"plan_sku\": \"STORE-STANDARD-NP-MONTHLY\",\n        \"store_name\": \"Bear's Little Gummies\",\n        \"store_hash\": \"apeuvbit52\",\n        \"primary_hostname\": \"bears-little-gummies.my-staging.zone\",\n        \"canonical_hostname\": \"store-apeuvbit52.my-staging.zone\",\n        \"country\": \"US\",\n        \"allocated_at\": \"2022-02-03T19:12:47Z\",\n        \"account_id\": \"A0000001\",\n        \"store_launched\": false\n    },\n    \"meta\": {}\n}",
+              "createdAt": "2022-02-28T16:32:22.000Z",
+              "updatedAt": "2022-02-28T16:32:22.000Z",
+              "uid": "2104987-c1e2c200-2362-4e5e-ad32-9f3334891036"
+            }
+          ],
+          "createdAt": "2022-02-28T16:32:22.000Z",
+          "updatedAt": "2022-02-28T20:48:21.000Z",
+          "uid": "2104987-1cf7a262-6171-4f57-8cac-4b3a115d247f"
+        },
+        {
+          "name": "Create Store Suspension",
+          "id": "2744c72c-769c-42b5-8d8a-dc7456936089",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Auth-Client",
+                "value": "{{client_id}}"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n}"
+            },
+            "url": {
+              "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/stores/{{store_id}}/suspensions",
+              "protocol": "https",
+              "host": [
+                "{{environment}}"
+              ],
+              "path": [
+                "franchises",
+                "{{franchise_uuid}}",
+                "v1",
+                "stores",
+                "{{store_id}}",
+                "suspensions"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8c8ec749-b44f-4f1e-a299-75f2627a9b3b",
+              "name": "Create Store Suspension",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-Auth-Client",
+                    "value": "{{client_id}}"
+                  },
+                  {
+                    "key": "X-Auth-Token",
+                    "value": "{{token}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n}"
+                },
+                "url": {
+                  "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/stores/{{store_id}}/suspensions",
+                  "protocol": "https",
+                  "host": [
+                    "{{environment}}"
+                  ],
+                  "path": [
+                    "franchises",
+                    "{{franchise_uuid}}",
+                    "v1",
+                    "stores",
+                    "{{store_id}}",
+                    "suspensions"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "bc-auth-client",
+                  "value": "8ngkdp608y0fklmkf7217zchuucx291"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Jan 2022 23:43:50 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "152"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"data\": {\n        \"id\": \"3a15e5ba-5182-4798-8dd1-b73b91183217\",\n        \"created_at\": \"2022-01-13T23:43:46Z\",\n        \"reason\": \"Delegated Billing Partner Initiated\"\n    },\n    \"meta\": {}\n}",
+              "createdAt": "2022-02-28T16:32:22.000Z",
+              "updatedAt": "2022-02-28T16:32:22.000Z",
+              "uid": "2104987-8c8ec749-b44f-4f1e-a299-75f2627a9b3b"
+            }
+          ],
+          "createdAt": "2022-02-28T16:32:22.000Z",
+          "updatedAt": "2022-02-28T16:32:22.000Z",
+          "uid": "2104987-2744c72c-769c-42b5-8d8a-dc7456936089"
+        },
+        {
+          "name": "Create Store Reactivation",
+          "id": "321896ff-79ad-4e92-b065-747465feec91",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Auth-Client",
+                "value": "{{client_id}}"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n}"
+            },
+            "url": {
+              "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/stores/{{store_id}}/reactivations",
+              "protocol": "https",
+              "host": [
+                "{{environment}}"
+              ],
+              "path": [
+                "franchises",
+                "{{franchise_uuid}}",
+                "v1",
+                "stores",
+                "{{store_id}}",
+                "reactivations"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "acb252b2-cf19-4109-8223-4dbb542b7d00",
+              "name": "Create Store Reactivation",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-Auth-Client",
+                    "value": "{{client_id}}"
+                  },
+                  {
+                    "key": "X-Auth-Token",
+                    "value": "{{token}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n}"
+                },
+                "url": {
+                  "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/stores/{{store_id}}/reactivations",
+                  "protocol": "https",
+                  "host": [
+                    "{{environment}}"
+                  ],
+                  "path": [
+                    "franchises",
+                    "{{franchise_uuid}}",
+                    "v1",
+                    "stores",
+                    "{{store_id}}",
+                    "reactivations"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "X-Request-ID",
+                  "value": "d83063fb80f682302c439bd90664fd78"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"data\": {\n        \"id\": \"ebc635fd-35e6-4a43-b9d3-19f545d95714\",\n        \"created_at\": \"2022-02-28T20:49:22Z\"\n    },\n    \"meta\": {}\n}",
+              "createdAt": "2022-02-28T20:49:25.000Z",
+              "updatedAt": "2022-02-28T20:49:25.000Z",
+              "uid": "2104987-acb252b2-cf19-4109-8223-4dbb542b7d00"
+            }
+          ],
+          "createdAt": "2022-02-28T16:32:22.000Z",
+          "updatedAt": "2022-02-28T20:49:25.000Z",
+          "uid": "2104987-321896ff-79ad-4e92-b065-747465feec91"
+        },
+        {
+          "name": "Create Store Cancellation",
+          "id": "d09d6277-0c17-4235-9dc4-eaa74100b02d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Auth-Client",
+                "value": "{{client_id}}"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n}"
+            },
+            "url": {
+              "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/stores/{{store_id}}/cancellations",
+              "protocol": "https",
+              "host": [
+                "{{environment}}"
+              ],
+              "path": [
+                "franchises",
+                "{{franchise_uuid}}",
+                "v1",
+                "stores",
+                "{{store_id}}",
+                "cancellations"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "62f154fd-f6de-46e5-af2e-42cb1d901351",
+              "name": "Create Store Cancellation",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-Auth-Client",
+                    "value": "{{client_id}}"
+                  },
+                  {
+                    "key": "X-Auth-Token",
+                    "value": "{{token}}"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n}"
+                },
+                "url": {
+                  "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/stores/{{store_id}}/cancellations",
+                  "protocol": "https",
+                  "host": [
+                    "{{environment}}"
+                  ],
+                  "path": [
+                    "franchises",
+                    "{{franchise_uuid}}",
+                    "v1",
+                    "stores",
+                    "{{store_id}}",
+                    "cancellations"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "X-Request-ID",
+                  "value": "8e6a8e5f097e811ce33224f2953eccc1"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"data\": {\n        \"id\": \"5afdc109-713c-4a48-b98e-8ff0202dd8a4\",\n        \"reason\": \"Cancellation - Delegated Billing Partner initiated\",\n        \"scheduled_cancellation_date\": \"2022-03-03T00:00:00Z\"\n    },\n    \"meta\": {}\n}",
+              "createdAt": "2022-02-28T16:32:22.000Z",
+              "updatedAt": "2022-02-28T16:32:22.000Z",
+              "uid": "2104987-62f154fd-f6de-46e5-af2e-42cb1d901351"
+            }
+          ],
+          "createdAt": "2022-02-28T16:32:22.000Z",
+          "updatedAt": "2022-02-28T16:32:22.000Z",
+          "uid": "2104987-d09d6277-0c17-4235-9dc4-eaa74100b02d"
+        }
+      ],
+      "id": "58181227-e48f-49a6-a36a-e10a98016c8e",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ],
+            "id": "1391f34b-5c13-4ede-a43a-f0461a4f2ae8"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ],
+            "id": "8064a3ca-9891-4757-9c15-0a786b9f8276"
+          }
+        }
+      ],
+      "createdAt": "2022-02-28T16:32:22.000Z",
+      "updatedAt": "2022-02-28T16:32:23.000Z",
+      "uid": "2104987-58181227-e48f-49a6-a36a-e10a98016c8e"
+    },
+    {
+      "name": "Oauth Token",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "08521066-fac3-4d6c-b1dc-9f69864a510d",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"data.access_token exists and is not empty\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.data.access_token).to.exist.and.not.to.be.empty;",
+              "",
+              "    if (jsonData.data.access_token && jsonData.data.access_token.length) {",
+              "        pm.environment.set('token', jsonData.data.access_token)",
+              "    }",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "4b798f7d-28a3-4784-9fc4-cce2461a54f3",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client_id}}"
+          },
+          {
+            "key": "X-Auth-Secret",
+            "value": "{{client_secret}}"
+          }
+        ],
+        "url": {
+          "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/oauth/token",
+          "protocol": "https",
+          "host": [
+            "{{environment}}"
+          ],
+          "path": [
+            "franchises",
+            "{{franchise_uuid}}",
+            "v1",
+            "oauth",
+            "token"
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "af5ea661-f089-4de3-bb19-b4b5eec2bdfa",
+          "name": "Oauth Token",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Auth-Client",
+                "value": "{{client_id}}"
+              },
+              {
+                "key": "X-Auth-Secret",
+                "value": "{{client_secret}}"
+              }
+            ],
+            "url": {
+              "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/oauth/token",
+              "protocol": "https",
+              "host": [
+                "{{environment}}"
+              ],
+              "path": [
+                "franchises",
+                "{{franchise_uuid}}",
+                "v1",
+                "oauth",
+                "token"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "key": "content-encoding",
+              "value": "gzip"
+            },
+            {
+              "key": "X-Request-ID",
+              "value": "3c71495d4f7e47e2eb45040035050e0c"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n    \"data\": {\n        \"access_token\": \"bda1if4bju1envdhp6lvl3msf6oaeot\",\n        \"expires_at\": \"2022-02-17T19:17:55.029731069Z\"\n    },\n    \"meta\": {}\n}",
+          "createdAt": "2022-02-28T16:32:22.000Z",
+          "updatedAt": "2022-02-28T16:32:22.000Z",
+          "uid": "2104987-af5ea661-f089-4de3-bb19-b4b5eec2bdfa"
+        }
+      ],
+      "createdAt": "2022-02-28T16:32:22.000Z",
+      "updatedAt": "2022-02-28T20:33:37.000Z",
+      "uid": "2104987-4b798f7d-28a3-4784-9fc4-cce2461a54f3"
+    },
+    {
+      "name": "Create Login URL",
+      "id": "f54ad5b1-095c-4424-b773-9f49caf4e87d",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client_id}}"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"user_email\": \"hello@here.org\"\n}"
+        },
+        "url": {
+          "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/stores/{{store_id}}/login-url",
+          "protocol": "https",
+          "host": [
+            "{{environment}}"
+          ],
+          "path": [
+            "franchises",
+            "{{franchise_uuid}}",
+            "v1",
+            "stores",
+            "{{store_id}}",
+            "login-url"
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "1aaaa734-2613-4026-a22f-b03eeb8a5103",
+          "name": "[403] Create Login URL",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Auth-Client",
+                "value": "{{client_id}}"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user_email\": \"shane.rivette+15@bigcommerce.com\"\n}"
+            },
+            "url": {
+              "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/stores/{{store_id}}/login-url",
+              "protocol": "https",
+              "host": [
+                "{{environment}}"
+              ],
+              "path": [
+                "franchises",
+                "{{franchise_uuid}}",
+                "v1",
+                "stores",
+                "{{store_id}}",
+                "login-url"
+              ]
+            }
+          },
+          "status": "Forbidden",
+          "code": 403,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "key": "content-encoding",
+              "value": "gzip"
+            },
+            {
+              "key": "X-Request-ID",
+              "value": "0e90af122609e0f57ef7b064fbe0b383"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n    \"status\": 403,\n    \"title\": \"Permission Denied\",\n    \"type\": \"https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes\",\n    \"errors\": {}\n}",
+          "createdAt": "2022-02-28T16:32:22.000Z",
+          "updatedAt": "2022-02-28T16:32:22.000Z",
+          "uid": "2104987-1aaaa734-2613-4026-a22f-b03eeb8a5103"
+        },
+        {
+          "id": "b42e3271-70da-441a-9a9f-8cad2f623c16",
+          "name": "[200] Create Login URL",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Auth-Client",
+                "value": "{{client_id}}"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user_email\": \"patrick.puente+powered-by@bigcommerce.com\"\n}"
+            },
+            "url": {
+              "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/stores/{{store_id}}/login-url",
+              "protocol": "https",
+              "host": [
+                "{{environment}}"
+              ],
+              "path": [
+                "franchises",
+                "{{franchise_uuid}}",
+                "v1",
+                "stores",
+                "{{store_id}}",
+                "login-url"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "key": "content-encoding",
+              "value": "gzip"
+            },
+            {
+              "key": "X-Request-ID",
+              "value": "e7b0af308ffa9b1dd0cea57778063018"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n    \"data\": {\n        \"login-url\": \"https://login.bigcommerce.com/sso/express-logins/21acud5qku/Njk0RHUvcmJFRFp0OWRWUFNhaWNIQ2ppM01RcXZWU083SDZUU2N2TlZWQ2p0Y2pQSG91SDA1YVJubXFoCnI0RjJnL1JoSnBQOS9kT1lHaGNucXJJQlplcERwUTRiekFFcQo=\"\n    },\n    \"meta\": {}\n}",
+          "createdAt": "2022-02-28T20:51:17.000Z",
+          "updatedAt": "2022-02-28T20:51:28.000Z",
+          "uid": "2104987-b42e3271-70da-441a-9a9f-8cad2f623c16"
+        }
+      ],
+      "createdAt": "2022-02-28T16:32:22.000Z",
+      "updatedAt": "2022-02-28T20:51:17.000Z",
+      "uid": "2104987-f54ad5b1-095c-4424-b773-9f49caf4e87d"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ],
+        "id": "af9c3f95-011f-43f2-9b8c-d86420340dca"
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ],
+        "id": "c87e5534-7aea-4218-9906-48b6b92490d6"
+      }
+    }
+  ]
+}

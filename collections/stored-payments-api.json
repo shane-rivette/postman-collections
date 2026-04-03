@@ -1,0 +1,488 @@
+{
+  "info": {
+    "_postman_id": "23b44e13-915d-45aa-8890-373e36dfe928",
+    "name": "Stored Payments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2024-06-21T21:38:52.000Z",
+    "updatedAt": "2024-06-21T21:48:00.000Z",
+    "lastUpdatedBy": "34196123",
+    "uid": "34196123-23b44e13-915d-45aa-8890-373e36dfe928"
+  },
+  "item": [
+    {
+      "name": "Create Instrument Access Token",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var jsonData = pm.response.json();",
+              "if(pm.test(\"Instrument Access Token Generated\", function(){",
+              "    pm.expect(jsonData.data.access_token).to.be.a('string');",
+              "})){",
+              "    postman.setEnvironmentVariable('instrument_access_token', jsonData.data.access_token);",
+              "}"
+            ],
+            "type": "text/javascript",
+            "id": "7075a073-05e4-444e-af40-8d935c57bd70"
+          }
+        }
+      ],
+      "id": "300233cb-1260-417e-9563-d4fa84c69159",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/stored-instruments/access-tokens",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store_hash}}",
+            "v3",
+            "payments",
+            "stored-instruments",
+            "access-tokens"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-300233cb-1260-417e-9563-d4fa84c69159"
+    },
+    {
+      "name": "List Available Payment Method IDs",
+      "id": "96dc8639-a32f-47d3-9117-7e48e2590ad5",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/stored-instruments/methods?currency_code=USD",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store_hash}}",
+            "v3",
+            "payments",
+            "stored-instruments",
+            "methods"
+          ],
+          "query": [
+            {
+              "key": "currency_code",
+              "value": "USD"
+            }
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-96dc8639-a32f-47d3-9117-7e48e2590ad5"
+    },
+    {
+      "name": "List All Instruments",
+      "id": "2f45f052-e196-452f-88e5-52583f5c1d01",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/stored-instruments",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store_hash}}",
+            "v3",
+            "payments",
+            "stored-instruments"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": null,
+              "disabled": true
+            },
+            {
+              "key": "limit",
+              "value": null,
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-2f45f052-e196-452f-88e5-52583f5c1d01"
+    },
+    {
+      "name": "Bulk Import Instruments",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "let jsonData = pm.response.json();",
+              "",
+              "pm.test(\"Capture and store tokens\", function () {",
+              "    // Check if the data property exists and is an array",
+              "    pm.expect(jsonData.data).to.be.an('array');",
+              "",
+              "    // Loop through each object in the data array",
+              "    jsonData.data.forEach((item, index) => {",
+              "        // Check if the token property exists and is a string",
+              "        pm.expect(item.token).to.be.a('string');",
+              "",
+              "        // Construct the variable name and store the token in the environment",
+              "        let variableName = 'instrument-token-' + index;",
+              "        pm.environment.set(variableName, item.token);",
+              "    });",
+              "});",
+              ""
+            ],
+            "type": "text/javascript",
+            "id": "d3da1ba7-5ae0-4b7b-b41e-f0dc83c81b4f"
+          }
+        }
+      ],
+      "id": "9dbce4a0-b8ec-405e-bee5-8c2eca029540",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n    {\n        \"billing_address\": {\n            \"first_name\": \"test\",\n            \"last_name\": \"shop\",\n            \"email\": \"test@test.com\",\n            \"street_1\": \"123 Fake street\",\n            \"city\": \"Austin\",\n            \"country_code\": \"US\",\n            \"zip\": \"78726\"\n        },\n        \"trusted_shipping_addresses\": [\n            {\n                \"first_name\": \"test\",\n                \"last_name\": \"shop\",\n                \"email\": \"test@test.com\",\n                \"street_1\": \"123 Fake street\",\n                \"city\": \"Austin\",\n                \"country_code\": \"US\",\n                \"zip\": \"78726\"\n            }\n        ],\n        \"default_instrument\": false,\n        \"payment_method_id\": \"braintree.credit_card\",\n        \"currency_code\": \"USD\",\n        \"customer_id\": 1,\n        \"instrument\": {\n            \"vault_token\": \"pm_1NcbZ2FYHgt19eoyCcvXptfS\",\n            \"provider_customer_id\": \"cus_ONhsna5PAbiZeW\",\n            \"type\": \"credit_card\",\n            \"brand\": \"visa\",\n            \"expiry_year\": 2026,\n            \"expiry_month\": 11,\n            \"last_4\": \"4242\",\n            \"iin\": \"424242\"\n        }\n    },\n    {\n        \"billing_address\": {\n            \"first_name\": \"test\",\n            \"last_name\": \"shop\",\n            \"email\": \"test@test.com\",\n            \"street_1\": \"123 Fake street\",\n            \"city\": \"Austin\",\n            \"country_code\": \"US\",\n            \"zip\": \"78726\"\n        },\n        \"trusted_shipping_addresses\": [\n            {\n                \"first_name\": \"test\",\n                \"last_name\": \"shop\",\n                \"email\": \"test@test.com\",\n                \"street_1\": \"123 Fake street\",\n                \"city\": \"Austin\",\n                \"country_code\": \"US\",\n                \"zip\": \"78726\"\n            }\n        ],\n        \"default_instrument\": false,\n        \"payment_method_id\": \"braintree.paypal\",\n        \"currency_code\": \"USD\",\n        \"customer_id\": 1,\n        \"instrument\": {\n            \"vault_token\": \"5292sx35\",\n            \"provider_customer_id\": \"321123\",\n            \"type\": \"paypal_account\",\n            \"email\": \"test@test.com\"\n        }\n    }\n]"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/stored-instruments",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store_hash}}",
+            "v3",
+            "payments",
+            "stored-instruments"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": null,
+              "disabled": true
+            },
+            {
+              "key": "limit",
+              "value": null,
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-9dbce4a0-b8ec-405e-bee5-8c2eca029540"
+    },
+    {
+      "name": "Update Instrument",
+      "id": "90dff282-084d-49f9-afe1-8ea196564467",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"token\": \"84596bea275fa254da820056bdc3e495bdf01fd11c51b0336347d447ee16200c\",\n  \"billing_address\": {\n    \"first_name\": \"Tester\",\n    \"last_name\": \"Tester\",\n    \"email\": \"example@email.co\",\n    \"company\": \"\",\n    \"address1\": \"1 Sample Street\",\n    \"address2\": \"\",\n    \"city\": \"some city\",\n    \"state_or_province\": \"Nevada\",\n    \"state_or_province_code\": \"NV\",\n    \"phone\": \"101-192-0293\",\n    \"postal_code\": \"55555\"\n  },\n  \"trusted_shipping_addresses\": [\n    {\n      \"first_name\": \"Tester\",\n      \"last_name\": \"Tester\",\n      \"email\": \"example@email.co\",\n      \"company\": \"\",\n      \"address1\": \"1 Sample Street\",\n      \"address2\": \"\",\n      \"city\": \"some city\",\n      \"state_or_province\": \"Nevada\",\n      \"state_or_province_code\": \"NV\",\n      \"phone\": \"101-192-0293\",\n      \"postal_code\": \"55555\"\n    }\n  ],\n  \"make_default\": true\n}"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/stored-instruments",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store_hash}}",
+            "v3",
+            "payments",
+            "stored-instruments"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": null,
+              "disabled": true
+            },
+            {
+              "key": "limit",
+              "value": null,
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-90dff282-084d-49f9-afe1-8ea196564467"
+    },
+    {
+      "name": "Bulk Delete Instruments",
+      "id": "3c654f76-9b28-4868-8534-9f39b4566473",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/stored-instruments?token:in=",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store_hash}}",
+            "v3",
+            "payments",
+            "stored-instruments"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": null,
+              "disabled": true
+            },
+            {
+              "key": "limit",
+              "value": null,
+              "disabled": true
+            },
+            {
+              "key": "token:in",
+              "value": ""
+            }
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-3c654f76-9b28-4868-8534-9f39b4566473"
+    },
+    {
+      "name": "Remove Instrument from Store and Gateway",
+      "id": "f6455cd1-8477-481d-91b8-0b33944f5631",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/stored-instruments/{{instrument_token}}",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store_hash}}",
+            "v3",
+            "payments",
+            "stored-instruments",
+            "{{instrument_token}}"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": null,
+              "disabled": true
+            },
+            {
+              "key": "limit",
+              "value": null,
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-f6455cd1-8477-481d-91b8-0b33944f5631"
+    }
+  ]
+}

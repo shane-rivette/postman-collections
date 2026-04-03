@@ -1,0 +1,286 @@
+{
+  "info": {
+    "_postman_id": "6041831f-e1a1-4644-ae19-d2d89b93e3ab",
+    "name": "BigCommerce Payments API Tutorial",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2023-10-10T17:21:29.000Z",
+    "updatedAt": "2023-10-10T17:21:29.000Z",
+    "lastUpdatedBy": "19216984",
+    "uid": "19216984-6041831f-e1a1-4644-ae19-d2d89b93e3ab"
+  },
+  "item": [
+    {
+      "name": "Stored Card",
+      "item": [
+        {
+          "name": "Get Payment Methods",
+          "id": "8a431167-4edc-4cc2-aeba-fde81a3b9e9d",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Auth-Client",
+                "value": "{{client_id}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{client_secret}}",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/methods?{{order_id}}",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bigcommerce",
+                "com"
+              ],
+              "path": [
+                "stores",
+                "{{store_hash}}",
+                "v3",
+                "payments",
+                "methods"
+              ],
+              "query": [
+                {
+                  "key": "{{order_id}}",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2023-10-10T17:21:29.000Z",
+          "updatedAt": "2023-10-10T17:21:29.000Z",
+          "uid": "19216984-8a431167-4edc-4cc2-aeba-fde81a3b9e9d"
+        },
+        {
+          "name": "Create Payment Access Token",
+          "id": "5b17726e-d118-4bde-9976-d7da33b20218",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Auth-Client",
+                "value": "{{client_id}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{client_secret}}",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"order\": {\n    \"id\": {{order-id}}\n  }\n}"
+            },
+            "url": {
+              "raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/access_tokens",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bigcommerce",
+                "com"
+              ],
+              "path": [
+                "stores",
+                "{{store_hash}}",
+                "v3",
+                "payments",
+                "access_tokens"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2023-10-10T17:21:29.000Z",
+          "updatedAt": "2023-10-10T17:21:29.000Z",
+          "uid": "19216984-5b17726e-d118-4bde-9976-d7da33b20218"
+        },
+        {
+          "name": "Process Payment",
+          "id": "57eb51e8-314b-4dac-99bf-828076ef3d93",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.bc.v1+json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{Authorization}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payment\": {\n    \"instrument\": {\n      \"type\": \"stored_card\",\n      \"token\": \"{{your-access-token}}\",\n      \"verification_value\": \"{{verification value}}\"\n    },\n    \"payment_method_id\": \"{{payment-method}}.card\"\n  }\n}"
+            },
+            "url": {
+              "raw": "https://payments.bigcommerce.com/stores/{store_hash}/payments",
+              "protocol": "https",
+              "host": [
+                "payments",
+                "bigcommerce",
+                "com"
+              ],
+              "path": [
+                "stores",
+                "{store_hash}",
+                "payments"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2023-10-10T17:21:29.000Z",
+          "updatedAt": "2023-10-10T17:21:29.000Z",
+          "uid": "19216984-57eb51e8-314b-4dac-99bf-828076ef3d93"
+        }
+      ],
+      "id": "ada6acb7-5234-4cdb-adea-50df3d15d026",
+      "createdAt": "2023-10-10T17:21:29.000Z",
+      "updatedAt": "2023-10-10T17:21:29.000Z",
+      "uid": "19216984-ada6acb7-5234-4cdb-adea-50df3d15d026"
+    },
+    {
+      "name": "Credit Card",
+      "item": [
+        {
+          "name": "Get Payment Methods",
+          "id": "c867034f-8973-4227-9576-1945f21ef16e",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Auth-Client",
+                "value": "{{client_id}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{client_secret}}",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/methods?{{order_id}}",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bigcommerce",
+                "com"
+              ],
+              "path": [
+                "stores",
+                "{{store_hash}}",
+                "v3",
+                "payments",
+                "methods"
+              ],
+              "query": [
+                {
+                  "key": "{{order_id}}",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2023-10-10T17:21:29.000Z",
+          "updatedAt": "2023-10-10T17:21:29.000Z",
+          "uid": "19216984-c867034f-8973-4227-9576-1945f21ef16e"
+        },
+        {
+          "name": "Process Payment",
+          "id": "4badf7ce-e81b-4d33-bce5-9aec2dd65097",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.bc.v1+json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{Authorization}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payment\": {\n    \"instrument\": {\n      \"type\": \"card\",\n      \"number\": \"{{card-number}}\",\n      \"cardholder_name\": \"{{cardholder-name{}\",\n      \"expiry_month\": {{expiration-month-two-digit}},\n      \"expiry_year\": {{expiration-year-four-digit}},\n      \"verification_value\": \"{{verification-value-cvv}}\"\n    },\n    \"payment_method_id\": \"{{payment-provider}}.card\"\n  }\n}"
+            },
+            "url": {
+              "raw": "https://payments.bigcommerce.com/stores/{store_hash}/payments",
+              "protocol": "https",
+              "host": [
+                "payments",
+                "bigcommerce",
+                "com"
+              ],
+              "path": [
+                "stores",
+                "{store_hash}",
+                "payments"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2023-10-10T17:21:29.000Z",
+          "updatedAt": "2023-10-10T17:21:29.000Z",
+          "uid": "19216984-4badf7ce-e81b-4d33-bce5-9aec2dd65097"
+        }
+      ],
+      "id": "2ba713c6-3600-4699-8bf3-bdc7d6c5057b",
+      "createdAt": "2023-10-10T17:21:29.000Z",
+      "updatedAt": "2023-10-10T17:21:29.000Z",
+      "uid": "19216984-2ba713c6-3600-4699-8bf3-bdc7d6c5057b"
+    }
+  ]
+}

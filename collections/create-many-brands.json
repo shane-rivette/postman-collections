@@ -1,0 +1,86 @@
+{
+  "info": {
+    "_postman_id": "b3f81c9e-d840-4cc8-b664-ed5940535aa5",
+    "name": "Create many Brands",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2021-05-12T14:24:53.000Z",
+    "updatedAt": "2024-02-20T21:19:37.000Z",
+    "lastUpdatedBy": "2104987",
+    "uid": "45334-b3f81c9e-d840-4cc8-b664-ed5940535aa5"
+  },
+  "item": [
+    {
+      "name": "Create a new brand Copy",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "8cdf38e5-b2fc-41f6-a75f-05eea42b3ccf",
+            "exec": [
+              "const i = pm.environment.get('iterator')",
+              "pm.environment.set('iterator', parseInt(i) + 1)",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "c6cbbd2c-f189-45cd-a4a7-8c32fd8bcd70",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"name\": \"Brand-{{iterator}}\",\n\t\"page_title\": \"Brand-{{iterator}} Products\",\n\t\"keywords\": \"ecommerce,brand-{{iterator}}\"\n}"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/catalog/brands",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "catalog",
+            "brands"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2021-05-12T14:25:06.000Z",
+      "updatedAt": "2021-05-12T14:26:05.000Z",
+      "uid": "45334-c6cbbd2c-f189-45cd-a4a7-8c32fd8bcd70"
+    }
+  ]
+}

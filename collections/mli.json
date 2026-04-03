@@ -1,0 +1,196 @@
+{
+  "info": {
+    "_postman_id": "72b1e137-bea0-4940-9aca-87f32869e2b2",
+    "name": "MLI",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2023-01-19T12:21:07.000Z",
+    "updatedAt": "2023-01-19T14:03:56.000Z",
+    "lastUpdatedBy": "20887145",
+    "uid": "20887145-72b1e137-bea0-4940-9aca-87f32869e2b2"
+  },
+  "item": [
+    {
+      "name": "Locations",
+      "item": [
+        {
+          "name": "Create Locations",
+          "id": "95a3a3ed-d926-445e-bc9a-4cbda6763688",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Auth-Client",
+                "value": "{{client-id}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "store_hash",
+                "value": "{{store-hash}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"code\": \"BIGC-1\",\n    \"label\": \"Central store\",\n    \"description\": \"Central shop of the world\",\n    \"managed_by_external_source\": true,\n    \"type_id\": \"PHYSICAL\",\n    \"enabled\": true,\n    \"time_zone\": \"Etc/UTC\",\n    \"address\": {\n      \"address1\": \"5th Ave\",\n      \"address2\": \"string\",\n      \"city\": \"Copenhagen\",\n      \"state\": \"Copenhagen\",\n      \"zip\": \"1021\",\n      \"email\": \"test@example.com\",\n      \"phone\": \"800-555-0198\",\n      \"country_code\": \"DK\",\n      \"geo_coordinates\": {\n          \"latitude\": 90,\n          \"longitude\": 90\n      }\n    },\n    \"storefront_visibility\": true\n  }\n]"
+            },
+            "url": {
+              "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/inventory/locations",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bigcommerce",
+                "com"
+              ],
+              "path": [
+                "stores",
+                "{{store-hash}}",
+                "v3",
+                "inventory",
+                "locations"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2023-01-19T12:21:35.000Z",
+          "updatedAt": "2023-01-19T13:07:22.000Z",
+          "uid": "20887145-95a3a3ed-d926-445e-bc9a-4cbda6763688"
+        },
+        {
+          "name": "Get  Locations",
+          "id": "abdc4896-3c1c-4cb5-b3b9-ca0e1d0718c5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Auth-Client",
+                "value": "{{client-id}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "store_hash",
+                "value": "{{store-hash}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/inventory/locations",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bigcommerce",
+                "com"
+              ],
+              "path": [
+                "stores",
+                "{{store-hash}}",
+                "v3",
+                "inventory",
+                "locations"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2023-01-19T13:07:39.000Z",
+          "updatedAt": "2023-01-19T13:16:16.000Z",
+          "uid": "20887145-abdc4896-3c1c-4cb5-b3b9-ca0e1d0718c5"
+        },
+        {
+          "name": "Update Locations",
+          "id": "fcfd5f94-76fa-4f62-a98b-a0440a8d2fb9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Auth-Client",
+                "value": "{{client-id}}"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "store_hash",
+                "value": "{{store-hash}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\n    {\n        \"id\": 2,\n        \"code\": \"BC-LOCATION-2\"\n    }\n]"
+            },
+            "url": {
+              "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/inventory/locations",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bigcommerce",
+                "com"
+              ],
+              "path": [
+                "stores",
+                "{{store-hash}}",
+                "v3",
+                "inventory",
+                "locations"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2023-01-19T14:03:56.000Z",
+          "updatedAt": "2023-01-19T14:03:56.000Z",
+          "uid": "20887145-fcfd5f94-76fa-4f62-a98b-a0440a8d2fb9"
+        }
+      ],
+      "id": "f277594c-c4a9-4779-abf9-de89094143aa",
+      "createdAt": "2023-01-19T12:21:22.000Z",
+      "updatedAt": "2023-01-19T14:03:56.000Z",
+      "uid": "20887145-f277594c-c4a9-4779-abf9-de89094143aa"
+    }
+  ]
+}

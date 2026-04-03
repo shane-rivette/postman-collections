@@ -1,0 +1,389 @@
+{
+  "info": {
+    "_postman_id": "2f3563d9-4bac-47cc-9abf-d5644a18b099",
+    "name": "Demo Tax Provider",
+    "description": "This collection can be used to test your [demo tax provider](https://github.com/hatertron3000/demo-tax-provider) locally.\n\nBefore using, configure the following environment variables:\n\n| **VARIABLE** | **VALUE** |\n| --- | --- |\n| tax-provider-username | TAX_PROVIDER_USERNAME  <br>*from your application's environment (.env)* |\n| tax-provider-password | TAX_PROVIDER_PASSWORD  <br>*from your application's environment (.env)* |\n| host | Your application's hostname and protocol  <br>*(e.g. http://localhost:3000)* |",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2021-12-31T16:37:00.000Z",
+    "updatedAt": "2022-03-04T15:48:10.000Z",
+    "lastUpdatedBy": "45334",
+    "uid": "45334-2f3563d9-4bac-47cc-9abf-d5644a18b099"
+  },
+  "item": [
+    {
+      "name": "Estimate Taxes (prices exclusive)",
+      "id": "899a0b36-0674-43b0-a305-e1c0e90f733a",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"id\": \"Estimate Request ID\",\n    \"currency_code\": \"USD\",\n    \"customer\": {\n        \"customer_id\": 1,\n        \"customer_group_id\": 1\n    },\n    \"transaction_date\": \"2021-12-31T17:55:09\",\n    \"documents\": [\n        {\n            \"id\": \"Document ID\",\n            \"destination_address\": {\n                \"line1\": \"11305 Four Points Dr\",\n                \"line2\": \"First Floor\",\n                \"city\": \"Austin\",\n                \"region_name\": \"Texas\",\n                \"region_code\": \"TX\",\n                \"country_name\": \"United States of America\",\n                \"country_code\": \"US\",\n                \"postal_code\": \"78727\",\n                \"company_name\": \"BigCommerce\",\n                \"type\": \"COMMERCIAL\"\n            },\n            \"origin_address\": {\n                \"line1\": \"11305 Four Points Dr\",\n                \"line2\": \"First Floor\",\n                \"city\": \"Austin\",\n                \"region_name\": \"Texas\",\n                \"region_code\": \"TX\",\n                \"country_name\": \"United States of America\",\n                \"country_code\": \"US\",\n                \"postal_code\": \"78727\",\n                \"company_name\": \"BigCommerce\",\n                \"type\": \"COMMERCIAL\"\n            },\n            \"shipping\": {\n                \"id\": \"Shipping Cost ID\",\n                \"name\": \"Standard Shipping\",\n                \"price\": {\n                    \"amount\": 5,\n                    \"tax_inclusive\": false\n                },\n                \"quantity\": 1,\n                \"tax_exempt\": false,\n                \"type\": \"shipping\"\n            },\n            \"handling\": {\n                \"id\": \"Handling Cost ID\",\n                \"name\": \"Standard Handling\",\n                \"price\": {\n                    \"amount\": 0,\n                    \"tax_inclusive\": false\n                },\n                \"quantity\": 1,\n                \"tax_exempt\": false,\n                \"type\": \"handling\"\n            },\n            \"items\": [\n                {\n                    \"id\": \"1233\",\n                    \"name\": \"The first product\",\n                    \"price\": {\n                        \"amount\": 12,\n                        \"tax_inclusive\": false\n                    },\n                    \"quantity\": 2,\n                    \"tax_exempt\": false,\n                    \"type\": \"item\"\n                },\n                {\n                    \"id\": \"1234\",\n                    \"name\": \"The second product\",\n                    \"price\": {\n                        \"amount\": 6,\n                        \"tax_inclusive\": false\n                    },\n                    \"quantity\": 1,\n                    \"tax_exempt\": false,\n                    \"type\": \"item\"\n                }\n            ]\n        }\n    ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{host}}/api/tax/estimate",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "api",
+            "tax",
+            "estimate"
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "6a93485d-8c16-4242-9766-85ee17c9e5ab",
+          "name": "Estimate Taxes (prices exclusive)",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"Estimate Request ID\",\n    \"currency_code\": \"USD\",\n    \"customer\": {\n        \"customer_id\": 1,\n        \"customer_group_id\": 1\n    },\n    \"transaction_date\": \"2021-12-31T17:55:09\",\n    \"documents\": [\n        {\n            \"id\": \"Document ID\",\n            \"destination_address\": {\n                \"line1\": \"11305 Four Points Dr\",\n                \"line2\": \"First Floor\",\n                \"city\": \"Austin\",\n                \"region_name\": \"Texas\",\n                \"region_code\": \"TX\",\n                \"country_name\": \"United States of America\",\n                \"country_code\": \"US\",\n                \"postal_code\": \"78727\",\n                \"company_name\": \"BigCommerce\",\n                \"type\": \"COMMERCIAL\"\n            },\n            \"origin_address\": {\n                \"line1\": \"11305 Four Points Dr\",\n                \"line2\": \"First Floor\",\n                \"city\": \"Austin\",\n                \"region_name\": \"Texas\",\n                \"region_code\": \"TX\",\n                \"country_name\": \"United States of America\",\n                \"country_code\": \"US\",\n                \"postal_code\": \"78727\",\n                \"company_name\": \"BigCommerce\",\n                \"type\": \"COMMERCIAL\"\n            },\n            \"shipping\": {\n                \"id\": \"Shipping Cost ID\",\n                \"name\": \"Standard Shipping\",\n                \"price\": {\n                    \"amount\": 5,\n                    \"tax_inclusive\": false\n                },\n                \"quantity\": 1,\n                \"tax_exempt\": false,\n                \"type\": \"shipping\"\n            },\n            \"handling\": {\n                \"id\": \"Handling Cost ID\",\n                \"name\": \"Standard Handling\",\n                \"price\": {\n                    \"amount\": 0,\n                    \"tax_inclusive\": false\n                },\n                \"quantity\": 1,\n                \"tax_exempt\": false,\n                \"type\": \"handling\"\n            },\n            \"items\": [\n                {\n                    \"id\": \"1233\",\n                    \"name\": \"The first product\",\n                    \"price\": {\n                        \"amount\": 12,\n                        \"tax_inclusive\": false\n                    },\n                    \"quantity\": 2,\n                    \"tax_exempt\": false,\n                    \"type\": \"item\"\n                },\n                {\n                    \"id\": \"1234\",\n                    \"name\": \"The second product\",\n                    \"price\": {\n                        \"amount\": 6,\n                        \"tax_inclusive\": false\n                    },\n                    \"quantity\": 1,\n                    \"tax_exempt\": false,\n                    \"type\": \"item\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/api/tax/estimate",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "api",
+                "tax",
+                "estimate"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "ETag",
+              "value": "\"408-F4ae8mo1TKjQLI8QJZvhcAbCcgY\""
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "key": "Content-Encoding",
+              "value": "gzip"
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 13 Jan 2022 03:57:42 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n    \"id\": \"Estimate Request ID\",\n    \"documents\": [\n        {\n            \"id\": \"Document ID\",\n            \"external_id\": \"Document ID-estimate\",\n            \"shipping\": {\n                \"id\": \"Shipping Cost ID\",\n                \"price\": {\n                    \"amount_inclusive\": 5.5,\n                    \"amount_exclusive\": 5,\n                    \"total_tax\": 0.5,\n                    \"tax_rate\": 0.1,\n                    \"sales_tax_summary\": [\n                        {\n                            \"name\": \"Hardcoded Tax Rate\",\n                            \"rate\": 0.1,\n                            \"amount\": 0.5,\n                            \"id\": \"Hardcoded Tax Rate ID\"\n                        }\n                    ]\n                },\n                \"type\": \"shipping\"\n            },\n            \"handling\": {\n                \"id\": \"Handling Cost ID\",\n                \"price\": {\n                    \"amount_inclusive\": 0,\n                    \"amount_exclusive\": 0,\n                    \"total_tax\": 0,\n                    \"tax_rate\": 0.1,\n                    \"sales_tax_summary\": [\n                        {\n                            \"name\": \"Hardcoded Tax Rate\",\n                            \"rate\": 0.1,\n                            \"amount\": 0,\n                            \"id\": \"Hardcoded Tax Rate ID\"\n                        }\n                    ]\n                },\n                \"type\": \"handling\"\n            },\n            \"items\": [\n                {\n                    \"id\": \"1233\",\n                    \"price\": {\n                        \"amount_inclusive\": 26.4,\n                        \"amount_exclusive\": 24,\n                        \"total_tax\": 2.4,\n                        \"tax_rate\": 0.1,\n                        \"sales_tax_summary\": [\n                            {\n                                \"name\": \"Hardcoded Tax Rate\",\n                                \"rate\": 0.1,\n                                \"amount\": 2.4,\n                                \"id\": \"Hardcoded Tax Rate ID\"\n                            }\n                        ]\n                    },\n                    \"type\": \"item\"\n                },\n                {\n                    \"id\": \"1234\",\n                    \"price\": {\n                        \"amount_inclusive\": 6.6,\n                        \"amount_exclusive\": 6,\n                        \"total_tax\": 0.6,\n                        \"tax_rate\": 0.1,\n                        \"sales_tax_summary\": [\n                            {\n                                \"name\": \"Hardcoded Tax Rate\",\n                                \"rate\": 0.1,\n                                \"amount\": 0.6,\n                                \"id\": \"Hardcoded Tax Rate ID\"\n                            }\n                        ]\n                    },\n                    \"type\": \"item\"\n                }\n            ]\n        }\n    ]\n}",
+          "createdAt": "2022-01-13T03:57:54.000Z",
+          "updatedAt": "2022-01-13T03:57:54.000Z",
+          "uid": "45334-6a93485d-8c16-4242-9766-85ee17c9e5ab"
+        }
+      ],
+      "createdAt": "2021-12-31T16:37:09.000Z",
+      "updatedAt": "2022-01-13T03:58:00.000Z",
+      "uid": "45334-899a0b36-0674-43b0-a305-e1c0e90f733a"
+    },
+    {
+      "name": "Estimate Taxes - (prices inclusive)",
+      "id": "44b281bb-254b-4378-8d29-b60453a685da",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"id\": \"Estimate Request ID\",\n    \"currency_code\": \"USD\",\n    \"customer\": {\n        \"customer_id\": 1,\n        \"customer_group_id\": 1\n    },\n    \"transaction_date\": \"2021-12-31T17:55:09\",\n    \"documents\": [\n        {\n            \"id\": \"Document ID\",\n            \"destination_address\": {\n                \"line1\": \"11305 Four Points Dr\",\n                \"line2\": \"First Floor\",\n                \"city\": \"Austin\",\n                \"region_name\": \"Texas\",\n                \"region_code\": \"TX\",\n                \"country_name\": \"United States of America\",\n                \"country_code\": \"US\",\n                \"postal_code\": \"78727\",\n                \"company_name\": \"BigCommerce\",\n                \"type\": \"COMMERCIAL\"\n            },\n            \"origin_address\": {\n                \"line1\": \"11305 Four Points Dr\",\n                \"line2\": \"First Floor\",\n                \"city\": \"Austin\",\n                \"region_name\": \"Texas\",\n                \"region_code\": \"TX\",\n                \"country_name\": \"United States of America\",\n                \"country_code\": \"US\",\n                \"postal_code\": \"78727\",\n                \"company_name\": \"BigCommerce\",\n                \"type\": \"COMMERCIAL\"\n            },\n            \"shipping\": {\n                \"id\": \"Shipping Cost ID\",\n                \"name\": \"Standard Shipping\",\n                \"price\": {\n                    \"amount\": 5,\n                    \"tax_inclusive\": true\n                },\n                \"quantity\": 1,\n                \"tax_exempt\": false,\n                \"type\": \"shipping\"\n            },\n            \"handling\": {\n                \"id\": \"Handling Cost ID\",\n                \"name\": \"Standard Handling\",\n                \"price\": {\n                    \"amount\": 0,\n                    \"tax_inclusive\": true\n                },\n                \"quantity\": 1,\n                \"tax_exempt\": false,\n                \"type\": \"handling\"\n            },\n            \"items\": [\n                {\n                    \"id\": \"1233\",\n                    \"name\": \"The first product\",\n                    \"price\": {\n                        \"amount\": 12,\n                        \"tax_inclusive\": true\n                    },\n                    \"quantity\": 2,\n                    \"tax_exempt\": false,\n                    \"type\": \"item\"\n                },\n                {\n                    \"id\": \"1234\",\n                    \"name\": \"The second product\",\n                    \"price\": {\n                        \"amount\": 6,\n                        \"tax_inclusive\": true\n                    },\n                    \"quantity\": 1,\n                    \"tax_exempt\": false,\n                    \"type\": \"item\"\n                }\n            ]\n        }\n    ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{host}}/api/tax/estimate",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "api",
+            "tax",
+            "estimate"
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "18afd09e-ad59-473a-8f31-45a35b95dcef",
+          "name": "Estimate Taxes - (prices inclusive)",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"Estimate Request ID\",\n    \"currency_code\": \"USD\",\n    \"customer\": {\n        \"customer_id\": 1,\n        \"customer_group_id\": 1\n    },\n    \"transaction_date\": \"2021-12-31T17:55:09\",\n    \"documents\": [\n        {\n            \"id\": \"Document ID\",\n            \"destination_address\": {\n                \"line1\": \"11305 Four Points Dr\",\n                \"line2\": \"First Floor\",\n                \"city\": \"Austin\",\n                \"region_name\": \"Texas\",\n                \"region_code\": \"TX\",\n                \"country_name\": \"United States of America\",\n                \"country_code\": \"US\",\n                \"postal_code\": \"78727\",\n                \"company_name\": \"BigCommerce\",\n                \"type\": \"COMMERCIAL\"\n            },\n            \"origin_address\": {\n                \"line1\": \"11305 Four Points Dr\",\n                \"line2\": \"First Floor\",\n                \"city\": \"Austin\",\n                \"region_name\": \"Texas\",\n                \"region_code\": \"TX\",\n                \"country_name\": \"United States of America\",\n                \"country_code\": \"US\",\n                \"postal_code\": \"78727\",\n                \"company_name\": \"BigCommerce\",\n                \"type\": \"COMMERCIAL\"\n            },\n            \"shipping\": {\n                \"id\": \"Shipping Cost ID\",\n                \"name\": \"Standard Shipping\",\n                \"price\": {\n                    \"amount\": 5,\n                    \"tax_inclusive\": true\n                },\n                \"quantity\": 1,\n                \"tax_exempt\": false,\n                \"type\": \"shipping\"\n            },\n            \"handling\": {\n                \"id\": \"Handling Cost ID\",\n                \"name\": \"Standard Handling\",\n                \"price\": {\n                    \"amount\": 0,\n                    \"tax_inclusive\": true\n                },\n                \"quantity\": 1,\n                \"tax_exempt\": false,\n                \"type\": \"handling\"\n            },\n            \"items\": [\n                {\n                    \"id\": \"1233\",\n                    \"name\": \"The first product\",\n                    \"price\": {\n                        \"amount\": 12,\n                        \"tax_inclusive\": true\n                    },\n                    \"quantity\": 2,\n                    \"tax_exempt\": false,\n                    \"type\": \"item\"\n                },\n                {\n                    \"id\": \"1234\",\n                    \"name\": \"The second product\",\n                    \"price\": {\n                        \"amount\": 6,\n                        \"tax_inclusive\": true\n                    },\n                    \"quantity\": 1,\n                    \"tax_exempt\": false,\n                    \"type\": \"item\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/api/tax/estimate",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "api",
+                "tax",
+                "estimate"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "ETag",
+              "value": "\"411-6WnDyQxhCI+7ijiTmKJg11wvVYU\""
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "key": "Content-Encoding",
+              "value": "gzip"
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 13 Jan 2022 03:58:04 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n    \"id\": \"Estimate Request ID\",\n    \"documents\": [\n        {\n            \"id\": \"Document ID\",\n            \"external_id\": \"Document ID-estimate\",\n            \"shipping\": {\n                \"id\": \"Shipping Cost ID\",\n                \"price\": {\n                    \"amount_inclusive\": 5,\n                    \"amount_exclusive\": 4.55,\n                    \"total_tax\": 0.45,\n                    \"tax_rate\": 0.1,\n                    \"sales_tax_summary\": [\n                        {\n                            \"name\": \"Hardcoded Tax Rate\",\n                            \"rate\": 0.1,\n                            \"amount\": 0.45,\n                            \"id\": \"Hardcoded Tax Rate ID\"\n                        }\n                    ]\n                },\n                \"type\": \"shipping\"\n            },\n            \"handling\": {\n                \"id\": \"Handling Cost ID\",\n                \"price\": {\n                    \"amount_inclusive\": 0,\n                    \"amount_exclusive\": 0,\n                    \"total_tax\": 0,\n                    \"tax_rate\": 0.1,\n                    \"sales_tax_summary\": [\n                        {\n                            \"name\": \"Hardcoded Tax Rate\",\n                            \"rate\": 0.1,\n                            \"amount\": 0,\n                            \"id\": \"Hardcoded Tax Rate ID\"\n                        }\n                    ]\n                },\n                \"type\": \"handling\"\n            },\n            \"items\": [\n                {\n                    \"id\": \"1233\",\n                    \"price\": {\n                        \"amount_inclusive\": 24,\n                        \"amount_exclusive\": 21.82,\n                        \"total_tax\": 2.18,\n                        \"tax_rate\": 0.1,\n                        \"sales_tax_summary\": [\n                            {\n                                \"name\": \"Hardcoded Tax Rate\",\n                                \"rate\": 0.1,\n                                \"amount\": 2.18,\n                                \"id\": \"Hardcoded Tax Rate ID\"\n                            }\n                        ]\n                    },\n                    \"type\": \"item\"\n                },\n                {\n                    \"id\": \"1234\",\n                    \"price\": {\n                        \"amount_inclusive\": 6,\n                        \"amount_exclusive\": 5.45,\n                        \"total_tax\": 0.55,\n                        \"tax_rate\": 0.1,\n                        \"sales_tax_summary\": [\n                            {\n                                \"name\": \"Hardcoded Tax Rate\",\n                                \"rate\": 0.1,\n                                \"amount\": 0.55,\n                                \"id\": \"Hardcoded Tax Rate ID\"\n                            }\n                        ]\n                    },\n                    \"type\": \"item\"\n                }\n            ]\n        }\n    ]\n}",
+          "createdAt": "2022-01-13T03:58:14.000Z",
+          "updatedAt": "2022-01-13T03:58:14.000Z",
+          "uid": "45334-18afd09e-ad59-473a-8f31-45a35b95dcef"
+        }
+      ],
+      "createdAt": "2021-12-31T18:28:15.000Z",
+      "updatedAt": "2022-01-13T03:58:18.000Z",
+      "uid": "45334-44b281bb-254b-4378-8d29-b60453a685da"
+    },
+    {
+      "name": "Estimate Taxes with 5s Delay (prices exclusive)",
+      "id": "154ba0de-51f8-4571-8d15-019669fc33e7",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"id\": \"Estimate Request ID\",\n    \"currency_code\": \"USD\",\n    \"customer\": {\n        \"customer_id\": 1,\n        \"customer_group_id\": 1,\n        \"taxability_code\": \"DELAY:5000\"\n    },\n    \"transaction_date\": \"2021-12-31T17:55:09\",\n    \"documents\": [\n        {\n            \"id\": \"Document ID\",\n            \"destination_address\": {\n                \"line1\": \"11305 Four Points Dr\",\n                \"line2\": \"First Floor\",\n                \"city\": \"Austin\",\n                \"region_name\": \"Texas\",\n                \"region_code\": \"TX\",\n                \"country_name\": \"United States of America\",\n                \"country_code\": \"US\",\n                \"postal_code\": \"78727\",\n                \"company_name\": \"BigCommerce\",\n                \"type\": \"COMMERCIAL\"\n            },\n            \"origin_address\": {\n                \"line1\": \"11305 Four Points Dr\",\n                \"line2\": \"First Floor\",\n                \"city\": \"Austin\",\n                \"region_name\": \"Texas\",\n                \"region_code\": \"TX\",\n                \"country_name\": \"United States of America\",\n                \"country_code\": \"US\",\n                \"postal_code\": \"78727\",\n                \"company_name\": \"BigCommerce\",\n                \"type\": \"COMMERCIAL\"\n            },\n            \"shipping\": {\n                \"id\": \"Shipping Cost ID\",\n                \"name\": \"Standard Shipping\",\n                \"price\": {\n                    \"amount\": 5,\n                    \"tax_inclusive\": false\n                },\n                \"quantity\": 1,\n                \"tax_exempt\": false,\n                \"type\": \"shipping\"\n            },\n            \"handling\": {\n                \"id\": \"Handling Cost ID\",\n                \"name\": \"Standard Handling\",\n                \"price\": {\n                    \"amount\": 0,\n                    \"tax_inclusive\": false\n                },\n                \"quantity\": 1,\n                \"tax_exempt\": false,\n                \"type\": \"handling\"\n            },\n            \"items\": [\n                {\n                    \"id\": \"1233\",\n                    \"name\": \"The first product\",\n                    \"price\": {\n                        \"amount\": 12,\n                        \"tax_inclusive\": false\n                    },\n                    \"quantity\": 2,\n                    \"tax_exempt\": false,\n                    \"type\": \"item\"\n                },\n                {\n                    \"id\": \"1234\",\n                    \"name\": \"The second product\",\n                    \"price\": {\n                        \"amount\": 6,\n                        \"tax_inclusive\": false\n                    },\n                    \"quantity\": 1,\n                    \"tax_exempt\": false,\n                    \"type\": \"item\"\n                }\n            ]\n        }\n    ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{host}}/api/tax/estimate",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "api",
+            "tax",
+            "estimate"
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "a802ae0a-d32b-448c-8a1d-7c5a26ca4524",
+          "name": "Estimate Taxes with 5s Delay (prices exclusive)",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"Estimate Request ID\",\n    \"currency_code\": \"USD\",\n    \"customer\": {\n        \"customer_id\": 1,\n        \"customer_group_id\": 1,\n        \"taxability_code\": \"DELAY:5000\"\n    },\n    \"transaction_date\": \"2021-12-31T17:55:09\",\n    \"documents\": [\n        {\n            \"id\": \"Document ID\",\n            \"destination_address\": {\n                \"line1\": \"11305 Four Points Dr\",\n                \"line2\": \"First Floor\",\n                \"city\": \"Austin\",\n                \"region_name\": \"Texas\",\n                \"region_code\": \"TX\",\n                \"country_name\": \"United States of America\",\n                \"country_code\": \"US\",\n                \"postal_code\": \"78727\",\n                \"company_name\": \"BigCommerce\",\n                \"type\": \"COMMERCIAL\"\n            },\n            \"origin_address\": {\n                \"line1\": \"11305 Four Points Dr\",\n                \"line2\": \"First Floor\",\n                \"city\": \"Austin\",\n                \"region_name\": \"Texas\",\n                \"region_code\": \"TX\",\n                \"country_name\": \"United States of America\",\n                \"country_code\": \"US\",\n                \"postal_code\": \"78727\",\n                \"company_name\": \"BigCommerce\",\n                \"type\": \"COMMERCIAL\"\n            },\n            \"shipping\": {\n                \"id\": \"Shipping Cost ID\",\n                \"name\": \"Standard Shipping\",\n                \"price\": {\n                    \"amount\": 5,\n                    \"tax_inclusive\": false\n                },\n                \"quantity\": 1,\n                \"tax_exempt\": false,\n                \"type\": \"shipping\"\n            },\n            \"handling\": {\n                \"id\": \"Handling Cost ID\",\n                \"name\": \"Standard Handling\",\n                \"price\": {\n                    \"amount\": 0,\n                    \"tax_inclusive\": false\n                },\n                \"quantity\": 1,\n                \"tax_exempt\": false,\n                \"type\": \"handling\"\n            },\n            \"items\": [\n                {\n                    \"id\": \"1233\",\n                    \"name\": \"The first product\",\n                    \"price\": {\n                        \"amount\": 12,\n                        \"tax_inclusive\": false\n                    },\n                    \"quantity\": 2,\n                    \"tax_exempt\": false,\n                    \"type\": \"item\"\n                },\n                {\n                    \"id\": \"1234\",\n                    \"name\": \"The second product\",\n                    \"price\": {\n                        \"amount\": 6,\n                        \"tax_inclusive\": false\n                    },\n                    \"quantity\": 1,\n                    \"tax_exempt\": false,\n                    \"type\": \"item\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/api/tax/estimate",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "api",
+                "tax",
+                "estimate"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "ETag",
+              "value": "\"408-F4ae8mo1TKjQLI8QJZvhcAbCcgY\""
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "key": "Content-Encoding",
+              "value": "gzip"
+            },
+            {
+              "key": "Date",
+              "value": "Fri, 04 Mar 2022 15:48:20 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n    \"id\": \"Estimate Request ID\",\n    \"documents\": [\n        {\n            \"id\": \"Document ID\",\n            \"external_id\": \"Document ID-estimate\",\n            \"shipping\": {\n                \"id\": \"Shipping Cost ID\",\n                \"price\": {\n                    \"amount_inclusive\": 5.5,\n                    \"amount_exclusive\": 5,\n                    \"total_tax\": 0.5,\n                    \"tax_rate\": 0.1,\n                    \"sales_tax_summary\": [\n                        {\n                            \"name\": \"Hardcoded Tax Rate\",\n                            \"rate\": 0.1,\n                            \"amount\": 0.5,\n                            \"id\": \"Hardcoded Tax Rate ID\"\n                        }\n                    ]\n                },\n                \"type\": \"shipping\"\n            },\n            \"handling\": {\n                \"id\": \"Handling Cost ID\",\n                \"price\": {\n                    \"amount_inclusive\": 0,\n                    \"amount_exclusive\": 0,\n                    \"total_tax\": 0,\n                    \"tax_rate\": 0.1,\n                    \"sales_tax_summary\": [\n                        {\n                            \"name\": \"Hardcoded Tax Rate\",\n                            \"rate\": 0.1,\n                            \"amount\": 0,\n                            \"id\": \"Hardcoded Tax Rate ID\"\n                        }\n                    ]\n                },\n                \"type\": \"handling\"\n            },\n            \"items\": [\n                {\n                    \"id\": \"1233\",\n                    \"price\": {\n                        \"amount_inclusive\": 26.4,\n                        \"amount_exclusive\": 24,\n                        \"total_tax\": 2.4,\n                        \"tax_rate\": 0.1,\n                        \"sales_tax_summary\": [\n                            {\n                                \"name\": \"Hardcoded Tax Rate\",\n                                \"rate\": 0.1,\n                                \"amount\": 2.4,\n                                \"id\": \"Hardcoded Tax Rate ID\"\n                            }\n                        ]\n                    },\n                    \"type\": \"item\"\n                },\n                {\n                    \"id\": \"1234\",\n                    \"price\": {\n                        \"amount_inclusive\": 6.6,\n                        \"amount_exclusive\": 6,\n                        \"total_tax\": 0.6,\n                        \"tax_rate\": 0.1,\n                        \"sales_tax_summary\": [\n                            {\n                                \"name\": \"Hardcoded Tax Rate\",\n                                \"rate\": 0.1,\n                                \"amount\": 0.6,\n                                \"id\": \"Hardcoded Tax Rate ID\"\n                            }\n                        ]\n                    },\n                    \"type\": \"item\"\n                }\n            ]\n        }\n    ]\n}",
+          "createdAt": "2022-03-04T15:48:28.000Z",
+          "updatedAt": "2022-03-04T15:48:28.000Z",
+          "uid": "45334-a802ae0a-d32b-448c-8a1d-7c5a26ca4524"
+        }
+      ],
+      "createdAt": "2022-03-04T15:48:10.000Z",
+      "updatedAt": "2022-03-04T15:48:32.000Z",
+      "uid": "45334-154ba0de-51f8-4571-8d15-019669fc33e7"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "password",
+        "value": "{{tax-provider-password}}",
+        "type": "string"
+      },
+      {
+        "key": "username",
+        "value": "{{tax-provider-username}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "9e59de25-4847-4cb3-9510-c016dd960452",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "b361b6ad-8bb3-4e7b-9e8f-e63a9491f602",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "tax-provider-username",
+      "value": "Basic Auth Username",
+      "type": "string"
+    },
+    {
+      "key": "tax-provider-password",
+      "value": "Basic Auth Password",
+      "type": "string"
+    },
+    {
+      "key": "host",
+      "value": "hostname",
+      "type": "string"
+    }
+  ]
+}

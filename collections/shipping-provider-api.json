@@ -1,0 +1,28 @@
+{
+  "info": {
+    "_postman_id": "3f127543-1f55-42d2-a3fb-7a7d4bbf0246",
+    "name": "Shipping Provider API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2023-03-03T10:27:50.000Z",
+    "updatedAt": "2023-03-03T10:31:47.000Z",
+    "lastUpdatedBy": "20887145",
+    "uid": "20887145-3f127543-1f55-42d2-a3fb-7a7d4bbf0246"
+  },
+  "item": [
+    {
+      "name": "Request Shipping Rate",
+      "id": "dafaeaae-93ba-43c2-993c-800915de080c",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [],
+      "createdAt": "2023-03-03T10:31:47.000Z",
+      "updatedAt": "2023-03-03T10:31:56.000Z",
+      "uid": "20887145-dafaeaae-93ba-43c2-993c-800915de080c"
+    }
+  ]
+}

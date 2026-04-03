@@ -1,0 +1,73 @@
+{
+  "info": {
+    "_postman_id": "451b59cb-ffa7-4132-9a19-1ed2807c0ff1",
+    "name": "Update Many Variants",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2021-06-28T16:05:38.000Z",
+    "updatedAt": "2021-06-28T16:05:45.000Z",
+    "lastUpdatedBy": "45334",
+    "uid": "45334-451b59cb-ffa7-4132-9a19-1ed2807c0ff1"
+  },
+  "item": [
+    {
+      "name": "Update Variants (batch)",
+      "id": "e2542135-fd1f-42b6-9fb2-47e4904607dd",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}",
+            "type": "text",
+            "warning": ""
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text",
+            "warning": ""
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text",
+            "warning": ""
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "warning": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n    {\n        \"id\": 2796,\n        \"inventory_level\": 49,\n        \"price\": 10\n    },\n    {\n        \"id\": 2797,\n        \"inventory_level\": 49,\n        \"price\": 10\n    },\n    {\n        \"id\": 2798,\n        \"inventory_level\": 49,\n        \"price\": 10\n    },\n    {\n        \"id\": 2800,\n        \"inventory_level\": 49,\n        \"price\": 10\n    },\n    {\n        \"id\": 2801,\n        \"inventory_level\": 49,\n        \"price\": 10\n    },\n    {\n        \"id\": 2802,\n        \"inventory_level\": 49,\n        \"price\": 10\n    },\n    {\n        \"id\": 2803,\n        \"inventory_level\": 49,\n        \"price\": 10\n    },\n    {\n        \"id\": 2805,\n        \"inventory_level\": 49,\n        \"price\": 10\n    },\n    {\n        \"id\": 2806,\n        \"inventory_level\": 49,\n        \"price\": 10\n    },\n    {\n        \"id\": 2807,\n        \"inventory_level\": 49,\n        \"price\": 10\n    }\n]"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/catalog/variants",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "catalog",
+            "variants"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2021-06-28T16:05:44.000Z",
+      "updatedAt": "2021-06-28T16:05:44.000Z",
+      "uid": "45334-e2542135-fd1f-42b6-9fb2-47e4904607dd"
+    }
+  ]
+}

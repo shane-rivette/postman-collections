@@ -1,0 +1,104 @@
+{
+  "info": {
+    "_postman_id": "cc316cb1-5081-4d45-86db-8c9dc37aea11",
+    "name": "Create Many Blog Posts",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2021-02-23T22:05:11.000Z",
+    "updatedAt": "2021-02-24T17:28:13.000Z",
+    "lastUpdatedBy": "45334",
+    "uid": "45334-cc316cb1-5081-4d45-86db-8c9dc37aea11"
+  },
+  "item": [
+    {
+      "name": "Create a Blog Post Copy",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "b3110bb1-0dff-4e56-914f-03927d4225bf",
+            "exec": [
+              "const i = pm.environment.get('iterator')",
+              "pm.environment.set('iterator', parseInt(i) + 1)",
+              "",
+              "pm.test(\"Status code is 201\", function () {",
+              "    pm.response.to.have.status(201);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "01ff3583-668d-486d-8e28-677b2dfaa4b7",
+            "exec": [
+              "const date = new Date(Date.now())",
+              "const timestamp = date.toUTCString()",
+              "pm.collectionVariables.set('timestamp', timestamp)"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "914a46c0-f20b-408c-8247-de84858e06c4",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"A Sample Blog Post - {{iterator}}\",\n  \"body\": \"<p>This is blog post #{{iterator}}</p>\",\n  \"author\": \"Author Name\",\n  \"thumbnail_path\": \"https://placehold.it/600x600\",\n  \"is_published\": true,\n  \"published_date\": \"{{timestamp}}\",\n  \"tags\": [\n    \"Blog\",\n    \"Example\",\n    \"Body\",\n    \"Homepage\"\n  ]\n}"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v2/blog/posts",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v2",
+            "blog",
+            "posts"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2021-02-23T22:05:36.000Z",
+      "updatedAt": "2021-02-24T17:28:18.000Z",
+      "uid": "45334-914a46c0-f20b-408c-8247-de84858e06c4"
+    }
+  ],
+  "variable": [
+    {
+      "key": "timestamp",
+      "value": ""
+    }
+  ]
+}

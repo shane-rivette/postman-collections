@@ -1,0 +1,69 @@
+{
+  "info": {
+    "_postman_id": "20152275-4cd5-4a4a-a404-b04a15d6461e",
+    "name": "Update Many Products",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2021-06-28T16:06:14.000Z",
+    "updatedAt": "2021-06-28T16:06:25.000Z",
+    "lastUpdatedBy": "45334",
+    "uid": "45334-20152275-4cd5-4a4a-a404-b04a15d6461e"
+  },
+  "item": [
+    {
+      "name": "Update a batch of products",
+      "id": "b846034a-79a7-4b6a-b8cc-64032452ba4d",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n    {\n        \"id\": 50908,\n        \"price\": 10.25,\n        \"description\": \"<h4>Great T-shirt</h4>The best t-shirt ever.\",\n        \"weight\": 1.20\n    },\n    {\n        \"id\": 50907,\n        \"price\": 10.25,\n        \"description\": \"<h4>Great T-shirt</h4>The best t-shirt ever.\",\n        \"weight\": 1.20\n    },\n    {\n        \"id\": 50906,\n        \"price\": 10.25,\n        \"description\": \"<h4>Great T-shirt</h4>The best t-shirt ever.\",\n        \"weight\": 1.20\n    },\n    {\n        \"id\": 50905,\n        \"price\": 10.25,\n        \"description\": \"<h4>Great T-shirt</h4>The best t-shirt ever.\",\n        \"weight\": 1.20\n    },\n    {\n        \"id\": 50904,\n        \"price\": 10.25,\n        \"description\": \"<h4>Great T-shirt</h4>The best t-shirt ever.\",\n        \"weight\": 1.20\n    },\n    {\n        \"id\": 50902,\n        \"price\": 10.25,\n        \"description\": \"<h4>Great T-shirt</h4>The best t-shirt ever.\",\n        \"weight\": 1.20\n    },\n    {\n        \"id\": 50901,\n        \"price\": 10.25,\n        \"description\": \"<h4>Great T-shirt</h4>The best t-shirt ever.\",\n        \"weight\": 1.20\n    },\n    {\n        \"id\": 50900,\n        \"price\": 10.25,\n        \"description\": \"<h4>Great T-shirt</h4>The best t-shirt ever.\",\n        \"weight\": 1.20\n    },\n    {\n        \"id\": 50899,\n        \"price\": 10.25,\n        \"description\": \"<h4>Great T-shirt</h4>The best t-shirt ever.\",\n        \"weight\": 1.20\n    },\n    {\n        \"id\": 50898,\n        \"price\": 10.25,\n        \"description\": \"<h4>Great T-shirt</h4>The best t-shirt ever.\",\n        \"weight\": 1.20\n    }\n]"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/catalog/products",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "catalog",
+            "products"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2021-06-28T16:06:24.000Z",
+      "updatedAt": "2021-06-28T16:06:24.000Z",
+      "uid": "45334-b846034a-79a7-4b6a-b8cc-64032452ba4d"
+    }
+  ]
+}

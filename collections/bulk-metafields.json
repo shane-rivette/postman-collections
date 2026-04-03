@@ -1,0 +1,391 @@
+{
+  "info": {
+    "_postman_id": "06e2b17f-22a5-4f97-80d5-e5fa61510a80",
+    "name": "Bulk Metafields",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2024-06-21T21:38:52.000Z",
+    "updatedAt": "2024-06-21T21:46:37.000Z",
+    "lastUpdatedBy": "34196123",
+    "uid": "34196123-06e2b17f-22a5-4f97-80d5-e5fa61510a80"
+  },
+  "item": [
+    {
+      "name": "Bulk Create Product Metafields",
+      "id": "06035ac7-d004-4f34-a804-334c8e648c15",
+      "protocolProfileBehavior": {
+        "disabledSystemHeaders": {},
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n    {\n        \"permission_set\": \"write_and_sf_access\",\n        \"key\": \"graphQL_data\",\n        \"value\": \"some value that I want to expose to graphQL\",\n        \"namespace\": \"test.metafield1\",\n        \"resource_type\": \"product\",\n        \"resource_id\": {{product_id1}}\n    },\n    {\n        \"permission_set\": \"write_and_sf_access\",\n        \"key\": \"graphQL_data\",\n        \"value\": \"some value that I want to expose to graphQL\",\n        \"namespace\": \"test.metafield1\",\n        \"resource_type\": \"product\",\n        \"resource_id\": {{product_id2}}\n    },\n    {\n        \"permission_set\": \"write_and_sf_access\",\n        \"key\": \"graphQL_data\",\n        \"value\": \"some value that I want to expose to graphQL\",\n        \"namespace\": \"test.metafield1\",\n        \"resource_type\": \"product\",\n        \"resource_id\": {{product_id3}}\n    }\n]"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/catalog/products/metafields",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "catalog",
+            "products",
+            "metafields"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-06035ac7-d004-4f34-a804-334c8e648c15"
+    },
+    {
+      "name": "Bulk Create Variant Metafields",
+      "id": "b7015035-26fa-43a7-b172-c8a0a29d97ff",
+      "protocolProfileBehavior": {
+        "disabledSystemHeaders": {},
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n    {\n        \"permission_set\": \"write_and_sf_access\",\n        \"key\": \"graphQL_data\",\n        \"value\": \"some value that I want to expose to graphQL\",\n        \"namespace\": \"test.metafield1\",\n        \"resource_type\": \"variant\",\n        \"resource_id\": {{variant_id1}}\n    },\n    {\n        \"permission_set\": \"write_and_sf_access\",\n        \"key\": \"graphQL_data\",\n        \"value\": \"some value that I want to expose to graphQL\",\n        \"namespace\": \"test.metafield1\",\n        \"resource_type\": \"variant\",\n        \"resource_id\": {{variant_id2}}\n    },\n    {\n        \"permission_set\": \"write_and_sf_access\",\n        \"key\": \"graphQL_data\",\n        \"value\": \"some value that I want to expose to graphQL\",\n        \"namespace\": \"test.metafield1\",\n        \"resource_type\": \"variant\",\n        \"resource_id\": {{variant_id3}}\n    }\n]"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/catalog/variants/metafields",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "catalog",
+            "variants",
+            "metafields"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-b7015035-26fa-43a7-b172-c8a0a29d97ff"
+    },
+    {
+      "name": "Bulk Create Order Metafields",
+      "id": "0120be67-8947-4c9c-812b-6d66a32c90bd",
+      "protocolProfileBehavior": {
+        "disabledSystemHeaders": {},
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n    {\n        \"permission_set\": \"write\",\n        \"key\": \"transaction.id\",\n        \"value\": \"Bc_123ABC\",\n        \"namespace\": \"order.transaction\",\n        \"resource_type\": \"order\",\n        \"resource_id\": {{order_id}}\n    },\n    {\n        \"permission_set\": \"write\",\n        \"key\": \"last.four\",\n        \"value\": \"1111\",\n        \"namespace\": \"order.transaction\",\n        \"resource_type\": \"order\",\n        \"resource_id\": {{order_id}}\n    },\n    {\n        \"permission_set\": \"write\",\n        \"key\": \"token\",\n        \"value\": \"ABC123cde\",\n        \"namespace\": \"order.transaction\",\n        \"resource_type\": \"order\",\n        \"resource_id\": {{order_id}}\n    }\n]"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/catalog/orders/metafields",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "catalog",
+            "orders",
+            "metafields"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-0120be67-8947-4c9c-812b-6d66a32c90bd"
+    },
+    {
+      "name": "Retrieve All Variants Metafields",
+      "id": "9325640b-8a7c-4c15-af55-f58f1e04d467",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n    {\n        \"namespace\"\n        id\n    },\n\n]",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/catalog/variants/metafields?product_id:in=7317&limit=250",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "catalog",
+            "variants",
+            "metafields"
+          ],
+          "query": [
+            {
+              "key": "product_id:in",
+              "value": "7317"
+            },
+            {
+              "key": "limit",
+              "value": "250"
+            }
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-9325640b-8a7c-4c15-af55-f58f1e04d467"
+    },
+    {
+      "name": "Bulk Update Product Variants",
+      "id": "9484f934-edfd-4263-83ab-b48be45e6839",
+      "protocolProfileBehavior": {
+        "disabledSystemHeaders": {
+          "content-type": true
+        },
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n    {\n        \"permission_set\": \"write_and_sf_access\",\n        \"key\": \"graphQL_data\",\n        \"value\": \"Edited\",\n        \"namespace\": \"test.metafield1\",\n        \"id\": 94\n    },\n    {\n        \"permission_set\": \"write_and_sf_access\",\n        \"key\": \"graphQL_data\",\n        \"value\": \"Edited\",\n        \"namespace\": \"test.metafield1\",\n        \"id\": 93\n    },\n    {\n        \"permission_set\": \"write_and_sf_access\",\n        \"key\": \"graphQL_data\",\n        \"value\": \"Edited-3\",\n        \"namespace\": \"test.metafield1\",\n        \"id\": 92\n    }\n]"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/catalog/products/metafields",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "catalog",
+            "products",
+            "metafields"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-9484f934-edfd-4263-83ab-b48be45e6839"
+    },
+    {
+      "name": "Bulk Delete Product Variants - (Still in dev)",
+      "id": "2ef312ee-0a63-42cd-834e-1c01f3e64d3b",
+      "protocolProfileBehavior": {
+        "disabledSystemHeaders": {
+          "content-type": true
+        },
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/catalog/products/metafields?id:in=94,93",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "catalog",
+            "products",
+            "metafields"
+          ],
+          "query": [
+            {
+              "key": "id:in",
+              "value": "94,93"
+            }
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-2ef312ee-0a63-42cd-834e-1c01f3e64d3b"
+    },
+    {
+      "name": "Bulk Create Cart Metafields",
+      "id": "8de615de-8b37-40da-9499-a0cf81e0874a",
+      "protocolProfileBehavior": {
+        "disabledSystemHeaders": {},
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n    {\n        \"permission_set\": \"write\",\n        \"key\": \"transaction.id\",\n        \"value\": \"Bc_123ABC\",\n        \"namespace\": \"order.transaction\",\n        \"resource_type\": \"cart\",\n        \"resource_id\": {{cart_id}}\n    },\n    {\n        \"permission_set\": \"write\",\n        \"key\": \"last.four\",\n        \"value\": \"1111\",\n        \"namespace\": \"order.transaction\",\n        \"resource_type\": \"cart\",\n        \"resource_id\": {{cart_id}}\n    },\n    {\n        \"permission_set\": \"write\",\n        \"key\": \"token\",\n        \"value\": \"ABC123cde\",\n        \"namespace\": \"order.transaction\",\n        \"resource_type\": \"cart\",\n        \"resource_id\": {{cart_id}}\n    }\n]"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/catalog/carts/metafields",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "catalog",
+            "carts",
+            "metafields"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-8de615de-8b37-40da-9499-a0cf81e0874a"
+    }
+  ]
+}

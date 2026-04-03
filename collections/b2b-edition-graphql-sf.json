@@ -1,0 +1,1816 @@
+{
+  "info": {
+    "_postman_id": "5c4f062e-fb50-44ef-acae-ef11317d1545",
+    "name": "B2B Edition GraphQL (SF)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2024-06-21T21:38:52.000Z",
+    "updatedAt": "2024-06-21T21:42:43.000Z",
+    "lastUpdatedBy": "34196123",
+    "uid": "34196123-5c4f062e-fb50-44ef-acae-ef11317d1545"
+  },
+  "item": [
+    {
+      "name": "B2B Queries",
+      "item": [
+        {
+          "name": "AccountSettingsQueriesB2B",
+          "id": "928e090d-224e-4503-9301-d2bc8f88c2e9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query accountSettings {\n  accountSettings(companyId: 1) {\n    firstName\n  }\n} # needs B2B token\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-928e090d-224e-4503-9301-d2bc8f88c2e9"
+        },
+        {
+          "name": "AccountSettingsQueriesBC",
+          "id": "1d049b3e-2969-4c6b-b201-4d8781a19293",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query customerAccountSettings {\n  customerAccountSettings {\n    firstName\n  }\n} # needs BC token\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-1d049b3e-2969-4c6b-b201-4d8781a19293"
+        },
+        {
+          "name": "AddressQueriesB2B",
+          "id": "68e55050-30f4-44eb-ba99-dacd10cd6520",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query addresses {\n  addresses(companyId: 1) {\n    edges {\n      node {\n        address\n      }\n    }\n  }\n} # needs B2B Token\nquery address {\n  address(companyId: 1, addressId: 1) {\n    address\n  }\n} # needs B2B Token\nquery countries {\n  countries(storeHash: \"b3uio3ktqr\") {\n    countryCode\n  }\n}\nquery defaultShippingAddress {\n  defaultShippingAddress(companyId: 1) {\n    address\n  }\n} # needs B2B Token\nquery defaultBillingAddress {\n  defaultBillingAddress(companyId: 1) {\n    address\n  }\n} # needs B2B Token\nquery addressConfig {\n  addressConfig(storeHash: \"b3uio3ktqr\") {\n    key\n  }\n}\nquery addressExtraFields {\n  addressExtraFields(storeHash: \"b3uio3ktqr\") {\n    fieldName\n  }\n}\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-68e55050-30f4-44eb-ba99-dacd10cd6520"
+        },
+        {
+          "name": "AddressQueriesBC",
+          "id": "840b7aa9-a650-4cd2-8695-3b8da9ae337e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query customerAddresses {\n  customerAddresses {\n    edges {\n      node {\n        address1\n      }\n    }\n  }\n} # needs BC Token\nquery customerAddress {\n  customerAddress(addressId: 1) {\n    address1\n  }\n} # needs BC Token\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-840b7aa9-a650-4cd2-8695-3b8da9ae337e"
+        },
+        {
+          "name": "CatalogQueriesB2B",
+          "id": "c26e0388-6535-409d-977c-6ec2b2d9bc07",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query productVariantsInfo {\n  productVariantsInfo(productId: \"1\") {\n    sku\n  }\n} # needs B2B token\n\nquery variantSku {\n  variantSku(storeHash: \"b3uio3ktqr\", variantSkus: \"THX-1138\") {\n    productName\n    productId\n  }\n}\n\nquery productsInventory {\n  productsInventory(products: []) {\n    productId\n  }\n} # needs B2B token\n\nquery productsLoad {\n  productsLoad(currencyCode: \"USD\", productList: []) {\n    productId\n  }\n} # needs B2B token\n\nquery productsSearch {\n  productsSearch(storeHash: \"b3uio3ktqr\", search: \"Leaf Iron Candle\") {\n    name\n  }\n}\n\nquery taxZoneRates {\n  taxZoneRates(storeHash: \"b3uio3ktqr\") {\n    name\n  }\n}\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-c26e0388-6535-409d-977c-6ec2b2d9bc07"
+        },
+        {
+          "name": "CompanyQueriesB2B",
+          "id": "9b3e527f-0a6c-4403-81a8-395ef85a3721",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query companyExtraFields {\n  companyExtraFields(storeHash: \"b3uio3ktqr\") {\n    fieldName\n  }\n}\nquery userCompany {\n  userCompany(userId: 3) {\n    companyName\n  }\n} # needs B2B token\nquery companyValidateEmail {\n  companyValidateEmail(\n    storeHash: \"b3uio3ktqr\"\n    email: \"mail@mail.com\"\n    role: 1\n  ) {\n    isValid\n  }\n}\nquery companyUserInfo {\n  companyUserInfo(storeHash: \"b3uio3ktqr\", email: \"mail@mail.com\") {\n    userInfo {\n      firstName\n    }\n  }\n}\nquery accountFormFields {\n  accountFormFields(storeHash: \"b3uio3ktqr\", formType: 1) {\n    fieldName\n  }\n}\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-9b3e527f-0a6c-4403-81a8-395ef85a3721"
+        },
+        {
+          "name": "InvoicePaymentsQueriesB2B",
+          "id": "ae2994af-58cb-402b-a71c-dcdd220fc137",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query invoicePayments {\n  invoicePayments {\n    edges {\n      node {\n        payerName\n      }\n    }\n  }\n} # needs a B2B Token\nquery invoicePayment {\n  invoicePayment(paymentId: 1) {\n    payerName\n  }\n} # needs a B2B Token\nquery invoicePaymentModules {\n  invoicePaymentModules {\n    moduleName\n  }\n} # needs a B2B Token\nquery invoiceBcOrderAllowMethods {\n  invoiceBcOrderAllowMethods {\n    allowMethods\n  }\n} # needs a B2B Token\nquery invoicePaymentBcCart {\n  invoicePaymentBcCart(paymentId: 1) {\n    cartUrl\n  }\n} # needs a B2B Token\nquery invoicePaymentFees {\n  invoicePaymentFees {\n    paymentFees\n  }\n} # needs a B2B Token\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-ae2994af-58cb-402b-a71c-dcdd220fc137"
+        },
+        {
+          "name": "InvoiceQueriesB2B",
+          "id": "0ff54501-7a7c-43a1-9d21-470e870c4c9b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query invoices {\n  invoices {\n    edges {\n      node {\n        invoiceNumber\n      }\n    }\n  }\n} # needs a B2B Token\n\nquery invoice {\n  invoice(invoiceId: 1) {\n    invoiceNumber\n  }\n} # needs a B2B Token\n\nquery invoiceStats {\n  invoiceStats(status: 0) {\n    totalBalance\n  }\n} # needs a B2B Token\n\nquery invoiceCustomerInformation {\n  invoiceCustomerInformation {\n    companyName\n  }\n} # needs a B2B Token\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-0ff54501-7a7c-43a1-9d21-470e870c4c9b"
+        },
+        {
+          "name": "OrderQueriesB2B",
+          "id": "461bbb82-5b9e-4fe5-a93a-cf172f6a59d2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query order {\n  order(id: 1) {\n    totalIncTax\n  }\n} # needs B2B token\nquery allOrders {\n  allOrders {\n    edges {\n      node {\n        totalIncTax\n      }\n    }\n  }\n} # needs B2B token\nquery orderProducts {\n  orderProducts(bcOrderId: 1) {\n    productId\n  }\n} # needs B2B token\nquery orderImages {\n  orderImages(orderIds: [1, 2]) {\n    imageUrl\n  }\n} # needs B2B token\nquery orderedProducts {\n  orderedProducts {\n    edges {\n      node {\n        productName\n      }\n    }\n  }\n} # needs B2B or BC token\nquery createdByUser {\n  createdByUser(companyId: 1, module: 1) {\n    results\n  }\n} # needs B2B token\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-461bbb82-5b9e-4fe5-a93a-cf172f6a59d2"
+        },
+        {
+          "name": "OrderQueriesBC",
+          "id": "4959d1b9-e335-45d3-8153-2c564d885a96",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query customerOrders {\n  customerOrders {\n    edges {\n      node {\n        totalIncTax\n      }\n    }\n  }\n} # needs BC token\nquery customerOrder {\n  customerOrder(id: 1) {\n    totalIncTax\n  }\n} # needs BC token\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-4959d1b9-e335-45d3-8153-2c564d885a96"
+        },
+        {
+          "name": "QuoteQueriesB2B",
+          "id": "b94ba301-8e68-493a-81d8-a639292e714d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query quotes {\n  quotes {\n    edges {\n      node {\n        totalAmount\n      }\n    }\n  }\n} # needs B2B token\n\nquery customerQuotes {\n  customerQuotes {\n    edges {\n      node {\n        totalAmount\n      }\n    }\n  }\n} # needs BC token\n\nquery quote {\n  quote(id: 1, storeHash: \"b3uio3ktqr\", date: \"1694024747\") {\n    totalAmount\n  }\n}\n\nquery quoteUserStoreInfo {\n  quoteUserStoreInfo {\n    companyInfo {\n      companyName\n    }\n  }\n} # needs B2B token\n\nquery quoteConfig {\n  quoteConfig(storeHash: \"b3uio3ktqr\") {\n    switchStatus {\n      key\n    }\n  }\n}\n\nquery quoteExtraFieldsConfig {\n  quoteExtraFieldsConfig {\n    fieldName\n  }\n} # needs B2B token\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-b94ba301-8e68-493a-81d8-a639292e714d"
+        },
+        {
+          "name": "QuoteQueriesBC",
+          "id": "2e2d27fb-a5ba-4781-8800-227eea14383a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query customerQuotes {\n  customerQuotes {\n    edges {\n      node {\n        totalAmount\n      }\n    }\n  }\n} # needs BC token\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-2e2d27fb-a5ba-4781-8800-227eea14383a"
+        },
+        {
+          "name": "ReceiptQueriesB2B",
+          "id": "0d7c26e1-2a7a-48f0-8669-442855cad44d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query receipts {\n  receipts {\n    edges {\n      node {\n        totalAmount\n      }\n    }\n  }\n} # needs a B2B Token\n\nquery receipt {\n  receipt(id: 1) {\n    totalAmount\n  }\n} # needs a B2B Token\n\nquery allReceiptLines {\n  allReceiptLines {\n    edges {\n      node {\n        invoiceNumber\n      }\n    }\n  }\n} # needs a B2B Token\n\nquery receiptLine {\n  receiptLine(id: 1) {\n    invoiceNumber\n  }\n} # needs a B2B Token\n\nquery receiptLines {\n  receiptLines(receiptId: 1) {\n    edges {\n      node {\n        invoiceNumber\n      }\n    }\n  }\n} # needs a B2B Token\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-0d7c26e1-2a7a-48f0-8669-442855cad44d"
+        },
+        {
+          "name": "ShoppingListsQueriesB2B",
+          "id": "6ba07ed1-b65f-4f5f-b260-bf1b0152a77c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query shoppingLists {\n  shoppingLists {\n    edges {\n      node {\n        name\n      }\n    }\n  }\n} # needs B2B token\nquery shoppingList {\n  shoppingList(id: 7) {\n    name\n  }\n} # needs B2B token\nquery shoppingListsIdName {\n  shoppingListsIdName {\n    name\n  }\n} # needs B2B token\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-6ba07ed1-b65f-4f5f-b260-bf1b0152a77c"
+        },
+        {
+          "name": "ShoppingListsQueriesBC",
+          "id": "7cb66062-60eb-4d02-88fa-4a6de22dd136",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query customerShoppingLists {\n  customerShoppingLists {\n    edges {\n      node {\n        name\n      }\n    }\n  }\n} # needs BC token\nquery customerShoppingList {\n  customerShoppingList(id: 1) {\n    name\n  }\n} # needs BC token\nquery customerShoppingListsIdName {\n  customerShoppingListsIdName {\n    name\n  }\n} # needs BC token\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-7cb66062-60eb-4d02-88fa-4a6de22dd136"
+        },
+        {
+          "name": "StoreConfigsQueriesB2B",
+          "id": "b643b719-31c7-48a6-a707-81c3a4b9e5b0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query storeConfigSwitchStatus {\n  storeConfigSwitchStatus(key: \"email_notifications\") {\n    isEnabled\n    id\n  }\n} # needs B2B token\n\nquery storeCheckoutConfig {\n  storeCheckoutConfig {\n    configName\n  }\n} # needs B2B token\n\nquery storefrontConfig {\n  storefrontConfig(storeHash: \"b3uio3ktqr\") {\n    config {\n      addressBook\n    }\n  }\n}\n\nquery storefrontConfigs {\n  storefrontConfigs(storeHash: \"b3uio3ktqr\") {\n    value\n  }\n}\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-b643b719-31c7-48a6-a707-81c3a4b9e5b0"
+        },
+        {
+          "name": "StoreQueriesB2B",
+          "id": "f79de777-3d49-447b-be25-47dd80e1fac1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query orderStatuses {\n  orderStatuses {\n    statusCode\n  }\n} # needs B2B token\n\nquery currencies {\n  currencies(storeHash: \"b3uio3ktqr\", channelId: \"1\") {\n    currencies {\n      name\n    }\n  }\n}\n\nquery autoLoader {\n  autoLoader(storeHash: \"b3uio3ktqr\") {\n    storefrontUrl\n    checkoutUrl\n  }\n}\n\nquery storeLimitations {\n  storeLimitations(storeHash: \"b3uio3ktqr\", limitationType: 1) {\n    limitationTypeName\n  }\n}\n\nquery storeBasicInfo {\n  storeBasicInfo(storeHash: \"b3uio3ktqr\") {\n    storeName\n  }\n}\n\nquery storefrontScript {\n  storefrontScript(storeHash: \"b3uio3ktqr\") {\n    storeHash\n    script\n  }\n}\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-f79de777-3d49-447b-be25-47dd80e1fac1"
+        },
+        {
+          "name": "StoreQueriesBC",
+          "id": "7fecedcd-3de8-4ebc-b457-7936c8c1e929",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query bcOrderStatuses {\n  bcOrderStatuses {\n    statusCode\n  }\n} # needs BC token\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-7fecedcd-3de8-4ebc-b457-7936c8c1e929"
+        },
+        {
+          "name": "SuperAdminQueriesB2B",
+          "id": "0dfc4a3f-ef28-4552-9681-729c0bfed38a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query superAdminCompanies {\n  superAdminCompanies(superAdminId: 3) {\n    edges {\n      node {\n        companyName\n      }\n    }\n  }\n} # needs B2B token.\nquery superAdminMasquerading {\n  superAdminMasquerading(customerId: 3) {\n    companyName\n  }\n} # needs B2B token.\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-0dfc4a3f-ef28-4552-9681-729c0bfed38a"
+        },
+        {
+          "name": "UserQueriesQueriesB2B",
+          "id": "47a8ce02-05dd-45db-85b5-502221d494ab",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query user {\n  user(companyId: 1, userId: 1) {\n    firstName\n  }\n} # needs B2B token\nquery users {\n  users(companyId: 1) {\n    edges {\n      node {\n        firstName\n      }\n    }\n  }\n} # needs B2B token\nquery userEmailCheck {\n  userEmailCheck(email: \"mail@mail.com\") {\n    userInfo {\n      firstName\n    }\n  }\n} # needs B2B token\nquery customerEmailCheck {\n  customerEmailCheck(email: \"mail@mail.com\", storeHash: \"b3uio3ktqr\") {\n    userType\n  }\n}\nquery setCustomerFlag {\n  setCustomerFlag(\n    email: \"mail@mail.com\"\n    storeHash: \"b3uio3ktqr\"\n    customerId: 1\n  ) {\n    result\n  }\n}\nquery deleteCustomer {\n  deleteCustomer(\n    email: \"mail@mail.com\"\n    storeHash: \"b3uio3ktqr\"\n    customerId: 1\n  ) {\n    result\n  }\n}\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-47a8ce02-05dd-45db-85b5-502221d494ab"
+        }
+      ],
+      "id": "a9dbab8e-458b-47d9-b69b-5e2e3389a32d",
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-a9dbab8e-458b-47d9-b69b-5e2e3389a32d"
+    },
+    {
+      "name": "B2B Mutations",
+      "item": [
+        {
+          "name": "AccountSettingsMutationsB2B",
+          "id": "01da001b-459f-44c8-b425-917c59f7745f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation updateAccountSettings {\n  updateAccountSettings(\n    updateData: { companyId: 1, currentPassword: \"password\" }\n  ) {\n    result {\n      firstName\n    }\n  }\n} # needs B2B token\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-01da001b-459f-44c8-b425-917c59f7745f"
+        },
+        {
+          "name": "AccountSettingsMutationsBC",
+          "id": "55f0228a-bb34-486f-b60a-bc90cf0d83f3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation updateCustomerAccountSettings {\n  updateCustomerAccountSettings(updateData: { currentPassword: \"password\" }) {\n    result {\n      firstName\n    }\n  }\n} # needs BC token\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-55f0228a-bb34-486f-b60a-bc90cf0d83f3"
+        },
+        {
+          "name": "AddressMutationsB2B",
+          "id": "ec23a45b-c11f-4175-99cc-fc0f325e02a2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation addressCreate {\n  addressCreate(\n    addressData: {\n      companyId: 1\n      firstName: \"john\"\n      lastName: \"smith\"\n      addressLine1: \"street 123\"\n      country: \"United States\"\n      countryCode: \"USA\"\n      state: \"California\"\n      stateCode: \"CA\"\n      city: \"Los Angeles\"\n      zipCode: \"12345\"\n    }\n  ) {\n    address {\n      id\n    }\n  }\n} # needs B2B token\nmutation addressUpdate {\n  addressUpdate(\n    addressData: {\n      addressId: 1\n      companyId: 1\n      firstName: \"john\"\n      lastName: \"smith\"\n      addressLine1: \"street 124\"\n      country: \"United States\"\n      countryCode: \"USA\"\n      state: \"California\"\n      stateCode: \"CA\"\n      city: \"Los Angeles\"\n      zipCode: \"12345\"\n    }\n  ) {\n    address {\n      id\n    }\n  }\n} # needs B2B token\nmutation addressDelete {\n  addressDelete(addressId: 1, companyId: 1) {\n    message\n  }\n} # needs B2B token\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-ec23a45b-c11f-4175-99cc-fc0f325e02a2"
+        },
+        {
+          "name": "AddressMutationsBC",
+          "id": "8362a454-29fd-4308-b73e-177ed4d44f0e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation customerAddressCreate {\n  customerAddressCreate(\n    addressData: {\n      firstName: \"john\"\n      lastName: \"smith\"\n      address1: \"street 123\"\n      city: \"Los Angeles\"\n      stateOrProvince: \"California\"\n      countryCode: \"USA\"\n      postalCode: \"12345\"\n    }\n  ) {\n    address {\n      id\n    }\n  }\n} # needs BC token\nmutation customerAddressUpdate {\n  customerAddressUpdate(\n    addressData: {\n      bcAddressId: 1\n      firstName: \"john\"\n      lastName: \"smith\"\n      address1: \"street 123\"\n      city: \"Los Angeles\"\n      stateOrProvince: \"California\"\n      countryCode: \"USA\"\n      postalCode: \"12345\"\n    }\n  ) {\n    address {\n      id\n    }\n  }\n} # needs BC token\nmutation customerAddressDelete {\n  customerAddressDelete(bcAddressId: 1) {\n    message\n  }\n} # needs BC token\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-8362a454-29fd-4308-b73e-177ed4d44f0e"
+        },
+        {
+          "name": "CatalogMutations",
+          "id": "1129d86c-056a-47f6-b8e0-4562f1b60448",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation productUpload {\n  productUpload(productListData: {}) {\n    result {\n      validProduct\n    }\n  }\n} # needs B2B or BC token\nmutation productAnonUpload {\n  productAnonUpload(productListData: { storeHash: \"storehash\" }) {\n    result {\n      validProduct\n    }\n  }\n}\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-1129d86c-056a-47f6-b8e0-4562f1b60448"
+        },
+        {
+          "name": "CompanyMutations",
+          "id": "fb5fe2f7-b276-4d5e-8fb4-7154ebdc6385",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation companyCreate {\n  companyCreate(\n    companyData: {\n      storeHash: \"storehash\"\n      customerId: \"2\"\n      companyName: \"my new company\"\n      addressLine1: \"stret 123\"\n      city: \"Los Angeles\"\n      country: \"United States\"\n      state: \"California\"\n      zipCode: \"12345\"\n    }\n  ) {\n    company {\n      id\n    }\n  }\n}\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-fb5fe2f7-b276-4d5e-8fb4-7154ebdc6385"
+        },
+        {
+          "name": "InvoiceMutationsB2B",
+          "id": "7ae2b3d5-f269-453f-9ae4-ed539b238b11",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation invoicePdf {\n  invoicePdf(invoiceId: 1) {\n    url\n  }\n} # needs B2B token\nmutation invoicesExport {\n  invoicesExport{\n    url\n  }\n} # needs B2B token\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-7ae2b3d5-f269-453f-9ae4-ed539b238b11"
+        },
+        {
+          "name": "InvoicePaymentsMutationsB2B",
+          "id": "f15b94f8-142a-48d3-88ed-dcb8fc0eed9a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation invoiceCreateBcCart {\n  invoiceCreateBcCart(\n    bcCartData: { lineItems: [{invoiceId: 1, amount: \"1\"}], currency: \"USD\", details: 1 }\n  ) {\n    result {\n      checkoutUrl\n    }\n  }\n} # needs B2B token\nmutation invoiceFinishBcPayment {\n  invoiceFinishBcPayment(orderId: 1) {\n    result\n  }\n} # needs B2B token\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-f15b94f8-142a-48d3-88ed-dcb8fc0eed9a"
+        },
+        {
+          "name": "OrderMutationsB2B",
+          "id": "9b2a4d74-d407-4a62-afc5-8d30f98e5b43",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation createOrder {\n  createOrder(createData: { bcOrderId: 1 }) {\n    orderId\n  }\n} # needs B2B token\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-9b2a4d74-d407-4a62-afc5-8d30f98e5b43"
+        },
+        {
+          "name": "QuoteMutationsB2BBC",
+          "id": "ee4d99eb-e880-424b-a7ea-0bf20400d9e3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation quoteCreate {\n  quoteCreate(\n    quoteData: {\n      grandTotal: 100\n      discount: 0\n      subtotal: 100\n      storeHash: \"storehash\"\n      shippingAddress: {}\n      billingAddress: {}\n      contactInfo: { name: \"john smith\", email: \"mail@mail.com\" }\n      currency: {}\n      productList: [\n        {\n          productId: 1\n          sku: \"SKU-1234\"\n          basePrice: 100\n          discount: 0\n          offeredPrice: 100\n          quantity: 1\n          variantId: 1\n          imageUrl: \"someurl\"\n          productName: \"Some product\"\n        }\n      ]\n    }\n  ) {\n    quote {\n      totalAmount\n    }\n  }\n}\nmutation quoteUpdate {\n  quoteUpdate(\n    id: 1\n    quoteData: { storeHash: \"storehash\", userEmail: \"mail@mail.com\" }\n  ) {\n    quote {\n      totalAmount\n    }\n  }\n} # needs B2B or BC token.\nmutation quoteCheckout {\n  quoteCheckout(id: 1, storeHash: \"storehash\") {\n    quoteCheckout {\n      checkoutUrl\n    }\n  }\n}\nmutation quoteOrdered {\n  quoteOrdered(\n    id: 1\n    orderedData: {\n      orderId: \"1\"\n      storeHash: \"storehash\"\n      shippingTotal: \"10\"\n      taxTotal: \"10\"\n      shippingMethod: {\n        id: \"1\"\n        type: \"1\"\n        description: \"description\"\n        imageUrl: \"someurl\"\n        transitTime: \"1 day\"\n        cost: 10.0\n        additionalDescription: \"other description\"\n      }\n    }\n  ) {\n    message\n  }\n} # needs B2B or BC token\nmutation quoteEmail {\n  quoteEmail(emailData: { email: \"mail@mail.com\", quoteId: 1 }) {\n    message\n  }\n} # needs B2B or BC token\nmutation quotePdfExport {\n  quotePdfExport(\n    quoteId: 1\n    storeHash: \"storehash\"\n    currency: { currencyExchangeRate: \"1\" }\n  ) {\n    url\n  }\n} # needs B2B or BC token\nmutation quoteAttachFileDelete {\n  quoteAttachFileDelete(fileId: 1, quoteId: 1) {\n    message\n  }\n} # needs B2B or BC token\nmutation quoteAttachFileCreate {\n  quoteAttachFileCreate(quoteId: 1) {\n    attachFiles {\n      fileName\n    }\n  }\n} # needs B2B or BC token\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-ee4d99eb-e880-424b-a7ea-0bf20400d9e3"
+        },
+        {
+          "name": "ShoppingListsMutationsB2B",
+          "id": "0a92e352-1b0c-4b54-8dcc-ddd2d486865e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation shoppingListsCreate {\n  shoppingListsCreate(\n    shoppingListData: {\n      name: \"shopping list 1\"\n      description: \"current description\"\n      status: 0\n    }\n  ) {\n    shoppingList {\n      id\n      name\n    }\n  }\n} # needs B2B token\nmutation shoppingListsUpdate {\n  shoppingListsUpdate(\n    id: 1\n    shoppingListData: {\n      name: \"shopping list 1\"\n      description: \"updated description\"\n      status: 0\n    }\n  ) {\n    shoppingList {\n      id\n      name\n    }\n  }\n} # needs B2B token\nmutation shoppingListsDelete {\n  shoppingListsDelete(id: 1) {\n    message\n  }\n} # needs B2B token\nmutation shoppingListsDuplicate {\n  shoppingListsDuplicate(\n    sampleShoppingListId: 1\n    shoppingListData: {\n      name: \"shopping list 2\"\n      description: \"new description\"\n    }\n  ) {\n    shoppingList {\n      id\n      name\n    }\n  }\n} # needs B2B token\nmutation shoppingListsItemsCreate {\n  shoppingListsItemsCreate(shoppingListId: 1, items: []) {\n    shoppingListsItems {\n      productName\n    }\n  }\n} # needs B2B token\nmutation shoppingListsItemsUpdate {\n  shoppingListsItemsUpdate(itemId: 1, shoppingListId: 1, itemData: {}) {\n    shoppingListsItem {\n      productName\n    }\n  }\n} # needs B2B token\nmutation shoppingListsItemsDelete {\n  shoppingListsItemsDelete(itemId: 1, shoppingListId: 1) {\n    message\n  }\n} # needs B2B token\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-0a92e352-1b0c-4b54-8dcc-ddd2d486865e"
+        },
+        {
+          "name": "ShoppingListsMutationsBC",
+          "id": "ca042a0a-b816-4cc6-bb53-b750e4f95730",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation customerShoppingListsCreate {\n  customerShoppingListsCreate(shoppingListData: {name: \"shopping list 1\" description: \"current description\" channelId: 1} ) {\n    shoppingList {\n      id\n      name\n    }\n  }\n} # needs BC token\nmutation customerShoppingListsUpdate {\n  customerShoppingListsUpdate(id: 1, shoppingListData: {name: \"shopping list 1\" description: \"update description\"}) {\n    shoppingList {\n      id\n      name\n    }\n  }\n} # needs BC token\nmutation customerShoppingListsDelete {\n  customerShoppingListsDelete(id: 1) {\n    message\n  }\n} # needs BC token\nmutation customerShoppingListsDuplicate {\n  customerShoppingListsDuplicate(\n    sampleShoppingListId: 1\n    shoppingListData: {\n      name: \"customer shopping list 2\"\n      description: \"new description\"\n    }\n  ) {\n    shoppingList {\n      id\n      name\n    }\n  }\n} # needs BC token\nmutation customerShoppingListsItemsCreate {\n  customerShoppingListsItemsCreate {\n    shoppingListsItems {\n      productName\n    }\n  }\n} # needs BC token\nmutation customerShoppingListsItemsUpdate {\n  customerShoppingListsItemsUpdate(itemId: 1, shoppingListId: 1, itemData: {}) {\n    shoppingListsItem {\n      productName\n    }\n  }\n} # needs BC token\nmutation customerShoppingListsItemsDelete {\n  customerShoppingListsItemsDelete(itemId: 1, shoppingListId: 1) {\n    message\n  }\n} # needs BC token\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-ca042a0a-b816-4cc6-bb53-b750e4f95730"
+        },
+        {
+          "name": "SuperAdminMutationsB2B",
+          "id": "ca7b293d-3afc-4618-8ab2-0f208a7455a1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation superAdminBeginMasquerade {\n  superAdminBeginMasquerade(userId: 1, companyId: 1) {\n    userInfo {\n      firstName\n    }\n  }\n} # needs B2B token\nmutation superAdminEndMasquerade {\n  superAdminEndMasquerade(companyId: 1, userId: 1) {\n    message\n  }\n} # needs B2B token\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-ca7b293d-3afc-4618-8ab2-0f208a7455a1"
+        },
+        {
+          "name": "UserMutationsB2B",
+          "id": "6d0e9576-cf22-4655-8ade-54ce6e676f0b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation login {\n  login(\n    loginData: {\n      storeHash: \"storehash\"\n      email: \"mail@mail.com\"\n      password: \"password\"\n    }\n  ) {\n    result {\n      token\n      loginType\n      user {\n        firstName\n      }\n    }\n  }\n}\nmutation userCreate {\n  userCreate(\n    userData: {\n      companyId: 1\n      email: \"mail@mail.com\"\n      firstName: \"john\"\n      lastName: \"smith\"\n      role: 0\n    }\n  ) {\n    user {\n      firstName\n    }\n  }\n} # needs B2B token\nmutation userUpdate {\n  userUpdate(userData: { userId: 1, companyId: 1, firstName: \"Jhon\" }) {\n    user {\n      firstName\n    }\n  }\n} # needs B2B token\nmutation userDelete {\n  userDelete(companyId: 1, userId: 1) {\n    message\n  }\n} # needs B2B token\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-6d0e9576-cf22-4655-8ade-54ce6e676f0b"
+        },
+        {
+          "name": "UserMutationsBC",
+          "id": "4547a548-98f1-4b53-ab3d-b91071956d88",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{b2b_sf_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation authorization {\n  authorization(authData: { bcToken: \"somebctoken\" }) {\n    result {\n      user {\n        firstName\n      }\n    }\n  }\n} # uses BC token as param\n",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bundleb2b.net/graphql/",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "graphql",
+                ""
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-4547a548-98f1-4b53-ab3d-b91071956d88"
+        }
+      ],
+      "id": "a77fcda2-9691-48dd-b77a-3653a5b188cc",
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-a77fcda2-9691-48dd-b77a-3653a5b188cc"
+    }
+  ]
+}

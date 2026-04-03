@@ -1,0 +1,2061 @@
+{
+  "info": {
+    "_postman_id": "f735420d-4eba-4f10-a0bc-1e269422bcf5",
+    "name": "Zuora Promo Codes",
+    "description": "Collection for interacting with the Zuora Promo Codes app.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2022-02-28T16:32:23.000Z",
+    "updatedAt": "2022-02-28T16:32:25.000Z",
+    "lastUpdatedBy": "2104987",
+    "uid": "2104987-f735420d-4eba-4f10-a0bc-1e269422bcf5"
+  },
+  "item": [
+    {
+      "name": "Campaigns",
+      "item": [
+        {
+          "name": "Index",
+          "id": "f5d05919-1f92-46aa-95fa-81a5532a95ae",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "{{password}}",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "{{username}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{zuora_promo_code_url}}/campaigns/",
+              "host": [
+                "{{zuora_promo_code_url}}"
+              ],
+              "path": [
+                "campaigns",
+                ""
+              ]
+            },
+            "description": "Get all campaigns"
+          },
+          "response": [
+            {
+              "id": "0c9aceb1-7041-499a-b06d-b55ffc701980",
+              "name": "Index",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{zuora_promo_code_url}}/campaigns/",
+                  "host": [
+                    "{{zuora_promo_code_url}}"
+                  ],
+                  "path": [
+                    "campaigns",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 15 Jul 2021 01:52:10 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "ALLOWALL"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "POST, GET, PUT, DELETE, OPTIONS"
+                },
+                {
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "Origin, Content-Type, Accept, Authorization, Token"
+                },
+                {
+                  "key": "Access-Control-Max-Age",
+                  "value": "1728000"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"bc268923a9a1168cbd92ac0a60c90021\""
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "max-age=0, private, must-revalidate"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "d65b7134-6735-491d-9c4b-09315bc26d8b"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.022853"
+                },
+                {
+                  "key": "X-Kong-Upstream-Latency",
+                  "value": "25"
+                },
+                {
+                  "key": "X-Kong-Proxy-Latency",
+                  "value": "1"
+                },
+                {
+                  "key": "Via",
+                  "value": "kong/2.3.3"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 2,\n            \"name\": \"First Test Using Existing Discount Product\",\n            \"currency\": \"USD\",\n            \"ratePlanIds\": [\n                \"2c92c0f84b5862ba014b607f747d4cb6\"\n            ],\n            \"createdAt\": \"2021-06-18T08:04:12.678-06:00\",\n            \"updatedAt\": \"2021-07-12T09:37:14.020-06:00\",\n            \"effectiveFrom\": \"2021-06-18T08:00:00.000-06:00\",\n            \"effectiveTo\": \"2022-07-08T12:00:00.000-06:00\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"New Campaign\",\n            \"currency\": \"\",\n            \"ratePlanIds\": [],\n            \"createdAt\": \"2021-07-09T14:35:23.364-06:00\",\n            \"updatedAt\": \"2021-07-12T09:37:14.128-06:00\",\n            \"effectiveFrom\": null,\n            \"effectiveTo\": null\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Jeremy Loves Zuora\",\n            \"currency\": \"\",\n            \"ratePlanIds\": [],\n            \"createdAt\": \"2021-07-09T14:36:10.547-06:00\",\n            \"updatedAt\": \"2021-07-12T09:37:14.130-06:00\",\n            \"effectiveFrom\": null,\n            \"effectiveTo\": null\n        },\n        {\n            \"id\": 36,\n            \"name\": \"Use Case 1: Rapid Offer Experimentation\",\n            \"currency\": \"\",\n            \"ratePlanIds\": [],\n            \"createdAt\": \"2021-07-12T09:39:04.139-06:00\",\n            \"updatedAt\": \"2021-07-14T01:33:10.107-06:00\",\n            \"effectiveFrom\": \"2021-07-12T09:00:00.000-06:00\",\n            \"effectiveTo\": \"2027-01-21T09:00:00.000-07:00\"\n        }\n    ],\n    \"pagination\": {\n        \"page\": 1,\n        \"pageLength\": 20\n    }\n}",
+              "createdAt": "2022-02-28T16:32:24.000Z",
+              "updatedAt": "2022-02-28T16:32:24.000Z",
+              "uid": "2104987-0c9aceb1-7041-499a-b06d-b55ffc701980"
+            }
+          ],
+          "createdAt": "2022-02-28T16:32:24.000Z",
+          "updatedAt": "2022-02-28T16:32:24.000Z",
+          "uid": "2104987-f5d05919-1f92-46aa-95fa-81a5532a95ae"
+        },
+        {
+          "name": "List Promo Codes by Campaign",
+          "id": "c46c7ae0-bde0-4292-a3a6-0b59e41b6f69",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "{{password}}",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "{{username}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{zuora_promo_code_url}}/campaigns/[CAMPAIGN_ID]/promos",
+              "host": [
+                "{{zuora_promo_code_url}}"
+              ],
+              "path": [
+                "campaigns",
+                "[CAMPAIGN_ID]",
+                "promos"
+              ]
+            },
+            "description": "Get all promos in a campaign by campaign id"
+          },
+          "response": [
+            {
+              "id": "b7f29727-1b75-485a-a804-a278f3b3c86c",
+              "name": "List Promo Codes by Campaign",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{zuora_promo_code_url}}/campaigns/36/promos",
+                  "host": [
+                    "{{zuora_promo_code_url}}"
+                  ],
+                  "path": [
+                    "campaigns",
+                    "36",
+                    "promos"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 15 Jul 2021 01:53:07 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "ALLOWALL"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "POST, GET, PUT, DELETE, OPTIONS"
+                },
+                {
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "Origin, Content-Type, Accept, Authorization, Token"
+                },
+                {
+                  "key": "Access-Control-Max-Age",
+                  "value": "1728000"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"a6c813e4a2cef0cfe4994523996b951a\""
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "max-age=0, private, must-revalidate"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "e5d495f9-8db5-4986-a2d6-1490349b54fc"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.082994"
+                },
+                {
+                  "key": "Content-Security-Policy-Report-Only",
+                  "value": "media-src 'none'; img-src 'self' https://s3-us-west-2.amazonaws.com https://www.google-analytics.com https://workflow.apps.zuora.com https://www.zuora.com https://zuora-connect.s3.us-west-2.amazonaws.com http://storage.googleapis.com https://www.expression-web-tutorials.com; object-src https://connect.zuora.com; worker-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'self' jsagent.tcell.io https://code.highcharts.com https://cdn.zuora.com https://www.google-analytics.com; manifest-src 'none'; style-src 'unsafe-inline' 'unsafe-eval' 'self' https://cdn.zuora.com https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; child-src https://*.apps.zuora.com https://connect.zuora.com https://us.browser.tcell.insight.rapid7.com/ https://input.tcell.io/; frame-src https://*.apps.zuora.com https://connect.zuora.com https://us.browser.tcell.insight.rapid7.com/ https://input.tcell.io/; connect-src 'self' https://api.tcell.io/ https://us.agent.tcell.insight.rapid7.com https://www.google-analytics.com https://input.tcell.io/ https://us.input.tcell.insight.rapid7.com https://us.browser.tcell.insight.rapid7.com/; report-uri https://us.browser.tcell.insight.rapid7.com/csp/785fa070bb619ec7bb8304b3b1e8a93ce179691ce922deb616bde155ecd6de1a"
+                },
+                {
+                  "key": "X-Kong-Upstream-Latency",
+                  "value": "84"
+                },
+                {
+                  "key": "X-Kong-Proxy-Latency",
+                  "value": "1"
+                },
+                {
+                  "key": "Via",
+                  "value": "kong/2.3.3"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 67,\n            \"code\": null,\n            \"campaign\": \"Discount Option: Set 3 months free\",\n            \"campaignId\": 36,\n            \"createdAt\": \"2021-07-12T09:44:54.250-06:00\",\n            \"updatedAt\": \"2021-07-12T09:44:54.250-06:00\",\n            \"availableQuantity\": null,\n            \"effectiveFrom\": \"2021-07-12T09:00:00.000-06:00\",\n            \"effectiveTo\": \"2027-01-21T09:00:00.000-07:00\",\n            \"initialQuantity\": null,\n            \"discount\": {\n                \"type\": \"percent\",\n                \"ratePlan\": {\n                    \"id\": \"2c92c0f85b7a701a015b8465c2fe5a8a\",\n                    \"name\": \"3 Months Free - Monthly\",\n                    \"AOV__c\": null,\n                    \"SKU__c\": \"PROMO-FREE-3-MONTHS-MONTHLY\",\n                    \"status\": \"Active\",\n                    \"Termed__c\": \"N\",\n                    \"productId\": \"2c92c0f953b174e50153bebf3aa67c1d\",\n                    \"Favorite__c\": null,\n                    \"description\": \"3 months free promotional discount\",\n                    \"productName\": \"PROMO\",\n                    \"Franchise__c\": \"BC\",\n                    \"MaximumGMV__c\": \"0\",\n                    \"PricingGroup__c\": \"New Pricing\",\n                    \"FeatureSetSKU__c\": \"PROMO-FREE-3-MONTHS-MONTHLY\",\n                    \"effectiveEndDate\": \"2099-03-01\",\n                    \"WHMCSProductID__c\": \"-1\",\n                    \"effectiveStartDate\": \"2016-08-11\",\n                    \"ProviderProductCode__c\": null,\n                    \"productRatePlanCharges\": [\n                        {\n                            \"id\": \"2c92c0f95b7a81bc015b8465c83f5089\",\n                            \"uom\": null,\n                            \"name\": \"First 3 Months Free\",\n                            \"type\": \"Recurring\",\n                            \"model\": \"DiscountPercentage\",\n                            \"pricing\": [\n                                {\n                                    \"price\": null,\n                                    \"tiers\": null,\n                                    \"currency\": \"USD\",\n                                    \"overagePrice\": null,\n                                    \"includedUnits\": 0,\n                                    \"discountAmount\": null,\n                                    \"discountPercentage\": 100\n                                }\n                            ],\n                            \"taxCode\": null,\n                            \"taxMode\": \"TaxExclusive\",\n                            \"taxable\": false,\n                            \"productId\": \"2c92c0f953b174e50153bebf3aa67c1d\",\n                            \"billingDay\": \"ChargeTriggerDay\",\n                            \"revRecCode\": null,\n                            \"description\": \"3 month promotional discount\\\\nPromo - 3 Months Free - Monthly\",\n                            \"productName\": \"PROMO\",\n                            \"upToPeriods\": 3,\n                            \"BCGLCodes__c\": null,\n                            \"triggerEvent\": \"ContractEffective\",\n                            \"ChargeType__c\": \"Product Charge\",\n                            \"billingPeriod\": \"Month\",\n                            \"billingTiming\": null,\n                            \"discountClass\": null,\n                            \"discountLevel\": \"subscription\",\n                            \"listPriceBase\": null,\n                            \"ProductCode__c\": \"subscription\",\n                            \"pricingSummary\": [\n                                \"100%  discount\"\n                            ],\n                            \"smoothingModel\": null,\n                            \"applyDiscountTo\": \"RECURRING\",\n                            \"defaultQuantity\": null,\n                            \"numberOfPeriods\": null,\n                            \"upToPeriodsType\": \"Months\",\n                            \"CommodityCode__c\": \"208-46\",\n                            \"endDateCondition\": \"Fixed_Period\",\n                            \"priceChangeOption\": null,\n                            \"productRatePlanId\": \"2c92c0f85b7a701a015b8465c2fe5a8a\",\n                            \"BCGLPercentages__c\": null,\n                            \"financeInformation\": {\n                                \"deferredRevenueAccountingCode\": null,\n                                \"recognizedRevenueAccountingCode\": null,\n                                \"deferredRevenueAccountingCodeType\": null,\n                                \"recognizedRevenueAccountingCodeType\": null\n                            },\n                            \"productRatePlanName\": \"3 Months Free - Monthly\",\n                            \"BCFairMarketValue__c\": null,\n                            \"specificBillingPeriod\": null,\n                            \"billingPeriodAlignment\": \"AlignToCharge\",\n                            \"revRecTriggerCondition\": null,\n                            \"priceIncreasePercentage\": null,\n                            \"unusedIncludedUnitPrice\": null,\n                            \"usageRecordRatingOption\": null,\n                            \"overageCalculationOption\": null,\n                            \"chargeModelConfigurations\": [],\n                            \"revenueRecognitionRuleName\": null,\n                            \"productDiscountApplyDetails\": [\n                                {\n                                    \"appliedProductRatePlanId\": \"2c92c0f84fd7e46c014fe2124db27244\",\n                                    \"appliedProductRatePlanChargeId\": \"2c92c0f84fd7e46a014fe2125697523d\"\n                                },\n                                {\n                                    \"appliedProductRatePlanId\": \"2c92c0f84fd7e475014fe21216c90f0b\",\n                                    \"appliedProductRatePlanChargeId\": \"2c92c0f94fd7f22b014fe2121d1a3287\"\n                                },\n                                {\n                                    \"appliedProductRatePlanId\": \"2c92c0f84c9e618f014ca4f4e78d3c7c\",\n                                    \"appliedProductRatePlanChargeId\": \"2c92c0f96fa4bb82016faacd88cb7b04\"\n                                },\n                                {\n                                    \"appliedProductRatePlanId\": \"2c92c0f94c9e6b67014ca4fcc9716791\",\n                                    \"appliedProductRatePlanChargeId\": \"2c92c0f8737fba2c01738246c63a506e\"\n                                },\n                                {\n                                    \"appliedProductRatePlanId\": \"2c92c0f8599150970159943ff18b0f3c\",\n                                    \"appliedProductRatePlanChargeId\": \"2c92c0f959916d780159943ff68a61d8\"\n                                }\n                            ],\n                            \"overageUnusedUnitsCreditOption\": null,\n                            \"useTenantDefaultForPriceChange\": null,\n                            \"useDiscountSpecificAccountingCode\": false\n                        }\n                    ],\n                    \"AutomaticallyUpgrades__c\": \"NO\",\n                    \"EligibleforAllocation__c\": \"Y\",\n                    \"MaximumTrailingOrders__c\": \"0\",\n                    \"MinimumTrailingOrders__c\": \"0\",\n                    \"OrderOverageBlockSize__c\": \"1000\",\n                    \"ServiceExpirationDays__c\": \"0\",\n                    \"AutomaticallyUpgradesTo__c\": null,\n                    \"AutomaticallyUpgradesToOrders__c\": null,\n                    \"ServiceDurationPeriodInMonths__c\": \"0\"\n                }\n            },\n            \"customFields\": {},\n            \"ratePlanGroups\": [\n                \"All\"\n            ]\n        }\n    ],\n    \"pagination\": {\n        \"page\": 1,\n        \"pageLength\": 20\n    }\n}",
+              "createdAt": "2022-02-28T16:32:24.000Z",
+              "updatedAt": "2022-02-28T16:32:24.000Z",
+              "uid": "2104987-b7f29727-1b75-485a-a804-a278f3b3c86c"
+            }
+          ],
+          "createdAt": "2022-02-28T16:32:24.000Z",
+          "updatedAt": "2022-02-28T16:32:24.000Z",
+          "uid": "2104987-c46c7ae0-bde0-4292-a3a6-0b59e41b6f69"
+        }
+      ],
+      "id": "218ee719-baa1-4117-8b5b-0d7be66ad8d5",
+      "createdAt": "2022-02-28T16:32:24.000Z",
+      "updatedAt": "2022-02-28T16:32:24.000Z",
+      "uid": "2104987-218ee719-baa1-4117-8b5b-0d7be66ad8d5"
+    },
+    {
+      "name": "Promos",
+      "item": [
+        {
+          "name": "Retrieves a List of Promotion Campaigns",
+          "id": "40c0e0b5-cbb0-483a-9860-7ddbbeadfd68",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "{{password}}",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "{{username}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{zuora_promo_code_url}}/tools/promos/",
+              "host": [
+                "{{zuora_promo_code_url}}"
+              ],
+              "path": [
+                "tools",
+                "promos",
+                ""
+              ]
+            },
+            "description": "Retrieves a list of promotion campaigns"
+          },
+          "response": [
+            {
+              "id": "9c663a57-2d48-4d0c-8941-bf55bb94455c",
+              "name": "List",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{zuora_promo_code_url}}/tools/promos/",
+                  "host": [
+                    "{{zuora_promo_code_url}}"
+                  ],
+                  "path": [
+                    "tools",
+                    "promos",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 15 Jul 2021 01:55:27 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "ALLOWALL"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "POST, GET, PUT, DELETE, OPTIONS"
+                },
+                {
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "Origin, Content-Type, Accept, Authorization, Token"
+                },
+                {
+                  "key": "Access-Control-Max-Age",
+                  "value": "1728000"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1a895debea17be3e94d7f1a8933742a0\""
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "max-age=0, private, must-revalidate"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "659cc8d0-bec9-4eff-b235-15f0968bfdc5"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.117483"
+                },
+                {
+                  "key": "Content-Security-Policy-Report-Only",
+                  "value": "media-src 'none'; img-src 'self' https://s3-us-west-2.amazonaws.com https://www.google-analytics.com https://workflow.apps.zuora.com https://www.zuora.com https://zuora-connect.s3.us-west-2.amazonaws.com http://storage.googleapis.com https://www.expression-web-tutorials.com; object-src https://connect.zuora.com; worker-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'self' jsagent.tcell.io https://code.highcharts.com https://cdn.zuora.com https://www.google-analytics.com; manifest-src 'none'; style-src 'unsafe-inline' 'unsafe-eval' 'self' https://cdn.zuora.com https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; child-src https://*.apps.zuora.com https://connect.zuora.com https://us.browser.tcell.insight.rapid7.com/ https://input.tcell.io/; frame-src https://*.apps.zuora.com https://connect.zuora.com https://us.browser.tcell.insight.rapid7.com/ https://input.tcell.io/; connect-src 'self' https://api.tcell.io/ https://us.agent.tcell.insight.rapid7.com https://www.google-analytics.com https://input.tcell.io/ https://us.input.tcell.insight.rapid7.com https://us.browser.tcell.insight.rapid7.com/; report-uri https://us.browser.tcell.insight.rapid7.com/csp/785fa070bb619ec7bb8304b3b1e8a93ce179691ce922deb616bde155ecd6de1a"
+                },
+                {
+                  "key": "X-Kong-Upstream-Latency",
+                  "value": "120"
+                },
+                {
+                  "key": "X-Kong-Proxy-Latency",
+                  "value": "1"
+                },
+                {
+                  "key": "Via",
+                  "value": "kong/2.3.3"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 67,\n            \"code\": null,\n            \"campaign\": \"Discount Option: Set 3 months free\",\n            \"campaignId\": 36,\n            \"createdAt\": \"2021-07-12T09:44:54.250-06:00\",\n            \"updatedAt\": \"2021-07-12T09:44:54.250-06:00\",\n            \"availableQuantity\": null,\n            \"effectiveFrom\": \"2021-07-12T09:00:00.000-06:00\",\n            \"effectiveTo\": \"2027-01-21T09:00:00.000-07:00\",\n            \"initialQuantity\": null,\n            \"discount\": {\n                \"type\": \"percent\",\n                \"ratePlan\": {\n                    \"id\": \"2c92c0f85b7a701a015b8465c2fe5a8a\",\n                    \"name\": \"3 Months Free - Monthly\",\n                    \"AOV__c\": null,\n                    \"SKU__c\": \"PROMO-FREE-3-MONTHS-MONTHLY\",\n                    \"status\": \"Active\",\n                    \"Termed__c\": \"N\",\n                    \"productId\": \"2c92c0f953b174e50153bebf3aa67c1d\",\n                    \"Favorite__c\": null,\n                    \"description\": \"3 months free promotional discount\",\n                    \"productName\": \"PROMO\",\n                    \"Franchise__c\": \"BC\",\n                    \"MaximumGMV__c\": \"0\",\n                    \"PricingGroup__c\": \"New Pricing\",\n                    \"FeatureSetSKU__c\": \"PROMO-FREE-3-MONTHS-MONTHLY\",\n                    \"effectiveEndDate\": \"2099-03-01\",\n                    \"WHMCSProductID__c\": \"-1\",\n                    \"effectiveStartDate\": \"2016-08-11\",\n                    \"ProviderProductCode__c\": null,\n                    \"productRatePlanCharges\": [\n                        {\n                            \"id\": \"2c92c0f95b7a81bc015b8465c83f5089\",\n                            \"uom\": null,\n                            \"name\": \"First 3 Months Free\",\n                            \"type\": \"Recurring\",\n                            \"model\": \"DiscountPercentage\",\n                            \"pricing\": [\n                                {\n                                    \"price\": null,\n                                    \"tiers\": null,\n                                    \"currency\": \"USD\",\n                                    \"overagePrice\": null,\n                                    \"includedUnits\": 0,\n                                    \"discountAmount\": null,\n                                    \"discountPercentage\": 100\n                                }\n                            ],\n                            \"taxCode\": null,\n                            \"taxMode\": \"TaxExclusive\",\n                            \"taxable\": false,\n                            \"productId\": \"2c92c0f953b174e50153bebf3aa67c1d\",\n                            \"billingDay\": \"ChargeTriggerDay\",\n                            \"revRecCode\": null,\n                            \"description\": \"3 month promotional discount\\\\nPromo - 3 Months Free - Monthly\",\n                            \"productName\": \"PROMO\",\n                            \"upToPeriods\": 3,\n                            \"BCGLCodes__c\": null,\n                            \"triggerEvent\": \"ContractEffective\",\n                            \"ChargeType__c\": \"Product Charge\",\n                            \"billingPeriod\": \"Month\",\n                            \"billingTiming\": null,\n                            \"discountClass\": null,\n                            \"discountLevel\": \"subscription\",\n                            \"listPriceBase\": null,\n                            \"ProductCode__c\": \"subscription\",\n                            \"pricingSummary\": [\n                                \"100%  discount\"\n                            ],\n                            \"smoothingModel\": null,\n                            \"applyDiscountTo\": \"RECURRING\",\n                            \"defaultQuantity\": null,\n                            \"numberOfPeriods\": null,\n                            \"upToPeriodsType\": \"Months\",\n                            \"CommodityCode__c\": \"208-46\",\n                            \"endDateCondition\": \"Fixed_Period\",\n                            \"priceChangeOption\": null,\n                            \"productRatePlanId\": \"2c92c0f85b7a701a015b8465c2fe5a8a\",\n                            \"BCGLPercentages__c\": null,\n                            \"financeInformation\": {\n                                \"deferredRevenueAccountingCode\": null,\n                                \"recognizedRevenueAccountingCode\": null,\n                                \"deferredRevenueAccountingCodeType\": null,\n                                \"recognizedRevenueAccountingCodeType\": null\n                            },\n                            \"productRatePlanName\": \"3 Months Free - Monthly\",\n                            \"BCFairMarketValue__c\": null,\n                            \"specificBillingPeriod\": null,\n                            \"billingPeriodAlignment\": \"AlignToCharge\",\n                            \"revRecTriggerCondition\": null,\n                            \"priceIncreasePercentage\": null,\n                            \"unusedIncludedUnitPrice\": null,\n                            \"usageRecordRatingOption\": null,\n                            \"overageCalculationOption\": null,\n                            \"chargeModelConfigurations\": [],\n                            \"revenueRecognitionRuleName\": null,\n                            \"productDiscountApplyDetails\": [\n                                {\n                                    \"appliedProductRatePlanId\": \"2c92c0f84fd7e46c014fe2124db27244\",\n                                    \"appliedProductRatePlanChargeId\": \"2c92c0f84fd7e46a014fe2125697523d\"\n                                },\n                                {\n                                    \"appliedProductRatePlanId\": \"2c92c0f84fd7e475014fe21216c90f0b\",\n                                    \"appliedProductRatePlanChargeId\": \"2c92c0f94fd7f22b014fe2121d1a3287\"\n                                },\n                                {\n                                    \"appliedProductRatePlanId\": \"2c92c0f84c9e618f014ca4f4e78d3c7c\",\n                                    \"appliedProductRatePlanChargeId\": \"2c92c0f96fa4bb82016faacd88cb7b04\"\n                                },\n                                {\n                                    \"appliedProductRatePlanId\": \"2c92c0f94c9e6b67014ca4fcc9716791\",\n                                    \"appliedProductRatePlanChargeId\": \"2c92c0f8737fba2c01738246c63a506e\"\n                                },\n                                {\n                                    \"appliedProductRatePlanId\": \"2c92c0f8599150970159943ff18b0f3c\",\n                                    \"appliedProductRatePlanChargeId\": \"2c92c0f959916d780159943ff68a61d8\"\n                                }\n                            ],\n                            \"overageUnusedUnitsCreditOption\": null,\n                            \"useTenantDefaultForPriceChange\": null,\n                            \"useDiscountSpecificAccountingCode\": false\n                        }\n                    ],\n                    \"AutomaticallyUpgrades__c\": \"NO\",\n                    \"EligibleforAllocation__c\": \"Y\",\n                    \"MaximumTrailingOrders__c\": \"0\",\n                    \"MinimumTrailingOrders__c\": \"0\",\n                    \"OrderOverageBlockSize__c\": \"1000\",\n                    \"ServiceExpirationDays__c\": \"0\",\n                    \"AutomaticallyUpgradesTo__c\": null,\n                    \"AutomaticallyUpgradesToOrders__c\": null,\n                    \"ServiceDurationPeriodInMonths__c\": \"0\"\n                }\n            },\n            \"customFields\": {},\n            \"ratePlanGroups\": [\n                \"All\"\n            ]\n        },\n        {\n            \"id\": 34,\n            \"code\": null,\n            \"campaign\": \"Single Use Coupon\",\n            \"campaignId\": 2,\n            \"createdAt\": \"2021-07-07T12:25:25.246-06:00\",\n            \"updatedAt\": \"2021-07-07T12:25:25.246-06:00\",\n            \"availableQuantity\": null,\n            \"effectiveFrom\": \"2021-07-07T12:00:00.000-06:00\",\n            \"effectiveTo\": \"2022-07-08T12:00:00.000-06:00\",\n            \"initialQuantity\": null,\n            \"discount\": {\n                \"type\": \"percent\",\n                \"ratePlan\": {\n                    \"id\": \"2c92c0f853b16ce60153becb5acb4ca5\",\n                    \"name\": \"1 Month Free\",\n                    \"AOV__c\": null,\n                    \"SKU__c\": \"PROMO-FREE-ONE-MONTH\",\n                    \"status\": \"Expired\",\n                    \"Termed__c\": null,\n                    \"productId\": \"2c92c0f953b174e50153bebf3aa67c1d\",\n                    \"Favorite__c\": null,\n                    \"description\": \"1 month free promotional discount\",\n                    \"productName\": \"PROMO\",\n                    \"Franchise__c\": \"BC\",\n                    \"MaximumGMV__c\": null,\n                    \"PricingGroup__c\": \"original\",\n                    \"FeatureSetSKU__c\": \"PROMO-FREE-ONE-MONTH\",\n                    \"effectiveEndDate\": \"2020-04-01\",\n                    \"WHMCSProductID__c\": \"-1\",\n                    \"effectiveStartDate\": \"2016-03-01\",\n                    \"ProviderProductCode__c\": \"PROMO-FREE-ONE-MONTH\",\n                    \"productRatePlanCharges\": [\n                        {\n                            \"id\": \"2c92c0f853b16ce60153bed638f36179\",\n                            \"uom\": null,\n                            \"name\": \"Promo - 1 Month Free\",\n                            \"type\": \"Recurring\",\n                            \"model\": \"DiscountPercentage\",\n                            \"pricing\": [\n                                {\n                                    \"price\": null,\n                                    \"tiers\": null,\n                                    \"currency\": \"USD\",\n                                    \"overagePrice\": null,\n                                    \"includedUnits\": null,\n                                    \"discountAmount\": null,\n                                    \"discountPercentage\": 100\n                                }\n                            ],\n                            \"taxCode\": null,\n                            \"taxMode\": null,\n                            \"taxable\": false,\n                            \"productId\": \"2c92c0f953b174e50153bebf3aa67c1d\",\n                            \"billingDay\": \"ChargeTriggerDay\",\n                            \"revRecCode\": null,\n                            \"description\": \"1 month promotional discount\",\n                            \"productName\": \"PROMO\",\n                            \"upToPeriods\": 1,\n                            \"BCGLCodes__c\": null,\n                            \"triggerEvent\": \"ContractEffective\",\n                            \"ChargeType__c\": \"Product Charge\",\n                            \"billingPeriod\": \"Month\",\n                            \"billingTiming\": null,\n                            \"discountClass\": null,\n                            \"discountLevel\": \"subscription\",\n                            \"listPriceBase\": null,\n                            \"ProductCode__c\": \"subscription\",\n                            \"pricingSummary\": [\n                                \"100%  discount\"\n                            ],\n                            \"smoothingModel\": null,\n                            \"applyDiscountTo\": \"ONETIMERECURRING\",\n                            \"defaultQuantity\": null,\n                            \"numberOfPeriods\": null,\n                            \"upToPeriodsType\": \"Months\",\n                            \"CommodityCode__c\": \"208-46\",\n                            \"endDateCondition\": \"Fixed_Period\",\n                            \"priceChangeOption\": null,\n                            \"productRatePlanId\": \"2c92c0f853b16ce60153becb5acb4ca5\",\n                            \"BCGLPercentages__c\": null,\n                            \"financeInformation\": {\n                                \"deferredRevenueAccountingCode\": null,\n                                \"recognizedRevenueAccountingCode\": null,\n                                \"deferredRevenueAccountingCodeType\": null,\n                                \"recognizedRevenueAccountingCodeType\": null\n                            },\n                            \"productRatePlanName\": \"1 Month Free\",\n                            \"BCFairMarketValue__c\": null,\n                            \"specificBillingPeriod\": null,\n                            \"billingPeriodAlignment\": \"AlignToCharge\",\n                            \"revRecTriggerCondition\": null,\n                            \"priceIncreasePercentage\": null,\n                            \"unusedIncludedUnitPrice\": null,\n                            \"usageRecordRatingOption\": null,\n                            \"overageCalculationOption\": null,\n                            \"chargeModelConfigurations\": [],\n                            \"revenueRecognitionRuleName\": null,\n                            \"productDiscountApplyDetails\": [],\n                            \"overageUnusedUnitsCreditOption\": null,\n                            \"useTenantDefaultForPriceChange\": null,\n                            \"useDiscountSpecificAccountingCode\": false\n                        }\n                    ],\n                    \"AutomaticallyUpgrades__c\": \"NO\",\n                    \"EligibleforAllocation__c\": null,\n                    \"MaximumTrailingOrders__c\": null,\n                    \"MinimumTrailingOrders__c\": null,\n                    \"OrderOverageBlockSize__c\": null,\n                    \"ServiceExpirationDays__c\": \"0\",\n                    \"AutomaticallyUpgradesTo__c\": null,\n                    \"AutomaticallyUpgradesToOrders__c\": null,\n                    \"ServiceDurationPeriodInMonths__c\": \"0\"\n                }\n            },\n            \"customFields\": {},\n            \"ratePlanGroups\": [\n                \"All\"\n            ]\n        },\n        {\n            \"id\": 1,\n            \"code\": \"USINGEXISTINGDISCOUNTPRODUCT\",\n            \"campaign\": \"Child Campaign using existing discount product\",\n            \"campaignId\": 2,\n            \"createdAt\": \"2021-06-18T08:07:29.494-06:00\",\n            \"updatedAt\": \"2021-06-18T08:07:29.494-06:00\",\n            \"availableQuantity\": 1,\n            \"effectiveFrom\": \"2021-06-18T08:00:00.000-06:00\",\n            \"effectiveTo\": \"2022-07-01T08:00:00.000-06:00\",\n            \"initialQuantity\": 1,\n            \"discount\": {\n                \"type\": \"percent\",\n                \"ratePlan\": {\n                    \"id\": \"2c92c0f94e088947014e1cd7dfc651dc\",\n                    \"name\": \"Subscription - Percentage, Monthly\",\n                    \"AOV__c\": null,\n                    \"SKU__c\": \"DISCOUNT-PERCENT-SUBSCRIPTION-MONTHLY\",\n                    \"status\": \"Active\",\n                    \"Termed__c\": \"N\",\n                    \"productId\": \"2c92c0f94e088948014e1cd35a457e9a\",\n                    \"Favorite__c\": null,\n                    \"description\": \"Subscription Discount (monthly)\",\n                    \"productName\": \"Discount\",\n                    \"Franchise__c\": \"BC\",\n                    \"MaximumGMV__c\": null,\n                    \"PricingGroup__c\": \"Restrict SSL\",\n                    \"FeatureSetSKU__c\": \"STORE-TRIAL\",\n                    \"effectiveEndDate\": \"2199-01-01\",\n                    \"WHMCSProductID__c\": \"-1\",\n                    \"effectiveStartDate\": \"2015-01-01\",\n                    \"ProviderProductCode__c\": null,\n                    \"productRatePlanCharges\": [\n                        {\n                            \"id\": \"2c92c0f84e089461014e1cd90acf455e\",\n                            \"uom\": null,\n                            \"name\": \"Subscription - Percentage, Monthly\",\n                            \"type\": \"Recurring\",\n                            \"model\": \"DiscountPercentage\",\n                            \"pricing\": [\n                                {\n                                    \"currency\": \"USD\",\n                                    \"discountPercentage\": \"50\"\n                                }\n                            ],\n                            \"taxCode\": null,\n                            \"taxMode\": null,\n                            \"taxable\": false,\n                            \"productId\": \"2c92c0f94e088948014e1cd35a457e9a\",\n                            \"billingDay\": \"DefaultFromCustomer\",\n                            \"revRecCode\": null,\n                            \"description\": \"Subscription Discount (monthly)\",\n                            \"productName\": \"Discount\",\n                            \"upToPeriods\": null,\n                            \"BCGLCodes__c\": null,\n                            \"triggerEvent\": \"ContractEffective\",\n                            \"ChargeType__c\": \"Product Charge\",\n                            \"billingPeriod\": \"Month\",\n                            \"billingTiming\": null,\n                            \"discountClass\": null,\n                            \"discountLevel\": \"subscription\",\n                            \"listPriceBase\": null,\n                            \"ProductCode__c\": \"subscription\",\n                            \"pricingSummary\": [\n                                \"5%  discount\"\n                            ],\n                            \"smoothingModel\": null,\n                            \"applyDiscountTo\": \"RECURRING\",\n                            \"defaultQuantity\": null,\n                            \"numberOfPeriods\": null,\n                            \"upToPeriodsType\": null,\n                            \"CommodityCode__c\": \"208-46\",\n                            \"endDateCondition\": \"Subscription_End\",\n                            \"priceChangeOption\": null,\n                            \"productRatePlanId\": \"2c92c0f94e088947014e1cd7dfc651dc\",\n                            \"BCGLPercentages__c\": null,\n                            \"financeInformation\": {\n                                \"deferredRevenueAccountingCode\": null,\n                                \"recognizedRevenueAccountingCode\": null,\n                                \"deferredRevenueAccountingCodeType\": null,\n                                \"recognizedRevenueAccountingCodeType\": null\n                            },\n                            \"productRatePlanName\": \"Subscription - Percentage, Monthly\",\n                            \"BCFairMarketValue__c\": null,\n                            \"specificBillingPeriod\": null,\n                            \"billingPeriodAlignment\": \"AlignToCharge\",\n                            \"revRecTriggerCondition\": null,\n                            \"priceIncreasePercentage\": null,\n                            \"unusedIncludedUnitPrice\": null,\n                            \"usageRecordRatingOption\": null,\n                            \"overageCalculationOption\": null,\n                            \"chargeModelConfigurations\": [],\n                            \"revenueRecognitionRuleName\": null,\n                            \"productDiscountApplyDetails\": [],\n                            \"overageUnusedUnitsCreditOption\": null,\n                            \"useTenantDefaultForPriceChange\": null,\n                            \"useDiscountSpecificAccountingCode\": false\n                        }\n                    ],\n                    \"AutomaticallyUpgrades__c\": \"NO\",\n                    \"EligibleforAllocation__c\": \"Y\",\n                    \"MaximumTrailingOrders__c\": null,\n                    \"MinimumTrailingOrders__c\": null,\n                    \"OrderOverageBlockSize__c\": null,\n                    \"ServiceExpirationDays__c\": \"0\",\n                    \"AutomaticallyUpgradesTo__c\": null,\n                    \"AutomaticallyUpgradesToOrders__c\": null,\n                    \"ServiceDurationPeriodInMonths__c\": \"0\"\n                }\n            },\n            \"customFields\": {},\n            \"ratePlanGroups\": [\n                [\n                    {\n                        \"id\": \"2c92c0f84b5862ba014b607f747d4cb6\",\n                        \"name\": \"15 Day Trial\",\n                        \"AOV__c\": null,\n                        \"SKU__c\": \"STORE-TRIAL-15DAY\",\n                        \"status\": \"Active\",\n                        \"Termed__c\": null,\n                        \"productId\": \"2c92c0f94b586b63014b607f71c01236\",\n                        \"Favorite__c\": null,\n                        \"description\": \"BigCommerce 15 Day Trial Store\",\n                        \"productName\": \"Trial Store\",\n                        \"Franchise__c\": \"BC\",\n                        \"MaximumGMV__c\": null,\n                        \"PricingGroup__c\": \"Restrict SSL\",\n                        \"FeatureSetSKU__c\": \"STORE-TRIAL\",\n                        \"effectiveEndDate\": \"2199-12-31\",\n                        \"WHMCSProductID__c\": \"120\",\n                        \"effectiveStartDate\": \"2000-01-01\",\n                        \"ProviderProductCode__c\": null,\n                        \"productRatePlanCharges\": [\n                            {\n                                \"id\": \"2c92c0f84b5862ba014b607f77bf4cc0\",\n                                \"uom\": null,\n                                \"name\": \"15 Day Trial\",\n                                \"type\": \"Recurring\",\n                                \"model\": \"FlatFee\",\n                                \"pricing\": [\n                                    {\n                                        \"price\": 0,\n                                        \"tiers\": null,\n                                        \"currency\": \"USD\",\n                                        \"overagePrice\": null,\n                                        \"includedUnits\": 0,\n                                        \"discountAmount\": null,\n                                        \"discountPercentage\": null\n                                    }\n                                ],\n                                \"taxCode\": \"AU Tax\",\n                                \"taxMode\": null,\n                                \"taxable\": false,\n                                \"productId\": \"2c92c0f94b586b63014b607f71c01236\",\n                                \"billingDay\": \"ChargeTriggerDay\",\n                                \"revRecCode\": null,\n                                \"description\": \"\",\n                                \"productName\": \"Trial Store\",\n                                \"upToPeriods\": null,\n                                \"BCGLCodes__c\": null,\n                                \"triggerEvent\": \"ContractEffective\",\n                                \"ChargeType__c\": \"Product Charge\",\n                                \"billingPeriod\": \"Month\",\n                                \"billingTiming\": \"IN_ADVANCE\",\n                                \"discountClass\": null,\n                                \"discountLevel\": null,\n                                \"listPriceBase\": \"Per_Billing_Period\",\n                                \"ProductCode__c\": \"subscription\",\n                                \"pricingSummary\": [\n                                    \"USD0\"\n                                ],\n                                \"smoothingModel\": null,\n                                \"applyDiscountTo\": null,\n                                \"defaultQuantity\": null,\n                                \"numberOfPeriods\": null,\n                                \"upToPeriodsType\": null,\n                                \"CommodityCode__c\": \"208-46\",\n                                \"endDateCondition\": \"Subscription_End\",\n                                \"priceChangeOption\": null,\n                                \"productRatePlanId\": \"2c92c0f84b5862ba014b607f747d4cb6\",\n                                \"BCGLPercentages__c\": null,\n                                \"financeInformation\": {\n                                    \"deferredRevenueAccountingCode\": \"Recognized Revenue\",\n                                    \"recognizedRevenueAccountingCode\": \"Recognized Revenue\",\n                                    \"deferredRevenueAccountingCodeType\": \"SalesRevenue\",\n                                    \"recognizedRevenueAccountingCodeType\": \"SalesRevenue\"\n                                },\n                                \"productRatePlanName\": \"15 Day Trial\",\n                                \"BCFairMarketValue__c\": null,\n                                \"specificBillingPeriod\": null,\n                                \"billingPeriodAlignment\": \"AlignToCharge\",\n                                \"revRecTriggerCondition\": null,\n                                \"priceIncreasePercentage\": null,\n                                \"unusedIncludedUnitPrice\": null,\n                                \"usageRecordRatingOption\": null,\n                                \"overageCalculationOption\": null,\n                                \"chargeModelConfigurations\": [],\n                                \"revenueRecognitionRuleName\": \"Recognize daily over time\",\n                                \"productDiscountApplyDetails\": [],\n                                \"overageUnusedUnitsCreditOption\": null,\n                                \"useTenantDefaultForPriceChange\": null,\n                                \"useDiscountSpecificAccountingCode\": null\n                            }\n                        ],\n                        \"AutomaticallyUpgrades__c\": \"NO\",\n                        \"EligibleforAllocation__c\": \"N\",\n                        \"MaximumTrailingOrders__c\": null,\n                        \"MinimumTrailingOrders__c\": null,\n                        \"OrderOverageBlockSize__c\": null,\n                        \"ServiceExpirationDays__c\": \"15\",\n                        \"AutomaticallyUpgradesTo__c\": null,\n                        \"AutomaticallyUpgradesToOrders__c\": null,\n                        \"ServiceDurationPeriodInMonths__c\": null\n                    }\n                ]\n            ]\n        }\n    ],\n    \"pagination\": {\n        \"page\": 1,\n        \"pageLength\": 20\n    }\n}",
+              "createdAt": "2022-02-28T16:32:24.000Z",
+              "updatedAt": "2022-02-28T16:32:24.000Z",
+              "uid": "2104987-9c663a57-2d48-4d0c-8941-bf55bb94455c"
+            }
+          ],
+          "createdAt": "2022-02-28T16:32:24.000Z",
+          "updatedAt": "2022-02-28T16:32:24.000Z",
+          "uid": "2104987-40c0e0b5-cbb0-483a-9860-7ddbbeadfd68"
+        },
+        {
+          "name": "Retrieves a Parent Promotion Campaing by ID",
+          "id": "2687b668-df51-4897-a136-c82496d236bf",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "{{password}}",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "{{username}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{zuora_promo_code_url}}/tools/promos/[CAMPAIGN_ID]",
+              "host": [
+                "{{zuora_promo_code_url}}"
+              ],
+              "path": [
+                "tools",
+                "promos",
+                "[CAMPAIGN_ID]"
+              ]
+            },
+            "description": "Retrieves a list of promotion campaigns"
+          },
+          "response": [
+            {
+              "id": "f69df792-a619-419f-be93-2aece36c64eb",
+              "name": "Retrieves a list of promotion campaigns",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{zuora_promo_code_url}}/tools/promos/67",
+                  "host": [
+                    "{{zuora_promo_code_url}}"
+                  ],
+                  "path": [
+                    "tools",
+                    "promos",
+                    "67"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 15 Jul 2021 16:48:40 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "ALLOWALL"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "POST, GET, PUT, DELETE, OPTIONS"
+                },
+                {
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "Origin, Content-Type, Accept, Authorization, Token"
+                },
+                {
+                  "key": "Access-Control-Max-Age",
+                  "value": "1728000"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"29c250031445f1245949210b856eb767\""
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "max-age=0, private, must-revalidate"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "77d7c177-b69b-4f9a-8593-53bda10d1449"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.048009"
+                },
+                {
+                  "key": "Content-Security-Policy-Report-Only",
+                  "value": "media-src 'none'; img-src 'self' https://s3-us-west-2.amazonaws.com https://www.google-analytics.com https://workflow.apps.zuora.com https://www.zuora.com https://zuora-connect.s3.us-west-2.amazonaws.com http://storage.googleapis.com https://www.expression-web-tutorials.com; object-src https://connect.zuora.com; worker-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'self' jsagent.tcell.io https://code.highcharts.com https://cdn.zuora.com https://www.google-analytics.com; manifest-src 'none'; style-src 'unsafe-inline' 'unsafe-eval' 'self' https://cdn.zuora.com https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; child-src https://*.apps.zuora.com https://connect.zuora.com https://us.browser.tcell.insight.rapid7.com/ https://input.tcell.io/; frame-src https://*.apps.zuora.com https://connect.zuora.com https://us.browser.tcell.insight.rapid7.com/ https://input.tcell.io/; connect-src 'self' https://api.tcell.io/ https://us.agent.tcell.insight.rapid7.com https://www.google-analytics.com https://input.tcell.io/ https://us.input.tcell.insight.rapid7.com https://us.browser.tcell.insight.rapid7.com/; report-uri https://us.browser.tcell.insight.rapid7.com/csp/785fa070bb619ec7bb8304b3b1e8a93ce179691ce922deb616bde155ecd6de1a"
+                },
+                {
+                  "key": "X-Kong-Upstream-Latency",
+                  "value": "50"
+                },
+                {
+                  "key": "X-Kong-Proxy-Latency",
+                  "value": "0"
+                },
+                {
+                  "key": "Via",
+                  "value": "kong/2.3.3"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 67,\n        \"code\": null,\n        \"campaign\": \"Discount Option: Set 3 months free\",\n        \"campaignId\": 36,\n        \"createdAt\": \"2021-07-12T09:44:54.250-06:00\",\n        \"updatedAt\": \"2021-07-12T09:44:54.250-06:00\",\n        \"availableQuantity\": null,\n        \"effectiveFrom\": \"2021-07-12T09:00:00.000-06:00\",\n        \"effectiveTo\": \"2027-01-21T09:00:00.000-07:00\",\n        \"initialQuantity\": null,\n        \"discount\": {\n            \"type\": \"percent\",\n            \"ratePlan\": {\n                \"id\": \"2c92c0f85b7a701a015b8465c2fe5a8a\",\n                \"name\": \"3 Months Free - Monthly\",\n                \"AOV__c\": null,\n                \"SKU__c\": \"PROMO-FREE-3-MONTHS-MONTHLY\",\n                \"status\": \"Active\",\n                \"Termed__c\": \"N\",\n                \"productId\": \"2c92c0f953b174e50153bebf3aa67c1d\",\n                \"Favorite__c\": null,\n                \"description\": \"3 months free promotional discount\",\n                \"productName\": \"PROMO\",\n                \"Franchise__c\": \"BC\",\n                \"MaximumGMV__c\": \"0\",\n                \"PricingGroup__c\": \"New Pricing\",\n                \"FeatureSetSKU__c\": \"PROMO-FREE-3-MONTHS-MONTHLY\",\n                \"effectiveEndDate\": \"2099-03-01\",\n                \"WHMCSProductID__c\": \"-1\",\n                \"effectiveStartDate\": \"2016-08-11\",\n                \"ProviderProductCode__c\": null,\n                \"productRatePlanCharges\": [\n                    {\n                        \"id\": \"2c92c0f95b7a81bc015b8465c83f5089\",\n                        \"uom\": null,\n                        \"name\": \"First 3 Months Free\",\n                        \"type\": \"Recurring\",\n                        \"model\": \"DiscountPercentage\",\n                        \"pricing\": [\n                            {\n                                \"price\": null,\n                                \"tiers\": null,\n                                \"currency\": \"USD\",\n                                \"overagePrice\": null,\n                                \"includedUnits\": 0,\n                                \"discountAmount\": null,\n                                \"discountPercentage\": 100\n                            }\n                        ],\n                        \"taxCode\": null,\n                        \"taxMode\": \"TaxExclusive\",\n                        \"taxable\": false,\n                        \"productId\": \"2c92c0f953b174e50153bebf3aa67c1d\",\n                        \"billingDay\": \"ChargeTriggerDay\",\n                        \"revRecCode\": null,\n                        \"description\": \"3 month promotional discount\\\\nPromo - 3 Months Free - Monthly\",\n                        \"productName\": \"PROMO\",\n                        \"upToPeriods\": 3,\n                        \"BCGLCodes__c\": null,\n                        \"triggerEvent\": \"ContractEffective\",\n                        \"ChargeType__c\": \"Product Charge\",\n                        \"billingPeriod\": \"Month\",\n                        \"billingTiming\": null,\n                        \"discountClass\": null,\n                        \"discountLevel\": \"subscription\",\n                        \"listPriceBase\": null,\n                        \"ProductCode__c\": \"subscription\",\n                        \"pricingSummary\": [\n                            \"100%  discount\"\n                        ],\n                        \"smoothingModel\": null,\n                        \"applyDiscountTo\": \"RECURRING\",\n                        \"defaultQuantity\": null,\n                        \"numberOfPeriods\": null,\n                        \"upToPeriodsType\": \"Months\",\n                        \"CommodityCode__c\": \"208-46\",\n                        \"endDateCondition\": \"Fixed_Period\",\n                        \"priceChangeOption\": null,\n                        \"productRatePlanId\": \"2c92c0f85b7a701a015b8465c2fe5a8a\",\n                        \"BCGLPercentages__c\": null,\n                        \"financeInformation\": {\n                            \"deferredRevenueAccountingCode\": null,\n                            \"recognizedRevenueAccountingCode\": null,\n                            \"deferredRevenueAccountingCodeType\": null,\n                            \"recognizedRevenueAccountingCodeType\": null\n                        },\n                        \"productRatePlanName\": \"3 Months Free - Monthly\",\n                        \"BCFairMarketValue__c\": null,\n                        \"specificBillingPeriod\": null,\n                        \"billingPeriodAlignment\": \"AlignToCharge\",\n                        \"revRecTriggerCondition\": null,\n                        \"priceIncreasePercentage\": null,\n                        \"unusedIncludedUnitPrice\": null,\n                        \"usageRecordRatingOption\": null,\n                        \"overageCalculationOption\": null,\n                        \"chargeModelConfigurations\": [],\n                        \"revenueRecognitionRuleName\": null,\n                        \"productDiscountApplyDetails\": [\n                            {\n                                \"appliedProductRatePlanId\": \"2c92c0f84fd7e46c014fe2124db27244\",\n                                \"appliedProductRatePlanChargeId\": \"2c92c0f84fd7e46a014fe2125697523d\"\n                            },\n                            {\n                                \"appliedProductRatePlanId\": \"2c92c0f94c9e6b67014ca4fcc9716791\",\n                                \"appliedProductRatePlanChargeId\": \"2c92c0f8737fba2c01738246c63a506e\"\n                            },\n                            {\n                                \"appliedProductRatePlanId\": \"2c92c0f84fd7e475014fe21216c90f0b\",\n                                \"appliedProductRatePlanChargeId\": \"2c92c0f94fd7f22b014fe2121d1a3287\"\n                            },\n                            {\n                                \"appliedProductRatePlanId\": \"2c92c0f84c9e618f014ca4f4e78d3c7c\",\n                                \"appliedProductRatePlanChargeId\": \"2c92c0f96fa4bb82016faacd88cb7b04\"\n                            },\n                            {\n                                \"appliedProductRatePlanId\": \"2c92c0f8599150970159943ff18b0f3c\",\n                                \"appliedProductRatePlanChargeId\": \"2c92c0f959916d780159943ff68a61d8\"\n                            }\n                        ],\n                        \"overageUnusedUnitsCreditOption\": null,\n                        \"useTenantDefaultForPriceChange\": null,\n                        \"useDiscountSpecificAccountingCode\": false\n                    }\n                ],\n                \"AutomaticallyUpgrades__c\": \"NO\",\n                \"EligibleforAllocation__c\": \"Y\",\n                \"MaximumTrailingOrders__c\": \"0\",\n                \"MinimumTrailingOrders__c\": \"0\",\n                \"OrderOverageBlockSize__c\": \"1000\",\n                \"ServiceExpirationDays__c\": \"0\",\n                \"AutomaticallyUpgradesTo__c\": null,\n                \"AutomaticallyUpgradesToOrders__c\": null,\n                \"ServiceDurationPeriodInMonths__c\": \"0\"\n            }\n        },\n        \"customFields\": {},\n        \"ratePlanGroups\": [\n            \"All\"\n        ]\n    }\n}",
+              "createdAt": "2022-02-28T16:32:24.000Z",
+              "updatedAt": "2022-02-28T16:32:24.000Z",
+              "uid": "2104987-f69df792-a619-419f-be93-2aece36c64eb"
+            }
+          ],
+          "createdAt": "2022-02-28T16:32:24.000Z",
+          "updatedAt": "2022-02-28T16:32:24.000Z",
+          "uid": "2104987-2687b668-df51-4897-a136-c82496d236bf"
+        },
+        {
+          "name": "Validate Single-Use Coupon Code",
+          "id": "dea6cdcc-3816-4762-83c2-d29b4d3ef0cb",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "{{password}}",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "{{username}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{zuora_promo_code_url}}/tools/promos/[PROMO_CODE]/validate",
+              "host": [
+                "{{zuora_promo_code_url}}"
+              ],
+              "path": [
+                "tools",
+                "promos",
+                "[PROMO_CODE]",
+                "validate"
+              ]
+            },
+            "description": "Retrieves a list of promotion campaigns"
+          },
+          "response": [
+            {
+              "id": "70c866ed-5313-4c63-a0cf-39deb3a0e33c",
+              "name": "Promotion code already used",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{zuora_promo_code_url}}/tools/promos/3FREE-4womaURE43-BC/validate",
+                  "host": [
+                    "{{zuora_promo_code_url}}"
+                  ],
+                  "path": [
+                    "tools",
+                    "promos",
+                    "3FREE-4womaURE43-BC",
+                    "validate"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Wed, 14 Jul 2021 06:37:08 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "ALLOWALL"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "POST, GET, PUT, DELETE, OPTIONS"
+                },
+                {
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "Origin, Content-Type, Accept, Authorization, Token"
+                },
+                {
+                  "key": "Access-Control-Max-Age",
+                  "value": "1728000"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"4ceea3cede704bacd8c9993ae0655666\""
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "max-age=0, private, must-revalidate"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "0e04873f-1774-4095-b0b5-3dbc9c78e2b2"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.052638"
+                },
+                {
+                  "key": "X-Kong-Upstream-Latency",
+                  "value": "55"
+                },
+                {
+                  "key": "X-Kong-Proxy-Latency",
+                  "value": "0"
+                },
+                {
+                  "key": "Via",
+                  "value": "kong/2.3.3"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"success\": true,\n    \"data\": {\n        \"valid\": false,\n        \"validationFailures\": {\n            \"code\": 5,\n            \"message\": \"Promotion code already used\"\n        }\n    }\n}",
+              "createdAt": "2022-02-28T16:32:24.000Z",
+              "updatedAt": "2022-02-28T16:32:24.000Z",
+              "uid": "2104987-70c866ed-5313-4c63-a0cf-39deb3a0e33c"
+            },
+            {
+              "id": "de7fc23d-fb6f-4e04-93c1-b626390c7e83",
+              "name": "Promotion code available",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{zuora_promo_code_url}}/tools/promos/3FREE-ggJcfhJfcb-BC/validate",
+                  "host": [
+                    "{{zuora_promo_code_url}}"
+                  ],
+                  "path": [
+                    "tools",
+                    "promos",
+                    "3FREE-ggJcfhJfcb-BC",
+                    "validate"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 15 Jul 2021 01:59:51 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "ALLOWALL"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "POST, GET, PUT, DELETE, OPTIONS"
+                },
+                {
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "Origin, Content-Type, Accept, Authorization, Token"
+                },
+                {
+                  "key": "Access-Control-Max-Age",
+                  "value": "1728000"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"f506936cb35199dccc3cc1f2ba92c934\""
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "max-age=0, private, must-revalidate"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "3b71c43d-25f8-4123-9516-48f6f90104f5"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.048303"
+                },
+                {
+                  "key": "Content-Security-Policy-Report-Only",
+                  "value": "media-src 'none'; img-src 'self' https://s3-us-west-2.amazonaws.com https://www.google-analytics.com https://workflow.apps.zuora.com https://www.zuora.com https://zuora-connect.s3.us-west-2.amazonaws.com http://storage.googleapis.com https://www.expression-web-tutorials.com; object-src https://connect.zuora.com; worker-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'self' jsagent.tcell.io https://code.highcharts.com https://cdn.zuora.com https://www.google-analytics.com; manifest-src 'none'; style-src 'unsafe-inline' 'unsafe-eval' 'self' https://cdn.zuora.com https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; child-src https://*.apps.zuora.com https://connect.zuora.com https://us.browser.tcell.insight.rapid7.com/ https://input.tcell.io/; frame-src https://*.apps.zuora.com https://connect.zuora.com https://us.browser.tcell.insight.rapid7.com/ https://input.tcell.io/; connect-src 'self' https://api.tcell.io/ https://us.agent.tcell.insight.rapid7.com https://www.google-analytics.com https://input.tcell.io/ https://us.input.tcell.insight.rapid7.com https://us.browser.tcell.insight.rapid7.com/; report-uri https://us.browser.tcell.insight.rapid7.com/csp/785fa070bb619ec7bb8304b3b1e8a93ce179691ce922deb616bde155ecd6de1a"
+                },
+                {
+                  "key": "X-Kong-Upstream-Latency",
+                  "value": "49"
+                },
+                {
+                  "key": "X-Kong-Proxy-Latency",
+                  "value": "0"
+                },
+                {
+                  "key": "Via",
+                  "value": "kong/2.3.3"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"success\": true,\n    \"data\": {\n        \"valid\": true,\n        \"validRatePlanGroups\": \"All\",\n        \"promotionCode\": {\n            \"id\": 70,\n            \"code\": \"3FREE-ggJcfhJfcb-BC\",\n            \"campaign\": \"Discount Option: Set 3 months free\",\n            \"campaignId\": 36,\n            \"timeRedeemed\": null,\n            \"createdAt\": \"2021-07-12T09:44:54.250-06:00\",\n            \"updatedAt\": \"2021-07-12T09:44:54.250-06:00\",\n            \"availableQuantity\": 1,\n            \"effectiveFrom\": \"2021-07-12T09:00:00.000-06:00\",\n            \"effectiveTo\": \"2027-01-21T09:00:00.000-07:00\",\n            \"initialQuantity\": 1,\n            \"discount\": {\n                \"type\": \"percent\",\n                \"ratePlan\": {\n                    \"id\": \"2c92c0f85b7a701a015b8465c2fe5a8a\",\n                    \"name\": \"3 Months Free - Monthly\",\n                    \"AOV__c\": null,\n                    \"SKU__c\": \"PROMO-FREE-3-MONTHS-MONTHLY\",\n                    \"status\": \"Active\",\n                    \"Termed__c\": \"N\",\n                    \"productId\": \"2c92c0f953b174e50153bebf3aa67c1d\",\n                    \"Favorite__c\": null,\n                    \"description\": \"3 months free promotional discount\",\n                    \"productName\": \"PROMO\",\n                    \"Franchise__c\": \"BC\",\n                    \"MaximumGMV__c\": \"0\",\n                    \"PricingGroup__c\": \"New Pricing\",\n                    \"FeatureSetSKU__c\": \"PROMO-FREE-3-MONTHS-MONTHLY\",\n                    \"effectiveEndDate\": \"2099-03-01\",\n                    \"WHMCSProductID__c\": \"-1\",\n                    \"effectiveStartDate\": \"2016-08-11\",\n                    \"ProviderProductCode__c\": null,\n                    \"productRatePlanCharges\": [\n                        {\n                            \"id\": \"2c92c0f95b7a81bc015b8465c83f5089\",\n                            \"uom\": null,\n                            \"name\": \"First 3 Months Free\",\n                            \"type\": \"Recurring\",\n                            \"model\": \"DiscountPercentage\",\n                            \"pricing\": [\n                                {\n                                    \"price\": null,\n                                    \"tiers\": null,\n                                    \"currency\": \"USD\",\n                                    \"overagePrice\": null,\n                                    \"includedUnits\": 0,\n                                    \"discountAmount\": null,\n                                    \"discountPercentage\": 100\n                                }\n                            ],\n                            \"taxCode\": null,\n                            \"taxMode\": \"TaxExclusive\",\n                            \"taxable\": false,\n                            \"productId\": \"2c92c0f953b174e50153bebf3aa67c1d\",\n                            \"billingDay\": \"ChargeTriggerDay\",\n                            \"revRecCode\": null,\n                            \"description\": \"3 month promotional discount\\\\nPromo - 3 Months Free - Monthly\",\n                            \"productName\": \"PROMO\",\n                            \"upToPeriods\": 3,\n                            \"BCGLCodes__c\": null,\n                            \"triggerEvent\": \"ContractEffective\",\n                            \"ChargeType__c\": \"Product Charge\",\n                            \"billingPeriod\": \"Month\",\n                            \"billingTiming\": null,\n                            \"discountClass\": null,\n                            \"discountLevel\": \"subscription\",\n                            \"listPriceBase\": null,\n                            \"ProductCode__c\": \"subscription\",\n                            \"pricingSummary\": [\n                                \"100%  discount\"\n                            ],\n                            \"smoothingModel\": null,\n                            \"applyDiscountTo\": \"RECURRING\",\n                            \"defaultQuantity\": null,\n                            \"numberOfPeriods\": null,\n                            \"upToPeriodsType\": \"Months\",\n                            \"CommodityCode__c\": \"208-46\",\n                            \"endDateCondition\": \"Fixed_Period\",\n                            \"priceChangeOption\": null,\n                            \"productRatePlanId\": \"2c92c0f85b7a701a015b8465c2fe5a8a\",\n                            \"BCGLPercentages__c\": null,\n                            \"financeInformation\": {\n                                \"deferredRevenueAccountingCode\": null,\n                                \"recognizedRevenueAccountingCode\": null,\n                                \"deferredRevenueAccountingCodeType\": null,\n                                \"recognizedRevenueAccountingCodeType\": null\n                            },\n                            \"productRatePlanName\": \"3 Months Free - Monthly\",\n                            \"BCFairMarketValue__c\": null,\n                            \"specificBillingPeriod\": null,\n                            \"billingPeriodAlignment\": \"AlignToCharge\",\n                            \"revRecTriggerCondition\": null,\n                            \"priceIncreasePercentage\": null,\n                            \"unusedIncludedUnitPrice\": null,\n                            \"usageRecordRatingOption\": null,\n                            \"overageCalculationOption\": null,\n                            \"chargeModelConfigurations\": [],\n                            \"revenueRecognitionRuleName\": null,\n                            \"productDiscountApplyDetails\": [\n                                {\n                                    \"appliedProductRatePlanId\": \"2c92c0f84fd7e46c014fe2124db27244\",\n                                    \"appliedProductRatePlanChargeId\": \"2c92c0f84fd7e46a014fe2125697523d\"\n                                },\n                                {\n                                    \"appliedProductRatePlanId\": \"2c92c0f84fd7e475014fe21216c90f0b\",\n                                    \"appliedProductRatePlanChargeId\": \"2c92c0f94fd7f22b014fe2121d1a3287\"\n                                },\n                                {\n                                    \"appliedProductRatePlanId\": \"2c92c0f84c9e618f014ca4f4e78d3c7c\",\n                                    \"appliedProductRatePlanChargeId\": \"2c92c0f96fa4bb82016faacd88cb7b04\"\n                                },\n                                {\n                                    \"appliedProductRatePlanId\": \"2c92c0f94c9e6b67014ca4fcc9716791\",\n                                    \"appliedProductRatePlanChargeId\": \"2c92c0f8737fba2c01738246c63a506e\"\n                                },\n                                {\n                                    \"appliedProductRatePlanId\": \"2c92c0f8599150970159943ff18b0f3c\",\n                                    \"appliedProductRatePlanChargeId\": \"2c92c0f959916d780159943ff68a61d8\"\n                                }\n                            ],\n                            \"overageUnusedUnitsCreditOption\": null,\n                            \"useTenantDefaultForPriceChange\": null,\n                            \"useDiscountSpecificAccountingCode\": false\n                        }\n                    ],\n                    \"AutomaticallyUpgrades__c\": \"NO\",\n                    \"EligibleforAllocation__c\": \"Y\",\n                    \"MaximumTrailingOrders__c\": \"0\",\n                    \"MinimumTrailingOrders__c\": \"0\",\n                    \"OrderOverageBlockSize__c\": \"1000\",\n                    \"ServiceExpirationDays__c\": \"0\",\n                    \"AutomaticallyUpgradesTo__c\": null,\n                    \"AutomaticallyUpgradesToOrders__c\": null,\n                    \"ServiceDurationPeriodInMonths__c\": \"0\"\n                }\n            },\n            \"customFields\": {},\n            \"ratePlanGroups\": [\n                \"All\"\n            ]\n        }\n    }\n}",
+              "createdAt": "2022-02-28T16:32:24.000Z",
+              "updatedAt": "2022-02-28T16:32:24.000Z",
+              "uid": "2104987-de7fc23d-fb6f-4e04-93c1-b626390c7e83"
+            }
+          ],
+          "createdAt": "2022-02-28T16:32:24.000Z",
+          "updatedAt": "2022-02-28T16:32:24.000Z",
+          "uid": "2104987-dea6cdcc-3816-4762-83c2-d29b4d3ef0cb"
+        },
+        {
+          "name": "Validate Multi-Use Coupon Code by RatePlan",
+          "id": "e7ab33fb-0439-4444-8682-92d54951e7fc",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "{{password}}",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "{{username}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{zuora_promo_code_url}}/tools/promos/[PROMO_CODE]/validate?productRatePlans[]=",
+              "host": [
+                "{{zuora_promo_code_url}}"
+              ],
+              "path": [
+                "tools",
+                "promos",
+                "[PROMO_CODE]",
+                "validate"
+              ],
+              "query": [
+                {
+                  "key": "productRatePlans[]",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Retrieves a list of promotion campaigns"
+          },
+          "response": [
+            {
+              "id": "4c22ea0d-149e-4152-abc9-6e7b3dd09524",
+              "name": "Validation Successful",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{zuora_promo_code_url}}/tools/promos/1MultiUseCode/validate?productRatePlans[]=",
+                  "host": [
+                    "{{zuora_promo_code_url}}"
+                  ],
+                  "path": [
+                    "tools",
+                    "promos",
+                    "1MultiUseCode",
+                    "validate"
+                  ],
+                  "query": [
+                    {
+                      "key": "productRatePlans[]",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Tue, 20 Jul 2021 05:50:43 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "ALLOWALL"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "POST, GET, PUT, DELETE, OPTIONS"
+                },
+                {
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "Origin, Content-Type, Accept, Authorization, Token"
+                },
+                {
+                  "key": "Access-Control-Max-Age",
+                  "value": "1728000"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"9ca515bf36767ad48b67960e00f0a31b\""
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "max-age=0, private, must-revalidate"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "5f0007df-b78f-47c8-8eba-eb587f85f3ce"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.060016"
+                },
+                {
+                  "key": "Content-Security-Policy-Report-Only",
+                  "value": "media-src 'none'; img-src 'self' https://s3-us-west-2.amazonaws.com https://www.google-analytics.com https://workflow.apps.zuora.com https://www.zuora.com https://zuora-connect.s3.us-west-2.amazonaws.com http://storage.googleapis.com https://www.expression-web-tutorials.com; object-src https://connect.zuora.com; worker-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'self' jsagent.tcell.io https://code.highcharts.com https://cdn.zuora.com https://www.google-analytics.com; manifest-src 'none'; style-src 'unsafe-inline' 'unsafe-eval' 'self' https://cdn.zuora.com https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; child-src https://*.apps.zuora.com https://connect.zuora.com https://us.browser.tcell.insight.rapid7.com/ https://input.tcell.io/; frame-src https://*.apps.zuora.com https://connect.zuora.com https://us.browser.tcell.insight.rapid7.com/ https://input.tcell.io/; connect-src 'self' https://api.tcell.io/ https://us.agent.tcell.insight.rapid7.com https://www.google-analytics.com https://input.tcell.io/ https://us.input.tcell.insight.rapid7.com https://us.browser.tcell.insight.rapid7.com/; report-uri https://us.browser.tcell.insight.rapid7.com/csp/785fa070bb619ec7bb8304b3b1e8a93ce179691ce922deb616bde155ecd6de1a"
+                },
+                {
+                  "key": "X-Kong-Upstream-Latency",
+                  "value": "61"
+                },
+                {
+                  "key": "X-Kong-Proxy-Latency",
+                  "value": "1"
+                },
+                {
+                  "key": "Via",
+                  "value": "kong/2.3.3"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"success\": true,\n    \"data\": {\n        \"valid\": true,\n        \"validRatePlanGroups\": \"All\",\n        \"promotionCode\": {\n            \"id\": 133,\n            \"code\": \"1MultiUseCode\",\n            \"campaign\": \"1 Multi-Use Code\",\n            \"campaignId\": 2,\n            \"createdAt\": \"2021-07-19T23:50:25.844-06:00\",\n            \"updatedAt\": \"2021-07-19T23:50:25.844-06:00\",\n            \"availableQuantity\": 1,\n            \"effectiveFrom\": \"2021-07-19T23:00:00.000-06:00\",\n            \"effectiveTo\": \"2022-07-20T23:00:00.000-06:00\",\n            \"initialQuantity\": 1,\n            \"discount\": {\n                \"type\": \"percent\",\n                \"ratePlan\": {\n                    \"id\": \"2c92c0f853b16ce60153becb5acb4ca5\",\n                    \"name\": \"1 Month Free\",\n                    \"AOV__c\": null,\n                    \"SKU__c\": \"PROMO-FREE-ONE-MONTH\",\n                    \"status\": \"Expired\",\n                    \"Termed__c\": null,\n                    \"productId\": \"2c92c0f953b174e50153bebf3aa67c1d\",\n                    \"Favorite__c\": null,\n                    \"description\": \"1 month free promotional discount\",\n                    \"productName\": \"PROMO\",\n                    \"Franchise__c\": \"BC\",\n                    \"MaximumGMV__c\": null,\n                    \"PricingGroup__c\": \"original\",\n                    \"FeatureSetSKU__c\": \"PROMO-FREE-ONE-MONTH\",\n                    \"effectiveEndDate\": \"2020-04-01\",\n                    \"WHMCSProductID__c\": \"-1\",\n                    \"effectiveStartDate\": \"2016-03-01\",\n                    \"ProviderProductCode__c\": \"PROMO-FREE-ONE-MONTH\",\n                    \"productRatePlanCharges\": [\n                        {\n                            \"id\": \"2c92c0f853b16ce60153bed638f36179\",\n                            \"uom\": null,\n                            \"name\": \"Promo - 1 Month Free\",\n                            \"type\": \"Recurring\",\n                            \"model\": \"DiscountPercentage\",\n                            \"pricing\": [\n                                {\n                                    \"price\": null,\n                                    \"tiers\": null,\n                                    \"currency\": \"USD\",\n                                    \"overagePrice\": null,\n                                    \"includedUnits\": null,\n                                    \"discountAmount\": null,\n                                    \"discountPercentage\": 100\n                                }\n                            ],\n                            \"taxCode\": null,\n                            \"taxMode\": null,\n                            \"taxable\": false,\n                            \"productId\": \"2c92c0f953b174e50153bebf3aa67c1d\",\n                            \"billingDay\": \"ChargeTriggerDay\",\n                            \"revRecCode\": null,\n                            \"description\": \"1 month promotional discount\",\n                            \"productName\": \"PROMO\",\n                            \"upToPeriods\": 1,\n                            \"BCGLCodes__c\": null,\n                            \"triggerEvent\": \"ContractEffective\",\n                            \"ChargeType__c\": \"Product Charge\",\n                            \"billingPeriod\": \"Month\",\n                            \"billingTiming\": null,\n                            \"discountClass\": null,\n                            \"discountLevel\": \"subscription\",\n                            \"listPriceBase\": null,\n                            \"ProductCode__c\": \"subscription\",\n                            \"pricingSummary\": [\n                                \"100%  discount\"\n                            ],\n                            \"smoothingModel\": null,\n                            \"applyDiscountTo\": \"ONETIMERECURRING\",\n                            \"defaultQuantity\": null,\n                            \"numberOfPeriods\": null,\n                            \"upToPeriodsType\": \"Months\",\n                            \"CommodityCode__c\": \"208-46\",\n                            \"endDateCondition\": \"Fixed_Period\",\n                            \"priceChangeOption\": null,\n                            \"productRatePlanId\": \"2c92c0f853b16ce60153becb5acb4ca5\",\n                            \"BCGLPercentages__c\": null,\n                            \"financeInformation\": {\n                                \"deferredRevenueAccountingCode\": null,\n                                \"recognizedRevenueAccountingCode\": null,\n                                \"deferredRevenueAccountingCodeType\": null,\n                                \"recognizedRevenueAccountingCodeType\": null\n                            },\n                            \"productRatePlanName\": \"1 Month Free\",\n                            \"BCFairMarketValue__c\": null,\n                            \"specificBillingPeriod\": null,\n                            \"billingPeriodAlignment\": \"AlignToCharge\",\n                            \"revRecTriggerCondition\": null,\n                            \"priceIncreasePercentage\": null,\n                            \"unusedIncludedUnitPrice\": null,\n                            \"usageRecordRatingOption\": null,\n                            \"overageCalculationOption\": null,\n                            \"chargeModelConfigurations\": [],\n                            \"revenueRecognitionRuleName\": null,\n                            \"productDiscountApplyDetails\": [],\n                            \"overageUnusedUnitsCreditOption\": null,\n                            \"useTenantDefaultForPriceChange\": null,\n                            \"useDiscountSpecificAccountingCode\": false\n                        }\n                    ],\n                    \"AutomaticallyUpgrades__c\": \"NO\",\n                    \"EligibleforAllocation__c\": null,\n                    \"MaximumTrailingOrders__c\": null,\n                    \"MinimumTrailingOrders__c\": null,\n                    \"OrderOverageBlockSize__c\": null,\n                    \"ServiceExpirationDays__c\": \"0\",\n                    \"AutomaticallyUpgradesTo__c\": null,\n                    \"AutomaticallyUpgradesToOrders__c\": null,\n                    \"ServiceDurationPeriodInMonths__c\": \"0\"\n                }\n            },\n            \"customFields\": {},\n            \"ratePlanGroups\": [\n                \"All\"\n            ]\n        }\n    }\n}",
+              "createdAt": "2022-02-28T16:32:24.000Z",
+              "updatedAt": "2022-02-28T16:32:24.000Z",
+              "uid": "2104987-4c22ea0d-149e-4152-abc9-6e7b3dd09524"
+            },
+            {
+              "id": "1ac2310f-e99d-4995-9b6f-277f3b4354cf",
+              "name": "Invalid Product Rate Plans",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{zuora_promo_code_url}}/tools/promos/USINGEXISTINGDISCOUNTPRODUCT/validate?productRatePlans[]=",
+                  "host": [
+                    "{{zuora_promo_code_url}}"
+                  ],
+                  "path": [
+                    "tools",
+                    "promos",
+                    "USINGEXISTINGDISCOUNTPRODUCT",
+                    "validate"
+                  ],
+                  "query": [
+                    {
+                      "key": "productRatePlans[]",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Tue, 20 Jul 2021 05:52:07 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "ALLOWALL"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "POST, GET, PUT, DELETE, OPTIONS"
+                },
+                {
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "Origin, Content-Type, Accept, Authorization, Token"
+                },
+                {
+                  "key": "Access-Control-Max-Age",
+                  "value": "1728000"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"0adacd7585f51a5d3b8f33445d75eca8\""
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "max-age=0, private, must-revalidate"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "9a25c646-1bad-45fc-a574-23ec6738b19a"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.026796"
+                },
+                {
+                  "key": "X-Kong-Upstream-Latency",
+                  "value": "28"
+                },
+                {
+                  "key": "X-Kong-Proxy-Latency",
+                  "value": "1"
+                },
+                {
+                  "key": "Via",
+                  "value": "kong/2.3.3"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"success\": true,\n    \"data\": {\n        \"valid\": false,\n        \"validationFailures\": {\n            \"code\": 4,\n            \"message\": \"Invalid Product Rate Plans.\"\n        }\n    }\n}",
+              "createdAt": "2022-02-28T16:32:24.000Z",
+              "updatedAt": "2022-02-28T16:32:24.000Z",
+              "uid": "2104987-1ac2310f-e99d-4995-9b6f-277f3b4354cf"
+            }
+          ],
+          "createdAt": "2022-02-28T16:32:24.000Z",
+          "updatedAt": "2022-02-28T16:32:24.000Z",
+          "uid": "2104987-e7ab33fb-0439-4444-8682-92d54951e7fc"
+        },
+        {
+          "name": "Validate Multi-Use Coupon Code by Email Address & Rate Plan",
+          "id": "7d1b6ff2-dcd7-42b5-b36e-fd50e4c01e8c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "{{password}}",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "{{username}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{zuora_promo_code_url}}/tools/promos/[PROMO_CODE]/validate?uniqueId=&productRatePlans[]=",
+              "host": [
+                "{{zuora_promo_code_url}}"
+              ],
+              "path": [
+                "tools",
+                "promos",
+                "[PROMO_CODE]",
+                "validate"
+              ],
+              "query": [
+                {
+                  "key": "uniqueId",
+                  "value": ""
+                },
+                {
+                  "key": "productRatePlans[]",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Retrieves a list of promotion campaigns"
+          },
+          "response": [
+            {
+              "id": "c35f1b4a-4eb2-4c5a-b4b4-0321971a8b08",
+              "name": "Valid",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{zuora_promo_code_url}}/tools/promos/USINGEXISTINGDISCOUNTPRODUCT/validate?uniqueId=john.hebron@bigcommerce.com&productRatePlans[]=2c92c0f84b5862ba014b607f747d4cb6",
+                  "host": [
+                    "{{zuora_promo_code_url}}"
+                  ],
+                  "path": [
+                    "tools",
+                    "promos",
+                    "USINGEXISTINGDISCOUNTPRODUCT",
+                    "validate"
+                  ],
+                  "query": [
+                    {
+                      "key": "uniqueId",
+                      "value": "john.hebron@bigcommerce.com"
+                    },
+                    {
+                      "key": "productRatePlans[]",
+                      "value": "2c92c0f84b5862ba014b607f747d4cb6"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Tue, 20 Jul 2021 05:56:10 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "ALLOWALL"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "POST, GET, PUT, DELETE, OPTIONS"
+                },
+                {
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "Origin, Content-Type, Accept, Authorization, Token"
+                },
+                {
+                  "key": "Access-Control-Max-Age",
+                  "value": "1728000"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"4f0c2b88e7b9166af6b135dc0cbe6001\""
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "max-age=0, private, must-revalidate"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "dfaef0b7-10f1-4ece-8108-8c108fff0180"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.083851"
+                },
+                {
+                  "key": "Content-Security-Policy-Report-Only",
+                  "value": "media-src 'none'; img-src 'self' https://s3-us-west-2.amazonaws.com https://www.google-analytics.com https://workflow.apps.zuora.com https://www.zuora.com https://zuora-connect.s3.us-west-2.amazonaws.com http://storage.googleapis.com https://www.expression-web-tutorials.com; object-src https://connect.zuora.com; worker-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'self' jsagent.tcell.io https://code.highcharts.com https://cdn.zuora.com https://www.google-analytics.com; manifest-src 'none'; style-src 'unsafe-inline' 'unsafe-eval' 'self' https://cdn.zuora.com https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; child-src https://*.apps.zuora.com https://connect.zuora.com https://us.browser.tcell.insight.rapid7.com/ https://input.tcell.io/; frame-src https://*.apps.zuora.com https://connect.zuora.com https://us.browser.tcell.insight.rapid7.com/ https://input.tcell.io/; connect-src 'self' https://api.tcell.io/ https://us.agent.tcell.insight.rapid7.com https://www.google-analytics.com https://input.tcell.io/ https://us.input.tcell.insight.rapid7.com https://us.browser.tcell.insight.rapid7.com/; report-uri https://us.browser.tcell.insight.rapid7.com/csp/785fa070bb619ec7bb8304b3b1e8a93ce179691ce922deb616bde155ecd6de1a"
+                },
+                {
+                  "key": "X-Kong-Upstream-Latency",
+                  "value": "87"
+                },
+                {
+                  "key": "X-Kong-Proxy-Latency",
+                  "value": "1"
+                },
+                {
+                  "key": "Via",
+                  "value": "kong/2.3.3"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"success\": true,\n    \"data\": {\n        \"valid\": true,\n        \"validRatePlanGroups\": [\n            [\n                \"2c92c0f84b5862ba014b607f747d4cb6\"\n            ]\n        ],\n        \"promotionCode\": {\n            \"id\": 1,\n            \"code\": \"USINGEXISTINGDISCOUNTPRODUCT\",\n            \"campaign\": \"Child Campaign using existing discount product\",\n            \"campaignId\": 2,\n            \"createdAt\": \"2021-06-18T08:07:29.494-06:00\",\n            \"updatedAt\": \"2021-06-18T08:07:29.494-06:00\",\n            \"availableQuantity\": 1,\n            \"effectiveFrom\": \"2021-06-18T08:00:00.000-06:00\",\n            \"effectiveTo\": \"2022-07-01T08:00:00.000-06:00\",\n            \"initialQuantity\": 1,\n            \"discount\": {\n                \"type\": \"percent\",\n                \"ratePlan\": {\n                    \"id\": \"2c92c0f94e088947014e1cd7dfc651dc\",\n                    \"name\": \"Subscription - Percentage, Monthly\",\n                    \"AOV__c\": null,\n                    \"SKU__c\": \"DISCOUNT-PERCENT-SUBSCRIPTION-MONTHLY\",\n                    \"status\": \"Active\",\n                    \"Termed__c\": \"N\",\n                    \"productId\": \"2c92c0f94e088948014e1cd35a457e9a\",\n                    \"Favorite__c\": null,\n                    \"description\": \"Subscription Discount (monthly)\",\n                    \"productName\": \"Discount\",\n                    \"Franchise__c\": \"BC\",\n                    \"MaximumGMV__c\": null,\n                    \"PricingGroup__c\": \"Restrict SSL\",\n                    \"FeatureSetSKU__c\": \"STORE-TRIAL\",\n                    \"effectiveEndDate\": \"2199-01-01\",\n                    \"WHMCSProductID__c\": \"-1\",\n                    \"effectiveStartDate\": \"2015-01-01\",\n                    \"ProviderProductCode__c\": null,\n                    \"productRatePlanCharges\": [\n                        {\n                            \"id\": \"2c92c0f84e089461014e1cd90acf455e\",\n                            \"uom\": null,\n                            \"name\": \"Subscription - Percentage, Monthly\",\n                            \"type\": \"Recurring\",\n                            \"model\": \"DiscountPercentage\",\n                            \"pricing\": [\n                                {\n                                    \"currency\": \"USD\",\n                                    \"discountPercentage\": \"50\"\n                                }\n                            ],\n                            \"taxCode\": null,\n                            \"taxMode\": null,\n                            \"taxable\": false,\n                            \"productId\": \"2c92c0f94e088948014e1cd35a457e9a\",\n                            \"billingDay\": \"DefaultFromCustomer\",\n                            \"revRecCode\": null,\n                            \"description\": \"Subscription Discount (monthly)\",\n                            \"productName\": \"Discount\",\n                            \"upToPeriods\": null,\n                            \"BCGLCodes__c\": null,\n                            \"triggerEvent\": \"ContractEffective\",\n                            \"ChargeType__c\": \"Product Charge\",\n                            \"billingPeriod\": \"Month\",\n                            \"billingTiming\": null,\n                            \"discountClass\": null,\n                            \"discountLevel\": \"subscription\",\n                            \"listPriceBase\": null,\n                            \"ProductCode__c\": \"subscription\",\n                            \"pricingSummary\": [\n                                \"5%  discount\"\n                            ],\n                            \"smoothingModel\": null,\n                            \"applyDiscountTo\": \"RECURRING\",\n                            \"defaultQuantity\": null,\n                            \"numberOfPeriods\": null,\n                            \"upToPeriodsType\": null,\n                            \"CommodityCode__c\": \"208-46\",\n                            \"endDateCondition\": \"Subscription_End\",\n                            \"priceChangeOption\": null,\n                            \"productRatePlanId\": \"2c92c0f94e088947014e1cd7dfc651dc\",\n                            \"BCGLPercentages__c\": null,\n                            \"financeInformation\": {\n                                \"deferredRevenueAccountingCode\": null,\n                                \"recognizedRevenueAccountingCode\": null,\n                                \"deferredRevenueAccountingCodeType\": null,\n                                \"recognizedRevenueAccountingCodeType\": null\n                            },\n                            \"productRatePlanName\": \"Subscription - Percentage, Monthly\",\n                            \"BCFairMarketValue__c\": null,\n                            \"specificBillingPeriod\": null,\n                            \"billingPeriodAlignment\": \"AlignToCharge\",\n                            \"revRecTriggerCondition\": null,\n                            \"priceIncreasePercentage\": null,\n                            \"unusedIncludedUnitPrice\": null,\n                            \"usageRecordRatingOption\": null,\n                            \"overageCalculationOption\": null,\n                            \"chargeModelConfigurations\": [],\n                            \"revenueRecognitionRuleName\": null,\n                            \"productDiscountApplyDetails\": [],\n                            \"overageUnusedUnitsCreditOption\": null,\n                            \"useTenantDefaultForPriceChange\": null,\n                            \"useDiscountSpecificAccountingCode\": false\n                        }\n                    ],\n                    \"AutomaticallyUpgrades__c\": \"NO\",\n                    \"EligibleforAllocation__c\": \"Y\",\n                    \"MaximumTrailingOrders__c\": null,\n                    \"MinimumTrailingOrders__c\": null,\n                    \"OrderOverageBlockSize__c\": null,\n                    \"ServiceExpirationDays__c\": \"0\",\n                    \"AutomaticallyUpgradesTo__c\": null,\n                    \"AutomaticallyUpgradesToOrders__c\": null,\n                    \"ServiceDurationPeriodInMonths__c\": \"0\"\n                }\n            },\n            \"customFields\": {},\n            \"ratePlanGroups\": [\n                [\n                    {\n                        \"id\": \"2c92c0f84b5862ba014b607f747d4cb6\",\n                        \"name\": \"15 Day Trial\",\n                        \"AOV__c\": null,\n                        \"SKU__c\": \"STORE-TRIAL-15DAY\",\n                        \"status\": \"Active\",\n                        \"Termed__c\": null,\n                        \"productId\": \"2c92c0f94b586b63014b607f71c01236\",\n                        \"Favorite__c\": null,\n                        \"description\": \"BigCommerce 15 Day Trial Store\",\n                        \"productName\": \"Trial Store\",\n                        \"Franchise__c\": \"BC\",\n                        \"MaximumGMV__c\": null,\n                        \"PricingGroup__c\": \"Restrict SSL\",\n                        \"FeatureSetSKU__c\": \"STORE-TRIAL\",\n                        \"effectiveEndDate\": \"2199-12-31\",\n                        \"WHMCSProductID__c\": \"120\",\n                        \"effectiveStartDate\": \"2000-01-01\",\n                        \"ProviderProductCode__c\": null,\n                        \"productRatePlanCharges\": [\n                            {\n                                \"id\": \"2c92c0f84b5862ba014b607f77bf4cc0\",\n                                \"uom\": null,\n                                \"name\": \"15 Day Trial\",\n                                \"type\": \"Recurring\",\n                                \"model\": \"FlatFee\",\n                                \"pricing\": [\n                                    {\n                                        \"price\": 0,\n                                        \"tiers\": null,\n                                        \"currency\": \"USD\",\n                                        \"overagePrice\": null,\n                                        \"includedUnits\": 0,\n                                        \"discountAmount\": null,\n                                        \"discountPercentage\": null\n                                    }\n                                ],\n                                \"taxCode\": \"AU Tax\",\n                                \"taxMode\": null,\n                                \"taxable\": false,\n                                \"productId\": \"2c92c0f94b586b63014b607f71c01236\",\n                                \"billingDay\": \"ChargeTriggerDay\",\n                                \"revRecCode\": null,\n                                \"description\": \"\",\n                                \"productName\": \"Trial Store\",\n                                \"upToPeriods\": null,\n                                \"BCGLCodes__c\": null,\n                                \"triggerEvent\": \"ContractEffective\",\n                                \"ChargeType__c\": \"Product Charge\",\n                                \"billingPeriod\": \"Month\",\n                                \"billingTiming\": \"IN_ADVANCE\",\n                                \"discountClass\": null,\n                                \"discountLevel\": null,\n                                \"listPriceBase\": \"Per_Billing_Period\",\n                                \"ProductCode__c\": \"subscription\",\n                                \"pricingSummary\": [\n                                    \"USD0\"\n                                ],\n                                \"smoothingModel\": null,\n                                \"applyDiscountTo\": null,\n                                \"defaultQuantity\": null,\n                                \"numberOfPeriods\": null,\n                                \"upToPeriodsType\": null,\n                                \"CommodityCode__c\": \"208-46\",\n                                \"endDateCondition\": \"Subscription_End\",\n                                \"priceChangeOption\": null,\n                                \"productRatePlanId\": \"2c92c0f84b5862ba014b607f747d4cb6\",\n                                \"BCGLPercentages__c\": null,\n                                \"financeInformation\": {\n                                    \"deferredRevenueAccountingCode\": \"Recognized Revenue\",\n                                    \"recognizedRevenueAccountingCode\": \"Recognized Revenue\",\n                                    \"deferredRevenueAccountingCodeType\": \"SalesRevenue\",\n                                    \"recognizedRevenueAccountingCodeType\": \"SalesRevenue\"\n                                },\n                                \"productRatePlanName\": \"15 Day Trial\",\n                                \"BCFairMarketValue__c\": null,\n                                \"specificBillingPeriod\": null,\n                                \"billingPeriodAlignment\": \"AlignToCharge\",\n                                \"revRecTriggerCondition\": null,\n                                \"priceIncreasePercentage\": null,\n                                \"unusedIncludedUnitPrice\": null,\n                                \"usageRecordRatingOption\": null,\n                                \"overageCalculationOption\": null,\n                                \"chargeModelConfigurations\": [],\n                                \"revenueRecognitionRuleName\": \"Recognize daily over time\",\n                                \"productDiscountApplyDetails\": [],\n                                \"overageUnusedUnitsCreditOption\": null,\n                                \"useTenantDefaultForPriceChange\": null,\n                                \"useDiscountSpecificAccountingCode\": null\n                            }\n                        ],\n                        \"AutomaticallyUpgrades__c\": \"NO\",\n                        \"EligibleforAllocation__c\": \"N\",\n                        \"MaximumTrailingOrders__c\": null,\n                        \"MinimumTrailingOrders__c\": null,\n                        \"OrderOverageBlockSize__c\": null,\n                        \"ServiceExpirationDays__c\": \"15\",\n                        \"AutomaticallyUpgradesTo__c\": null,\n                        \"AutomaticallyUpgradesToOrders__c\": null,\n                        \"ServiceDurationPeriodInMonths__c\": null\n                    }\n                ]\n            ]\n        }\n    }\n}",
+              "createdAt": "2022-02-28T16:32:24.000Z",
+              "updatedAt": "2022-02-28T16:32:24.000Z",
+              "uid": "2104987-c35f1b4a-4eb2-4c5a-b4b4-0321971a8b08"
+            }
+          ],
+          "createdAt": "2022-02-28T16:32:24.000Z",
+          "updatedAt": "2022-02-28T16:32:24.000Z",
+          "uid": "2104987-7d1b6ff2-dcd7-42b5-b36e-fd50e4c01e8c"
+        },
+        {
+          "name": "Create Export",
+          "id": "5af3dc3c-8d75-4138-a7f4-ec92b1e7fcf3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "{{password}}",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "{{username}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{zuora_promo_code_url}}/tools/promos/[CAMPAIGN_ID]/create_export",
+              "host": [
+                "{{zuora_promo_code_url}}"
+              ],
+              "path": [
+                "tools",
+                "promos",
+                "[CAMPAIGN_ID]",
+                "create_export"
+              ]
+            },
+            "description": "Retrieves a list of promotion campaigns"
+          },
+          "response": [
+            {
+              "id": "34d68af6-4adc-4538-ba83-0d168e7d3479",
+              "name": "Create Export",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{zuora_promo_code_url}}/tools/promos/67/create_export",
+                  "host": [
+                    "{{zuora_promo_code_url}}"
+                  ],
+                  "path": [
+                    "tools",
+                    "promos",
+                    "67",
+                    "create_export"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 16 Jul 2021 16:50:38 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "ALLOWALL"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "POST, GET, PUT, DELETE, OPTIONS"
+                },
+                {
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "Origin, Content-Type, Accept, Authorization, Token"
+                },
+                {
+                  "key": "Access-Control-Max-Age",
+                  "value": "1728000"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"53f310f0ad5f3c06ff7cb640ed4e263b\""
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "max-age=0, private, must-revalidate"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "14867df1-9938-4f2d-ae96-7fc89c552f18"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.039060"
+                },
+                {
+                  "key": "X-Kong-Upstream-Latency",
+                  "value": "40"
+                },
+                {
+                  "key": "X-Kong-Proxy-Latency",
+                  "value": "2"
+                },
+                {
+                  "key": "Via",
+                  "value": "kong/2.3.3"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 67,\n        \"status\": \"Queued\",\n        \"campaign\": 67,\n        \"results\": null,\n        \"jobType\": \"SingleUseCodes - Export\",\n        \"percentComplete\": null,\n        \"runtimeLogs\": []\n    }\n}",
+              "createdAt": "2022-02-28T16:32:24.000Z",
+              "updatedAt": "2022-02-28T16:32:24.000Z",
+              "uid": "2104987-34d68af6-4adc-4538-ba83-0d168e7d3479"
+            },
+            {
+              "id": "321bc34a-c955-4355-9774-64ae4a8ef592",
+              "name": "Record Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{zuora_promo_code_url}}/tools/promos/[CAMPAIGN_ID]/create_export",
+                  "host": [
+                    "{{zuora_promo_code_url}}"
+                  ],
+                  "path": [
+                    "tools",
+                    "promos",
+                    "[CAMPAIGN_ID]",
+                    "create_export"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Tue, 03 Aug 2021 18:13:07 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "ALLOWALL"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "cb1d0973-b856-401a-b3b5-4c5ce338aa17"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.037655"
+                },
+                {
+                  "key": "Content-Security-Policy-Report-Only",
+                  "value": "media-src 'none'; img-src 'self' https://s3-us-west-2.amazonaws.com https://www.google-analytics.com https://workflow.apps.zuora.com https://www.zuora.com https://zuora-connect.s3.us-west-2.amazonaws.com http://storage.googleapis.com https://www.expression-web-tutorials.com; object-src https://connect.zuora.com; worker-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'self' jsagent.tcell.io https://code.highcharts.com https://cdn.zuora.com https://www.google-analytics.com; manifest-src 'none'; style-src 'unsafe-inline' 'unsafe-eval' 'self' https://cdn.zuora.com https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; child-src https://*.apps.zuora.com https://connect.zuora.com https://us.browser.tcell.insight.rapid7.com/ https://input.tcell.io/; frame-src https://*.apps.zuora.com https://connect.zuora.com https://us.browser.tcell.insight.rapid7.com/ https://input.tcell.io/; connect-src 'self' https://api.tcell.io/ https://us.agent.tcell.insight.rapid7.com https://www.google-analytics.com https://input.tcell.io/ https://us.input.tcell.insight.rapid7.com https://us.browser.tcell.insight.rapid7.com/; report-uri https://us.browser.tcell.insight.rapid7.com/csp/785fa070bb619ec7bb8304b3b1e8a93ce179691ce922deb616bde155ecd6de1a"
+                },
+                {
+                  "key": "X-Kong-Upstream-Latency",
+                  "value": "43"
+                },
+                {
+                  "key": "X-Kong-Proxy-Latency",
+                  "value": "0"
+                },
+                {
+                  "key": "Via",
+                  "value": "kong/2.3.3"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"success\": false,\n    \"error\": {\n        \"code\": 404,\n        \"message\": \"Record not found\"\n    }\n}",
+              "createdAt": "2022-02-28T16:32:24.000Z",
+              "updatedAt": "2022-02-28T16:32:24.000Z",
+              "uid": "2104987-321bc34a-c955-4355-9774-64ae4a8ef592"
+            }
+          ],
+          "createdAt": "2022-02-28T16:32:24.000Z",
+          "updatedAt": "2022-02-28T16:32:24.000Z",
+          "uid": "2104987-5af3dc3c-8d75-4138-a7f4-ec92b1e7fcf3"
+        },
+        {
+          "name": "Consume Code",
+          "id": "b2dbb956-fd43-4010-8b8c-2e2f810625e3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "{{password}}",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "{{username}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{zuora_promo_code_url}}/tools/promos/[PROMO_CODE]/consume",
+              "host": [
+                "{{zuora_promo_code_url}}"
+              ],
+              "path": [
+                "tools",
+                "promos",
+                "[PROMO_CODE]",
+                "consume"
+              ]
+            },
+            "description": "Retrieves a list of promotion campaigns"
+          },
+          "response": [
+            {
+              "id": "f51cdf0c-fa95-45bc-bda1-be5cca5231d7",
+              "name": "Consume Code Example",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "url": {
+                  "raw": "{{zuora_promo_code_url}}/tools/promos/3FREE-4womaURE43-BC/consume",
+                  "host": [
+                    "{{zuora_promo_code_url}}"
+                  ],
+                  "path": [
+                    "tools",
+                    "promos",
+                    "3FREE-4womaURE43-BC",
+                    "consume"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Mon, 12 Jul 2021 15:47:27 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "ALLOWALL"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "POST, GET, PUT, DELETE, OPTIONS"
+                },
+                {
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "Origin, Content-Type, Accept, Authorization, Token"
+                },
+                {
+                  "key": "Access-Control-Max-Age",
+                  "value": "1728000"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"f16ceee36eee372a3549f39f10fee673\""
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "max-age=0, private, must-revalidate"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "005a454a-5cb1-4a6e-80fc-dc67cb1d1cdd"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.102425"
+                },
+                {
+                  "key": "Content-Security-Policy-Report-Only",
+                  "value": "media-src 'none'; img-src 'self' https://s3-us-west-2.amazonaws.com https://www.google-analytics.com https://workflow.apps.zuora.com https://www.zuora.com https://zuora-connect.s3.us-west-2.amazonaws.com http://storage.googleapis.com https://www.expression-web-tutorials.com; object-src https://connect.zuora.com; worker-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'self' jsagent.tcell.io https://code.highcharts.com https://cdn.zuora.com https://www.google-analytics.com; manifest-src 'none'; style-src 'unsafe-inline' 'unsafe-eval' 'self' https://cdn.zuora.com https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; child-src https://*.apps.zuora.com https://connect.zuora.com https://us.browser.tcell.insight.rapid7.com/ https://input.tcell.io/; frame-src https://*.apps.zuora.com https://connect.zuora.com https://us.browser.tcell.insight.rapid7.com/ https://input.tcell.io/; connect-src 'self' https://api.tcell.io/ https://us.agent.tcell.insight.rapid7.com https://www.google-analytics.com https://input.tcell.io/ https://us.input.tcell.insight.rapid7.com https://us.browser.tcell.insight.rapid7.com/; report-uri https://us.browser.tcell.insight.rapid7.com/csp/785fa070bb619ec7bb8304b3b1e8a93ce179691ce922deb616bde155ecd6de1a"
+                },
+                {
+                  "key": "X-Kong-Upstream-Latency",
+                  "value": "105"
+                },
+                {
+                  "key": "X-Kong-Proxy-Latency",
+                  "value": "0"
+                },
+                {
+                  "key": "Via",
+                  "value": "kong/2.3.3"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"success\": true,\n    \"validRatePlanGroups\": \"All\",\n    \"data\": {\n        \"id\": 68,\n        \"code\": \"3FREE-4womaURE43-BC\",\n        \"campaign\": \"Discount Option: Set 3 months free\",\n        \"campaignId\": 36,\n        \"timeRedeemed\": \"2021-07-12T09:47:27.675-06:00\",\n        \"createdAt\": \"2021-07-12T09:44:54.250-06:00\",\n        \"updatedAt\": \"2021-07-12T09:44:54.250-06:00\",\n        \"availableQuantity\": 0,\n        \"effectiveFrom\": \"2021-07-12T09:00:00.000-06:00\",\n        \"effectiveTo\": \"2027-01-21T09:00:00.000-07:00\",\n        \"initialQuantity\": 1,\n        \"discount\": {\n            \"type\": \"percent\",\n            \"ratePlan\": {\n                \"id\": \"2c92c0f85b7a701a015b8465c2fe5a8a\",\n                \"name\": \"3 Months Free - Monthly\",\n                \"AOV__c\": null,\n                \"SKU__c\": \"PROMO-FREE-3-MONTHS-MONTHLY\",\n                \"status\": \"Active\",\n                \"Termed__c\": \"N\",\n                \"productId\": \"2c92c0f953b174e50153bebf3aa67c1d\",\n                \"Favorite__c\": null,\n                \"description\": \"3 months free promotional discount\",\n                \"productName\": \"PROMO\",\n                \"Franchise__c\": \"BC\",\n                \"MaximumGMV__c\": \"0\",\n                \"PricingGroup__c\": \"New Pricing\",\n                \"FeatureSetSKU__c\": \"PROMO-FREE-3-MONTHS-MONTHLY\",\n                \"effectiveEndDate\": \"2099-03-01\",\n                \"WHMCSProductID__c\": \"-1\",\n                \"effectiveStartDate\": \"2016-08-11\",\n                \"ProviderProductCode__c\": null,\n                \"productRatePlanCharges\": [\n                    {\n                        \"id\": \"2c92c0f95b7a81bc015b8465c83f5089\",\n                        \"uom\": null,\n                        \"name\": \"First 3 Months Free\",\n                        \"type\": \"Recurring\",\n                        \"model\": \"DiscountPercentage\",\n                        \"pricing\": [\n                            {\n                                \"price\": null,\n                                \"tiers\": null,\n                                \"currency\": \"USD\",\n                                \"overagePrice\": null,\n                                \"includedUnits\": 0,\n                                \"discountAmount\": null,\n                                \"discountPercentage\": 100\n                            }\n                        ],\n                        \"taxCode\": null,\n                        \"taxMode\": \"TaxExclusive\",\n                        \"taxable\": false,\n                        \"productId\": \"2c92c0f953b174e50153bebf3aa67c1d\",\n                        \"billingDay\": \"ChargeTriggerDay\",\n                        \"revRecCode\": null,\n                        \"description\": \"3 month promotional discount\\\\nPromo - 3 Months Free - Monthly\",\n                        \"productName\": \"PROMO\",\n                        \"upToPeriods\": 3,\n                        \"BCGLCodes__c\": null,\n                        \"triggerEvent\": \"ContractEffective\",\n                        \"ChargeType__c\": \"Product Charge\",\n                        \"billingPeriod\": \"Month\",\n                        \"billingTiming\": null,\n                        \"discountClass\": null,\n                        \"discountLevel\": \"subscription\",\n                        \"listPriceBase\": null,\n                        \"ProductCode__c\": \"subscription\",\n                        \"pricingSummary\": [\n                            \"100%  discount\"\n                        ],\n                        \"smoothingModel\": null,\n                        \"applyDiscountTo\": \"RECURRING\",\n                        \"defaultQuantity\": null,\n                        \"numberOfPeriods\": null,\n                        \"upToPeriodsType\": \"Months\",\n                        \"CommodityCode__c\": \"208-46\",\n                        \"endDateCondition\": \"Fixed_Period\",\n                        \"priceChangeOption\": null,\n                        \"productRatePlanId\": \"2c92c0f85b7a701a015b8465c2fe5a8a\",\n                        \"BCGLPercentages__c\": null,\n                        \"financeInformation\": {\n                            \"deferredRevenueAccountingCode\": null,\n                            \"recognizedRevenueAccountingCode\": null,\n                            \"deferredRevenueAccountingCodeType\": null,\n                            \"recognizedRevenueAccountingCodeType\": null\n                        },\n                        \"productRatePlanName\": \"3 Months Free - Monthly\",\n                        \"BCFairMarketValue__c\": null,\n                        \"specificBillingPeriod\": null,\n                        \"billingPeriodAlignment\": \"AlignToCharge\",\n                        \"revRecTriggerCondition\": null,\n                        \"priceIncreasePercentage\": null,\n                        \"unusedIncludedUnitPrice\": null,\n                        \"usageRecordRatingOption\": null,\n                        \"overageCalculationOption\": null,\n                        \"chargeModelConfigurations\": [],\n                        \"revenueRecognitionRuleName\": null,\n                        \"productDiscountApplyDetails\": [\n                            {\n                                \"appliedProductRatePlanId\": \"2c92c0f84c9e618f014ca4f4e78d3c7c\",\n                                \"appliedProductRatePlanChargeId\": \"2c92c0f96fa4bb82016faacd88cb7b04\"\n                            },\n                            {\n                                \"appliedProductRatePlanId\": \"2c92c0f84fd7e475014fe21216c90f0b\",\n                                \"appliedProductRatePlanChargeId\": \"2c92c0f94fd7f22b014fe2121d1a3287\"\n                            },\n                            {\n                                \"appliedProductRatePlanId\": \"2c92c0f94c9e6b67014ca4fcc9716791\",\n                                \"appliedProductRatePlanChargeId\": \"2c92c0f8737fba2c01738246c63a506e\"\n                            },\n                            {\n                                \"appliedProductRatePlanId\": \"2c92c0f84fd7e46c014fe2124db27244\",\n                                \"appliedProductRatePlanChargeId\": \"2c92c0f84fd7e46a014fe2125697523d\"\n                            },\n                            {\n                                \"appliedProductRatePlanId\": \"2c92c0f8599150970159943ff18b0f3c\",\n                                \"appliedProductRatePlanChargeId\": \"2c92c0f959916d780159943ff68a61d8\"\n                            }\n                        ],\n                        \"overageUnusedUnitsCreditOption\": null,\n                        \"useTenantDefaultForPriceChange\": null,\n                        \"useDiscountSpecificAccountingCode\": false\n                    }\n                ],\n                \"AutomaticallyUpgrades__c\": \"NO\",\n                \"EligibleforAllocation__c\": \"Y\",\n                \"MaximumTrailingOrders__c\": \"0\",\n                \"MinimumTrailingOrders__c\": \"0\",\n                \"OrderOverageBlockSize__c\": \"1000\",\n                \"ServiceExpirationDays__c\": \"0\",\n                \"AutomaticallyUpgradesTo__c\": null,\n                \"AutomaticallyUpgradesToOrders__c\": null,\n                \"ServiceDurationPeriodInMonths__c\": \"0\"\n            }\n        },\n        \"customFields\": {},\n        \"ratePlanGroups\": [\n            \"All\"\n        ]\n    }\n}",
+              "createdAt": "2022-02-28T16:32:24.000Z",
+              "updatedAt": "2022-02-28T16:32:24.000Z",
+              "uid": "2104987-f51cdf0c-fa95-45bc-bda1-be5cca5231d7"
+            },
+            {
+              "id": "a4275aa0-7aaf-4188-9a8b-63a72b2a72c4",
+              "name": "Promotion Code Already Used",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "url": {
+                  "raw": "{{zuora_promo_code_url}}/tools/promos/3FREE-4womaURE43-BC/consume",
+                  "host": [
+                    "{{zuora_promo_code_url}}"
+                  ],
+                  "path": [
+                    "tools",
+                    "promos",
+                    "3FREE-4womaURE43-BC",
+                    "consume"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 15 Jul 2021 02:42:50 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "ALLOWALL"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "POST, GET, PUT, DELETE, OPTIONS"
+                },
+                {
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "Origin, Content-Type, Accept, Authorization, Token"
+                },
+                {
+                  "key": "Access-Control-Max-Age",
+                  "value": "1728000"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"75056045067d30f9717f10acccbcd1ea\""
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "max-age=0, private, must-revalidate"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "15f2cb61-719b-4a28-9836-6149747440c4"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.022681"
+                },
+                {
+                  "key": "X-Kong-Upstream-Latency",
+                  "value": "25"
+                },
+                {
+                  "key": "X-Kong-Proxy-Latency",
+                  "value": "0"
+                },
+                {
+                  "key": "Via",
+                  "value": "kong/2.3.3"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"success\": false,\n    \"error\": {\n        \"code\": 5,\n        \"message\": \"Promotion code already used\"\n    }\n}",
+              "createdAt": "2022-02-28T16:32:24.000Z",
+              "updatedAt": "2022-02-28T16:32:24.000Z",
+              "uid": "2104987-a4275aa0-7aaf-4188-9a8b-63a72b2a72c4"
+            }
+          ],
+          "createdAt": "2022-02-28T16:32:24.000Z",
+          "updatedAt": "2022-02-28T16:32:24.000Z",
+          "uid": "2104987-b2dbb956-fd43-4010-8b8c-2e2f810625e3"
+        }
+      ],
+      "id": "ee7e610f-9c35-4925-bfad-d28065d831ed",
+      "createdAt": "2022-02-28T16:32:24.000Z",
+      "updatedAt": "2022-02-28T16:32:24.000Z",
+      "uid": "2104987-ee7e610f-9c35-4925-bfad-d28065d831ed"
+    },
+    {
+      "name": "Jobs",
+      "item": [
+        {
+          "name": "Retrieves the status of a job",
+          "id": "f8a111b8-c56b-4c02-842f-5778e96ad565",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "{{password}}",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "{{username}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{zuora_promo_code_url}}/tools/jobs/[ID]",
+              "host": [
+                "{{zuora_promo_code_url}}"
+              ],
+              "path": [
+                "tools",
+                "jobs",
+                "[ID]"
+              ]
+            },
+            "description": "Retrieves a list of promotion campaigns"
+          },
+          "response": [
+            {
+              "id": "810b874b-bdcf-4a8e-ac69-5d435e2670e6",
+              "name": "Retrieves the status of a job",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{zuora_promo_code_url}}/tools/jobs/67",
+                  "host": [
+                    "{{zuora_promo_code_url}}"
+                  ],
+                  "path": [
+                    "tools",
+                    "jobs",
+                    "67"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 16 Jul 2021 16:52:53 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "ALLOWALL"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "POST, GET, PUT, DELETE, OPTIONS"
+                },
+                {
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "Origin, Content-Type, Accept, Authorization, Token"
+                },
+                {
+                  "key": "Access-Control-Max-Age",
+                  "value": "1728000"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1b6d8ceec07ca0a6edb9ddf57e74f39d\""
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "max-age=0, private, must-revalidate"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "8257c59d-e622-40e4-b26b-ca33a654f6a6"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.049638"
+                },
+                {
+                  "key": "X-Kong-Upstream-Latency",
+                  "value": "136"
+                },
+                {
+                  "key": "X-Kong-Proxy-Latency",
+                  "value": "0"
+                },
+                {
+                  "key": "Via",
+                  "value": "kong/2.3.3"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 67,\n        \"status\": \"Completed\",\n        \"campaign\": 67,\n        \"results\": \"Wrote all codes to csv\",\n        \"jobType\": \"SingleUseCodes - Export\",\n        \"percentComplete\": \"100.0\",\n        \"runtimeLogs\": [\n            \"2021-07-14 20:18:33 +0000: Child code export started for promotion with id: 69. # Codes: 1\",\n            \"2021-07-14 20:18:33 +0000: Completed creating .csv of codes and their custom fields for 1 codes\",\n            \"2021-07-15 11:37:29 +0000: Child code export started for promotion with id: 6413. # Codes: 1\",\n            \"2021-07-15 11:37:29 +0000: Completed creating .csv of codes and their custom fields for 1 codes\",\n            \"2021-07-15 16:17:43 +0000: Child code export started for promotion with id: 6417. # Codes: 1\",\n            \"2021-07-15 16:17:43 +0000: Completed creating .csv of codes and their custom fields for 1 codes\",\n            \"2021-07-15 19:54:28 +0000: Child code export started for promotion with id: 76808. # Codes: 1\",\n            \"2021-07-15 19:54:28 +0000: Completed creating .csv of codes and their custom fields for 1 codes\",\n            \"2021-07-16 08:21:55 +0000: Child code export started for promotion with id: 6007. # Codes: 1\",\n            \"2021-07-16 08:21:55 +0000: Completed creating .csv of codes and their custom fields for 1 codes\",\n            \"2021-07-16 08:31:32 +0000: Child code export started for promotion with id: 6009. # Codes: 1\",\n            \"2021-07-16 08:31:32 +0000: Completed creating .csv of codes and their custom fields for 1 codes\",\n            \"2021-07-16 09:09:49 +0000: Child code export started for promotion with id: 6015. # Codes: 1\",\n            \"2021-07-16 09:09:49 +0000: Completed creating .csv of codes and their custom fields for 1 codes\",\n            \"2021-07-16 09:25:41 +0000: Child code export started for promotion with id: 6019. # Codes: 1\",\n            \"2021-07-16 09:25:41 +0000: Completed creating .csv of codes and their custom fields for 1 codes\",\n            \"2021-07-16 16:50:38 +0000: Child code export started for promotion with id: 67. # Codes: 50\",\n            \"2021-07-16 16:50:38 +0000: Completed creating .csv of codes and their custom fields for 50 codes\"\n        ],\n        \"fileDownload\": \"https://rbm-apps.s3.us-west-2.amazonaws.com/PromoCodes/production/2004715/tools/job/67/67_child_export.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJBHRVXRNDIPPVOTQ%2F20210716%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210716T165253Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=5ce1c2e899ff7fe91e3ea200fbf7834dcab16946d635717d94bc89a374d782fb\"\n    }\n}",
+              "createdAt": "2022-02-28T16:32:24.000Z",
+              "updatedAt": "2022-02-28T16:32:24.000Z",
+              "uid": "2104987-810b874b-bdcf-4a8e-ac69-5d435e2670e6"
+            }
+          ],
+          "createdAt": "2022-02-28T16:32:24.000Z",
+          "updatedAt": "2022-02-28T16:32:24.000Z",
+          "uid": "2104987-f8a111b8-c56b-4c02-842f-5778e96ad565"
+        }
+      ],
+      "id": "703accc5-b1e9-4d79-a461-9bf5e7f3fd87",
+      "createdAt": "2022-02-28T16:32:24.000Z",
+      "updatedAt": "2022-02-28T16:32:24.000Z",
+      "uid": "2104987-703accc5-b1e9-4d79-a461-9bf5e7f3fd87"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ],
+        "id": "261c4bc5-3a02-4aeb-81b4-5db2f19b8a46"
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ],
+        "id": "66276baa-8fc0-4919-89de-bdbf35ccafaf"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "campaign_id",
+      "value": ""
+    },
+    {
+      "key": "promo_code",
+      "value": ""
+    },
+    {
+      "key": "zuora_promo_code_url",
+      "value": "https://promotion-codes.apps.zuora.com/api/v1"
+    },
+    {
+      "key": "username",
+      "value": ""
+    },
+    {
+      "key": "password",
+      "value": ""
+    }
+  ]
+}

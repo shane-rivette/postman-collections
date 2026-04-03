@@ -1,0 +1,56 @@
+{
+  "info": {
+    "_postman_id": "6cde1f24-5de0-4cbf-8c14-0ee96521b40b",
+    "name": "login.bigcommerce.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2019-07-18T18:34:39.000Z",
+    "updatedAt": "2020-06-30T15:06:18.000Z",
+    "lastUpdatedBy": "45334",
+    "uid": "45334-6cde1f24-5de0-4cbf-8c14-0ee96521b40b"
+  },
+  "item": [
+    {
+      "name": "Exchange code for token (App installation)",
+      "id": "f7cb1162-009f-4634-93f7-58a5f33111d3",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"client_id\": \"{{client-id}}\",\n\t\"client_secret\": \"{{client-secret}}\",\n\t\"grant_type\": \"authorization_code\",\n\t\"code\": \"{{code}}\",\n\t\"scope\": \"{{scope}}\",\n\t\"redirect_uri\": \"{{redirect-uri}}\",\n\t\"context\": \"{{context}}\"\n}"
+        },
+        "url": {
+          "raw": "https://login.bigcommerce.com/oauth2/token",
+          "protocol": "https",
+          "host": [
+            "login",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "oauth2",
+            "token"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2019-07-18T18:34:56.000Z",
+      "updatedAt": "2020-06-30T15:06:18.000Z",
+      "uid": "45334-f7cb1162-009f-4634-93f7-58a5f33111d3"
+    }
+  ]
+}

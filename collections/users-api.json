@@ -1,0 +1,116 @@
+{
+  "info": {
+    "_postman_id": "19f0d2b6-f89f-4e90-b9a4-98abd1a49e7c",
+    "name": "Users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2022-03-08T15:44:18.000Z",
+    "updatedAt": "2022-03-08T15:44:19.000Z",
+    "lastUpdatedBy": "2104987",
+    "uid": "2104987-19f0d2b6-f89f-4e90-b9a4-98abd1a49e7c"
+  },
+  "item": [
+    {
+      "name": "Delete User",
+      "id": "e4a7e87f-02f3-4ea3-b967-d8e8864c32e9",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "xxx",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Client",
+            "value": "xxx",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "{{bc_api}}/v3/alpha/users/24",
+          "host": [
+            "{{bc_api}}"
+          ],
+          "path": [
+            "v3",
+            "alpha",
+            "users",
+            "24"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2022-03-08T15:44:18.000Z",
+      "updatedAt": "2022-03-08T15:44:18.000Z",
+      "uid": "2104987-e4a7e87f-02f3-4ea3-b967-d8e8864c32e9"
+    },
+    {
+      "name": "Create User",
+      "id": "32ca35c1-f8af-49da-b0ab-b0bc758058d8",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "xxx",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Client",
+            "value": "xxx",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"email\": \"anthony.leach+prodtest@bigcommerce.com\",\n    \"password\": \"Password@1\"\n}"
+        },
+        "url": {
+          "raw": "{{bc_api}}/v3/alpha/users",
+          "host": [
+            "{{bc_api}}"
+          ],
+          "path": [
+            "v3",
+            "alpha",
+            "users"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2022-03-08T15:44:18.000Z",
+      "updatedAt": "2022-03-08T15:44:18.000Z",
+      "uid": "2104987-32ca35c1-f8af-49da-b0ab-b0bc758058d8"
+    }
+  ]
+}

@@ -1,0 +1,385 @@
+{
+  "info": {
+    "_postman_id": "a4d4d828-cae6-4621-a2a0-870bb5f0ca87",
+    "name": "\"Special\" BigCommerce Storefront APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2019-06-19T21:48:19.000Z",
+    "updatedAt": "2021-07-01T21:29:10.000Z",
+    "lastUpdatedBy": "45334",
+    "uid": "45334-a4d4d828-cae6-4621-a2a0-870bb5f0ca87"
+  },
+  "item": [
+    {
+      "name": "/cart.php",
+      "item": [
+        {
+          "name": "Update Option Selections",
+          "id": "f9dbc565-9927-423b-8bbd-9d127c28bf3e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "action",
+                  "value": "EditProductFieldsInCart",
+                  "type": "text"
+                },
+                {
+                  "key": "item_id",
+                  "value": "{{line-item-id}}",
+                  "type": "text"
+                },
+                {
+                  "key": "attribute[160]",
+                  "value": "219",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{domain}}/cart.php",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "cart.php"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2019-06-19T21:48:19.000Z",
+          "updatedAt": "2021-07-01T21:55:09.000Z",
+          "uid": "45334-f9dbc565-9927-423b-8bbd-9d127c28bf3e"
+        }
+      ],
+      "id": "5f79a474-aef9-4125-a0ea-2268efef63cc",
+      "createdAt": "2019-06-19T21:48:19.000Z",
+      "updatedAt": "2019-06-19T21:48:19.000Z",
+      "uid": "45334-5f79a474-aef9-4125-a0ea-2268efef63cc"
+    },
+    {
+      "name": "Remote (unsupported)",
+      "item": [
+        {
+          "name": "Retrieve Available Option Configurations",
+          "id": "6a14376b-9397-4494-8b78-ee448f23563a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{domain}}/remote/v1/configure-options/{{line-item-id}}",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "remote",
+                "v1",
+                "configure-options",
+                "{{line-item-id}}"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2019-06-19T21:48:19.000Z",
+          "updatedAt": "2019-06-20T14:04:08.000Z",
+          "uid": "45334-6a14376b-9397-4494-8b78-ee448f23563a"
+        }
+      ],
+      "id": "6da1b17c-55d5-4e74-a752-94547fabe1f1",
+      "createdAt": "2019-06-19T21:48:19.000Z",
+      "updatedAt": "2019-06-19T21:48:19.000Z",
+      "uid": "45334-6da1b17c-55d5-4e74-a752-94547fabe1f1"
+    },
+    {
+      "name": "internalApi",
+      "item": [
+        {
+          "name": "Create Order (Bank Deposit)",
+          "id": "1149e298-ddec-489e-8f27-b11866b3aa68",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"customerMessage\":\"\",\n\t\"payment\": {\n\t\t\t\"name\":\"bankdeposit\"\n\t\t}\n\t}"
+            },
+            "url": {
+              "raw": "https://hatertron.ninja/internalapi/v1/checkout/order",
+              "protocol": "https",
+              "host": [
+                "hatertron",
+                "ninja"
+              ],
+              "path": [
+                "internalapi",
+                "v1",
+                "checkout",
+                "order"
+              ]
+            },
+            "description": "Requires a completed Checkout object and Bank Deposit to be enabled "
+          },
+          "response": [],
+          "createdAt": "2019-10-22T16:13:12.000Z",
+          "updatedAt": "2019-10-22T16:54:27.000Z",
+          "uid": "45334-1149e298-ddec-489e-8f27-b11866b3aa68"
+        }
+      ],
+      "id": "d187e8c7-897d-4c15-9e26-1dc4b78885d8",
+      "createdAt": "2019-10-22T16:09:52.000Z",
+      "updatedAt": "2019-10-22T16:54:41.000Z",
+      "uid": "45334-d187e8c7-897d-4c15-9e26-1dc4b78885d8"
+    },
+    {
+      "name": "login.php",
+      "item": [
+        {
+          "name": "Trigger Password Reset Request",
+          "id": "ed185763-a439-47e8-9d3d-de30f1cc4d1b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "{{email-address}}",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{domain}}/login.php?action=send_password_email",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "login.php"
+              ],
+              "query": [
+                {
+                  "key": "action",
+                  "value": "send_password_email"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2019-06-19T21:48:19.000Z",
+          "updatedAt": "2021-07-01T21:54:06.000Z",
+          "uid": "45334-ed185763-a439-47e8-9d3d-de30f1cc4d1b"
+        },
+        {
+          "name": "Create Account",
+          "id": "3f3f2b7f-a128-4729-ba42-8e01c6ebaa4a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "FormField[1][1]",
+                  "value": "test+9@example.org",
+                  "type": "text"
+                },
+                {
+                  "key": "FormField[1][2]",
+                  "value": "testtest1",
+                  "type": "text"
+                },
+                {
+                  "key": "FormField[1][3]",
+                  "value": "testtest1",
+                  "type": "text"
+                },
+                {
+                  "key": "FormField[2][4]",
+                  "value": "First Name",
+                  "type": "text"
+                },
+                {
+                  "key": "FormField[2][5]",
+                  "value": "Last Name",
+                  "type": "text"
+                },
+                {
+                  "key": "FormField[2][7]",
+                  "value": "5125555555",
+                  "type": "text"
+                },
+                {
+                  "key": "FormField[2][8]",
+                  "value": "11305 Four Points Dr",
+                  "type": "text"
+                },
+                {
+                  "key": "FormField[2][10]",
+                  "value": "Austin",
+                  "type": "text"
+                },
+                {
+                  "key": "FormField[2][11]",
+                  "value": "United States",
+                  "type": "text"
+                },
+                {
+                  "key": "FormField[2][12]",
+                  "value": "Texas",
+                  "type": "text"
+                },
+                {
+                  "key": "FormField[2][13]",
+                  "value": "78726",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://{{domain}}/login.php?action=save_new_account",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "login.php"
+              ],
+              "query": [
+                {
+                  "key": "action",
+                  "value": "save_new_account"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2019-06-19T21:48:19.000Z",
+          "updatedAt": "2021-07-01T21:29:09.000Z",
+          "uid": "45334-3f3f2b7f-a128-4729-ba42-8e01c6ebaa4a"
+        },
+        {
+          "name": "Passwordless Login (which is definitely NOT customer login API)",
+          "id": "5e4b7229-68ae-4fdf-9608-9d5f6cb3eda5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "content-type",
+                "value": "application/json",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "accept",
+                "value": "application/vnd.bc.v1+json",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"{{email-address}}\",\n    \"redirect_url\": \"/tacos\"\n}"
+            },
+            "url": {
+              "raw": "https://{{domain}}/login.php?action=passwordless_login",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "login.php"
+              ],
+              "query": [
+                {
+                  "key": "action",
+                  "value": "passwordless_login"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2021-07-01T21:29:12.000Z",
+          "updatedAt": "2021-07-01T21:36:25.000Z",
+          "uid": "45334-5e4b7229-68ae-4fdf-9608-9d5f6cb3eda5"
+        }
+      ],
+      "id": "f3d1e172-e481-4043-9949-212784bd1035",
+      "createdAt": "2021-07-01T21:28:58.000Z",
+      "updatedAt": "2021-07-01T21:29:12.000Z",
+      "uid": "45334-f3d1e172-e481-4043-9949-212784bd1035"
+    },
+    {
+      "name": "Post a Review (captcha disabled)",
+      "id": "47028587-d002-4564-b4f6-3d8363dea4ae",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": [],
+      "createdAt": "2019-06-19T21:48:19.000Z",
+      "updatedAt": "2019-06-19T21:48:19.000Z",
+      "uid": "45334-47028587-d002-4564-b4f6-3d8363dea4ae"
+    }
+  ]
+}

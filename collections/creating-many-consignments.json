@@ -1,0 +1,425 @@
+{
+  "info": {
+    "_postman_id": "bed81512-16f0-4ec2-b4f3-f24cc74e17fa",
+    "name": "Creating Many Consignments",
+    "description": "This collection demonstrates a flow that ",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2021-06-02T17:06:56.000Z",
+    "updatedAt": "2021-06-02T17:44:41.000Z",
+    "lastUpdatedBy": "45334",
+    "uid": "45334-bed81512-16f0-4ec2-b4f3-f24cc74e17fa"
+  },
+  "item": [
+    {
+      "name": "Retrieve First 250 Products with Variants",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "43dd8f02-5ecb-474f-9e86-137f6204f102",
+            "exec": [
+              "// Initialize environment variables",
+              "pm.environment.set(\"product-id\", \"\");",
+              "pm.environment.set(\"line-item-id\", \"\");",
+              "pm.environment.set(\"cart-id\", \"\");",
+              "pm.environment.set(\"variant-id\", \"\");",
+              "pm.environment.set(\"shipping-option-id\", \"\");",
+              "pm.environment.set(\"consignment-id\", \"\");",
+              "pm.environment.set(\"order-id\", \"\");",
+              "",
+              "function setProductEnvVars(product, variantIndex) {",
+              "            postman.setEnvironmentVariable(\"product-id\", product.id);",
+              "            postman.setEnvironmentVariable(\"variant-id\", product.variants[variantIndex].id);",
+              "            // Look for the prsence of options",
+              "            if (product.option_set_id) {",
+              "                var optionValues = product.variants[variantIndex].option_values;",
+              "                for (var v = 0; v < optionValues.length; v++){",
+              "                    postman.setEnvironmentVariable(\"option-id-\"+v, optionValues[v].option_id);",
+              "                    postman.setEnvironmentVariable(\"option-value-id-\"+v, optionValues[v].id);",
+              "                }",
+              "            }",
+              "}",
+              "",
+              "",
+              "",
+              "try {",
+              "var count = pm.response.json().meta.pagination.count;",
+              "var products = pm.response.json().data;",
+              "//Only search this page of results",
+              "if (count > 250) {count = 250;}",
+              "",
+              "// Find a product in stock, or that doesn't track inventory",
+              "    for (var i = 0; i < count; i ++){",
+              "",
+              "        if (products[i].inventory_tracking === \"none\") {",
+              "            setProductEnvVars(products[i], 0);",
+              "            break;",
+              "        }",
+              "",
+              "        if (postman.getEnvironmentVariable(\"product-id\") === \"\") {",
+              "            if (products[i].inventory_tracking === \"product\" && products[i].inventory_level > 0) {",
+              "                    setProductEnvVars(products[i], 0);",
+              "                    break;",
+              "               }",
+              "                ",
+              "                   ",
+              "        }",
+              "",
+              "        if (postman.getEnvironmentVariable(\"product-id\") === \"\"){",
+              "            if (products[i].inventory_tracking === \"variant\") {",
+              "                    for (var v = 0; v < products[i].variants.length; v++){",
+              "                        if (products[i].variants[v].inventory_level > 0) {",
+              "                            setProductEnvVars(products[i], v);",
+              "                            break;",
+              "                    }",
+              "                }",
+              "            }",
+              "",
+              "        }",
+              "    if (postman.getEnvironmentVariable(\"product-id\") !== \"\"){break;}",
+              "    }",
+              "}",
+              "catch(err) {",
+              "    console.log(\"Error: \"+err);",
+              "}",
+              "pm.test(\"Found a product with no inventory tracking\", function(){",
+              "   pm.expect(postman.getEnvironmentVariable(\"product-id\")).to.be.a('string').that.is.not.empty;",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "a731a569-e347-48df-be96-801e08aeaab0",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/catalog/products?limit=250&include=variants",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "catalog",
+            "products"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "250"
+            },
+            {
+              "key": "include",
+              "value": "variants"
+            }
+          ]
+        },
+        "description": "Shows full product data with a single GET request"
+      },
+      "response": [],
+      "createdAt": "2021-06-02T17:06:56.000Z",
+      "updatedAt": "2021-06-02T17:06:56.000Z",
+      "uid": "45334-a731a569-e347-48df-be96-801e08aeaab0"
+    },
+    {
+      "name": "Create a Cart",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "c16de063-52a6-4207-8ef3-71263f0d85ee",
+            "exec": [
+              "jsonData = pm.response.json();",
+              "if(pm.test(\"Cart ID generated\", function() {",
+              "    pm.expect(jsonData.data.id).to.be.a('string');",
+              "})){",
+              "    postman.setEnvironmentVariable(\"cart-id\", jsonData.data.id);",
+              "    postman.setEnvironmentVariable(\"line-item-id\", jsonData.data.line_items.physical_items[0].id);",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "ae53ddd2-f2d8-48ff-9bb0-eb279834deae",
+            "exec": [
+              "",
+              "function countOptions(){",
+              "// Assuming no product has > 20 options",
+              "    for (var i = 0; i <= 20; i++){",
+              "        console.log(postman.getEnvironmentVariable(envVar));",
+              "        var envVar = \"option-id-\"+i;",
+              "        if (!postman.getEnvironmentVariable(envVar)){",
+              "            return i;",
+              "        }",
+              "    }",
+              "}",
+              "",
+              "function buildOptionSelections(count){",
+              "    var optionSelections = [];",
+              "    for (var i = 0; i < count; i++){",
+              "        var optionEnvVar = \"option-id-\"+i;",
+              "        var optionValueEnvVar = \"option-value-id-\"+i;",
+              "        optionSelections[i] = {option_id:postman.getEnvironmentVariable(optionEnvVar), option_value:postman.getEnvironmentVariable(optionValueEnvVar)};",
+              "    }",
+              "    pm.environment.set(\"option-selections\", JSON.stringify(optionSelections));",
+              "}",
+              "",
+              "buildOptionSelections(countOptions());"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "0d43ade9-0ae7-4db4-8e0e-1e88c42918b5",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"customer_id\": {{customer-id}},\r\n  \"line_items\": [\r\n    {\r\n      \"quantity\": {{max-quantity}},\r\n      \"product_id\": {{product-id}},\r\n      \"variant_id\": {{variant-id}},\r\n      \"option_selections\": {{option-selections}}\r\n    }\r\n  ]\r\n}"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/carts",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "carts"
+          ]
+        },
+        "description": "Create a cart with a coupon code and a gift certificate.\n\nUpdate the following IDs as needed:\n* Product\n* Variant\n* Option\n* Option Value\n\nUpdate the \"coupons\" array as needed."
+      },
+      "response": [],
+      "createdAt": "2021-06-02T17:06:56.000Z",
+      "updatedAt": "2021-06-02T17:20:52.000Z",
+      "uid": "45334-0d43ade9-0ae7-4db4-8e0e-1e88c42918b5"
+    },
+    {
+      "name": "Create a Consignment (Shipping Address)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "7d53e485-d1da-4e0a-b11d-822b7083580e",
+            "exec": [
+              "var jsonData = pm.response.json();",
+              "",
+              "pm.test(\"Consignments has length\", function (){",
+              "    pm.expect(jsonData.data.consignments.length).to.be.greaterThan(0)",
+              "})",
+              "",
+              "console.log('Current number of consignments: ', jsonData.data.consignments.length)",
+              "",
+              "const max = parseInt(pm.collectionVariables.get('max-quantity'))",
+              "",
+              "const iterator = parseInt(pm.collectionVariables.get('max-iterator'))",
+              "",
+              "pm.collectionVariables.set('max-iterator', iterator + 1)",
+              "",
+              "if(jsonData.data.consignments.length < max) postman.setNextRequest('Create a Consignment (Shipping Address)') ",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "f1089982-5287-4de7-9270-c057ace1de0f",
+            "exec": [
+              "const consignments = []",
+              "",
+              "const max = parseInt(pm.collectionVariables.get('max-quantity'))",
+              "",
+              "for(let i = 1; i < max; i++) {",
+              "    consignments.push(  {",
+              "    \"shipping_address\": {",
+              "      \"first_name\": `Patrick ${i}`,",
+              "      \"last_name\": \"Puente\",",
+              "      \"email\": \"patrick.puente@bigcommerce.com\",",
+              "      \"company\": \"\",",
+              "      \"address1\": \"11305 Four Points Dr #300\",",
+              "      \"address2\": \"\",",
+              "      \"city\": \"Austin\",",
+              "      \"state_or_province\": \"Texas\",",
+              "      \"state_or_province_code\": \"TX\",",
+              "      \"country_code\": \"US\",",
+              "      \"postal_code\": \"78726\",",
+              "      \"phone\": \"5128654500\"",
+              "    },",
+              "    \"line_items\": [",
+              "      {",
+              "        \"item_id\": pm.environment.get('line-item-id'),",
+              "        \"quantity\": 1",
+              "      }",
+              "    ]",
+              "  })",
+              "}",
+              "",
+              "pm.collectionVariables.set('consignments', JSON.stringify(consignments))"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "0bfd73e9-fcc6-479b-867b-ffa0cf28aa35",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n  {\n    \"shipping_address\": {\n      \"first_name\": \"Patrick {{iterator}}\",\n      \"last_name\": \"Puente\",\n      \"email\": \"{{my-email}}\",\n      \"company\": \"\",\n      \"address1\": \"11305 Four Points Dr #300\",\n      \"address2\": \"\",\n      \"city\": \"Austin\",\n      \"state_or_province\": \"Texas\",\n      \"state_or_province_code\": \"TX\",\n      \"country_code\": \"US\",\n      \"postal_code\": \"78726\",\n      \"phone\": \"5128654500\"\n    },\n    \"line_items\": [\n      {\n        \"item_id\": \"{{line-item-id}}\",\n        \"quantity\": 1\n      }\n    ]\n  }\n]",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/checkouts/{{cart-id}}/consignments?includes=consignments.available_shipping_options",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "checkouts",
+            "{{cart-id}}",
+            "consignments"
+          ],
+          "query": [
+            {
+              "key": "includes",
+              "value": "consignments.available_shipping_options"
+            }
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2021-06-02T17:06:56.000Z",
+      "updatedAt": "2021-06-02T17:43:56.000Z",
+      "uid": "45334-0bfd73e9-fcc6-479b-867b-ffa0cf28aa35"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "1be2e6da-db70-49d7-8963-2acd79b7316a",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "2cbc0819-833b-4d67-b551-44757f0fc5fa",
+        "type": "text/javascript",
+        "exec": [
+          "pm.test(\"Status is 200 or 201\", function() {",
+          "   pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+          "});"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "max-quantity",
+      "value": "100"
+    },
+    {
+      "key": "collection-iterator",
+      "value": "1"
+    },
+    {
+      "key": "consignments",
+      "value": ""
+    },
+    {
+      "key": "max-iterator",
+      "value": "1"
+    }
+  ]
+}

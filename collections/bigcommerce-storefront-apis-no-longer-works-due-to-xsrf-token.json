@@ -1,0 +1,1208 @@
+{
+  "info": {
+    "_postman_id": "a7b1693d-05a9-4251-aa71-e508d5798a25",
+    "name": "BigCommerce Storefront APIs (No longer works due to XSRF token)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2019-06-19T21:48:19.000Z",
+    "updatedAt": "2020-10-11T02:33:56.000Z",
+    "lastUpdatedBy": "45334",
+    "uid": "45334-a7b1693d-05a9-4251-aa71-e508d5798a25"
+  },
+  "item": [
+    {
+      "name": "Cart",
+      "item": [
+        {
+          "name": "Create a Line Item",
+          "id": "791e56ee-f22c-4a92-867d-f4e754c1202b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"lineItems\":\n\t[\n\t\t{\n\t\t\t\"quantity\": 6,\n\t\t\t\"productId\": {{product-id}},\n\t\t\t\"variantId\": {{variant-id}}\n\t\t}\n\t]\n}"
+            },
+            "url": {
+              "raw": "https://{{domain}}/api/storefront/carts/{{cart-id}}/items?include=lineItems.physicalItems.options",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "api",
+                "storefront",
+                "carts",
+                "{{cart-id}}",
+                "items"
+              ],
+              "query": [
+                {
+                  "key": "include",
+                  "value": "lineItems.physicalItems.options"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2019-06-19T21:48:19.000Z",
+          "updatedAt": "2019-11-22T15:01:10.000Z",
+          "uid": "45334-791e56ee-f22c-4a92-867d-f4e754c1202b"
+        },
+        {
+          "name": "Create a Cart",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "cf2c1f60-a203-4678-9f2b-cf976b9e8c8f",
+                "exec": [
+                  "jsonData = pm.response.json();",
+                  "if(pm.test(\"Cart ID generated\", function() {",
+                  "    pm.expect(jsonData.id).to.be.a('string');",
+                  "})){",
+                  "    postman.setEnvironmentVariable(\"cart-id\", jsonData.id);",
+                  "    postman.setEnvironmentVariable(\"line-item-id\", jsonData.lineItems.physicalItems[0].id);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "e10e5037-43e4-4620-9a8a-563bfa5c18e4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"lineItems\": [\r\n    {\r\n      \"quantity\": 1,\r\n      \"productId\": {{product-id}},\r\n      \"variantId\": {{variant-id}},\r\n      \"optionSelections\": [\r\n        {\r\n          \"optionId\": {{option-id-0}},\r\n          \"optionValue\": {{option-id-0}}\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
+            },
+            "url": {
+              "raw": "https://{{domain}}/api/storefront/carts",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "api",
+                "storefront",
+                "carts"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2019-06-19T21:48:19.000Z",
+          "updatedAt": "2019-06-19T21:48:19.000Z",
+          "uid": "45334-e10e5037-43e4-4620-9a8a-563bfa5c18e4"
+        },
+        {
+          "name": "Create a Cart with a Text Field Modifier Option",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "cf2c1f60-a203-4678-9f2b-cf976b9e8c8f",
+                "exec": [
+                  "jsonData = pm.response.json();",
+                  "if(pm.test(\"Cart ID generated\", function() {",
+                  "    pm.expect(jsonData.id).to.be.a('string');",
+                  "})){",
+                  "    postman.setEnvironmentVariable(\"cart-id\", jsonData.id);",
+                  "    postman.setEnvironmentVariable(\"line-item-id\", jsonData.lineItems.physicalItems[0].id);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "f8641765-b68a-48d0-8df7-60bff97a4138",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"lineItems\": [\r\n    {\r\n      \"quantity\": 1,\r\n      \"productId\": {{product-id}},\r\n      \"optionSelections\": [\r\n        {\r\n          \"optionId\": {{option-id}},\r\n          \"optionValue\": \"this is my text\"\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
+            },
+            "url": {
+              "raw": "https://{{host}}/api/storefront/carts",
+              "protocol": "https",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "api",
+                "storefront",
+                "carts"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2019-06-19T21:48:19.000Z",
+          "updatedAt": "2019-06-19T21:48:19.000Z",
+          "uid": "45334-f8641765-b68a-48d0-8df7-60bff97a4138"
+        },
+        {
+          "name": "Update a Line Item",
+          "id": "fef433db-3493-4624-b542-11ed598eb006",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"lineItem\":\n\t{\n\t\t\"quantity\": 3,\n\t\t\"productId\": {{product-id}},\n\t\t\"variantId\": {{variant-id}}\n\t}\n}"
+            },
+            "url": {
+              "raw": "https://{{domain}}/api/storefront/carts/{{cart-id}}/items/{{line-item-id}}?include=lineItems.physicalItems.options",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "api",
+                "storefront",
+                "carts",
+                "{{cart-id}}",
+                "items",
+                "{{line-item-id}}"
+              ],
+              "query": [
+                {
+                  "key": "include",
+                  "value": "lineItems.physicalItems.options"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2019-06-19T21:48:19.000Z",
+          "updatedAt": "2020-03-03T17:26:38.000Z",
+          "uid": "45334-fef433db-3493-4624-b542-11ed598eb006"
+        },
+        {
+          "name": "Retrieve Carts",
+          "id": "665baf62-c749-4a9a-8c02-c9830b7c8fa6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://{{domain}}/api/storefront/carts",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "api",
+                "storefront",
+                "carts"
+              ]
+            },
+            "description": "Retrieve a collection of carts"
+          },
+          "response": [],
+          "createdAt": "2019-06-19T21:48:19.000Z",
+          "updatedAt": "2020-01-02T15:16:49.000Z",
+          "uid": "45334-665baf62-c749-4a9a-8c02-c9830b7c8fa6"
+        },
+        {
+          "name": "Retrieve a Cart by ID",
+          "id": "e92f3fc2-41af-411f-8f06-dde621c0827a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://{{domain}}/api/storefront/carts/{{cart-id}}?include=lineItems.physicalItems.options,lineItems.digitalItems.options",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "api",
+                "storefront",
+                "carts",
+                "{{cart-id}}"
+              ],
+              "query": [
+                {
+                  "key": "include",
+                  "value": "lineItems.physicalItems.options,lineItems.digitalItems.options"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2019-06-19T21:48:19.000Z",
+          "updatedAt": "2020-01-15T16:31:44.000Z",
+          "uid": "45334-e92f3fc2-41af-411f-8f06-dde621c0827a"
+        },
+        {
+          "name": "Delete a Line Item",
+          "id": "0c00c99c-83d3-4594-be79-5b60721cf204",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{domain}}/api/storefront/carts/{{cart-id}}/items/{{line-item-id}}?include=lineItems.physicalItems.options",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "api",
+                "storefront",
+                "carts",
+                "{{cart-id}}",
+                "items",
+                "{{line-item-id}}"
+              ],
+              "query": [
+                {
+                  "key": "include",
+                  "value": "lineItems.physicalItems.options"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2019-06-19T21:48:19.000Z",
+          "updatedAt": "2020-01-15T16:31:43.000Z",
+          "uid": "45334-0c00c99c-83d3-4594-be79-5b60721cf204"
+        }
+      ],
+      "id": "95a5c292-693c-41f7-8c16-d7ab5118f481",
+      "createdAt": "2019-06-19T21:48:19.000Z",
+      "updatedAt": "2020-10-11T02:33:56.000Z",
+      "uid": "45334-95a5c292-693c-41f7-8c16-d7ab5118f481"
+    },
+    {
+      "name": "Checkout",
+      "item": [
+        {
+          "name": "Add a Billing Address",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "9e81590c-73a9-4e57-aace-b7e05f7383a2",
+                "exec": [
+                  "jsonData = pm.response.json();",
+                  "if(pm.test(\"Billing Address ID generated\", function() {",
+                  "    pm.expect(jsonData.billingAddress.id).to.be.a('string');",
+                  "})){",
+                  "    postman.setEnvironmentVariable(\"billing-address-id\", jsonData.billingAddress.id);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "da3b9c53-eade-47d3-b23d-a03773af2155",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Jane\",\n  \"lastName\": \"Doe\",\n  \"email\": \"{{my-email}}\",\n  \"company\": \"BigCommerce\",\n  \"address1\": \"123 Main Street\",\n  \"address2\": \"Apt 1\",\n  \"city\": \"Austin\",\n  \"stateOrProvinceCode\": \"TX\",\n  \"countryCode\": \"US\",\n  \"postalCode\": \"78726\"\n}"
+            },
+            "url": {
+              "raw": "https://{{domain}}/api/storefront/checkouts/{{cart-id}}/billing-address",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "api",
+                "storefront",
+                "checkouts",
+                "{{cart-id}}",
+                "billing-address"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2019-06-19T21:48:19.000Z",
+          "updatedAt": "2019-10-22T16:24:30.000Z",
+          "uid": "45334-da3b9c53-eade-47d3-b23d-a03773af2155"
+        },
+        {
+          "name": "Add a Customer Message",
+          "id": "0647f1a7-5f7a-4be2-a084-2ef8046077fe",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n \"customerMessage\": \"This is my new customer message!\"\n}"
+            },
+            "url": {
+              "raw": "https://{{domain}}/api/storefront/checkouts/{{cart-id}}",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "api",
+                "storefront",
+                "checkouts",
+                "{{cart-id}}"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2019-06-19T21:48:19.000Z",
+          "updatedAt": "2019-06-19T21:48:19.000Z",
+          "uid": "45334-0647f1a7-5f7a-4be2-a084-2ef8046077fe"
+        },
+        {
+          "name": "Create a Consignment",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "5eb6ab83-6d29-47db-b95f-00bbf42f3f62",
+                "exec": [
+                  "jsonData = pm.response.json();",
+                  "if(pm.test(\"Consignment ID generated\", function() {",
+                  "    pm.expect(jsonData.consignments[0].id).to.be.a('string');",
+                  "})){",
+                  "    postman.setEnvironmentVariable(\"consignment-id\", jsonData.consignments[0].id);",
+                  "    postman.setEnvironmentVariable(\"shipping-option-id\", jsonData.consignments[0].availableShippingOptions[0].id);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "049853d7-a991-40b1-97cd-f9b570895ea8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"shippingAddress\": {\n      \"firstName\": \"John\",\n      \"lastName\": \"Doe\",\n      \"email\": \"shippingaddress@example.org\",\n      \"company\": \"\",\n      \"address1\": \"11305 Four Points Dr\",\n      \"address2\": \"Suite 300\",\n      \"city\": \"Austin\",\n      \"stateOrProvince\": \"Texas\",\n      \"stateOrProvinceCode\": \"TX\",\n      \"countryCode\": \"US\",\n      \"postalCode\": \"78726\",\n      \"phone\": \"5128654500\"\n    },\n    \"lineItems\": [\n      {\n        \"itemId\": \"{{line-item-id}}\",\n        \"quantity\": 1\n      }\n    ]\n  }\n]"
+            },
+            "url": {
+              "raw": "https://{{domain}}/api/storefront/checkouts/{{cart-id}}/consignments?include=consignments.availableShippingOptions",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "api",
+                "storefront",
+                "checkouts",
+                "{{cart-id}}",
+                "consignments"
+              ],
+              "query": [
+                {
+                  "key": "include",
+                  "value": "consignments.availableShippingOptions"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2019-06-19T21:48:19.000Z",
+          "updatedAt": "2019-06-19T21:48:19.000Z",
+          "uid": "45334-049853d7-a991-40b1-97cd-f9b570895ea8"
+        },
+        {
+          "name": "Add Shipping Option to Consignment",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "5eb6ab83-6d29-47db-b95f-00bbf42f3f62",
+                "exec": [
+                  "jsonData = pm.response.json();",
+                  "pm.test(\"Selected Shipping Option ID generated\", function() {",
+                  "    pm.expect(jsonData.consignments[0].selectedShippingOption.id).to.be.a('string');",
+                  "})"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "d34c10bb-4887-4e38-ae41-212465df635a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"shippingOptionId\": \"{{shipping-option-id}}\" }"
+            },
+            "url": {
+              "raw": "https://{{domain}}/api/storefront/checkouts/{{cart-id}}/consignments/{{consignment-id}}",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "api",
+                "storefront",
+                "checkouts",
+                "{{cart-id}}",
+                "consignments",
+                "{{consignment-id}}"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2019-06-19T21:48:19.000Z",
+          "updatedAt": "2019-06-19T21:48:19.000Z",
+          "uid": "45334-d34c10bb-4887-4e38-ae41-212465df635a"
+        },
+        {
+          "name": "Add a Custom Field to a Billing Address",
+          "id": "044a48a4-8421-432f-881c-767058aea6ee",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"customFields\": [\n\t\t{\n\t\t\"fieldId\": \"field_32\",\n\t\t\"fieldValue\": \"taco@express.org\"\n\t\t}\n\t]\n}\n"
+            },
+            "url": {
+              "raw": "https://{{domain}}/api/storefront/checkouts/{{cart-id}}/billing-address/{{billing-address-id}}",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "api",
+                "storefront",
+                "checkouts",
+                "{{cart-id}}",
+                "billing-address",
+                "{{billing-address-id}}"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2019-06-19T21:48:19.000Z",
+          "updatedAt": "2019-06-19T21:48:19.000Z",
+          "uid": "45334-044a48a4-8421-432f-881c-767058aea6ee"
+        },
+        {
+          "name": "Create a Consignment with Nested Objects in Custom Fields",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "5eb6ab83-6d29-47db-b95f-00bbf42f3f62",
+                "exec": [
+                  "jsonData = pm.response.json();",
+                  "if(pm.test(\"Consignment ID generated\", function() {",
+                  "    pm.expect(jsonData.consignments[0].id).to.be.a('string');",
+                  "})){",
+                  "    postman.setEnvironmentVariable(\"consignment-id\", jsonData.consignments[0].id);",
+                  "    postman.setEnvironmentVariable(\"shipping-option-id\", jsonData.consignments[0].availableShippingOptions[0].id);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "a5bbefcb-a046-4287-8c58-fefd608a8f94",
+                "exec": [
+                  "const nestedObj = JSON.stringify({",
+                  "\t      \t\tsome: \"object\",",
+                  "\t      \t\t\tw: \"properties\",",
+                  "\t      \t\t\tthis_one: {",
+                  "\t      \t\t\t\tis: \"nested\"",
+                  "\t      \t\t\t\t",
+                  "\t      \t\t\t}",
+                  "\t      \t\t})",
+                  "",
+                  "const escapedObj = nestedObj.replace(/\"/g, \"\\\\\\\"\")\t      ",
+                  "console.log('Nested Object', escapedObj)",
+                  "\t      \t\t",
+                  "pm.environment.set('nested-obj', escapedObj)"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "98b09cb5-fa33-4db9-a29a-622a865fc89a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"shippingAddress\": {\n      \"firstName\": \"John\",\n      \"lastName\": \"Doe\",\n      \"email\": \"shippingaddress@example.org\",\n      \"company\": \"\",\n      \"address1\": \"11305 Four Points Dr\",\n      \"address2\": \"Suite 300\",\n      \"city\": \"Austin\",\n      \"stateOrProvince\": \"Texas\",\n      \"stateOrProvinceCode\": \"TX\",\n      \"countryCode\": \"US\",\n      \"postalCode\": \"78726\",\n      \"phone\": \"5128654500\",\n      \"customFields\": [{\n      \t\t\"fieldId\": \"field_28\",\n      \t\t\"fieldValue\": \"{{nested-obj}}\"\n      \t}]\n    },\n    \"lineItems\": [\n      {\n        \"itemId\": \"{{line-item-id}}\",\n        \"quantity\": 1\n      }\n    ]\n  }\n]"
+            },
+            "url": {
+              "raw": "https://{{domain}}/api/storefront/checkouts/{{cart-id}}/consignments?include=consignments.availableShippingOptions",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "api",
+                "storefront",
+                "checkouts",
+                "{{cart-id}}",
+                "consignments"
+              ],
+              "query": [
+                {
+                  "key": "include",
+                  "value": "consignments.availableShippingOptions"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2019-06-19T21:48:19.000Z",
+          "updatedAt": "2019-06-19T21:48:19.000Z",
+          "uid": "45334-98b09cb5-fa33-4db9-a29a-622a865fc89a"
+        },
+        {
+          "name": "Get Checkout",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "9e81590c-73a9-4e57-aace-b7e05f7383a2",
+                "exec": [
+                  "jsonData = pm.response.json();",
+                  "if(pm.test(\"Billing Address ID generated\", function() {",
+                  "    pm.expect(jsonData.billingAddress.id).to.be.a('string');",
+                  "})){",
+                  "    postman.setEnvironmentVariable(\"billing-address-id\", jsonData.billingAddress.id);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "e58f1b05-fc99-4951-962f-f25b5fdd809d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://{{domain}}/api/storefront/checkouts/{{cart-id}}",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "api",
+                "storefront",
+                "checkouts",
+                "{{cart-id}}"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2019-10-22T16:16:50.000Z",
+          "updatedAt": "2019-10-22T16:16:50.000Z",
+          "uid": "45334-e58f1b05-fc99-4951-962f-f25b5fdd809d"
+        },
+        {
+          "name": "Update a Billing Address",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "9e81590c-73a9-4e57-aace-b7e05f7383a2",
+                "exec": [
+                  "jsonData = pm.response.json();",
+                  "if(pm.test(\"Billing Address ID generated\", function() {",
+                  "    pm.expect(jsonData.billingAddress.id).to.be.a('string');",
+                  "})){",
+                  "    postman.setEnvironmentVariable(\"billing-address-id\", jsonData.billingAddress.id);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "c18a168a-6e66-4406-b8dd-b4319bfebf15",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Jane\",\n  \"lastName\": \"Doe\",\n  \"email\": \"{{my-email}}\",\n  \"company\": \"BigCommerce\",\n  \"address1\": \"123 Main Street\",\n  \"address2\": \"Apt 1\",\n  \"city\": \"Austin\",\n  \"stateOrProvince\": \"Texas\",\n  \"countryCode\": \"USA\",\n  \"postalCode\": \"78726\"\n}"
+            },
+            "url": {
+              "raw": "https://{{domain}}/api/storefront/checkouts/{{cart-id}}/billing-address/{{billing-address-id}}",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "api",
+                "storefront",
+                "checkouts",
+                "{{cart-id}}",
+                "billing-address",
+                "{{billing-address-id}}"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2019-10-22T16:21:57.000Z",
+          "updatedAt": "2019-10-22T16:21:57.000Z",
+          "uid": "45334-c18a168a-6e66-4406-b8dd-b4319bfebf15"
+        },
+        {
+          "name": "Apply Store Credit (undocumented)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "9e81590c-73a9-4e57-aace-b7e05f7383a2",
+                "exec": [
+                  "jsonData = pm.response.json();",
+                  "if(pm.test(\"Billing Address ID generated\", function() {",
+                  "    pm.expect(jsonData.billingAddress.id).to.be.a('string');",
+                  "})){",
+                  "    postman.setEnvironmentVariable(\"billing-address-id\", jsonData.billingAddress.id);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "c31c1d41-78ca-4f8c-91e7-b55a543e645d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://{{domain}}/api/storefront/checkouts/{{cart-id}}/store-credit",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "api",
+                "storefront",
+                "checkouts",
+                "{{cart-id}}",
+                "store-credit"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2019-11-07T22:20:14.000Z",
+          "updatedAt": "2019-11-07T22:20:14.000Z",
+          "uid": "45334-c31c1d41-78ca-4f8c-91e7-b55a543e645d"
+        },
+        {
+          "name": "Remove Store Credit (undocumented)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "9e81590c-73a9-4e57-aace-b7e05f7383a2",
+                "exec": [
+                  "jsonData = pm.response.json();",
+                  "if(pm.test(\"Billing Address ID generated\", function() {",
+                  "    pm.expect(jsonData.billingAddress.id).to.be.a('string');",
+                  "})){",
+                  "    postman.setEnvironmentVariable(\"billing-address-id\", jsonData.billingAddress.id);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "abbd09b5-e464-4022-98e9-e029095d1fe4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://{{domain}}/api/storefront/checkouts/{{cart-id}}/store-credit",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "api",
+                "storefront",
+                "checkouts",
+                "{{cart-id}}",
+                "store-credit"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2019-11-07T22:20:30.000Z",
+          "updatedAt": "2019-11-07T22:20:30.000Z",
+          "uid": "45334-abbd09b5-e464-4022-98e9-e029095d1fe4"
+        }
+      ],
+      "id": "8be0401c-f8fb-46de-8b65-ed7e39483b39",
+      "createdAt": "2019-06-19T21:48:19.000Z",
+      "updatedAt": "2019-11-07T22:20:30.000Z",
+      "uid": "45334-8be0401c-f8fb-46de-8b65-ed7e39483b39"
+    },
+    {
+      "name": "GraphQL",
+      "item": [
+        {
+          "name": "Retrieve Category Tree (2 levels)",
+          "id": "82881c6b-f891-4687-bc44-82cdc0fe37a4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"operationName\":null,\n\"variables\":{},\n\"query\":\"{site { categoryTree {id name children {name id url}}}}\"\n\t\n}"
+            },
+            "url": {
+              "raw": "https://{{domain}}/graphql",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2019-06-19T21:48:19.000Z",
+          "updatedAt": "2019-06-19T21:48:19.000Z",
+          "uid": "45334-82881c6b-f891-4687-bc44-82cdc0fe37a4"
+        },
+        {
+          "name": "Retrieve Category Tree (3 levels)",
+          "id": "6b5c40cf-7211-478d-a9f5-ecb2b52e8819",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"operationName\":null,\n\"variables\":{},\n\"query\":\"{site { categoryTree {id name children {name id url children{id name}}}}}\"\n\t\n}"
+            },
+            "url": {
+              "raw": "https://{{domain}}/graphql",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2019-06-19T21:48:19.000Z",
+          "updatedAt": "2019-06-19T21:48:19.000Z",
+          "uid": "45334-6b5c40cf-7211-478d-a9f5-ecb2b52e8819"
+        }
+      ],
+      "id": "e638c604-50f5-4d66-999b-465022dd8e2d",
+      "createdAt": "2019-06-19T21:48:19.000Z",
+      "updatedAt": "2019-06-19T21:48:19.000Z",
+      "uid": "45334-e638c604-50f5-4d66-999b-465022dd8e2d"
+    },
+    {
+      "name": "Retrieve First 250 Products with Variants Copy",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "247139d1-cbd2-422d-aec0-d05b4d599cfd",
+            "exec": [
+              "// Initialize environment variables",
+              "pm.environment.set(\"product-id\", \"\");",
+              "pm.environment.set(\"line-item-id\", \"\");",
+              "pm.environment.set(\"cart-id\", \"\");",
+              "pm.environment.set(\"variant-id\", \"\");",
+              "pm.environment.set(\"shipping-option-id\", \"\");",
+              "pm.environment.set(\"consignment-id\", \"\");",
+              "pm.environment.set(\"order-id\", \"\");",
+              "",
+              "function setProductEnvVars(product, variantIndex) {",
+              "            postman.setEnvironmentVariable(\"product-id\", product.id);",
+              "            postman.setEnvironmentVariable(\"variant-id\", product.variants[variantIndex].id);",
+              "            // Look for the prsence of options",
+              "            if (product.option_set_id) {",
+              "                var optionValues = product.variants[variantIndex].option_values;",
+              "                for (var v = 0; v < optionValues.length; v++){",
+              "                    postman.setEnvironmentVariable(\"option-id-\"+v, optionValues[v].option_id);",
+              "                    postman.setEnvironmentVariable(\"option-value-id-\"+v, optionValues[v].id);",
+              "                }",
+              "            }",
+              "}",
+              "",
+              "",
+              "",
+              "try {",
+              "var count = pm.response.json().meta.pagination.count;",
+              "var products = pm.response.json().data;",
+              "//Only search this page of results",
+              "if (count > 250) {count = 250;}",
+              "",
+              "// Find a product in stock, or that doesn't track inventory",
+              "    for (var i = 0; i < count; i ++){",
+              "",
+              "        if (products[i].inventory_tracking === \"none\") {",
+              "            setProductEnvVars(products[i], 0);",
+              "            break;",
+              "        }",
+              "",
+              "        if (postman.getEnvironmentVariable(\"product-id\") === \"\") {",
+              "            if (products[i].inventory_tracking === \"product\" && products[i].inventory_level > 0) {",
+              "                    setProductEnvVars(products[i], 0);",
+              "                    break;",
+              "               }",
+              "                ",
+              "                   ",
+              "        }",
+              "",
+              "        if (postman.getEnvironmentVariable(\"product-id\") === \"\"){",
+              "            if (products[i].inventory_tracking === \"variant\") {",
+              "                    console.log(\"found a product with variant tracking\");",
+              "                    for (var v = 0; v < products[i].variants.length; v++){",
+              "                        if (products[i].variants[v].inventory_level > 0) {",
+              "                            console.log(\"cycling through variants to check inventory\");",
+              "                            setProductEnvVars(products[i], v);",
+              "                            console.log(\"product ID is \"+postman.getEnvironmentVariable(\"product-id\"));",
+              "                            break;",
+              "                    }",
+              "                }",
+              "            }",
+              "",
+              "        }",
+              "    if (postman.getEnvironmentVariable(\"product-id\") !== \"\"){break;}",
+              "    }",
+              "}",
+              "catch(err) {",
+              "    console.log(\"Error: \"+err);",
+              "}",
+              "pm.test(\"Found a product with no inventory tracking\", function(){",
+              "   pm.expect(postman.getEnvironmentVariable(\"product-id\")).to.be.a('string').that.is.not.empty;",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "5c429981-dad5-471b-9f5f-edfda95c3a4d",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/catalog/products?limit=250&include=variants",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "catalog",
+            "products"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "250"
+            },
+            {
+              "key": "include",
+              "value": "variants"
+            }
+          ]
+        },
+        "description": "Shows full product data with a single GET request"
+      },
+      "response": [],
+      "createdAt": "2019-06-19T21:48:19.000Z",
+      "updatedAt": "2019-06-19T21:48:19.000Z",
+      "uid": "45334-5c429981-dad5-471b-9f5f-edfda95c3a4d"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "fe4f5cd2-c18a-4554-85ed-216428879a09",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "f51bc71e-3093-4a35-81a6-9762f9181eae",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
+}

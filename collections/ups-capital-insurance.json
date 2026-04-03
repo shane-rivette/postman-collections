@@ -1,0 +1,123 @@
+{
+  "info": {
+    "_postman_id": "8dedd446-a96b-4692-88f9-84bdc65ed847",
+    "name": "UPS Capital Insurance",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2022-02-28T16:42:35.000Z",
+    "updatedAt": "2022-02-28T16:42:36.000Z",
+    "lastUpdatedBy": "2104987",
+    "uid": "2104987-8dedd446-a96b-4692-88f9-84bdc65ed847"
+  },
+  "item": [
+    {
+      "name": "Create Coverage Quote",
+      "id": "d1f600be-9603-4246-8f65-336199de72e3",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Bearer",
+            "value": "eyJhbGciOiJIUzM4NCJ9.eyJwYXJ0bmVySWQiOiIwMTgwMDkifQ.ZvFfxIe4Rp-lKPLcAm7k0Pht42wXM4EUyCAADq-Gt6o5HdwNItJnpayWODwB6Zmg",
+            "type": "text"
+          },
+          {
+            "key": "X-IBM-Client-Id",
+            "value": "1e326652-7627-41be-b8bc-159581331946",
+            "type": "text"
+          },
+          {
+            "key": "X-IBM-Client-Secret",
+            "value": "Q2qG0tQ8aM6dP5eD7lM0uR5fP8nK3iX6oQ2kC4bI2yO0jT6qE4",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n \"status\":\"UNCONFIRMED\",\n \"partnerId\":\"018009\",\n \"shipDate\":\"2022-02-28\",\n \"bol\": \"113451342452\",\n \"insuredValue\":\"27.50\",\n \"carrier\":\"RLCA\",\n \"shipmentType\" : \"4\",\n \"commodity\":\"400\",\n \"originAddress1\":\"11305 4 Points Dr Building 2\",\n \"originAddress2\":\"Suite 100\",\n \"originCity\":\"Austin\",\n \"originState\":\"TX\",\n \"originPostalCode\":\"78726\",\n \"originCountry\":\"US\",\n \"consigneeName\":\"Shane Rivette\",\n \"destinationAddress1\":\"1234 Main Street\",\n \"destinationAddress2\":\".\",\n \"destinationCity\":\"Austin\",\n \"destinationState\":\"TX\",\n \"destinationPostalCode\":\"78641\",\n \"destinationCountry\":\"US\",\n \"serviceLevel\":\"\",\n \"packageQuantity\":\"1\",\n \"referenceFields\":\"\"\n}"
+        },
+        "url": {
+          "raw": "https://upscapi.ams1907.com/apis/list-extstg/quote/v2",
+          "protocol": "https",
+          "host": [
+            "upscapi",
+            "ams1907",
+            "com"
+          ],
+          "path": [
+            "apis",
+            "list-extstg",
+            "quote",
+            "v2"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2022-02-28T16:42:35.000Z",
+      "updatedAt": "2022-02-28T16:42:35.000Z",
+      "uid": "2104987-d1f600be-9603-4246-8f65-336199de72e3"
+    },
+    {
+      "name": "Confirm or Void Coverage",
+      "id": "8d1e76ea-1d1e-4924-b588-d330ba1aac92",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Bearer",
+            "value": "eyJhbGciOiJIUzM4NCJ9.eyJwYXJ0bmVySWQiOiIwMTgwMDkifQ.ZvFfxIe4Rp-lKPLcAm7k0Pht42wXM4EUyCAADq-Gt6o5HdwNItJnpayWODwB6Zmg",
+            "type": "text"
+          },
+          {
+            "key": "X-IBM-Client-Id",
+            "value": "1e326652-7627-41be-b8bc-159581331946",
+            "type": "text"
+          },
+          {
+            "key": "X-IBM-Client-Secret",
+            "value": "Q2qG0tQ8aM6dP5eD7lM0uR5fP8nK3iX6oQ2kC4bI2yO0jT6qE4",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"quoteId\": \"55dcbcf4c89d4d97a7fed0851eabeabe\",\n    \"status\": \"CONFIRMED\",\n    \"partnerId\": \"018009\",\n    \"bol\": \"113451342452\"\n}"
+        },
+        "url": {
+          "raw": "https://upscapi.ams1907.com/apis/list-extstg/coverage/v2",
+          "protocol": "https",
+          "host": [
+            "upscapi",
+            "ams1907",
+            "com"
+          ],
+          "path": [
+            "apis",
+            "list-extstg",
+            "coverage",
+            "v2"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2022-02-28T16:42:35.000Z",
+      "updatedAt": "2022-02-28T16:42:35.000Z",
+      "uid": "2104987-8d1e76ea-1d1e-4924-b588-d330ba1aac92"
+    }
+  ]
+}

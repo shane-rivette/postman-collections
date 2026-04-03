@@ -1,0 +1,311 @@
+{
+  "info": {
+    "_postman_id": "aef22938-b3c5-4d8c-9d43-bdb5c0d9c58b",
+    "name": "Bulk Catalog Download API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2019-12-04T21:13:47.000Z",
+    "updatedAt": "2020-07-22T20:38:55.000Z",
+    "lastUpdatedBy": "45334",
+    "uid": "45334-aef22938-b3c5-4d8c-9d43-bdb5c0d9c58b"
+  },
+  "item": [
+    {
+      "name": "Create new catalog download job",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "ec29d5c0-ef47-420c-8643-7329d8b39c56",
+            "exec": [
+              "var jsonData = JSON.parse(responseBody);\r",
+              "if (jsonData.data && jsonData.data.id) {\r",
+              "    postman.setEnvironmentVariable(\"job_id\", jsonData.data.id);\r",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "2c6c4290-4fdd-4839-895a-576fc07f7959",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "disabled": true,
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          },
+          {
+            "disabled": false,
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}"
+          },
+          {
+            "disabled": false,
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept-Encoding",
+            "type": "text",
+            "value": "application/gzip"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"subresources\": [\n        \"variants\",\n        \"images\",\n        \"custom-fields\",\n        \"videos\",\n        \"bulk-pricing-rules\"\n    ]\n}"
+        },
+        "url": {
+          "raw": "https://bulk-api.bigcommerce.tools/stores/{{store-hash}}/unstable/catalog-download/create-job",
+          "protocol": "https",
+          "host": [
+            "bulk-api",
+            "bigcommerce",
+            "tools"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "unstable",
+            "catalog-download",
+            "create-job"
+          ],
+          "query": [
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip",
+              "disabled": true
+            }
+          ]
+        },
+        "description": "Creates a job for download an entire catalog. The body accepts which subresources you want downloaded together with the products. Selecting more subresources will make the job take longer."
+      },
+      "response": [],
+      "createdAt": "2019-12-04T21:13:47.000Z",
+      "updatedAt": "2020-07-22T20:38:55.000Z",
+      "uid": "45334-2c6c4290-4fdd-4839-895a-576fc07f7959"
+    },
+    {
+      "name": "Check job status",
+      "id": "5c9be900-e044-45c7-a28f-ead04c41a5c7",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client_id}}",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://bulk-api.bigcommerce.tools/stores/{{store-hash}}/unstable/catalog-download/jobs/{{job_id}}",
+          "protocol": "https",
+          "host": [
+            "bulk-api",
+            "bigcommerce",
+            "tools"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "unstable",
+            "catalog-download",
+            "jobs",
+            "{{job_id}}"
+          ]
+        },
+        "description": "Gets status for a bulk catalog API job. Job status may not be available for a few seconds."
+      },
+      "response": [],
+      "createdAt": "2019-12-04T21:13:47.000Z",
+      "updatedAt": "2020-07-22T20:38:55.000Z",
+      "uid": "45334-5c9be900-e044-45c7-a28f-ead04c41a5c7"
+    },
+    {
+      "name": "Create job for only particular product IDs",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "ec29d5c0-ef47-420c-8643-7329d8b39c56",
+            "exec": [
+              "var jsonData = JSON.parse(responseBody);\r",
+              "if (jsonData.data && jsonData.data.id) {\r",
+              "    postman.setEnvironmentVariable(\"job_id\", jsonData.data.id);\r",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "d85cbc2a-6232-4114-abfc-1d87cc385c24",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "disabled": true,
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          },
+          {
+            "disabled": false,
+            "key": "X-Auth-Client",
+            "value": "{{client_id}}"
+          },
+          {
+            "disabled": false,
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept-Encoding",
+            "type": "text",
+            "value": "application/gzip"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"subresources\": [\n        \"complex-rules\",\n        \"reviews\",\n        \"metafields\",\n        \"options\",\n        \"modifiers\",\n        \"variants\",\n        \"images\",\n        \"custom-fields\",\n        \"videos\",\n        \"bulk-pricing-rules\"\n    ],\n    \"product_ids\": [\n        1,\n        2,\n        3\n    ]\n}"
+        },
+        "url": {
+          "raw": "https://bulk-api.bigcommerce.tools/stores/{{store_hash}}/unstable/catalog-download/create-job",
+          "protocol": "https",
+          "host": [
+            "bulk-api",
+            "bigcommerce",
+            "tools"
+          ],
+          "path": [
+            "stores",
+            "{{store_hash}}",
+            "unstable",
+            "catalog-download",
+            "create-job"
+          ],
+          "query": [
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2019-12-04T21:13:47.000Z",
+      "updatedAt": "2019-12-04T21:13:47.000Z",
+      "uid": "45334-d85cbc2a-6232-4114-abfc-1d87cc385c24"
+    },
+    {
+      "name": "Request a webhook to a particular URL on job completion",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "ec29d5c0-ef47-420c-8643-7329d8b39c56",
+            "exec": [
+              "var jsonData = JSON.parse(responseBody);\r",
+              "if (jsonData.data && jsonData.data.id) {\r",
+              "    postman.setEnvironmentVariable(\"job_id\", jsonData.data.id);\r",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "91498ebe-7f22-4119-9321-e06249a9aa39",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "disabled": true,
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          },
+          {
+            "disabled": false,
+            "key": "X-Auth-Client",
+            "value": "{{client_id}}"
+          },
+          {
+            "disabled": false,
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept-Encoding",
+            "type": "text",
+            "value": "application/gzip"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"subresources\": [\n        \"variants\"\n    ],\n    \"webhook\": {\n        \"destination\": \"https://webhook.site/ae8c8603-4e2b-4e78-8a7a-41d9fc12e20e\"\n    }\n}"
+        },
+        "url": {
+          "raw": "https://bulk-api.bigcommerce.tools/stores/{{store_hash}}/unstable/catalog-download/create-job",
+          "protocol": "https",
+          "host": [
+            "bulk-api",
+            "bigcommerce",
+            "tools"
+          ],
+          "path": [
+            "stores",
+            "{{store_hash}}",
+            "unstable",
+            "catalog-download",
+            "create-job"
+          ],
+          "query": [
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip",
+              "disabled": true
+            }
+          ]
+        },
+        "description": "Creates a job for download an entire catalog. The body accepts which subresources you want downloaded together with the products. Selecting more subresources will make the job take longer."
+      },
+      "response": [],
+      "createdAt": "2019-12-04T21:13:47.000Z",
+      "updatedAt": "2019-12-04T21:13:47.000Z",
+      "uid": "45334-91498ebe-7f22-4119-9321-e06249a9aa39"
+    }
+  ]
+}

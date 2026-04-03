@@ -1,0 +1,326 @@
+{
+  "info": {
+    "_postman_id": "3e9e45e2-e9ca-4646-979f-e49950b3340e",
+    "name": "Getting Started w/ Page Builder Templates",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2021-02-19T20:25:32.000Z",
+    "updatedAt": "2021-03-12T20:07:38.000Z",
+    "lastUpdatedBy": "45334",
+    "uid": "45334-3e9e45e2-e9ca-4646-979f-e49950b3340e"
+  },
+  "item": [
+    {
+      "name": "Static Image + Content",
+      "id": "7745312f-a12c-4a46-a590-d547ece0e4f5",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"name\": \"Static Image + Content\",\n\t\"schema\": [\n        {\n            \"type\": \"tab\",\n            \"label\": \"Static Content\",\n            \"sections\": [\n                { \n                    \"label\": \"Static Content\",\n                    \"settings\": [\n                        {\n                            \"type\": \"input\",\n                            \"id\": \"heading_text\",\n                            \"label\": \"Heading Text\",\n                            \"default\": \"Type a Heading\"\n                        },\n                        {\n                            \"type\": \"imageManager\",\n                            \"id\": \"image\",\n                            \"label\": \"Image\",\n                            \"default\": {\n                                \"src\": \"https://placehold.it/250x250\",\n                                \"type\": \"IMAGE_MANAGER\"\n                            }\n                        },\n                        {\n                            \"type\": \"range\",\n                            \"label\": \"Image Width\",\n                            \"id\": \"width\",\n                            \"default\": \"250\",\n                            \"typeMeta\": {\n                                \"rangeValues\": {\n                                    \"min\": 100,\n                                    \"max\": 1200,\n                                    \"step\": 1,\n                                    \"unit\": \"px\"\n                                }\n                            }\n                        },\n                        {\n                            \"type\": \"text\",\n                            \"label\": \"Text Block Content\",\n                            \"id\": \"text_block\",\n                            \"default\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque tortor ante, id maximus massa volutpat et. Aliquam at leo a purus condimentum tristique. Nulla feugiat enim quis neque suscipit, sed dictum quam tempor. Morbi purus metus, porta tincidunt justo eget, mollis volutpat justo. Suspendisse enim est, tristique vel nisl in, facilisis aliquam risus. Nunc placerat quam quam, eget blandit augue finibus sed. Donec in facilisis urna, eu egestas diam. Maecenas consequat a lacus et pharetra. Nullam sodales mi sed libero venenatis placerat. Proin quis pharetra metus. Suspendisse elementum at libero nec dignissim. In convallis imperdiet turpis eget hendrerit. Quisque sapien enim, vestibulum vitae ullamcorper et, rutrum faucibus nunc.\"\n                        }\n                    ]\n                }\n            ]\n        }\n    ],\n    \"template\": \"<h2>{{heading_text}}</h2>\\n<img src=\\\"{{image.src}}\\\" width=\\\"{{width}}\\\" />\\n<div>{{text_block}}</div>\"\n}"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/content/widget-templates",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "content",
+            "widget-templates"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2021-02-19T20:26:37.000Z",
+      "updatedAt": "2021-03-09T17:57:27.000Z",
+      "uid": "45334-7745312f-a12c-4a46-a590-d547ece0e4f5"
+    },
+    {
+      "name": "Array of Products Widget Demo",
+      "id": "3228b3ee-d3c8-4805-9703-65d5b6ef99e6",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"name\": \"Array of Products Widget Demo\",\n\t\"schema\": [\n        {\n            \"type\": \"array\",\n            \"label\": \"Products\",\n            \"id\": \"products\",\n            \"defaultCount\": 3,\n            \"entryLabel\": \"Product\",\n            \"schema\": [\n                {\n                    \"type\": \"tab\",\n                    \"label\": \"Product Settings\",\n                    \"sections\": [\n                        {\n                            \"label\": \"Configure the Product\",\n                            \"settings\": [\n                                {\n                                    \"type\": \"productId\",\n                                    \"label\": \"Select a Product\",\n                                    \"id\": \"productId\"\n                                },\n                                {\n                                    \"type\": \"productImage\",\n                                    \"label\": \"Image\",\n                                    \"id\": \"image\",\n                                    \"typeMeta\": {\n                                        \"reference\": \"productId\"\n                                    }\n                                }\n                            ]\n                        }\n                    ]\n                }\n            ]\n        }\n    ],\n    \"template\": \"<div style=\\\"display: flex; flex-wrap: wrap\\\">\\n    {{#each products}}\\n        <div style=\\\"flex-grow: 1; width: 33%\\\">\\n            <img src=\\\"{{image.src}}\\\" width=\\\"200px\\\"/>\\n            <div>Product ID: {{productId}}</div> \\n        </div>\\n    {{/each}}\\n</div>\"\n}"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/content/widget-templates",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "content",
+            "widget-templates"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2021-03-09T17:57:02.000Z",
+      "updatedAt": "2021-03-09T17:59:28.000Z",
+      "uid": "45334-3228b3ee-d3c8-4805-9703-65d5b6ef99e6"
+    },
+    {
+      "name": "FAILDynamic Array of Products with GraphQL Widget Demo",
+      "id": "448dc65c-fd7c-459d-af46-b4f3a3e87aca",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"name\": \"Array of Products Widget Demo\",\n\t\"schema\": [\n        {\n            \"type\": \"array\",\n            \"label\": \"Products\",\n            \"id\": \"products\",\n            \"defaultCount\": 3,\n            \"entryLabel\": \"Product\",\n            \"schema\": [\n                {\n                    \"type\": \"tab\",\n                    \"label\": \"Product Settings\",\n                    \"sections\": [\n                        {\n                            \"label\": \"Configure the Product\",\n                            \"settings\": [\n                                {\n                                    \"type\": \"productId\",\n                                    \"label\": \"Select a Product\",\n                                    \"id\": \"productId\"\n                                },\n                                {\n                                    \"type\": \"productImage\",\n                                    \"label\": \"Image\",\n                                    \"id\": \"image\",\n                                    \"typeMeta\": {\n                                        \"reference\": \"productId\"\n                                    }\n                                }\n                            ]\n                        }\n                    ]\n                }\n            ]\n        }\n    ],\n    \"template\": \"<div style=\\\"display: flex; flex-wrap: wrap\\\">\\n    {{#each products}}\\n        <div style=\\\"flex-grow: 1; width: 33%\\\">\\n            <img src=\\\"{{image.src}}\\\" width=\\\"200px\\\"/>\\n            <div>Product ID: {{productId}}</div> \\n        </div>\\n    {{/each}}\\n</div>\"\n}"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/content/widget-templates",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "content",
+            "widget-templates"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2021-03-09T17:59:07.000Z",
+      "updatedAt": "2021-03-09T22:28:02.000Z",
+      "uid": "45334-448dc65c-fd7c-459d-af46-b4f3a3e87aca"
+    },
+    {
+      "name": "Dynamic Variant List",
+      "id": "2a275727-32c2-4c12-9137-df3978e361e7",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Variant List\",\n    \"storefront_api_query\": \"query productById(  $productId: Int) {  site {    product(entityId: $productId) {      entityId      name      plainTextDescription(characterLimit: 1000)      defaultImage {        ...ImageFields      }      variants {        edges {          node {            ... VariantFields            defaultImage {              ... ImageFields            }          }        }      }    }  }}fragment VariantFields on Variant {  entityId  sku  defaultImage {    ... ImageFields  }  prices {    price{      ... MoneyFields    }    salePrice {      ... MoneyFields    }  }}fragment ImageFields on Image {  url160wide: url(width: 160)  url320wide: url(width: 320)  url640wide: url(width: 640)  url960wide: url(width: 960)  url1280wide: url(width: 1280)}fragment MoneyFields on Money {  value  currencyCode}\",\n    \"schema\": [\n        {\n            \"type\": \"hidden\",\n            \"settings\": [\n                {\n                    \"type\": \"graphQl\",\n                    \"id\": \"graphQueries\",\n                    \"typeMeta\": {\n                        \"mappings\": {\n                            \"productId\": {\n                                \"reads\": \"productId\",\n                                \"type\": \"Int\"\n                            }\n                        }\n                    }\n                }\n            ]\n        },\n        {\n            \"type\": \"tab\",\n            \"label\": \"Product Configuration\",\n            \"sections\": [\n                {\n                    \"label\": \"Product\",\n                    \"settings\": [\n                        {\n                            \"type\": \"productId\",\n                            \"label\": \"Select a Product\",\n                            \"id\": \"productId\"\n                        }\n                    ]\n                }\n            ]\n        }\n    ],\n    \"template\": \"<div style=\\\"width:100%\\\">\\n    <img \\n     src=\\\"{{_.data.site.product.defaultImage.url960wide}}\\\"\\n     srcset=\\\"{{_.data.site.product.defaultImage.url320wide}} 320w\\n     {{_.data.site.product.defaultImage.url640wide}} 640w\\n     {{_.data.site.product.defaultImage.url960wide}} 960w\\n     {{_.data.site.product.defaultImage.url960wide}} 1280w\\\"\\n     style=\\\"display: block;max-width: 33%; margin-left:auto; margin-right:auto\\\" />\\n    </div>\\n    <div style=\\\"display: block;margin-left:auto; margin-right:auto;\\\">\\n        <strong style=\\\"display: block;\\\">{{_.data.site.product.name}}</strong>\\n        <em style=\\\"display: block;\\\">{{_.data.site.product.plainTextDescription}}</em>\\n        <ul style=\\\"list-style: none;\\\">\\n        {{#each _.data.site.product.variants.edges }}\\n            <li>\\n                <div style=\\\"display:flex;flex-direction: row\\\">\\n                    <div style=\\\"width:160px;flex-grow: 1\\\">\\n                        {{#if node.defaultImage}}\\n                        <img src=\\\"{{node.defaultImage.url160wide}}\\\"/>\\n                        {{/if}}\\n                    </div>\\n                    <div style=\\\"flex-grow: 1\\\">\\n                        <span>\\n                            {{toFixed node.prices.price.value 2}} {{node.prices.price.currencyCode}} \\n                        </span>\\n                    </div>\\n                    <div style=\\\"flex-grow: 3\\\">\\n                        <strong>{{node.sku}}</strong>\\n                    </div>\\n                </div>\\n            </li>\\n        {{/each}}\\n        </ul>\\n    </div>\\n</div>\"\n}"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/content/widget-templates",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "content",
+            "widget-templates"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2021-03-09T22:28:26.000Z",
+      "updatedAt": "2021-03-10T21:47:12.000Z",
+      "uid": "45334-2a275727-32c2-4c12-9137-df3978e361e7"
+    },
+    {
+      "name": "Display Dynamic Data from GraphQL",
+      "id": "e6c0b84f-4a98-4260-9719-0cbbeb48c03b",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Display GraphQL Query Data\",\n    \"storefront_api_query\": \"query productById(  $productId: Int) {  site {    product(entityId: $productId) {      entityId      name      plainTextDescription(characterLimit: 1000)      defaultImage {        ...ImageFields      }      variants {        edges {          node {            ... VariantFields            defaultImage {              ... ImageFields            }          }        }      }    }  }}fragment VariantFields on Variant {  entityId  sku  defaultImage {    ... ImageFields  }  prices {    price{      ... MoneyFields    }    salePrice {      ... MoneyFields    }  }}fragment ImageFields on Image {  url160wide: url(width: 160)  url320wide: url(width: 320)  url640wide: url(width: 640)  url960wide: url(width: 960)  url1280wide: url(width: 1280)}fragment MoneyFields on Money {  value  currencyCode}\",\n    \"schema\": [\n        {\n            \"type\": \"hidden\",\n            \"settings\": [\n                {\n                    \"type\": \"graphQl\",\n                    \"id\": \"graphQueries\",\n                    \"typeMeta\": {\n                        \"mappings\": {\n                            \"productId\": {\n                                \"reads\": \"productId\",\n                                \"type\": \"Int\"\n                            }\n                        }\n                    }\n                }\n            ]\n        },\n        {\n            \"type\": \"tab\",\n            \"label\": \"Product Configuration\",\n            \"sections\": [\n                {\n                    \"label\": \"Product\",\n                    \"settings\": [\n                        {\n                            \"type\": \"productId\",\n                            \"label\": \"Select a Product\",\n                            \"id\": \"productId\"\n                        }\n                    ]\n                }\n            ]\n        }\n    ],\n    \"template\": \"<div>{{{json _.data}}}</div>\"\n}"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/content/widget-templates",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "content",
+            "widget-templates"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2021-03-10T18:50:17.000Z",
+      "updatedAt": "2021-03-10T19:07:28.000Z",
+      "uid": "45334-e6c0b84f-4a98-4260-9719-0cbbeb48c03b"
+    },
+    {
+      "name": "Update Widget Template - Add improved markup",
+      "id": "a3be1e8a-cc59-409e-9167-99f29b419f60",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Variant List\",\n    \"template\": \"{{#unless _.data.site.product}}\\n    <div>Select a product in Page Builder to populate this widget</div>\\n{{else}}\\n    <div style=\\\"width:100%\\\">\\n        <img \\n        srcset=\\\"{{_.data.site.product.defaultImage.url320wide}} 320w,\\n        {{_.data.site.product.defaultImage.url640wide}} 640w,\\n        {{_.data.site.product.defaultImage.url960wide}} 960w,\\n        {{_.data.site.product.defaultImage.url960wide}} 1280w\\\"\\n        sizes=\\\"(max-width: 600px) 320px,\\n        960px\\\"\\n        src=\\\"{{_.data.site.product.defaultImage.url960wide}}\\\"\\n        style=\\\"display: block;max-width: 66%; margin-left:auto; margin-right:auto\\\" />\\n        </div>\\n        <div style=\\\"display: block;margin-left:auto; margin-right:auto;\\\">\\n            <strong style=\\\"display: block;\\\">{{_.data.site.product.name}}</strong>\\n            <em style=\\\"display: block;\\\">{{_.data.site.product.plainTextDescription}}</em>\\n            <ul style=\\\"list-style: none;\\\">\\n            {{#each _.data.site.product.variants.edges }}\\n                <li>\\n                    <div style=\\\"display:flex;flex-direction: row\\\">\\n                        <div style=\\\"width:160px;flex-grow: 1\\\">\\n                            {{#if node.defaultImage}}\\n                            <img src=\\\"{{node.defaultImage.url160wide}}\\\"/>\\n                            {{/if}}\\n                        </div>\\n                        <div style=\\\"flex-grow: 1\\\">\\n                            <span>\\n                                {{toFixed node.prices.price.value 2}} {{node.prices.price.currencyCode}} \\n                            </span>\\n                        </div>\\n                        <div style=\\\"flex-grow: 3\\\">\\n                            <strong>{{node.sku}}</strong>\\n                        </div>\\n                    </div>\\n                </li>\\n            {{/each}}\\n            </ul>\\n        </div>\\n    </div>\\n{{/unless}}\",\n    \"create_new_version\": true\n}"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/content/widget-templates/{{widget-template-id}}",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "content",
+            "widget-templates",
+            "{{widget-template-id}}"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2021-03-12T20:07:37.000Z",
+      "updatedAt": "2021-03-12T20:07:37.000Z",
+      "uid": "45334-a3be1e8a-cc59-409e-9167-99f29b419f60"
+    }
+  ]
+}

@@ -1,0 +1,1433 @@
+{
+  "info": {
+    "_postman_id": "c48d11a9-9f76-491a-9e9b-abaff344448b",
+    "name": "Admin GraphQL API - Full",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2025-08-26T16:18:25.000Z",
+    "updatedAt": "2025-08-26T16:18:26.000Z",
+    "lastUpdatedBy": "34196123",
+    "uid": "34196123-c48d11a9-9f76-491a-9e9b-abaff344448b"
+  },
+  "item": [
+    {
+      "name": "App Extensions",
+      "item": [
+        {
+          "name": "Register a new App Extension",
+          "id": "f3e8d0a2-9369-4734-9738-e26862e70e10",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}"
+              },
+              {
+                "key": "Accept-Encoding",
+                "value": "application/gzip",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://api.bigcommerce.com/stores/{{store_hash}}/graphql",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bigcommerce",
+                "com"
+              ],
+              "path": [
+                "stores",
+                "{{store_hash}}",
+                "graphql"
+              ],
+              "query": [
+                {
+                  "key": "Accept-Encoding",
+                  "value": "gzip",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-08-26T16:18:26.000Z",
+          "updatedAt": "2025-08-26T16:18:26.000Z",
+          "uid": "34196123-f3e8d0a2-9369-4734-9738-e26862e70e10"
+        },
+        {
+          "name": "Get registered App Extensions",
+          "id": "ec07d52b-0933-4f3e-8afc-93f5ae5d7a16",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}"
+              },
+              {
+                "key": "Accept-Encoding",
+                "value": "application/gzip",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://api.bigcommerce.com/stores/{{store_hash}}/graphql",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bigcommerce",
+                "com"
+              ],
+              "path": [
+                "stores",
+                "{{store_hash}}",
+                "graphql"
+              ],
+              "query": [
+                {
+                  "key": "Accept-Encoding",
+                  "value": "gzip",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-08-26T16:18:26.000Z",
+          "updatedAt": "2025-08-26T16:18:26.000Z",
+          "uid": "34196123-ec07d52b-0933-4f3e-8afc-93f5ae5d7a16"
+        }
+      ],
+      "id": "e0a25f1f-6aff-4774-8c57-7da4bb5567ff",
+      "createdAt": "2025-08-26T16:18:26.000Z",
+      "updatedAt": "2025-08-26T16:18:26.000Z",
+      "uid": "34196123-e0a25f1f-6aff-4774-8c57-7da4bb5567ff"
+    },
+    {
+      "name": "Delivery exception - blitz testing",
+      "item": [
+        {
+          "name": "1. Create regular hook Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var jsonData = JSON.parse(responseBody);",
+                  "postman.setEnvironmentVariable(\"regular_hook_id\", jsonData.data.webhook.createHttpsWebhook.webhook.id);"
+                ],
+                "type": "text/javascript",
+                "id": "b0961ee2-6275-4d86-9d55-629b26a46c05"
+              }
+            }
+          ],
+          "id": "f74614d3-290a-4bab-b9e8-6a781627064e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Auth-Token",
+                "value": "{{api_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation CreateWebhook {\n  webhook {\n    createHttpsWebhook(input: {\n        destination: \"{{url}}/hook\",\n        scope:\"store/product/deleted\"\n    }) {\n      webhook {\n        id\n        scope\n        destination\n      }\n    }\n  }\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://{{zone}}/stores/{{store_hash}}/graphql",
+              "protocol": "https",
+              "host": [
+                "{{zone}}"
+              ],
+              "path": [
+                "stores",
+                "{{store_hash}}",
+                "graphql"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3fc05f9e-9daf-4fc9-ad50-45de8eadf6b1",
+              "name": "Default",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/delivery-exception",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "delivery-exception"
+                  ]
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\"success\": true}",
+              "createdAt": "2025-08-26T16:18:26.000Z",
+              "updatedAt": "2025-08-26T16:18:26.000Z",
+              "uid": "34196123-3fc05f9e-9daf-4fc9-ad50-45de8eadf6b1"
+            }
+          ],
+          "createdAt": "2025-08-26T16:18:26.000Z",
+          "updatedAt": "2025-08-26T16:18:26.000Z",
+          "uid": "34196123-f74614d3-290a-4bab-b9e8-6a781627064e"
+        },
+        {
+          "name": "2. Try create delivery exception hook to the same destination as regular hook Copy",
+          "id": "5746f8aa-b885-4bee-a240-6539bb6a176d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Auth-Token",
+                "value": "{{api_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation CreateWebhook {\n  webhook {\n    createHttpsWebhook(input: {\n        destination: \"{{url}}/hook\",\n        scope:\"store/hook/deliveryException\"\n    }) {\n      webhook {\n        id\n        scope\n        destination\n      }\n      errors {\n        ...on Error {\n          message\n        }\n      }\n    }\n  }\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://{{zone}}/stores/{{store_hash}}/graphql",
+              "protocol": "https",
+              "host": [
+                "{{zone}}"
+              ],
+              "path": [
+                "stores",
+                "{{store_hash}}",
+                "graphql"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0224e777-71f8-4c35-9d2f-91be60ee2fea",
+              "name": "Default",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/delivery-exception",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "delivery-exception"
+                  ]
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\"success\": true}",
+              "createdAt": "2025-08-26T16:18:26.000Z",
+              "updatedAt": "2025-08-26T16:18:26.000Z",
+              "uid": "34196123-0224e777-71f8-4c35-9d2f-91be60ee2fea"
+            }
+          ],
+          "createdAt": "2025-08-26T16:18:26.000Z",
+          "updatedAt": "2025-08-26T16:18:26.000Z",
+          "uid": "34196123-5746f8aa-b885-4bee-a240-6539bb6a176d"
+        },
+        {
+          "name": "3. Create delivery exception hook Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var jsonData = JSON.parse(responseBody);",
+                  "postman.setEnvironmentVariable(\"delivery_exception_hook_id\", jsonData.data.webhook.createHttpsWebhook.webhook.id);"
+                ],
+                "type": "text/javascript",
+                "id": "2041b561-d34e-4ce4-8084-864a2205fda4"
+              }
+            }
+          ],
+          "id": "e67f827f-615e-4673-b038-225b58a388f6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Auth-Token",
+                "value": "{{api_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation CreateWebhook {\n  webhook {\n    createHttpsWebhook(input: {\n        destination: \"{{url}}/delivery-exception\",\n        scope:\"store/hook/deliveryException\"\n    }) {\n      webhook {\n        id\n        scope\n        destination\n      }\n    }\n  }\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://{{zone}}/stores/{{store_hash}}/graphql",
+              "protocol": "https",
+              "host": [
+                "{{zone}}"
+              ],
+              "path": [
+                "stores",
+                "{{store_hash}}",
+                "graphql"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ab8f6173-8c83-4474-86eb-fe76fe693bd9",
+              "name": "Default",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/delivery-exception",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "delivery-exception"
+                  ]
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\"success\": true}",
+              "createdAt": "2025-08-26T16:18:26.000Z",
+              "updatedAt": "2025-08-26T16:18:26.000Z",
+              "uid": "34196123-ab8f6173-8c83-4474-86eb-fe76fe693bd9"
+            }
+          ],
+          "createdAt": "2025-08-26T16:18:26.000Z",
+          "updatedAt": "2025-08-26T16:18:26.000Z",
+          "uid": "34196123-e67f827f-615e-4673-b038-225b58a388f6"
+        },
+        {
+          "name": "4. Try to update regular hook to destination taken by delivery-exception hook Copy",
+          "id": "e17a83a0-fe56-4940-95f0-da48e374a668",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Auth-Token",
+                "value": "{{api_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation UpdateWebhook($input: UpdateHttpsWebhookInput!) {\n    webhook {\n        updateHttpsWebhook(input: $input) {\n            webhook {\n                id\n                destination\n                scope\n                status\n            }\n            errors {\n                ...on Error {\n                    message\n                }\n            }\n        }\n    }\n}",
+                "variables": "{\n    \"input\": {\n        \"id\": \"{{regular_hook_id}}\",\n        \"data\": {\n            \"destination\": \"{{url}}/delivery-exception\" \n        }\n    }\n}"
+              }
+            },
+            "url": {
+              "raw": "https://{{zone}}/stores/{{store_hash}}/graphql",
+              "protocol": "https",
+              "host": [
+                "{{zone}}"
+              ],
+              "path": [
+                "stores",
+                "{{store_hash}}",
+                "graphql"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "89d1b473-5bd5-4d4d-970e-e502c53e1363",
+              "name": "Default",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/delivery-exception",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "delivery-exception"
+                  ]
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\"success\": true}",
+              "createdAt": "2025-08-26T16:18:26.000Z",
+              "updatedAt": "2025-08-26T16:18:26.000Z",
+              "uid": "34196123-89d1b473-5bd5-4d4d-970e-e502c53e1363"
+            }
+          ],
+          "createdAt": "2025-08-26T16:18:26.000Z",
+          "updatedAt": "2025-08-26T16:18:26.000Z",
+          "uid": "34196123-e17a83a0-fe56-4940-95f0-da48e374a668"
+        },
+        {
+          "name": "5. Try to update delivery-exception hook to destination taken by regular hook Copy",
+          "id": "ff4b86fb-d3a0-4768-ada2-a41806f3aeda",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Auth-Token",
+                "value": "{{api_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation UpdateWebhook($input: UpdateHttpsWebhookInput!) {\n    webhook {\n        updateHttpsWebhook(input: $input) {\n            webhook {\n                id\n                destination\n                scope\n                status\n            }\n            errors {\n                ...on Error {\n                    message\n                }\n            }\n        }\n    }\n}",
+                "variables": "{\n    \"input\": {\n        \"id\": \"{{delivery_exception_hook_id}}\",\n        \"data\": {\n            \"destination\": \"{{url}}/hook\" \n        }\n    }\n}"
+              }
+            },
+            "url": {
+              "raw": "https://{{zone}}/stores/{{store_hash}}/graphql",
+              "protocol": "https",
+              "host": [
+                "{{zone}}"
+              ],
+              "path": [
+                "stores",
+                "{{store_hash}}",
+                "graphql"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "457f6a71-4dbd-42e0-98cc-b85896020c90",
+              "name": "Default",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/delivery-exception",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "delivery-exception"
+                  ]
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\"success\": true}",
+              "createdAt": "2025-08-26T16:18:26.000Z",
+              "updatedAt": "2025-08-26T16:18:26.000Z",
+              "uid": "34196123-457f6a71-4dbd-42e0-98cc-b85896020c90"
+            }
+          ],
+          "createdAt": "2025-08-26T16:18:26.000Z",
+          "updatedAt": "2025-08-26T16:18:26.000Z",
+          "uid": "34196123-ff4b86fb-d3a0-4768-ada2-a41806f3aeda"
+        },
+        {
+          "name": "6. Try to create second delivery exception hook Copy",
+          "id": "8ed1925b-ebf6-4bcd-acc0-c287533e2dc6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Auth-Token",
+                "value": "{{api_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation CreateWebhook {\n  webhook {\n    createHttpsWebhook(input: {\n        destination: \"{{url}}/delivery-exception\",\n        scope:\"store/hook/deliveryException\"\n    }) {\n      webhook {\n        id\n        scope\n        destination\n      }\n    }\n  }\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://{{zone}}/stores/{{store_hash}}/graphql",
+              "protocol": "https",
+              "host": [
+                "{{zone}}"
+              ],
+              "path": [
+                "stores",
+                "{{store_hash}}",
+                "graphql"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ea25226d-3cf3-401d-844d-fc06b74f15a7",
+              "name": "Default",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/delivery-exception",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "delivery-exception"
+                  ]
+                }
+              },
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\"success\": true}",
+              "createdAt": "2025-08-26T16:18:26.000Z",
+              "updatedAt": "2025-08-26T16:18:26.000Z",
+              "uid": "34196123-ea25226d-3cf3-401d-844d-fc06b74f15a7"
+            }
+          ],
+          "createdAt": "2025-08-26T16:18:26.000Z",
+          "updatedAt": "2025-08-26T16:18:26.000Z",
+          "uid": "34196123-8ed1925b-ebf6-4bcd-acc0-c287533e2dc6"
+        }
+      ],
+      "id": "69daf2c2-29a2-4e04-ae3f-e7efad588e8a",
+      "createdAt": "2025-08-26T16:18:26.000Z",
+      "updatedAt": "2025-08-26T16:18:26.000Z",
+      "uid": "34196123-69daf2c2-29a2-4e04-ae3f-e7efad588e8a"
+    },
+    {
+      "name": "Introspection Query",
+      "id": "5c6dce8a-a66e-4af8-afd3-22b9a8915e34",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept-Encoding",
+            "value": "application/gzip",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "fragment FullType on __Type {\n  kind\n  name\n  fields(includeDeprecated: true) {\n    name\n    args {\n      ...InputValue\n    }\n    type {\n      ...TypeRef\n    }\n    isDeprecated\n    deprecationReason\n  }\n  inputFields {\n    ...InputValue\n  }\n  interfaces {\n    ...TypeRef\n  }\n  enumValues(includeDeprecated: true) {\n    name\n    isDeprecated\n    deprecationReason\n  }\n  possibleTypes {\n    ...TypeRef\n  }\n}\nfragment InputValue on __InputValue {\n  name\n  type {\n    ...TypeRef\n  }\n  defaultValue\n}\nfragment TypeRef on __Type {\n  kind\n  name\n  ofType {\n    kind\n    name\n    ofType {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\nquery IntrospectionQuery {\n  __schema {\n    queryType {\n      name\n    }\n    mutationType {\n      name\n    }\n    types {\n      ...FullType\n    }\n    directives {\n      name\n      locations\n      args {\n        ...InputValue\n      }\n    }\n  }\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "https://api.{{api_environment}}/stores/{{store_hash}}/graphql",
+          "protocol": "https",
+          "host": [
+            "api",
+            "{{api_environment}}"
+          ],
+          "path": [
+            "stores",
+            "{{store_hash}}",
+            "graphql"
+          ],
+          "query": [
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2025-08-26T16:18:26.000Z",
+      "updatedAt": "2025-08-26T16:18:26.000Z",
+      "uid": "34196123-5c6dce8a-a66e-4af8-afd3-22b9a8915e34"
+    },
+    {
+      "name": "Get Data Layer (BODL)",
+      "id": "1fe8488f-a09c-4e59-beca-549f6f1e901e",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept-Encoding",
+            "value": "application/gzip"
+          }
+        ],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query {\n  store {\n    settings {\n      dataSolutions {\n        isDataLayerEnabled\n      }\n    }\n  }\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "https://api.{{api_environment}}/stores/{{store_hash}}/graphql",
+          "protocol": "https",
+          "host": [
+            "api",
+            "{{api_environment}}"
+          ],
+          "path": [
+            "stores",
+            "{{store_hash}}",
+            "graphql"
+          ],
+          "query": [
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2025-08-26T16:18:26.000Z",
+      "updatedAt": "2025-08-26T16:18:26.000Z",
+      "uid": "34196123-1fe8488f-a09c-4e59-beca-549f6f1e901e"
+    },
+    {
+      "name": "Enable Data Layer (BODL)",
+      "id": "04fad69b-ff92-42aa-8c0a-ac7f788ce53f",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept-Encoding",
+            "value": "application/gzip"
+          }
+        ],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation {\n  settings {\n    dataSolutions {\n      updateDataLayer (input: {isDataLayerEnabled: true}) {\n        dataSolutions {\n          isDataLayerEnabled\n        }\n      }\n    }\n  }\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "https://api.{{api_environment}}/stores/{{store_hash}}/graphql",
+          "protocol": "https",
+          "host": [
+            "api",
+            "{{api_environment}}"
+          ],
+          "path": [
+            "stores",
+            "{{store_hash}}",
+            "graphql"
+          ],
+          "query": [
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2025-08-26T16:18:26.000Z",
+      "updatedAt": "2025-08-26T16:18:26.000Z",
+      "uid": "34196123-04fad69b-ff92-42aa-8c0a-ac7f788ce53f"
+    },
+    {
+      "name": "Get Time",
+      "id": "ca810e70-3e94-4ac6-a5d4-6a45afb3cb52",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept-Encoding",
+            "value": "application/gzip",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query {\n    system {\n        time\n    }\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "https://api.{{api_environment}}/stores/{{store_hash}}/graphql",
+          "protocol": "https",
+          "host": [
+            "api",
+            "{{api_environment}}"
+          ],
+          "path": [
+            "stores",
+            "{{store_hash}}",
+            "graphql"
+          ],
+          "query": [
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2025-08-26T16:18:26.000Z",
+      "updatedAt": "2025-08-26T16:18:26.000Z",
+      "uid": "34196123-ca810e70-3e94-4ac6-a5d4-6a45afb3cb52"
+    },
+    {
+      "name": "Metafields",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var jsonData = JSON.parse(responseBody);",
+              "postman.setEnvironmentVariable(\"afterCursor\", jsonData.endCursor);"
+            ],
+            "type": "text/javascript",
+            "id": "1bc9945f-e3b9-446c-9205-1f984ab304d8"
+          }
+        }
+      ],
+      "id": "016703fb-32a9-49c3-b3b2-9f2adc2c5779",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($first: Int, $after: String) {\n  store {\n    id\n    metafields (first: $first, after: $after) {\n        edges {\n                node {\n                    id\n                    description\n                    key\n                    namespace\n                    permissionSet\n                    resourceId\n                    value\n                    ownerClientId\n                }\n                    cursor\n            }\n        pageInfo {\n            hasNextPage\n            hasPreviousPage\n            startCursor\n            endCursor\n        }\n    }\n  }\n}\n",
+            "variables": "{\n    \"first\": 2,\n    \"after\": \"YXJyYXljb25uZWN0aW9uOjE=\"\n}"
+          }
+        },
+        "url": {
+          "raw": "https://api.{{api_environment}}/stores/{{store_hash}}/graphql",
+          "protocol": "https",
+          "host": [
+            "api",
+            "{{api_environment}}"
+          ],
+          "path": [
+            "stores",
+            "{{store_hash}}",
+            "graphql"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2025-08-26T16:18:26.000Z",
+      "updatedAt": "2025-08-26T16:18:26.000Z",
+      "uid": "34196123-016703fb-32a9-49c3-b3b2-9f2adc2c5779"
+    },
+    {
+      "name": "Metafields - PRODUCT only",
+      "id": "24d8cb74-b6a6-420e-8f02-9b02cb48eb9c",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($filters: MetafieldsFiltersInput) {\n  store {\n    id\n    metafields(filters: $filters, first:250)  {\n      edges {\n        node {\n          id\n          description\n          key\n          namespace\n          permissionSet\n          resourceId\n          value\n          ownerClientId\n        }\n      }\n    }\n  }\n}",
+            "variables": "{\n    \"filters\": {\n        \"resourceType\": \"PRODUCT\"\n    }\n}"
+          }
+        },
+        "url": {
+          "raw": "https://api.{{api_environment}}/stores/{{store_hash}}/graphql",
+          "protocol": "https",
+          "host": [
+            "api",
+            "{{api_environment}}"
+          ],
+          "path": [
+            "stores",
+            "{{store_hash}}",
+            "graphql"
+          ]
+        },
+        "description": "#### Values for filters/variable\n\nBRAND  \nCATEGORY  \nCHANNEL  \nLOCATION  \nORDER  \nPRODUCT  \nVARIANT"
+      },
+      "response": [],
+      "createdAt": "2025-08-26T16:18:26.000Z",
+      "updatedAt": "2025-08-26T16:18:26.000Z",
+      "uid": "34196123-24d8cb74-b6a6-420e-8f02-9b02cb48eb9c"
+    },
+    {
+      "name": "Metafields - Filters",
+      "id": "6219d5d4-44fe-4f2c-8870-e5fcad3a35ee",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($filters: MetafieldsFiltersInput) {\n  store {\n    id\n    metafields(filters: $filters, first:250)  {\n      edges {\n        node {\n          id\n          description\n          key\n          namespace\n          permissionSet\n          resourceId\n          value\n          ownerClientId\n        }\n      }\n    }\n  }\n}",
+            "variables": "{\n    \"filters\": {\n        \"resourceType\": \"PRODUCT\"\n    }\n}"
+          }
+        },
+        "url": {
+          "raw": "https://api.{{api_environment}}/stores/{{store_hash}}/graphql",
+          "protocol": "https",
+          "host": [
+            "api",
+            "{{api_environment}}"
+          ],
+          "path": [
+            "stores",
+            "{{store_hash}}",
+            "graphql"
+          ]
+        },
+        "description": "#### Values for filters/variable\n\nBRAND  \nCATEGORY  \nCHANNEL  \nLOCATION  \nORDER  \nPRODUCT  \nVARIANT"
+      },
+      "response": [],
+      "createdAt": "2025-08-26T16:18:26.000Z",
+      "updatedAt": "2025-08-26T16:18:26.000Z",
+      "uid": "34196123-6219d5d4-44fe-4f2c-8870-e5fcad3a35ee"
+    },
+    {
+      "name": "Metafields - ORDER only",
+      "id": "abcd366f-006a-4f41-9832-bdc5ebfd1b67",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($filters: MetafieldsFiltersInput) {\n  store {\n    id\n    metafields(filters: $filters, first:250)  {\n      edges {\n        node {\n          id\n          description\n          key\n          namespace\n          permissionSet\n          resourceId\n          value\n          ownerClientId\n        }\n      }\n    }\n  }\n}",
+            "variables": "{\n    \"filters\": {\n        \"resourceType\": \"ORDER\"\n    }\n}"
+          }
+        },
+        "url": {
+          "raw": "https://api.{{api_environment}}/stores/{{store_hash}}/graphql",
+          "protocol": "https",
+          "host": [
+            "api",
+            "{{api_environment}}"
+          ],
+          "path": [
+            "stores",
+            "{{store_hash}}",
+            "graphql"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2025-08-26T16:18:26.000Z",
+      "updatedAt": "2025-08-26T16:18:26.000Z",
+      "uid": "34196123-abcd366f-006a-4f41-9832-bdc5ebfd1b67"
+    },
+    {
+      "name": "Create a Metafield",
+      "id": "2e0d74eb-c89e-426f-a0cb-0b00b25b529d",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "nl3d41vx53xkod6imb2muvbw3oqlpig",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation Metafield {\n    metafield {\n        createMetafield(\n            input: {\n                namespace: \"1234\"\n                resourceId: \"bc/store/product/77\"\n                key: \"test\"\n                value: \"testValue1\"\n                description: \"some description\"\n                permissionSet: WRITE\n            }\n        ) {\n            metafield {\n                id\n                description\n                key\n                namespace\n                permissionSet\nresourceEntityId\n                resourceType\n                value\n                ownerClientId\n            }\n        }\n    }\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "https://api.staging.zone/stores/hkgkpnbapr/graphql",
+          "protocol": "https",
+          "host": [
+            "api",
+            "staging",
+            "zone"
+          ],
+          "path": [
+            "stores",
+            "hkgkpnbapr",
+            "graphql"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2025-08-26T16:18:26.000Z",
+      "updatedAt": "2025-08-26T16:18:26.000Z",
+      "uid": "34196123-2e0d74eb-c89e-426f-a0cb-0b00b25b529d"
+    },
+    {
+      "name": "Create Order Metafield",
+      "id": "4dc24527-b5e9-4289-a35e-d3a5447779b1",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation Metafield {\n    metafield {\n        createMetafield(\n            input: {\n                namespace: \"1234\"\n                resourceId: \"bc/store/order/100\"\n                key: \"test\"\n                value: \"testValue1\"\n                description: \"some description\"\n                permissionSet: WRITE\n            }\n        ) {\n            metafield {\n                id\n                description\n                key\n                namespace\n                permissionSet\n                resourceId\n                value\n                ownerClientId\n            }\n        }\n    }\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "https://api.{{api_environment}}/stores/{{store_hash}}/graphql",
+          "protocol": "https",
+          "host": [
+            "api",
+            "{{api_environment}}"
+          ],
+          "path": [
+            "stores",
+            "{{store_hash}}",
+            "graphql"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2025-08-26T16:18:26.000Z",
+      "updatedAt": "2025-08-26T16:18:26.000Z",
+      "uid": "34196123-4dc24527-b5e9-4289-a35e-d3a5447779b1"
+    },
+    {
+      "name": "Staging - Create a Metafield-specific Webhook Exclude",
+      "id": "7006073f-0eb3-4db6-a9d8-ee9671841ee9",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "nl3d41vx53xkod6imb2muvbw3oqlpig",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation Webhook {\n   webhook {\n       createHttpsWebhook(\n           input: {\n               eventFilters: [\n                   {\n                       dataFilter: {\n                           path: [\"namespace\"]\n                           values: { stringValues: [\"shipping\"] }\n                           delivery: EXCLUDE # will change to \"NOT_IN\n                       }\n                   }\n               ]\n               destination: \"https://b88a11bf-aa8a-44c7-8d13-0904515f8ceb.mock.pstmn.io/exclude\"\n               scope: \"store/metafield/updated\"\n           }\n       ) {\n           webhook {\n               destination\n               clientId\n               id\n               scope\n               status\n           }\n           errors {\n               ... on AlreadyExistsError {\n                   message\n               }\n               ... on ValidationError {\n                   message\n               }\n           }\n       }\n   }\n}\n",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "https://api.staging.zone/stores/hkgkpnbapr/graphql",
+          "protocol": "https",
+          "host": [
+            "api",
+            "staging",
+            "zone"
+          ],
+          "path": [
+            "stores",
+            "hkgkpnbapr",
+            "graphql"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2025-08-26T16:18:26.000Z",
+      "updatedAt": "2025-08-26T16:18:26.000Z",
+      "uid": "34196123-7006073f-0eb3-4db6-a9d8-ee9671841ee9"
+    },
+    {
+      "name": "Staging - Get All Webhooks",
+      "id": "f9203846-4df4-4f9e-ac0d-b962fa8b7461",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "nl3d41vx53xkod6imb2muvbw3oqlpig",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query Store2 {\n   store {\n       webhooks {\n           pageInfo {\n               hasNextPage\n               hasPreviousPage\n               startCursor\n               endCursor\n           }\n           edges {\n               cursor\n               node {\n                   clientId\n                   createdAt\n                   id\n                   scope\n                   status\n                   updatedAt\n                   eventFilters {\n                       delivery\n                   }\n                   ... on HttpsWebhook {\n                       destination\n                       clientId\n                       createdAt\n                       id\n                       scope\n                       status\n                       updatedAt\n                       eventFilters {\n                           delivery\n                       }\n                   }\n               }\n           }\n       }\n   }\n}\n",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "https://api.staging.zone/stores/hkgkpnbapr/graphql",
+          "protocol": "https",
+          "host": [
+            "api",
+            "staging",
+            "zone"
+          ],
+          "path": [
+            "stores",
+            "hkgkpnbapr",
+            "graphql"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2025-08-26T16:18:26.000Z",
+      "updatedAt": "2025-08-26T16:18:26.000Z",
+      "uid": "34196123-f9203846-4df4-4f9e-ac0d-b962fa8b7461"
+    },
+    {
+      "name": "Reassign Metafields",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var jsonData = JSON.parse(responseBody);",
+              "postman.setEnvironmentVariable(\"afterCursor\", jsonData.endCursor);"
+            ],
+            "type": "text/javascript",
+            "id": "2372f8c5-d53e-4704-a8b2-4f02d09631d6"
+          }
+        }
+      ],
+      "id": "61ce5a6a-b6ba-4b81-b380-c9333fe5d714",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation Metafield {\n    metafield {\n        reassignMetafieldsOwner(\n            input: {\n                newClientId: \"{{client_id}}\"\n                metafieldIds: [\n                  \"bc/store/metafield/X\" # id of metafield belonging to client 1 with value: testValue2\n                ]\n            }\n        ) {\n            metafieldIds\n            errors {\n                ... on EntityNotFoundError {\n                    id\n                    message\n                }\n                ... on EntityAlreadyExistsError {\n                    id\n                    message\n                }\n                ... on ValidationError {\n                    message\n                }\n            }\n        }\n    }\n}\n",
+            "variables": "{\n    \"first\": 2,\n    \"after\": \"YXJyYXljb25uZWN0aW9uOjE=\"\n}"
+          }
+        },
+        "url": {
+          "raw": "https://api.{{api_environment}}/stores/{{store_hash}}/graphql",
+          "protocol": "https",
+          "host": [
+            "api",
+            "{{api_environment}}"
+          ],
+          "path": [
+            "stores",
+            "{{store_hash}}",
+            "graphql"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2025-08-26T16:18:26.000Z",
+      "updatedAt": "2025-08-26T16:18:26.000Z",
+      "uid": "34196123-61ce5a6a-b6ba-4b81-b380-c9333fe5d714"
+    },
+    {
+      "name": "Create a Metafield-specific Webhook",
+      "id": "ff378d31-2ffd-46c1-b9da-3c2c62e19273",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "nl3d41vx53xkod6imb2muvbw3oqlpig",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation Webhook {\n   webhook {\n       createHttpsWebhook(\n           input: {\n               eventFilters: [\n                   {\n                       dataFilter: {\n                           path: [\"namespace\"]\n                           values: { stringValues: [\"1234\"] }\n                           delivery: INCLUDE\n                       }\n                   }\n               ]\n               destination: \"{{mock-server-addres}}/include\"\n               scope: \"store/metafield/created\"\n           }\n       ) {\n           webhook {\n               destination\n               clientId\n               id\n               scope\n               status\n           }\n           errors {\n               ... on AlreadyExistsError {\n                   message\n               }\n               ... on ValidationError {\n                   message\n               }\n           }\n       }\n   }\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "https://api.staging.zone/stores/hkgkpnbapr/v3/graphql",
+          "protocol": "https",
+          "host": [
+            "api",
+            "staging",
+            "zone"
+          ],
+          "path": [
+            "stores",
+            "hkgkpnbapr",
+            "v3",
+            "graphql"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2025-08-26T16:18:26.000Z",
+      "updatedAt": "2025-08-26T16:18:26.000Z",
+      "uid": "34196123-ff378d31-2ffd-46c1-b9da-3c2c62e19273"
+    },
+    {
+      "name": "List All Webhooks - Prod",
+      "id": "c405e3db-4c23-4edc-9f3f-1eea5ca6dcf6",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ListWebhooks {\n    store {\n        webhooks {\n            edges {\n                node {\n                    id\n                    clientId\n                    status\n                    scope\n                    ...on PubSubWebhook {\n                        destination\n                    }\n                    ...on HttpsWebhook {\n                        destination\n                    }\n                }\n            }\n        }\n    }\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "https://api.{{api_environment}}/stores/{{store_hash}}/graphql",
+          "protocol": "https",
+          "host": [
+            "api",
+            "{{api_environment}}"
+          ],
+          "path": [
+            "stores",
+            "{{store_hash}}",
+            "graphql"
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "a4ffb3da-a32f-4cca-ac7d-52ac1f317514",
+          "name": "Default",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/delivery-exception",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "delivery-exception"
+              ]
+            }
+          },
+          "code": 200,
+          "_postman_previewlanguage": "Text",
+          "header": [],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\"success\": true}",
+          "createdAt": "2025-08-26T16:18:26.000Z",
+          "updatedAt": "2025-08-26T16:18:26.000Z",
+          "uid": "34196123-a4ffb3da-a32f-4cca-ac7d-52ac1f317514"
+        }
+      ],
+      "createdAt": "2025-08-26T16:18:26.000Z",
+      "updatedAt": "2025-08-26T16:18:26.000Z",
+      "uid": "34196123-c405e3db-4c23-4edc-9f3f-1eea5ca6dcf6"
+    },
+    {
+      "name": "List All Webhooks - Zone",
+      "id": "72bf5209-84bc-4ae1-ba5b-d7245d276c15",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Token",
+            "value": "{{api_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ListWebhooks {\n    store {\n        webhooks {\n            edges {\n                node {\n                    id\n                    clientId\n                    status\n                    scope\n                    ...on PubSubWebhook {\n                        destination\n                    }\n                    ...on HttpsWebhook {\n                        destination\n                    }\n                }\n            }\n        }\n    }\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "https://{{zone}}/stores/{{store_hash}}/graphql",
+          "protocol": "https",
+          "host": [
+            "{{zone}}"
+          ],
+          "path": [
+            "stores",
+            "{{store_hash}}",
+            "graphql"
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "8a6e3b1d-d414-4836-af0b-031aa8990ad9",
+          "name": "Default",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/delivery-exception",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "delivery-exception"
+              ]
+            }
+          },
+          "code": 200,
+          "_postman_previewlanguage": "Text",
+          "header": [],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\"success\": true}",
+          "createdAt": "2025-08-26T16:18:26.000Z",
+          "updatedAt": "2025-08-26T16:18:26.000Z",
+          "uid": "34196123-8a6e3b1d-d414-4836-af0b-031aa8990ad9"
+        }
+      ],
+      "createdAt": "2025-08-26T16:18:26.000Z",
+      "updatedAt": "2025-08-26T16:18:26.000Z",
+      "uid": "34196123-72bf5209-84bc-4ae1-ba5b-d7245d276c15"
+    }
+  ]
+}

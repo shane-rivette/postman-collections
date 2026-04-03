@@ -1,0 +1,259 @@
+{
+  "info": {
+    "_postman_id": "f8435056-1564-4cb8-b856-70ae055c8c94",
+    "name": "BC/Stripe",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2019-10-21T16:27:32.000Z",
+    "updatedAt": "2019-10-21T17:02:14.000Z",
+    "lastUpdatedBy": "45334",
+    "uid": "45334-f8435056-1564-4cb8-b856-70ae055c8c94"
+  },
+  "item": [
+    {
+      "name": "Get Stripe Subscription Plans",
+      "id": "68567570-a9b6-46e5-aa23-30645cf127c5",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "{{stripe-api-key}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.stripe.com/v1/plans",
+          "protocol": "https",
+          "host": [
+            "api",
+            "stripe",
+            "com"
+          ],
+          "path": [
+            "v1",
+            "plans"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2019-10-21T17:02:02.000Z",
+      "updatedAt": "2019-10-21T17:02:02.000Z",
+      "uid": "45334-68567570-a9b6-46e5-aa23-30645cf127c5"
+    },
+    {
+      "name": "Get an Order Copy (BC)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "f664a333-41c9-4d7c-975d-d0ccd6b70555",
+            "exec": [
+              "var jsonData = pm.response.json();",
+              "if(pm.test(\"Response includes transaction id\", function (){",
+              "    pm.expect(jsonData.payment_provider_id).to.be.a(\"string\").that.is.not.empty",
+              "})){",
+              "    postman.setEnvironmentVariable(\"transaction-id\", jsonData.payment_provider_id)",
+              "}",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "129e0002-0eac-42b5-8ca4-3aa017c11bf3",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v2/orders/{{order-id}}",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v2",
+            "orders",
+            "{{order-id}}"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2019-10-21T16:28:05.000Z",
+      "updatedAt": "2019-10-21T16:40:58.000Z",
+      "uid": "45334-129e0002-0eac-42b5-8ca4-3aa017c11bf3"
+    },
+    {
+      "name": "Retrieve a Charge (Stripe)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "9b5a2bda-6c70-4d06-b29e-942d47bab77f",
+            "exec": [
+              "var jsonData = pm.response.json();",
+              "if(pm.test(\"Response includes Stripe customer id\", function (){",
+              "    pm.expect(jsonData.customer).to.be.a(\"string\").that.is.not.empty",
+              "})){",
+              "    postman.setEnvironmentVariable(\"stripe-customer-id\", jsonData.customer)",
+              "}",
+              "",
+              "if(pm.test(\"Response includes Stripe payment method ID\", function (){",
+              "    pm.expect(jsonData.payment_method).to.be.a(\"string\").that.is.not.empty",
+              "})){",
+              "    postman.setEnvironmentVariable(\"stripe-payment-method\", jsonData.payment_method)",
+              "}",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "770ad6e6-05f4-44f3-80e4-d88d30b6ecce",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "{{stripe-api-key}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.stripe.com/v1/charges/{{transaction-id}}",
+          "protocol": "https",
+          "host": [
+            "api",
+            "stripe",
+            "com"
+          ],
+          "path": [
+            "v1",
+            "charges",
+            "{{transaction-id}}"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2019-10-21T16:40:46.000Z",
+      "updatedAt": "2019-10-21T16:51:19.000Z",
+      "uid": "45334-770ad6e6-05f4-44f3-80e4-d88d30b6ecce"
+    },
+    {
+      "name": "Create Subscription (Stripe)",
+      "id": "36f748b7-f6c5-417b-bd5e-9c9950d79363",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "{{stripe-api-key}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "customer",
+              "value": "{{stripe-customer-id}}",
+              "type": "text"
+            },
+            {
+              "key": "items[0][plan]",
+              "value": "{{stripe-subscription-plan}}",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://api.stripe.com/v1/subscriptions",
+          "protocol": "https",
+          "host": [
+            "api",
+            "stripe",
+            "com"
+          ],
+          "path": [
+            "v1",
+            "subscriptions"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2019-10-21T17:02:14.000Z",
+      "updatedAt": "2019-10-21T17:02:14.000Z",
+      "uid": "45334-36f748b7-f6c5-417b-bd5e-9c9950d79363"
+    }
+  ]
+}

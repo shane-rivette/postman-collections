@@ -1,0 +1,133 @@
+{
+  "info": {
+    "_postman_id": "6f1b873b-4c4a-4d12-92da-5ee27f682e76",
+    "name": "Bulk Generate Coupons",
+    "description": "Given a CSV file of coupons, this collection may be used to bulk generate coupons against a Coupon Promotion in a BigCommerce store.\n\nBefore using, configure your values for the following collection variables:\n\n| **Variable** | **Value** |\n| --- | --- |\n| api-token | Your BC API token |\n| store-hash | Your BC store hash |\n| promotion-id | The promotion ID for a Coupon Promotion in your store |\n\nTo use, first produce a CSV file with a single column. The column should have the header \"code\" and each row should contain exactly one unique coupon code. Use the CSV file as a data source in Collection Runner. For more information, see the [Postman documentation](https://blog.postman.com/using-csv-and-json-files-in-the-postman-collection-runner/)\n\nConsider using a utility like this one to generate your CSV file: [https://github.com/hatertron3000/coupon-generator](https://github.com/hatertron3000/coupon-generator)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2021-09-21T15:05:20.000Z",
+    "updatedAt": "2022-01-14T22:45:56.000Z",
+    "lastUpdatedBy": "45334",
+    "uid": "45334-6f1b873b-4c4a-4d12-92da-5ee27f682e76"
+  },
+  "item": [
+    {
+      "name": "Create Coupon Code",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "5c50d81a-74d1-4cde-8325-57dad89bdf5f",
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "96419963-3cb1-4daf-b335-30224d53ffa3",
+            "exec": [
+              "pm.test(\"Status code is 201\", function () {",
+              "    pm.response.to.have.status(201);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "7fa8161a-098d-4c06-b31a-9f11314a82d9",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Token",
+            "value": "{{api-token}}",
+            "type": "text"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"code\": \"{{code}}\",\n    \"max_uses\": 1,\n    \"max_uses_per_customer\": 1\n}"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/promotions/{{promotion-id}}/codes",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "promotions",
+            "{{promotion-id}}",
+            "codes"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2021-09-21T15:05:31.000Z",
+      "updatedAt": "2022-01-14T17:15:17.000Z",
+      "uid": "45334-7fa8161a-098d-4c06-b31a-9f11314a82d9"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "5dd32fcb-b21b-4807-8e76-e4b5ed731559",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "8dbdb3ca-88d4-4524-a5fd-de24470425e0",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "api-token",
+      "value": "BC_API_TOKEN",
+      "type": "string"
+    },
+    {
+      "key": "store-hash",
+      "value": "BC_STORE_HASH",
+      "type": "string"
+    },
+    {
+      "key": "promotion-id",
+      "value": "BC_PROMOTION_ID",
+      "type": "string"
+    },
+    {
+      "key": "code",
+      "value": "LEAVE_BLANK"
+    }
+  ]
+}

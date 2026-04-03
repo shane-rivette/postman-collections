@@ -1,0 +1,181 @@
+{
+  "info": {
+    "_postman_id": "f6e6b98d-7907-4df5-8d64-b21110148ecd",
+    "name": "Bulk Create Customers/Groups",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2024-06-21T21:38:52.000Z",
+    "updatedAt": "2024-06-21T21:44:51.000Z",
+    "lastUpdatedBy": "34196123",
+    "uid": "34196123-f6e6b98d-7907-4df5-8d64-b21110148ecd"
+  },
+  "item": [
+    {
+      "name": "Create customers Copy",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "6e6c0c4c-acb2-4098-8b0a-c3756607a641",
+            "exec": [
+              "let myVar = pm.collectionVariables.get(\"customer-id\");",
+              "myVar ++ // increment by 1",
+              "pm.collectionVariables.set(\"customer-id\", myVar);",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {}
+          }
+        }
+      ],
+      "id": "a6bc4962-6364-428b-968e-1f839fac368d",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[\r\n    {\r\n        \"email\": \"customer+{{customer-id}}@mybigcommerce.com\",\r\n        \"first_name\": \"Customer {{customer-id}}\",\r\n        \"last_name\": \"Shopper\",\r\n        \"customer_group_id\": {{customer-id}}\r\n    }\r\n]"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/customers",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store_hash}}",
+            "v3",
+            "customers"
+          ]
+        },
+        "description": "Creates customers. Multiple customers can be created in one call.\n\n## Required Fields\n* first_name\n* last_name\n* email\n\n## Required Fields Customer Address\n* first_name\n* last_name\n* address1\n* city\n* state_or_province\n* country_code\n* postal_code\n\n## Required Fields Attributes\nAttributes must be created BEFORE creating a customer.\n* attribute_id\n* attribute_value – This is input as a string, regardless of the Type.\n\n## Notes \nFor multi-storefront merchants who wants to give:\n\n* Global access:\n * The channel listed in `origin_channel_id` needs `allow_global_logins=true` in their channel settings\n * Leave `channel_ids` empty\n* Channel restricted access:\n * The channel listed in `origin_channel_id` needs to have `allow_global_logins=false` in their channel settings\n * Either leave `channel_ids` empty to use the current channel or give the list of channels we grant access"
+      },
+      "response": [],
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-a6bc4962-6364-428b-968e-1f839fac368d"
+    },
+    {
+      "name": "Create a customer group Copy",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "0314f049-7a7b-4499-9067-fe5b4dceacb3",
+            "exec": [
+              "let myVar = pm.collectionVariables.get(\"group-id\");",
+              "myVar ++ // increment by 1",
+              "pm.collectionVariables.set(\"group-id\", myVar);",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {}
+          }
+        }
+      ],
+      "id": "265a9d8b-808c-4a76-9dd9-fecf6a2a772b",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Customer Group {{group-id}}\",\r\n    \"is_default\": false,\r\n    \"is_group_for_guests\": false,\r\n    \"discount_rules\": [\r\n        {\r\n            \"type\": \"price_list\",\r\n            \"price_list_id\": {{group-id}}\r\n        }\r\n    ]\r\n}"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v2/customer_groups",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store_hash}}",
+            "v2",
+            "customer_groups"
+          ]
+        },
+        "description": "Creates a new customer group. \n\n## Required Fields\n* name\n\n## Read-Only Fields\n* id"
+      },
+      "response": [],
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-265a9d8b-808c-4a76-9dd9-fecf6a2a772b"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "1eee0be2-a9d8-46e7-9c51-bcbc9aec9c74",
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "413340eb-f171-48e0-b44d-3ddc37dd7cda",
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "group-id",
+      "value": "1"
+    },
+    {
+      "key": "customer-id",
+      "value": "2"
+    }
+  ]
+}

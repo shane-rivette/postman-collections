@@ -1,0 +1,836 @@
+{
+  "info": {
+    "_postman_id": "a57e8d0c-8c76-4da6-91a0-60a93b93357c",
+    "name": "Checkout API Order Creation POC",
+    "description": "This collection demonstrates a flow that allows merchants to create orders via API.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2024-06-21T21:38:52.000Z",
+    "updatedAt": "2024-06-21T22:00:59.000Z",
+    "lastUpdatedBy": "34196123",
+    "uid": "34196123-a57e8d0c-8c76-4da6-91a0-60a93b93357c"
+  },
+  "item": [
+    {
+      "name": "Create a Cart",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "jsonData = pm.response.json();",
+              "if(pm.test(\"Cart ID generated\", function() {",
+              "    pm.expect(jsonData.data.id).to.be.a('string');",
+              "})){",
+              "    postman.setEnvironmentVariable(\"cart-id\", jsonData.data.id);",
+              "    postman.setEnvironmentVariable(\"line-item-id\", jsonData.data.line_items.physical_items[0].id);",
+              "}"
+            ],
+            "type": "text/javascript",
+            "id": "cb419665-f8a9-4744-9435-e4971a87735d"
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "",
+              "function countOptions(){",
+              "// Assuming no product has > 20 options",
+              "    for (var i = 0; i <= 20; i++){",
+              "        console.log(postman.getEnvironmentVariable(envVar));",
+              "        var envVar = \"option-id-\"+i;",
+              "        if (!postman.getEnvironmentVariable(envVar)){",
+              "            return i;",
+              "        }",
+              "    }",
+              "}",
+              "",
+              "function buildOptionSelections(count){",
+              "    var optionSelections = [];",
+              "    for (var i = 0; i < count; i++){",
+              "        var optionEnvVar = \"option-id-\"+i;",
+              "        var optionValueEnvVar = \"option-value-id-\"+i;",
+              "        optionSelections[i] = {option_id:postman.getEnvironmentVariable(optionEnvVar), option_value:postman.getEnvironmentVariable(optionValueEnvVar)};",
+              "    }",
+              "    pm.environment.set(\"option-selections\", JSON.stringify(optionSelections));",
+              "}",
+              "",
+              "buildOptionSelections(countOptions());"
+            ],
+            "type": "text/javascript",
+            "id": "00ed3364-f358-40e8-8b89-a113fb65f1e6"
+          }
+        }
+      ],
+      "id": "04d3b916-9af2-4341-88c9-d6c189749937",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}",
+            "disabled": true
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"customer_id\": {{customer-id}},\r\n  \"line_items\": [\r\n    {\r\n      \"quantity\": 5,\r\n      \"product_id\": 81\r\n    }\r\n  ]\r\n}"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/carts",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "carts"
+          ]
+        },
+        "description": "Create a cart with a coupon code and a gift certificate.\n\nUpdate the following IDs as needed:\n* Product\n* Variant\n* Option\n* Option Value\n\nUpdate the \"coupons\" array as needed."
+      },
+      "response": [],
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-04d3b916-9af2-4341-88c9-d6c189749937"
+    },
+    {
+      "name": "Create a Billing Address",
+      "id": "b527bdb7-099d-4ec4-bbb7-8c31541e00de",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}",
+            "disabled": true
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"first_name\": \"Vitali\",\n  \"last_name\": \"Test\",\n  \"email\": \"{{email}}\",\n  \"company\": \"BigCommerce\",\n  \"address1\": \"11305 Four Points Dr #300\",\n  \"address2\": \"\",\n  \"city\": \"Austin\",\n  \"state_or_province\": \"Texas\",\n  \"state_or_province_code\": \"TX\",\n  \"country_code\": \"US\",\n  \"postal_code\": \"78726\",\n  \"phone\": \"5126668807\"\n}"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/checkouts/{{cart-id}}/billing-address",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "checkouts",
+            "{{cart-id}}",
+            "billing-address"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-b527bdb7-099d-4ec4-bbb7-8c31541e00de"
+    },
+    {
+      "name": "Create a Consignment (Shipping Address)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var jsonData = pm.response.json();",
+              "if(pm.test(\"Consignment Created\", function (){",
+              "    pm.expect(jsonData.data.consignments[0].id).to.be.a(\"string\").that.is.not.empty;",
+              "})){",
+              "    postman.setEnvironmentVariable(\"consignment-id\", jsonData.data.consignments[0].id);",
+              "}",
+              "",
+              "if(pm.test(\"Shipping Options Available\", function(){",
+              "    pm.expect(jsonData.data.consignments[0].available_shipping_options[0]).to.be.an(\"object\");",
+              "})){",
+              "    postman.setEnvironmentVariable(\"shipping-option-id\", jsonData.data.consignments[0].available_shipping_options[0].id);",
+              "}"
+            ],
+            "type": "text/javascript",
+            "id": "b7426416-be87-42b5-bf42-eb33911a1def"
+          }
+        }
+      ],
+      "id": "7c44572d-77f6-49ed-b39d-9e2b1271d00d",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}",
+            "disabled": true
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n  {\n    \"shipping_address\": {\n      \"first_name\": \"Vitali\",\n      \"last_name\": \"Test-shipping\",\n      \"email\": \"{{email}}\",\n      \"company\": \"\",\n      \"address1\": \"11305 Four Points Dr #300\",\n      \"address2\": \"\",\n      \"city\": \"Austin\",\n      \"state_or_province\": \"Texas\",\n      \"state_or_province_code\": \"TX\",\n      \"country_code\": \"US\",\n      \"postal_code\": \"78726\",\n      \"phone\": \"5126668807\"\n    },\n    \"line_items\": [\n      {\n        \"item_id\": \"{{line-item-id}}\",\n        \"quantity\": 1\n      }\n    ]\n  }\n]"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/checkouts/{{cart-id}}/consignments?includes=consignments.available_shipping_options",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "checkouts",
+            "{{cart-id}}",
+            "consignments"
+          ],
+          "query": [
+            {
+              "key": "includes",
+              "value": "consignments.available_shipping_options"
+            }
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-7c44572d-77f6-49ed-b39d-9e2b1271d00d"
+    },
+    {
+      "name": "Add Shipping Option to Consignment",
+      "id": "69662a32-43a1-469b-93a5-4c49d9e5252c",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}",
+            "disabled": true
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"shipping_option_id\": \"{{shipping-option-id}}\"\n}\n"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/checkouts/{{cart-id}}/consignments/{{consignment-id}}",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "checkouts",
+            "{{cart-id}}",
+            "consignments",
+            "{{consignment-id}}"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-69662a32-43a1-469b-93a5-4c49d9e5252c"
+    },
+    {
+      "name": "Create an Order",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var jsonData = pm.response.json();",
+              "if(pm.test(\"Order ID generated\", function(){",
+              "    pm.expect(jsonData.data.id).to.be.a('number');",
+              "})){",
+              "    postman.setEnvironmentVariable('order-id', jsonData.data.id);",
+              "}"
+            ],
+            "type": "text/javascript",
+            "id": "61544a50-1ccd-4cd7-b412-480de605a1d1"
+          }
+        }
+      ],
+      "id": "6feb3b02-e1f2-47a4-9ca9-4b747ea7dc69",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}",
+            "disabled": true
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/checkouts/{{cart-id}}/orders",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "checkouts",
+            "{{cart-id}}",
+            "orders"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-6feb3b02-e1f2-47a4-9ca9-4b747ea7dc69"
+    },
+    {
+      "name": "Create a Payment Access Token",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var jsonData = pm.response.json();",
+              "if(pm.test(\"Payment Access Token Generated\", function(){",
+              "    pm.expect(jsonData.data.id).to.be.a('string');",
+              "})){",
+              "    postman.setEnvironmentVariable('payment-access-token', jsonData.data.id);",
+              "}"
+            ],
+            "type": "text/javascript",
+            "id": "acc84a1d-c59b-4aba-b091-77e5d7e3351c"
+          }
+        }
+      ],
+      "id": "528d8b62-dd2f-4743-af8a-307f66716c5c",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}",
+            "disabled": true
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"order\": {\n    \"id\": {{order-id}},\n    \"is_recurring\": false\n  }\n}"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/payments/access_tokens",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "payments",
+            "access_tokens"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-528d8b62-dd2f-4743-af8a-307f66716c5c"
+    },
+    {
+      "name": "Process Card Payment",
+      "id": "dd413807-6c0b-496a-bb3f-7d1ead65b9ad",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "PAT {{payment-access-token}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Accept",
+            "value": "application/vnd.bc.v1+json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"payment\": {\n\t\t\"instrument\": {\n\t\t\t\"type\": \"card\",\n\t\t\t\"number\": \"4111111111111111\",\n\t\t\t\"cardholder_name\": \"test name\",\n\t\t\t\"expiry_month\": 12,\n\t\t\t\"expiry_year\": 2025,\n\t\t\t\"verification_value\": \"632\"\n\t\t},\n\t\t\"payment_method_id\": \"braintree.card\",\n        \"save_instrument\": false\n\t}\n}"
+        },
+        "url": {
+          "raw": "https://payments.bigcommerce.com/stores/{{store-hash}}/payments",
+          "protocol": "https",
+          "host": [
+            "payments",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "payments"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-dd413807-6c0b-496a-bb3f-7d1ead65b9ad"
+    },
+    {
+      "name": "Get Resulting Order",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "console.log(pm.response);"
+            ],
+            "id": "27c08e88-b1ea-465c-a53f-ab66d3b42359"
+          }
+        }
+      ],
+      "id": "d5bcbb17-cf9b-425a-8325-c5ece6a2aa8b",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v2/orders/{{order-id}}",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v2",
+            "orders",
+            "{{order-id}}"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-d5bcbb17-cf9b-425a-8325-c5ece6a2aa8b"
+    },
+    {
+      "name": "Get Resulting Order Address",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "jsonData = pm.response.json();",
+              "{postman.setEnvironmentVariable(\"order-address-id\", jsonData[0].id)}"
+            ],
+            "type": "text/javascript",
+            "id": "a9c84be4-e885-4fa3-b31b-4aed19955515"
+          }
+        }
+      ],
+      "id": "ac00d0bd-6fb4-4519-ba19-5e2e8997468f",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v2/orders/{{order-id}}/shipping_addresses",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v2",
+            "orders",
+            "{{order-id}}",
+            "shipping_addresses"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-ac00d0bd-6fb4-4519-ba19-5e2e8997468f"
+    },
+    {
+      "name": "Get Resulting Order Products",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "jsonData = pm.response.json();",
+              "{postman.setEnvironmentVariable(\"order-product-id\", jsonData[0].id)}"
+            ],
+            "type": "text/javascript",
+            "id": "de3024e0-4883-4057-adc8-19fa783d7954"
+          }
+        }
+      ],
+      "id": "b92e1f18-63b0-419a-9898-34d2529deaf1",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v2/orders/{{order-id}}/products",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v2",
+            "orders",
+            "{{order-id}}",
+            "products"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-b92e1f18-63b0-419a-9898-34d2529deaf1"
+    },
+    {
+      "name": "Create Shipment",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "jsonData = pm.response.json();",
+              "pm.test(\"Status code is 201\", function () {",
+              "    pm.response.to.have.status(201);",
+              "});",
+              ""
+            ],
+            "type": "text/javascript",
+            "id": "12c647f6-52ba-453b-b374-be95e64f6cf0"
+          }
+        }
+      ],
+      "id": "4dfd08c2-735f-4ab6-8eee-72ae8cf8cc5b",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"order_address_id\": {{order-address-id}},\n  \"tracking_number\": \"w4se4b6ASFEW4T\",\n  \"shipping_method\": \"Flat Rate\",\n  \"shipping_provider\": \"usps\",\n  \"comments\": \"string\",\n  \"items\": [\n    {\n      \"order_product_id\": {{order-product-id}},\n      \"quantity\": 1\n    }\n  ]\n}"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v2/orders/{{order-id}}/shipments",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v2",
+            "orders",
+            "{{order-id}}",
+            "shipments"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-4dfd08c2-735f-4ab6-8eee-72ae8cf8cc5b"
+    },
+    {
+      "name": "Capture Funds",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "jsonData = pm.response.json();",
+              "pm.test(\"Status code is 201\", function () {",
+              "    pm.response.to.have.status(201);",
+              "});",
+              ""
+            ],
+            "type": "text/javascript",
+            "id": "c284cc50-5a55-44e4-a819-f78b85a07a6e"
+          }
+        }
+      ],
+      "id": "37fa0f02-fe7d-44ba-92d8-63d33626e977",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/orders/{{order-id}}/payment_actions/capture",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "orders",
+            "{{order-id}}",
+            "payment_actions",
+            "capture"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-37fa0f02-fe7d-44ba-92d8-63d33626e977"
+    }
+  ],
+  "event": [
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "pm.test(\"Status is 200 or 201\", function() {",
+          "   pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+          "});"
+        ],
+        "id": "acff012c-c740-4f66-87d4-e66675dce2f0"
+      }
+    }
+  ]
+}

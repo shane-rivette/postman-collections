@@ -1,0 +1,315 @@
+{
+  "info": {
+    "_postman_id": "baa7b89c-665c-4e72-a329-018bb81f78d0",
+    "name": "Storefront API Checkout Flow",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2019-10-22T16:53:02.000Z",
+    "updatedAt": "2019-10-22T17:04:32.000Z",
+    "lastUpdatedBy": "45334",
+    "uid": "45334-baa7b89c-665c-4e72-a329-018bb81f78d0"
+  },
+  "item": [
+    {
+      "name": "Create a Cart Copy",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "cf2c1f60-a203-4678-9f2b-cf976b9e8c8f",
+            "exec": [
+              "jsonData = pm.response.json();",
+              "if(pm.test(\"Cart ID generated\", function() {",
+              "    pm.expect(jsonData.id).to.be.a('string');",
+              "})){",
+              "    postman.setEnvironmentVariable(\"cart-id\", jsonData.id);",
+              "    postman.setEnvironmentVariable(\"line-item-id\", jsonData.lineItems.physicalItems[0].id);",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "93e4ecc3-e06d-4e66-bad9-1ec0de2105ef",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"lineItems\": [\r\n    {\r\n      \"quantity\": 1,\r\n      \"productId\": {{product-id}},\r\n      \"variantId\": {{variant-id}},\r\n      \"optionSelections\": [\r\n        {\r\n          \"optionId\": {{option-id-0}},\r\n          \"optionValue\": {{option-id-0}}\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
+        },
+        "url": {
+          "raw": "https://{{domain}}/api/storefront/carts",
+          "protocol": "https",
+          "host": [
+            "{{domain}}"
+          ],
+          "path": [
+            "api",
+            "storefront",
+            "carts"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2019-10-22T16:53:09.000Z",
+      "updatedAt": "2019-10-22T16:53:09.000Z",
+      "uid": "45334-93e4ecc3-e06d-4e66-bad9-1ec0de2105ef"
+    },
+    {
+      "name": "Create a Consignment Copy",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "5eb6ab83-6d29-47db-b95f-00bbf42f3f62",
+            "exec": [
+              "jsonData = pm.response.json();",
+              "if(pm.test(\"Consignment ID generated\", function() {",
+              "    pm.expect(jsonData.consignments[0].id).to.be.a('string');",
+              "})){",
+              "    postman.setEnvironmentVariable(\"consignment-id\", jsonData.consignments[0].id);",
+              "    postman.setEnvironmentVariable(\"shipping-option-id\", jsonData.consignments[0].availableShippingOptions[0].id);",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "da8a32c2-7333-46f1-872f-a94ef0c8228b",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n  {\n    \"shippingAddress\": {\n      \"firstName\": \"John\",\n      \"lastName\": \"Doe\",\n      \"email\": \"shippingaddress@example.org\",\n      \"company\": \"\",\n      \"address1\": \"11305 Four Points Dr\",\n      \"address2\": \"Suite 300\",\n      \"city\": \"Austin\",\n      \"stateOrProvince\": \"Texas\",\n      \"stateOrProvinceCode\": \"TX\",\n      \"countryCode\": \"US\",\n      \"postalCode\": \"78726\",\n      \"phone\": \"5128654500\"\n    },\n    \"lineItems\": [\n      {\n        \"itemId\": \"{{line-item-id}}\",\n        \"quantity\": 1\n      }\n    ]\n  }\n]"
+        },
+        "url": {
+          "raw": "https://{{domain}}/api/storefront/checkouts/{{cart-id}}/consignments?include=consignments.availableShippingOptions",
+          "protocol": "https",
+          "host": [
+            "{{domain}}"
+          ],
+          "path": [
+            "api",
+            "storefront",
+            "checkouts",
+            "{{cart-id}}",
+            "consignments"
+          ],
+          "query": [
+            {
+              "key": "include",
+              "value": "consignments.availableShippingOptions"
+            }
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2019-10-22T16:53:11.000Z",
+      "updatedAt": "2019-10-22T16:53:11.000Z",
+      "uid": "45334-da8a32c2-7333-46f1-872f-a94ef0c8228b"
+    },
+    {
+      "name": "Add Shipping Option to Consignment Copy",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "5eb6ab83-6d29-47db-b95f-00bbf42f3f62",
+            "exec": [
+              "jsonData = pm.response.json();",
+              "pm.test(\"Selected Shipping Option ID generated\", function() {",
+              "    pm.expect(jsonData.consignments[0].selectedShippingOption.id).to.be.a('string');",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "0dd9e02c-c2eb-4396-8ca3-5d8067bd2c38",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"shippingOptionId\": \"{{shipping-option-id}}\" }"
+        },
+        "url": {
+          "raw": "https://{{domain}}/api/storefront/checkouts/{{cart-id}}/consignments/{{consignment-id}}",
+          "protocol": "https",
+          "host": [
+            "{{domain}}"
+          ],
+          "path": [
+            "api",
+            "storefront",
+            "checkouts",
+            "{{cart-id}}",
+            "consignments",
+            "{{consignment-id}}"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2019-10-22T16:53:15.000Z",
+      "updatedAt": "2019-10-22T16:53:15.000Z",
+      "uid": "45334-0dd9e02c-c2eb-4396-8ca3-5d8067bd2c38"
+    },
+    {
+      "name": "Add a Billing Address Copy",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "9e81590c-73a9-4e57-aace-b7e05f7383a2",
+            "exec": [
+              "jsonData = pm.response.json();",
+              "if(pm.test(\"Billing Address ID generated\", function() {",
+              "    pm.expect(jsonData.billingAddress.id).to.be.a('string');",
+              "})){",
+              "    postman.setEnvironmentVariable(\"billing-address-id\", jsonData.billingAddress.id);",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "c3b68ecd-1faa-40a1-94e8-a7bc14b633fd",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Jane\",\n  \"lastName\": \"Doe\",\n  \"email\": \"{{my-email}}\",\n  \"company\": \"BigCommerce\",\n  \"address1\": \"123 Main Street\",\n  \"address2\": \"Apt 1\",\n  \"city\": \"Austin\",\n  \"stateOrProvinceCode\": \"TX\",\n  \"countryCode\": \"US\",\n  \"postalCode\": \"78726\"\n}"
+        },
+        "url": {
+          "raw": "https://{{domain}}/api/storefront/checkouts/{{cart-id}}/billing-address",
+          "protocol": "https",
+          "host": [
+            "{{domain}}"
+          ],
+          "path": [
+            "api",
+            "storefront",
+            "checkouts",
+            "{{cart-id}}",
+            "billing-address"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2019-10-22T16:53:17.000Z",
+      "updatedAt": "2019-10-22T16:53:17.000Z",
+      "uid": "45334-c3b68ecd-1faa-40a1-94e8-a7bc14b633fd"
+    },
+    {
+      "name": "Create Order (Bank Deposit) Copy",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "4f969d43-8ba8-4ab0-be45-942fb8392c8c",
+            "exec": [
+              "pm.test(\"Status code is 201\", function () {",
+              "    pm.response.to.have.status(201);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "271dd584-fcb4-4f12-8525-0df325fd3ce8",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"customerMessage\":\"\",\n\t\"payment\": {\n\t\t\t\"name\":\"bankdeposit\"\n\t\t}\n\t}"
+        },
+        "url": {
+          "raw": "https://{{domain}}/internalapi/v1/checkout/order",
+          "protocol": "https",
+          "host": [
+            "{{domain}}"
+          ],
+          "path": [
+            "internalapi",
+            "v1",
+            "checkout",
+            "order"
+          ]
+        },
+        "description": "Requires a completed Checkout object and Bank Deposit to be enabled "
+      },
+      "response": [],
+      "createdAt": "2019-10-22T16:54:41.000Z",
+      "updatedAt": "2019-10-22T17:04:32.000Z",
+      "uid": "45334-271dd584-fcb4-4f12-8525-0df325fd3ce8"
+    }
+  ]
+}

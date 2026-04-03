@@ -1,0 +1,107 @@
+{
+  "info": {
+    "_postman_id": "d2fe6a29-a2d8-4e55-b0db-b5c4b7d3acb4",
+    "name": "Create Many Customer Attributes",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2022-01-21T14:42:22.000Z",
+    "updatedAt": "2023-12-12T15:35:52.000Z",
+    "lastUpdatedBy": "45334",
+    "uid": "45334-d2fe6a29-a2d8-4e55-b0db-b5c4b7d3acb4"
+  },
+  "item": [
+    {
+      "name": "Create many Customer Attributes",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "54b82956-4390-480c-9145-3347adc19fb0",
+            "exec": [
+              "const iterator = parseInt(pm.collectionVariables.get('iterator'))",
+              "",
+              "pm.collectionVariables.set('iterator', iterator+1)"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "1a97607f-8539-4a72-afff-d1bcc6c53bb4",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n  {\n    \"name\": \"attribute_string-{{iterator}}\",\n    \"type\": \"string\"\n  }\n]"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/customers/attributes",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "customers",
+            "attributes"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2022-01-21T14:42:23.000Z",
+      "updatedAt": "2022-01-21T14:44:18.000Z",
+      "uid": "45334-1a97607f-8539-4a72-afff-d1bcc6c53bb4"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "756c84de-cf15-4d50-8284-c9cadf952b19",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "14651463-e331-45e6-b226-a4d17c3e5295",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "iterator",
+      "value": "0"
+    }
+  ]
+}

@@ -1,0 +1,542 @@
+{
+  "info": {
+    "_postman_id": "5559ecb2-a6e6-43b1-b8df-705b93f92794",
+    "name": "BigCommerce Accounts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2024-06-21T21:38:52.000Z",
+    "updatedAt": "2024-06-21T21:44:04.000Z",
+    "lastUpdatedBy": "34196123",
+    "uid": "34196123-5559ecb2-a6e6-43b1-b8df-705b93f92794"
+  },
+  "item": [
+    {
+      "name": "Account GraphQL API",
+      "item": [
+        {
+          "name": "Account Details",
+          "id": "732f4d29-1123-4392-a9ab-ee3392fc7cf0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query {\n  account {\n    id\n    accountInfo {\n      name\n    }\n  }\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bigcommerce.com/accounts/{{account_uuid}}/graphql",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bigcommerce",
+                "com"
+              ],
+              "path": [
+                "accounts",
+                "{{account_uuid}}",
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-732f4d29-1123-4392-a9ab-ee3392fc7cf0"
+        },
+        {
+          "name": "Account Users",
+          "id": "8562b3f1-931c-4ff0-94d1-b250db44afc6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query {\n  account {\n    id\n    users (first: 50){\n      edges {\n        node {\n          id\n          email\n          firstName\n          lastName\n          locale\n        }\n      }\n    }\n  }\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bigcommerce.com/accounts/{{account_uuid}}/graphql",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bigcommerce",
+                "com"
+              ],
+              "path": [
+                "accounts",
+                "{{account_uuid}}",
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-8562b3f1-931c-4ff0-94d1-b250db44afc6"
+        },
+        {
+          "name": "Account Stores Users",
+          "id": "cadccb39-1ad7-46c3-99a5-c98c4dba68f6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query {\n  account {\n    id\n    stores {\n      edges {\n        node {\n          id\n          name\n          storeHash\n          users {\n            edges {\n              node {\n                id\n                email\n                firstName\n                lastName\n                locale\n                lastLoginAt\n                permissions\n                status\n                updatedAt\n                apps {\n                  edges {\n                    node {\n                      id\n                      name\n                    }\n                  }\n                }\n              }\n            }\n          }\n          apps {\n            edges {\n              node {\n                id\n                name\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bigcommerce.com/accounts/{{account_uuid}}/graphql",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bigcommerce",
+                "com"
+              ],
+              "path": [
+                "accounts",
+                "{{account_uuid}}",
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-cadccb39-1ad7-46c3-99a5-c98c4dba68f6"
+        },
+        {
+          "name": "Account Apps",
+          "id": "02830b1c-4050-4857-a61d-f6f4ce91361a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query {\n  account {\n    id\n    apps {\n      edges {\n        node {\n          id\n          name\n        }\n      }\n    }\n  }\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://api.bigcommerce.com/accounts/{{account_uuid}}/graphql",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bigcommerce",
+                "com"
+              ],
+              "path": [
+                "accounts",
+                "{{account_uuid}}",
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-02830b1c-4050-4857-a61d-f6f4ce91361a"
+        },
+        {
+          "name": "ADD User to Account",
+          "id": "f60fa152-542a-40c5-88f9-d7d484575a09",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation (\n      $userEmail: String!\n){\n  account {\n    addUserToAccount(\n      input: {\n        email: $userEmail\n      }\n    ) {\n      account {\n        accountInfo {\n          name\n        }\n      }\n    }\n  }\n}",
+                "variables": "{\"userEmail\": \"test@bigcommerce.com\"}"
+              }
+            },
+            "url": {
+              "raw": "https://api.bigcommerce.com/accounts/{{account_uuid}}/graphql",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bigcommerce",
+                "com"
+              ],
+              "path": [
+                "accounts",
+                "{{account_uuid}}",
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-f60fa152-542a-40c5-88f9-d7d484575a09"
+        },
+        {
+          "name": "REMOVE User from Account",
+          "id": "2ea5fa23-afdd-4bd3-9487-23a1c9fd2f71",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation (\n      $userEmail: String!,\n      $userId: ID!\n){\n  account {\n    removeUserFromAccount(\n      input: {\n        email: $userEmail, \n        userId: $userId\n      }\n    ) {\n      accountId,\n      userId\n    }\n  }\n}",
+                "variables": "{\n    \"userEmail\": \"test@bigcommerce.com\",\n    \"userId\": \"bc/account/user/5801\"\n}"
+              }
+            },
+            "url": {
+              "raw": "https://api.bigcommerce.com/accounts/{{account_uuid}}/graphql",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bigcommerce",
+                "com"
+              ],
+              "path": [
+                "accounts",
+                "{{account_uuid}}",
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-2ea5fa23-afdd-4bd3-9487-23a1c9fd2f71"
+        },
+        {
+          "name": "ADD User with Password",
+          "id": "e1b87d47-7c06-462c-9c1b-99db68f63eb8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation (\n      $userEmail: String!,\n      $userFirst: String!,\n      $userLast: String!,\n      $password: String!\n){\n  user {\n    createUserWithPassword(\n      input: {\n        email: $userEmail, \n        firstName: $userFirst, \n        lastName: $userLast,  \n        locale: \"en-US\", \n        password: $password, \n        passwordConfirmation: $password\n      }\n    ) {\n        user {\n            id\n            email\n            firstName\n            lastName\n            locale\n        }\n    }\n  }\n}",
+                "variables": "{\n    \"userEmail\": \"test+anything1@bigcommerce.com\",\n    \"userFirst\": \"API\",\n    \"userLast\": \"Test\",\n    \"password\": \"Teting123!\"\n}"
+              }
+            },
+            "url": {
+              "raw": "https://api.bigcommerce.com/accounts/{{account_uuid}}/graphql",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bigcommerce",
+                "com"
+              ],
+              "path": [
+                "accounts",
+                "{{account_uuid}}",
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-e1b87d47-7c06-462c-9c1b-99db68f63eb8"
+        },
+        {
+          "name": "ADD User to Store (without Permission)",
+          "id": "7dd7cc9a-2a2c-4e33-b54d-c456bdb7bf1e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation (\n      $userId: ID!,\n      $storeId: ID!\n){\n  user {\n    addUserToStore(\n      input: {\n        user: {\n          id: $userId\n        },\n        storeId: $storeId\n      }\n    ) {\n      storeId\n    }\n  }\n}",
+                "variables": "{\n    \"userId\": \"bc/account/user/5801\",\n    \"storeId\": \"bc/account/store/{{store_hash}}\"\n}"
+              }
+            },
+            "url": {
+              "raw": "https://api.bigcommerce.com/accounts/{{account_uuid}}/graphql",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bigcommerce",
+                "com"
+              ],
+              "path": [
+                "accounts",
+                "{{account_uuid}}",
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-7dd7cc9a-2a2c-4e33-b54d-c456bdb7bf1e"
+        },
+        {
+          "name": "REMOVE User from Store",
+          "id": "76ef90b6-476c-42c4-b5b9-73dd2e57f32c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation (\n      $userId: ID!,\n      $storeId: ID!\n){\n  user {\n    removeUserFromStore(\n      input: {\n        storeId: $storeId\n        userId: $userId\n      }\n    ) {\n      storeId,\n      user {\n        id\n        email\n        firstName\n        lastName\n        locale\n      }\n    }\n  }\n}",
+                "variables": "{\n    \"userId\": \"bc/account/user/5801\",\n    \"storeId\": \"bc/account/store/{{store_hash}}\"\n}"
+              }
+            },
+            "url": {
+              "raw": "https://api.bigcommerce.com/accounts/{{account_uuid}}/graphql",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bigcommerce",
+                "com"
+              ],
+              "path": [
+                "accounts",
+                "{{account_uuid}}",
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-76ef90b6-476c-42c4-b5b9-73dd2e57f32c"
+        },
+        {
+          "name": "X-ADD User to Store (With Permissions)",
+          "id": "9b2d7698-05e3-4e9b-8559-c0b9743b78c9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "X-Auth-Token",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation (\n      $userId: ID!,\n      $storeId: ID!,\n      $userRole: [String!]!\n){\n  user {\n    addUserToStore(\n      input: {\n        user: {\n          id: $userId\n        },\n        storeId: $storeId,\n        storeUserGroups: $userRole\n      }\n    ) {\n      storeId\n    }\n  }\n}",
+                "variables": "{\n    \"userId\": \"bc/account/user/229333\",\n    \"storeId\": \"bc/account/store/lorovork97\",\n    \"userRole\": [\"admin\", \"sales\"]\n}"
+              }
+            },
+            "url": {
+              "raw": "https://api.bigcommerce.com/accounts/{{account_uuid}}/graphql",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bigcommerce",
+                "com"
+              ],
+              "path": [
+                "accounts",
+                "{{account_uuid}}",
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2024-06-21T21:38:52.000Z",
+          "updatedAt": "2024-06-21T21:38:52.000Z",
+          "uid": "34196123-9b2d7698-05e3-4e9b-8559-c0b9743b78c9"
+        }
+      ],
+      "id": "03cd5323-4191-4aac-8724-cd3b73d6441b",
+      "createdAt": "2024-06-21T21:38:52.000Z",
+      "updatedAt": "2024-06-21T21:38:52.000Z",
+      "uid": "34196123-03cd5323-4191-4aac-8724-cd3b73d6441b"
+    }
+  ]
+}

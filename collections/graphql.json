@@ -1,0 +1,1716 @@
+{
+  "info": {
+    "_postman_id": "c120687c-a651-4688-9750-85275958af55",
+    "name": "GraphQL",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2019-09-27T20:31:55.000Z",
+    "updatedAt": "2025-08-12T09:46:37.000Z",
+    "lastUpdatedBy": "20887145",
+    "uid": "45334-c120687c-a651-4688-9750-85275958af55"
+  },
+  "item": [
+    {
+      "name": "Queries",
+      "item": [
+        {
+          "name": "Retrieve Product Names",
+          "id": "d1046c97-6626-4c12-a455-8f579d768253",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJjaWQiOjEzNzM4MjQsImNvcnMiOlsiaHR0cDovL2xvY2FsaG9zdCJdLCJlYXQiOjE3MzU2ODYwMDAsImlhdCI6MTY4MTQ1ODczNCwiaXNzIjoiQkMiLCJzaWQiOjEwMDI0Mzk3NzUsInN1YiI6ImVnaXBiODJyc3FqNm9hYXllODN2am8wdXBqbG9pZTIiLCJzdWJfdHlwZSI6MiwidG9rZW5fdHlwZSI6MX0.27NStZakfeoA3cdB2e6N7A4bxFvMxpG8MBoEUkCvlodtLNWqbNaFStU_bAFp3yHoN3X5rleAWCK2L0Hnf_PmsA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJjaWQiOjEzNzM4MjQsImNvcnMiOlsiaHR0cDovL2xvY2FsaG9zdCJdLCJlYXQiOjE3MzU2ODYwMDAsImlhdCI6MTY4MTQ1ODczNCwiaXNzIjoiQkMiLCJzaWQiOjEwMDI0Mzk3NzUsInN1YiI6ImVnaXBiODJyc3FqNm9hYXllODN2am8wdXBqbG9pZTIiLCJzdWJfdHlwZSI6MiwidG9rZW5fdHlwZSI6MX0.27NStZakfeoA3cdB2e6N7A4bxFvMxpG8MBoEUkCvlodtLNWqbNaFStU_bAFp3yHoN3X5rleAWCK2L0Hnf_PmsA",
+                "disabled": true
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query {\n    site {\n        products {\n            edges {\n                node {\n                    name\n                }\n            }\n        }\n    }\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://store-dxrfetqrff-1373824.mybigcommerce.com/graphql",
+              "protocol": "https",
+              "host": [
+                "store-dxrfetqrff-1373824",
+                "mybigcommerce",
+                "com"
+              ],
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2019-09-27T20:32:08.000Z",
+          "updatedAt": "2023-06-02T10:11:33.000Z",
+          "uid": "45334-d1046c97-6626-4c12-a455-8f579d768253"
+        },
+        {
+          "name": "Retrieve Product Names and Customer Last Name",
+          "id": "10446989-feb4-4e74-b0c5-dc29edbce1db",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJjaWQiOjEsImNvcnMiOltdLCJlYXQiOjE3MTA5MzQ5NTcsImlhdCI6MTcxMDMzMDE1NywiaXNzIjoiQkMiLCJzaWQiOjEwMDMxMDgyNTUsInN1YiI6IjYzdDJ2b3E3Y3MwOWxoNGNhdHNicG93dnZldm0wcXYiLCJzdWJfdHlwZSI6MiwidG9rZW5fdHlwZSI6Mn0.9Xr3xLt_THARN0Dtjx2Azk-Oq1w9ESPwDVhE9yvdeIwnjiZWHptUfVQ3roS9r6cypQuA1E0mRwKpvWo-5I88bQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJlYXQiOjE2OTA1NzQ1NDQsInN1Yl90eXBlIjoyLCJ0b2tlbl90eXBlIjoxLCJjb3JzIjpbImdvb2dsZS5jb20iLCJleGFtcGxlLmNvbSJdLCJjaWQiOjYsImlhdCI6MTU2OTYxNDU0NCwic3ViIjoiMXhpN3cyMTQ4cml4aWl5aDNramV1aGR2ZnAzZWVpayIsInNpZCI6OTk5OTU4MDg5LCJpc3MiOiJCQyJ9.XUu4uIfeeu8FDqVH2FLJAoCRZ9fHz5QbWWxMRPvKOybN7iRlYoS-xEiT482_L7ER0uG1x6f6XxOTBaARGIsuPA",
+                "disabled": true
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Bc-Customer-Id",
+                "value": ""
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "{\n    customer {\n        lastName\n        \n    }\n    site {\n        products {\n            edges {\n                node {\n                    name\n                }\n            }\n        }\n    }\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://store-{{store-hash}}.mybigcommerce.com/graphql",
+              "protocol": "https",
+              "host": [
+                "store-{{store-hash}}",
+                "mybigcommerce",
+                "com"
+              ],
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2019-09-27T20:32:55.000Z",
+          "updatedAt": "2025-08-12T09:46:37.000Z",
+          "uid": "45334-10446989-feb4-4e74-b0c5-dc29edbce1db"
+        },
+        {
+          "name": "Retrieve Product Data",
+          "id": "17b667f2-4f49-4603-a7cf-e41d92eabb79",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJjaWQiOjEsImNvcnMiOlsiaHR0cHM6Ly9sb2NhbGhvc3QiXSwiZWF0IjoxNjkzNDA4MjQ1LCJpYXQiOjE2OTI4MDM0NDYsImlzcyI6IkJDIiwic2lkIjoxMDAyNDM5Nzc1LCJzdWIiOiIzMXVjYmR5bzJ3eWZoMTRka3h1OGJyMGR1OHVvN3Z1Iiwic3ViX3R5cGUiOjIsInRva2VuX3R5cGUiOjF9.RV19G5RyREcr-RQiWn2_tzr8plAjpAyD5QNyw67TBJhXpcjxdGAxa0edbmXlOiPSnqnttca9mnEhyGESl7PN6w",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJlYXQiOjE2OTA1NzQ1NDQsInN1Yl90eXBlIjoyLCJ0b2tlbl90eXBlIjoxLCJjb3JzIjpbImdvb2dsZS5jb20iLCJleGFtcGxlLmNvbSJdLCJjaWQiOjYsImlhdCI6MTU2OTYxNDU0NCwic3ViIjoiMXhpN3cyMTQ4cml4aWl5aDNramV1aGR2ZnAzZWVpayIsInNpZCI6OTk5OTU4MDg5LCJpc3MiOiJCQyJ9.XUu4uIfeeu8FDqVH2FLJAoCRZ9fHz5QbWWxMRPvKOybN7iRlYoS-xEiT482_L7ER0uG1x6f6XxOTBaARGIsuPA",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "# Write your query or mutation here\nquery GetProductBulkPricing($productId: Int!, $includeTax: Boolean!) {\n    site {\n        product(entityId: $productId) {\n            prices(includeTax: $includeTax) {\n                bulkPricing {\n                    minimumQuantity\n                    maximumQuantity\n                    ... on BulkPricingFixedPriceDiscount {\n                        price\n                    }\n                    ... on BulkPricingPercentageDiscount {\n                        percentOff\n                    }\n                    ... on BulkPricingRelativePriceDiscount {\n                        priceAdjustment\n                    }\n                }\n            }\n        }\n    }\n}",
+                "variables": "{\n    \"productId\": 5862,\n    \"includeTax\": false\n}"
+              }
+            },
+            "url": {
+              "raw": "https://bnp.cee3.me/graphql",
+              "protocol": "https",
+              "host": [
+                "bnp",
+                "cee3",
+                "me"
+              ],
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2019-09-30T15:31:58.000Z",
+          "updatedAt": "2025-08-12T09:46:37.000Z",
+          "uid": "45334-17b667f2-4f49-4603-a7cf-e41d92eabb79"
+        },
+        {
+          "name": "Retrieve Product Names and IDs",
+          "id": "920564fe-e2b6-4fe9-b6d3-2709d2fa0bec",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{graphql-bearer-token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJlYXQiOjE2OTA1NzQ1NDQsInN1Yl90eXBlIjoyLCJ0b2tlbl90eXBlIjoxLCJjb3JzIjpbImdvb2dsZS5jb20iLCJleGFtcGxlLmNvbSJdLCJjaWQiOjYsImlhdCI6MTU2OTYxNDU0NCwic3ViIjoiMXhpN3cyMTQ4cml4aWl5aDNramV1aGR2ZnAzZWVpayIsInNpZCI6OTk5OTU4MDg5LCJpc3MiOiJCQyJ9.XUu4uIfeeu8FDqVH2FLJAoCRZ9fHz5QbWWxMRPvKOybN7iRlYoS-xEiT482_L7ER0uG1x6f6XxOTBaARGIsuPA",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "{\n    site {\n        products {\n            edges {\n                node {\n                    name\n                    entityId\n                }\n            }\n        }\n    }\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://{{domain}}/graphql",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2019-09-30T16:05:39.000Z",
+          "updatedAt": "2020-05-21T18:46:16.000Z",
+          "uid": "45334-920564fe-e2b6-4fe9-b6d3-2709d2fa0bec"
+        },
+        {
+          "name": "Retrieve Products from a Category",
+          "id": "5ec8b0d7-5b1a-4597-ad24-7c0d0926796f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{graphql-bearer-token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJlYXQiOjE2OTA1NzQ1NDQsInN1Yl90eXBlIjoyLCJ0b2tlbl90eXBlIjoxLCJjb3JzIjpbImdvb2dsZS5jb20iLCJleGFtcGxlLmNvbSJdLCJjaWQiOjYsImlhdCI6MTU2OTYxNDU0NCwic3ViIjoiMXhpN3cyMTQ4cml4aWl5aDNramV1aGR2ZnAzZWVpayIsInNpZCI6OTk5OTU4MDg5LCJpc3MiOiJCQyJ9.XUu4uIfeeu8FDqVH2FLJAoCRZ9fHz5QbWWxMRPvKOybN7iRlYoS-xEiT482_L7ER0uG1x6f6XxOTBaARGIsuPA",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query {\n  site {\n    route(path:\"/demos/\") {\n      node {\n   \t\t\t... on Category {\n          products(first:20) {\n            edges {\n              node{\n                name\n                prices {\n                  retailPrice {\n                    currencyCode\n                    value\n                  }\n                  price {\n                    currencyCode\n                    value\n                  }\n                  salePrice {\n                    currencyCode\n                    value\n                  }\n                }\n                defaultImage {\n                  url(width:600)\n                }\n              }\n            }\n          }\n        }     \n      }\n    }\n  }\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://{{domain}}/graphql",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2019-11-26T18:12:26.000Z",
+          "updatedAt": "2020-05-21T18:46:18.000Z",
+          "uid": "45334-5ec8b0d7-5b1a-4597-ad24-7c0d0926796f"
+        },
+        {
+          "name": "Retrieve Products from a Category Copy",
+          "id": "b5ca32ee-5b07-43e4-a179-208974f429a1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{graphql-bearer-token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJlYXQiOjE2OTA1NzQ1NDQsInN1Yl90eXBlIjoyLCJ0b2tlbl90eXBlIjoxLCJjb3JzIjpbImdvb2dsZS5jb20iLCJleGFtcGxlLmNvbSJdLCJjaWQiOjYsImlhdCI6MTU2OTYxNDU0NCwic3ViIjoiMXhpN3cyMTQ4cml4aWl5aDNramV1aGR2ZnAzZWVpayIsInNpZCI6OTk5OTU4MDg5LCJpc3MiOiJCQyJ9.XUu4uIfeeu8FDqVH2FLJAoCRZ9fHz5QbWWxMRPvKOybN7iRlYoS-xEiT482_L7ER0uG1x6f6XxOTBaARGIsuPA",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query {\n  site {\n    route(path:\"/demos/\") {\n      node {\n   \t\t\t... on Category {\n          products(first:20) {\n            edges {\n              node{\n                name\n                prices {\n                  retailPrice {\n                    currencyCode\n                    value\n                  }\n                  price {\n                    currencyCode\n                    value\n                  }\n                  salePrice {\n                    currencyCode\n                    value\n                  }\n                }\n                defaultImage {\n                  url(width:600)\n                }\n              }\n            }\n          }\n        }     \n      }\n    }\n  }\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://{{domain}}/graphql",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2020-03-27T14:11:15.000Z",
+          "updatedAt": "2020-05-21T18:46:19.000Z",
+          "uid": "45334-b5ca32ee-5b07-43e4-a179-208974f429a1"
+        },
+        {
+          "name": "Retrieve Products from a Brand",
+          "id": "9c7ac996-52fb-48fc-bde4-060f520889c2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{graphql-bearer-token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql"
+            },
+            "url": {
+              "raw": "https://{{domain}}/graphql",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2019-11-26T18:13:20.000Z",
+          "updatedAt": "2020-09-25T21:34:23.000Z",
+          "uid": "45334-9c7ac996-52fb-48fc-bde4-060f520889c2"
+        },
+        {
+          "name": "Retrieve a Single Product's Warranty",
+          "id": "73a55fef-4c1e-4cff-8554-3d91c5321d61",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{graphql-bearer-token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query {\n    site {\n        product(entityId: 104) {\n            warranty\n        }\n    }\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://{{domain}}/graphql",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2020-04-15T16:30:39.000Z",
+          "updatedAt": "2020-05-21T18:46:24.000Z",
+          "uid": "45334-73a55fef-4c1e-4cff-8554-3d91c5321d61"
+        },
+        {
+          "name": "Retrieve a Single Product by SKU",
+          "id": "cce53352-cae9-4743-8d26-e77a1833b6b7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{graphql-bearer-token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query {\n    site {\n        product(entityId: 104) {\n            warranty\n        }\n    }\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://{{domain}}/graphql",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2020-05-14T17:03:32.000Z",
+          "updatedAt": "2020-05-21T18:46:25.000Z",
+          "uid": "45334-cce53352-cae9-4743-8d26-e77a1833b6b7"
+        },
+        {
+          "name": "Retrieve Variants by Product ID",
+          "id": "c7ac61d4-f515-4625-ae12-49c3da320261",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{graphql-bearer-token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query {\n    site {\n        product(entityId: 104) {\n            variants {\n                edges {\n                    node {\n                        sku\n                        entityId\n                    }\n                }\n            }\n        }\n    }\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://{{domain}}/graphql",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2020-05-15T15:33:18.000Z",
+          "updatedAt": "2020-06-22T17:18:21.000Z",
+          "uid": "45334-c7ac61d4-f515-4625-ae12-49c3da320261"
+        },
+        {
+          "name": "Retrieve Multiple Product IDs by SKU",
+          "id": "045ffa39-2db8-4faf-b23f-e3eaf1c62ce7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{graphql-bearer-token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query {\n    site {\n        product(entityId: 104) {\n            warranty\n        }\n    }\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://{{domain}}/graphql",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2020-05-15T16:37:30.000Z",
+          "updatedAt": "2020-05-21T18:46:29.000Z",
+          "uid": "45334-045ffa39-2db8-4faf-b23f-e3eaf1c62ce7"
+        },
+        {
+          "name": "Retrieve Product Metafields",
+          "id": "2eddb0e4-fa1c-46c6-a0ef-ecd81fc831fa",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{graphql-bearer-token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query {\n  site {\n    product(entityId:77) {\n      metafields(namespace:\"test.metafield\") {\n        edges {\n          node {\n            key,\n            value,\n            entityId\n          }\n        }\n      }\n    }\n  }\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://{{domain}}/graphql",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2020-05-21T18:13:54.000Z",
+          "updatedAt": "2020-05-21T18:46:31.000Z",
+          "uid": "45334-2eddb0e4-fa1c-46c6-a0ef-ecd81fc831fa"
+        },
+        {
+          "name": "Retrieve Customer Attribute Values by Attribute ID",
+          "id": "004b3875-9431-42c0-be2f-5b98ecc6ec4a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{graphql-bearer-token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJlYXQiOjE2OTA1NzQ1NDQsInN1Yl90eXBlIjoyLCJ0b2tlbl90eXBlIjoxLCJjb3JzIjpbImdvb2dsZS5jb20iLCJleGFtcGxlLmNvbSJdLCJjaWQiOjYsImlhdCI6MTU2OTYxNDU0NCwic3ViIjoiMXhpN3cyMTQ4cml4aWl5aDNramV1aGR2ZnAzZWVpayIsInNpZCI6OTk5OTU4MDg5LCJpc3MiOiJCQyJ9.XUu4uIfeeu8FDqVH2FLJAoCRZ9fHz5QbWWxMRPvKOybN7iRlYoS-xEiT482_L7ER0uG1x6f6XxOTBaARGIsuPA",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "{\n    customer {\n        attributes {\n            attribute(entityId:[1,2,3]) {\n                value\n                entityId\n            }\n        }\n    }\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://{{domain}}/graphql",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2020-05-27T22:17:51.000Z",
+          "updatedAt": "2020-05-27T22:17:51.000Z",
+          "uid": "45334-004b3875-9431-42c0-be2f-5b98ecc6ec4a"
+        },
+        {
+          "name": "Aliases and Fragments to get Product/Variant data",
+          "id": "ca57369f-6081-4d38-a8e9-7b4c30a7af44",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{graphql-bearer-token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+                "key": "Authorization",
+                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJlYXQiOjE2OTA1NzQ1NDQsInN1Yl90eXBlIjoyLCJ0b2tlbl90eXBlIjoxLCJjb3JzIjpbImdvb2dsZS5jb20iLCJleGFtcGxlLmNvbSJdLCJjaWQiOjYsImlhdCI6MTU2OTYxNDU0NCwic3ViIjoiMXhpN3cyMTQ4cml4aWl5aDNramV1aGR2ZnAzZWVpayIsInNpZCI6OTk5OTU4MDg5LCJpc3MiOiJCQyJ9.XUu4uIfeeu8FDqVH2FLJAoCRZ9fHz5QbWWxMRPvKOybN7iRlYoS-xEiT482_L7ER0uG1x6f6XxOTBaARGIsuPA",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "{\n    site {\n        products {\n            edges {\n                node {\n                    name\n                }\n            }\n        }\n    }\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://{{domain}}/graphql",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2020-06-22T17:09:48.000Z",
+          "updatedAt": "2020-06-22T17:11:33.000Z",
+          "uid": "45334-ca57369f-6081-4d38-a8e9-7b4c30a7af44"
+        },
+        {
+          "name": "Retrieve Category Tree 3 Levels Deep",
+          "id": "849ec57e-773a-47fd-a9ca-8f3f9a0f6a13",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{graphql-bearer-token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+                "key": "Authorization",
+                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJlYXQiOjE2OTA1NzQ1NDQsInN1Yl90eXBlIjoyLCJ0b2tlbl90eXBlIjoxLCJjb3JzIjpbImdvb2dsZS5jb20iLCJleGFtcGxlLmNvbSJdLCJjaWQiOjYsImlhdCI6MTU2OTYxNDU0NCwic3ViIjoiMXhpN3cyMTQ4cml4aWl5aDNramV1aGR2ZnAzZWVpayIsInNpZCI6OTk5OTU4MDg5LCJpc3MiOiJCQyJ9.XUu4uIfeeu8FDqVH2FLJAoCRZ9fHz5QbWWxMRPvKOybN7iRlYoS-xEiT482_L7ER0uG1x6f6XxOTBaARGIsuPA",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query CategoryTree3LevelsDeep {\n  site {\n    categoryTree {\n      ...CategoryFields\n      children {\n        ...CategoryFields\n        children {\n          ...CategoryFields\n        }\n      }\n    }\n  }\n}\nfragment CategoryFields on CategoryTreeItem {\n  name\n  path\n  entityId\n  productCount\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://{{domain}}/graphql",
+              "protocol": "https",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2020-07-15T22:23:44.000Z",
+          "updatedAt": "2020-07-15T22:23:49.000Z",
+          "uid": "45334-849ec57e-773a-47fd-a9ca-8f3f9a0f6a13"
+        },
+        {
+          "name": "Retrieve a Customer",
+          "id": "be0d921c-f80c-47cc-b3fd-46f044c54beb",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{graphql-bearer-token-impersonation}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-BC-Customer-Id",
+                "value": "1"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query customer {\n    customer {\n        entityId\n        company\n        customerGroupId\n        email\n        firstName\n        lastName\n        notes\n        phone\n        taxExemptCategory\n        addressCount\n        attributeCount\n    }\n}",
+                "variables": "{}"
+              }
+            },
+            "url": {
+              "raw": "https://bnp.cee3.me/graphql",
+              "protocol": "https",
+              "host": [
+                "bnp",
+                "cee3",
+                "me"
+              ],
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2020-03-27T14:14:54.000Z",
+          "updatedAt": "2025-08-12T09:46:37.000Z",
+          "uid": "45334-be0d921c-f80c-47cc-b3fd-46f044c54beb"
+        },
+        {
+          "name": "Retrieve Product Bulk Pricing Tax",
+          "id": "15fb258e-0b1c-47a9-ba1b-2f41bad25751",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJjaWQiOjEsImNvcnMiOlsiaHR0cHM6Ly9sb2NhbGhvc3QiXSwiZWF0IjoxNjkzNDA4MjQ1LCJpYXQiOjE2OTI4MDM0NDYsImlzcyI6IkJDIiwic2lkIjoxMDAyNDM5Nzc1LCJzdWIiOiIzMXVjYmR5bzJ3eWZoMTRka3h1OGJyMGR1OHVvN3Z1Iiwic3ViX3R5cGUiOjIsInRva2VuX3R5cGUiOjF9.RV19G5RyREcr-RQiWn2_tzr8plAjpAyD5QNyw67TBJhXpcjxdGAxa0edbmXlOiPSnqnttca9mnEhyGESl7PN6w",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJlYXQiOjE2OTA1NzQ1NDQsInN1Yl90eXBlIjoyLCJ0b2tlbl90eXBlIjoxLCJjb3JzIjpbImdvb2dsZS5jb20iLCJleGFtcGxlLmNvbSJdLCJjaWQiOjYsImlhdCI6MTU2OTYxNDU0NCwic3ViIjoiMXhpN3cyMTQ4cml4aWl5aDNramV1aGR2ZnAzZWVpayIsInNpZCI6OTk5OTU4MDg5LCJpc3MiOiJCQyJ9.XUu4uIfeeu8FDqVH2FLJAoCRZ9fHz5QbWWxMRPvKOybN7iRlYoS-xEiT482_L7ER0uG1x6f6XxOTBaARGIsuPA",
+                "disabled": true
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query GetProductBulkPricing($productId: Int!, $includeTax: Boolean!) {\n    site {\n        product(entityId: $productId) {\n            prices(includeTax: $includeTax) {\n                bulkPricing {\n                    minimumQuantity\n                    maximumQuantity\n                    ... on BulkPricingFixedPriceDiscount {\n                        price\n                    }\n                    ... on BulkPricingPercentageDiscount {\n                        percentOff\n                    }\n                    ... on BulkPricingRelativePriceDiscount {\n                        priceAdjustment\n                    }\n                }\n            }\n        }\n    }\n}",
+                "variables": "{\n    \"productId\": 5862,\n    \"includeTax\": false\n}"
+              }
+            },
+            "url": {
+              "raw": "https://bnp.cee3.me/graphql",
+              "protocol": "https",
+              "host": [
+                "bnp",
+                "cee3",
+                "me"
+              ],
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-08-12T09:46:37.000Z",
+          "updatedAt": "2025-08-12T09:46:37.000Z",
+          "uid": "45334-15fb258e-0b1c-47a9-ba1b-2f41bad25751"
+        }
+      ],
+      "id": "6ae9f02a-6096-4eb7-b3cb-b16470f46852",
+      "createdAt": "2020-05-21T18:45:58.000Z",
+      "updatedAt": "2025-08-12T09:46:37.000Z",
+      "uid": "45334-6ae9f02a-6096-4eb7-b3cb-b16470f46852"
+    },
+    {
+      "name": "Mutations",
+      "item": [
+        {
+          "name": "Login",
+          "id": "7e6fc2b3-05e2-42fc-a328-ef8769db22d8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{graphql-bearer-token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation Login($email: String!, $password: String!) {\n    login(email: $email, password: $password) {\n        result\n    }\n}",
+                "variables": "{\n    \"email\": \"johan.nielsen@bigcommerce.com\",\n    \"password\": \"3UH2BLFsEwTSw6a!\"\n}"
+              }
+            },
+            "url": {
+              "raw": "https://store-{{store-hash}}.mybigcommerce.com/graphql",
+              "protocol": "https",
+              "host": [
+                "store-{{store-hash}}",
+                "mybigcommerce",
+                "com"
+              ],
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2020-05-21T18:45:51.000Z",
+          "updatedAt": "2025-08-12T09:46:37.000Z",
+          "uid": "45334-7e6fc2b3-05e2-42fc-a328-ef8769db22d8"
+        },
+        {
+          "name": "Add to Wishlist",
+          "id": "ecb6b8f0-f969-40bc-9782-44f756c87fef",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{graphql-bearer-token-impersonation}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Bc-Customer-Id",
+                "value": "{{customer-id}}"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation Wishlist {\n        wishlist {\n          addWishlistItems(input: {entityId: 2, items: [{\n            productEntityId: 123\n          }]}) {\n              result {\n                entityId\n                name\n                isPublic\n                token\n                items {\n                  edges {\n                    node {\n                      entityId\n                      productEntityId\n                      product {\n                        id\n                        entityId\n                        name\n                        sku\n                        plainTextDescription\n                        defaultImage {\n                          ...ImageFields\n                        }\n                        images {\n                          edges {\n                            node {\n                              ...ImageFields\n                            }\n                          }\n                        }\n                        inventory {\n                          isInStock\n                          hasVariantInventory\n                          aggregated {\n                            availableToSell\n                            warningLevel\n                          }\n                        }\n                        variants {\n                          edges {\n                            node {\n                            id\n                            sku\n                            entityId\n                              inventory {\n                          isInStock\n                          aggregated {\n                            availableToSell\n                            warningLevel\n                          }\n                        }\n                            options {\n                              edges {\n                                node {\n                                  entityId\n                                  displayName\n                                }\n                              }\n                            }\n                          }\n                        }\n                      }\n                        reviewSummary {\n                          summationOfRatings\n                          numberOfReviews\n                        }\n                        prices {\n                          price {\n                            ...MoneyFields\n                          }\n                          salePrice{\n                            ...MoneyFields\n                          }\n                          basePrice{\n                            ...MoneyFields\n                          }\n                        }\n                        brand {\n                          name\n                        }\n                      }\n                    \n                    }\n                  }\n                }\n            }\n          }\n        }\n      }\n      fragment ImageFields on Image {\n        url320wide: url(width: 320)\n        url640wide: url(width: 640)\n        url960wide: url(width: 960)\n        url1280wide: url(width: 1280)\n        altText\n      }\n      fragment MoneyFields on Money {\n        value\n        currencyCode\n      }",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "https://store-{{store-hash}}.mybigcommerce.com/graphql",
+              "protocol": "https",
+              "host": [
+                "store-{{store-hash}}",
+                "mybigcommerce",
+                "com"
+              ],
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2025-08-12T09:46:37.000Z",
+          "updatedAt": "2025-08-12T09:46:37.000Z",
+          "uid": "45334-ecb6b8f0-f969-40bc-9782-44f756c87fef"
+        }
+      ],
+      "id": "6e4eb45c-305a-4a92-8965-ee548fde5f14",
+      "auth": {
+        "type": "noauth"
+      },
+      "createdAt": "2020-05-21T18:46:04.000Z",
+      "updatedAt": "2025-08-12T09:46:38.000Z",
+      "uid": "45334-6e4eb45c-305a-4a92-8965-ee548fde5f14"
+    },
+    {
+      "name": "Cart",
+      "item": [
+        {
+          "name": "Mutations",
+          "item": [
+            {
+              "name": "Create Cart",
+              "id": "7c6c508a-b07e-4d76-a229-4ff037d71496",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{graphql-bearer-token-impersonation}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Bc-Customer-Id",
+                    "value": "{{customer-id}}"
+                  }
+                ],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation Cart($input: CreateCartInput!) {\n    cart {\n        createCart(input: $input) {\n            cart {\n                entityId\n                amount {\n                    ...moneyFields\n                }\n                lineItems {\n                    totalQuantity\n                    physicalItems {\n                        ...physicalItem\n                    }\n                    digitalItems {\n                        ...digitalItem\n                    }\n                    customItems {\n                        ...customItem\n                    }\n                    giftCertificates {\n                        name\n                    }\n                }\n            }\n        }\n    }\n}\n\nfragment physicalItem on CartPhysicalItem {\n    entityId\n    parentEntityId\n    variantEntityId\n    productEntityId\n    sku\n    name\n    url\n    imageUrl\n    brand\n    quantity\n    isTaxable\n    discounts {\n        entityId\n        discountedAmount {\n            ...moneyFields\n        }\n    }\n    discountedAmount {\n        ...moneyFields\n    }\n    couponAmount {\n        ...moneyFields\n    }\n    listPrice {\n        ...moneyFields\n    }\n    originalPrice {\n        ...moneyFields\n    }\n    salePrice {\n        ...moneyFields\n    }\n    extendedListPrice {\n        ...moneyFields\n    }\n    extendedSalePrice {\n        ...moneyFields\n    }\n    isShippingRequired\n    selectedOptions {\n        entityId\n        name\n        ... on CartSelectedCheckboxOption {\n            value\n            valueEntityId\n        }\n        ... on CartSelectedDateFieldOption {\n            date {\n                utc\n            }\n        }\n        ... on CartSelectedFileUploadOption {\n            fileName\n        }\n        ... on CartSelectedMultiLineTextFieldOption {\n            text\n        }\n        ... on CartSelectedMultipleChoiceOption {\n            value\n            valueEntityId\n        }\n        ... on CartSelectedNumberFieldOption {\n            number\n        }\n        ... on CartSelectedTextFieldOption {\n            text\n        }\n    }\n    giftWrapping {\n        name\n        amount {\n            ...moneyFields\n        }\n        message\n    }\n}\n\nfragment digitalItem on CartDigitalItem {\n    entityId\n    parentEntityId\n    variantEntityId\n    productEntityId\n    sku\n    name\n    url\n    imageUrl\n    brand\n    quantity\n    isTaxable\n    discounts {\n        entityId\n        discountedAmount {\n            ...moneyFields\n        }\n    }\n    discountedAmount {\n        ...moneyFields\n    }\n    couponAmount {\n        ...moneyFields\n    }\n    listPrice {\n        ...moneyFields\n    }\n    originalPrice {\n        ...moneyFields\n    }\n    salePrice {\n        ...moneyFields\n    }\n    extendedListPrice {\n        ...moneyFields\n    }\n    extendedSalePrice {\n        ...moneyFields\n    }\n    selectedOptions {\n        entityId\n        name\n        ... on CartSelectedCheckboxOption {\n            value\n            valueEntityId\n        }\n        ... on CartSelectedDateFieldOption {\n            date {\n                utc\n            }\n        }\n        ... on CartSelectedFileUploadOption {\n            fileName\n        }\n        ... on CartSelectedMultiLineTextFieldOption {\n            text\n        }\n        ... on CartSelectedMultipleChoiceOption {\n            value\n            valueEntityId\n        }\n        ... on CartSelectedNumberFieldOption {\n            number\n        }\n        ... on CartSelectedTextFieldOption {\n            text\n        }\n    }\n}\n\nfragment customItem on CartCustomItem {\n    entityId\n    sku\n    name\n    quantity\n    extendedListPrice {\n        ...moneyFields\n    }\n    listPrice {\n        ...moneyFields\n    }\n}\n\nfragment moneyFields on Money {\n   value\n   currencyCode\n }",
+                    "variables": "{\n  \"input\": {\n    \"currencyCode\": \"USD\",\n    \"lineItems\": {\n      \"productEntityId\": {{product-id}},\n      \"quantity\": 1\n    }\n  }\n}"
+                  }
+                },
+                "url": {
+                  "raw": "https://store-{{store-hash}}.mybigcommerce.com/graphql",
+                  "protocol": "https",
+                  "host": [
+                    "store-{{store-hash}}",
+                    "mybigcommerce",
+                    "com"
+                  ],
+                  "path": [
+                    "graphql"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2023-06-02T10:11:33.000Z",
+              "updatedAt": "2023-06-02T10:11:33.000Z",
+              "uid": "45334-7c6c508a-b07e-4d76-a229-4ff037d71496"
+            },
+            {
+              "name": "Add Cart Line Items",
+              "id": "554d0809-33d3-474d-a77f-aed872b1b22d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{graphql-bearer-token-impersonation}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Bc-Customer-Id",
+                    "value": "{{customer-id}}"
+                  }
+                ],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation addCartLineItems($addCartLineItemsInput: AddCartLineItemsInput!) {\n    cart {\n        addCartLineItems(input: $addCartLineItemsInput) {\n            cart {\n                entityId\n            }\n        }\n    }\n}",
+                    "variables": "{\n\t\"addCartLineItemsInput\": {\n\t\t\"cartEntityId\": \"{{cart-id}}\",\n\t\t\"data\": {\n\t\t\t\"lineItems\": [\n\t\t\t\t{\n\t\t\t\t\t\"quantity\": 2,\n\t\t\t\t\t\"productEntityId\": {{product-id}}\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t}\n}"
+                  }
+                },
+                "url": {
+                  "raw": "https://store-{{store-hash}}.mybigcommerce.com/graphql",
+                  "protocol": "https",
+                  "host": [
+                    "store-{{store-hash}}",
+                    "mybigcommerce",
+                    "com"
+                  ],
+                  "path": [
+                    "graphql"
+                  ]
+                },
+                "description": "You may or may not choose to add all the available fields and fragments to get an updated cart response"
+              },
+              "response": [],
+              "createdAt": "2023-06-02T10:11:33.000Z",
+              "updatedAt": "2023-06-02T10:11:33.000Z",
+              "uid": "45334-554d0809-33d3-474d-a77f-aed872b1b22d"
+            },
+            {
+              "name": "Update Cart Line Items",
+              "id": "e1eceb5c-ec21-4369-856e-05c7bde199b9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{graphql-bearer-token-impersonation}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Bc-Customer-Id",
+                    "value": "{{customer-id}}"
+                  }
+                ],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation updateCartLineItem(\n  $updateCartLineItemInput: UpdateCartLineItemInput!\n) {\n  cart {\n    updateCartLineItem(input: $updateCartLineItemInput) {\n      cart {\n        entityId\n      }\n    }\n  }\n}",
+                    "variables": "{\n\t\"updateCartLineItemInput\": {\n\t\t\"cartEntityId\": \"{{cart-id}}\",\n\t\t\"lineItemEntityId\": \"{{line-item-id}}\",\n\t\t\"data\": {\n\t\t\t\"lineItem\": {\n\t\t\t\t\"quantity\": 4,\n\t\t\t\t\"productEntityId\": 5862\n\t\t\t}\n\t\t}\n\t}\n}"
+                  }
+                },
+                "url": {
+                  "raw": "https://store-{{store-hash}}.mybigcommerce.com/graphql",
+                  "protocol": "https",
+                  "host": [
+                    "store-{{store-hash}}",
+                    "mybigcommerce",
+                    "com"
+                  ],
+                  "path": [
+                    "graphql"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2023-06-02T10:11:34.000Z",
+              "updatedAt": "2023-06-02T10:11:34.000Z",
+              "uid": "45334-e1eceb5c-ec21-4369-856e-05c7bde199b9"
+            },
+            {
+              "name": "Delete Cart Line Item",
+              "id": "c34d4b38-777f-43d0-b1c6-70781f31ce7c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{graphql-bearer-token-impersonation}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Bc-Customer-Id",
+                    "value": "{{customer-id}}"
+                  }
+                ],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation deleteCartLineItem($deleteCartLineItemInput: DeleteCartLineItemInput!) {\n    cart {\n        deleteCartLineItem(input: $deleteCartLineItemInput) {\n            deletedLineItemEntityId\n            cart {\n                entityId\n            }\n            deletedCartEntityId\n        }\n    }\n}",
+                    "variables": "{\n\t\"deleteCartLineItemInput\": {\n\t\t\"cartEntityId\": \"{{cart-id}}\",\n\t\t\"lineItemEntityId\": \"{{line-item-id}}\"\n\t}\n}"
+                  }
+                },
+                "url": {
+                  "raw": "https://store-{{store-hash}}.mybigcommerce.com/graphql",
+                  "protocol": "https",
+                  "host": [
+                    "store-{{store-hash}}",
+                    "mybigcommerce",
+                    "com"
+                  ],
+                  "path": [
+                    "graphql"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2023-06-02T10:11:34.000Z",
+              "updatedAt": "2023-06-02T10:11:34.000Z",
+              "uid": "45334-c34d4b38-777f-43d0-b1c6-70781f31ce7c"
+            },
+            {
+              "name": "Update Cart Currency",
+              "id": "ee996e15-ca8c-4f3c-a08c-b1aaeea1323f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{graphql-bearer-token-impersonation}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Bc-Customer-Id",
+                    "value": "{{customer-id}}"
+                  }
+                ],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation updateCartCurrency($updateCartCurrencyInput: UpdateCartCurrencyInput!) {\n    cart {\n        updateCartCurrency(input: $updateCartCurrencyInput) {\n            cart {\n                entityId\n            }\n        }\n    }\n}",
+                    "variables": "{\n\t\"updateCartCurrencyInput\": {\n\t\t\"cartEntityId\": \"{{cart-id}}\",\n\t\t\"data\": {\n\t\t\t\"currencyCode\": \"DKK\"\n\t\t}\n\t}\n}"
+                  }
+                },
+                "url": {
+                  "raw": "https://store-{{store-hash}}.mybigcommerce.com/graphql",
+                  "protocol": "https",
+                  "host": [
+                    "store-{{store-hash}}",
+                    "mybigcommerce",
+                    "com"
+                  ],
+                  "path": [
+                    "graphql"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2023-06-02T10:11:34.000Z",
+              "updatedAt": "2023-06-02T10:11:34.000Z",
+              "uid": "45334-ee996e15-ca8c-4f3c-a08c-b1aaeea1323f"
+            },
+            {
+              "name": "Delete Cart",
+              "id": "6922aea1-1ea3-40fc-88e8-fc1d48e7aefc",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{graphql-bearer-token-impersonation}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Bc-Customer-Id",
+                    "value": "{{customer-id}}"
+                  }
+                ],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation deleteCart($deleteCartInput: DeleteCartInput!) {\n    cart {\n        deleteCart(input: $deleteCartInput) {\n            deletedCartEntityId\n        }\n    }\n}",
+                    "variables": "{\n\t\"deleteCartInput\": {\n\t\t\"cartEntityId\": \"{{cart-id}}\"\n\t}\n}"
+                  }
+                },
+                "url": {
+                  "raw": "https://store-{{store-hash}}.mybigcommerce.com/graphql",
+                  "protocol": "https",
+                  "host": [
+                    "store-{{store-hash}}",
+                    "mybigcommerce",
+                    "com"
+                  ],
+                  "path": [
+                    "graphql"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2023-06-02T10:11:34.000Z",
+              "updatedAt": "2023-06-02T10:11:34.000Z",
+              "uid": "45334-6922aea1-1ea3-40fc-88e8-fc1d48e7aefc"
+            },
+            {
+              "name": "Assign Cart To Customer",
+              "id": "cafc8f09-059c-47ed-b284-305e966191eb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{graphql-bearer-token-impersonation}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Bc-Customer-Id",
+                    "value": "{{customer-id}}"
+                  }
+                ],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation assignCartToCustomer($assignCartToCustomerInput: AssignCartToCustomerInput!) {\n    cart {\n        assignCartToCustomer(input: $assignCartToCustomerInput) {\n            cart {\n                id\n                entityId\n                currencyCode\n                isTaxIncluded\n                baseAmount {\n                    ...moneyFields\n                }\n                discountedAmount {\n                    ...moneyFields\n                }\n                amount {\n                    ...moneyFields\n                }\n                discounts {\n                    entityId\n                    discountedAmount {\n                        ...moneyFields\n                    }\n                }\n                lineItems {\n                    totalQuantity\n                    physicalItems {\n                        ...physicalItem\n                    }\n                    digitalItems {\n                        ...digitalItem\n                    }\n                    customItems {\n                        ...customItem\n                    }\n                    giftCertificates {\n                        name\n                    }\n                }\n                createdAt {\n                    utc\n                }\n                updatedAt {\n                    utc\n                }\n                locale\n            }\n        }\n    }\n}\n\nfragment physicalItem on CartPhysicalItem {\n    entityId\n    parentEntityId\n    variantEntityId\n    productEntityId\n    sku\n    name\n    url\n    imageUrl\n    brand\n    quantity\n    isTaxable\n    discounts {\n        entityId\n        discountedAmount {\n            ...moneyFields\n        }\n    }\n    discountedAmount {\n        ...moneyFields\n    }\n    couponAmount {\n        ...moneyFields\n    }\n    listPrice {\n        ...moneyFields\n    }\n    originalPrice {\n        ...moneyFields\n    }\n    salePrice {\n        ...moneyFields\n    }\n    extendedListPrice {\n        ...moneyFields\n    }\n    extendedSalePrice {\n        ...moneyFields\n    }\n    isShippingRequired\n    selectedOptions {\n        entityId\n        name\n        ... on CartSelectedCheckboxOption {\n            value\n            valueEntityId\n        }\n        ... on CartSelectedDateFieldOption {\n            date {\n                utc\n            }\n        }\n        ... on CartSelectedFileUploadOption {\n            fileName\n        }\n        ... on CartSelectedMultiLineTextFieldOption {\n            text\n        }\n        ... on CartSelectedMultipleChoiceOption {\n            value\n            valueEntityId\n        }\n        ... on CartSelectedNumberFieldOption {\n            number\n        }\n        ... on CartSelectedTextFieldOption {\n            text\n        }\n    }\n    giftWrapping {\n        name\n        amount {\n            ...moneyFields\n        }\n        message\n    }\n}\n\nfragment digitalItem on CartDigitalItem {\n    entityId\n    parentEntityId\n    variantEntityId\n    productEntityId\n    sku\n    name\n    url\n    imageUrl\n    brand\n    quantity\n    isTaxable\n    discounts {\n        entityId\n        discountedAmount {\n            ...moneyFields\n        }\n    }\n    discountedAmount {\n        ...moneyFields\n    }\n    couponAmount {\n        ...moneyFields\n    }\n    listPrice {\n        ...moneyFields\n    }\n    originalPrice {\n        ...moneyFields\n    }\n    salePrice {\n        ...moneyFields\n    }\n    extendedListPrice {\n        ...moneyFields\n    }\n    extendedSalePrice {\n        ...moneyFields\n    }\n    selectedOptions {\n        entityId\n        name\n        ... on CartSelectedCheckboxOption {\n            value\n            valueEntityId\n        }\n        ... on CartSelectedDateFieldOption {\n            date {\n                utc\n            }\n        }\n        ... on CartSelectedFileUploadOption {\n            fileName\n        }\n        ... on CartSelectedMultiLineTextFieldOption {\n            text\n        }\n        ... on CartSelectedMultipleChoiceOption {\n            value\n            valueEntityId\n        }\n        ... on CartSelectedNumberFieldOption {\n            number\n        }\n        ... on CartSelectedTextFieldOption {\n            text\n        }\n    }\n}\n\nfragment customItem on CartCustomItem {\n    entityId\n    sku\n    name\n    quantity\n    extendedListPrice {\n        ...moneyFields\n    }\n    listPrice {\n        ...moneyFields\n    }\n}\n\nfragment moneyFields on Money {\n   value\n   currencyCode\n }",
+                    "variables": "{\n\t\"assignCartToCustomerInput\": {\n\t\t\"cartEntityId\": \"{{cart-id}}\"\n\t}\n}"
+                  }
+                },
+                "url": {
+                  "raw": "https://store-{{store-hash}}.mybigcommerce.com/graphql",
+                  "protocol": "https",
+                  "host": [
+                    "store-{{store-hash}}",
+                    "mybigcommerce",
+                    "com"
+                  ],
+                  "path": [
+                    "graphql"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2023-06-02T10:11:34.000Z",
+              "updatedAt": "2023-06-02T10:11:34.000Z",
+              "uid": "45334-cafc8f09-059c-47ed-b284-305e966191eb"
+            },
+            {
+              "name": "Unassign Cart from Customer",
+              "id": "ed56b358-c165-4687-a6d8-aef234dc8ed8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{graphql-bearer-token-impersonation}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Bc-Customer-Id",
+                    "value": "{{customer-id}}"
+                  }
+                ],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation unassignCartToCustomer($unassignCartFromCustomerInput: UnassignCartFromCustomerInput!) {\n    cart {\n        unassignCartFromCustomer(input: $unassignCartFromCustomerInput) {\n            cart {\n                id\n                entityId\n            }\n        }\n    }\n}",
+                    "variables": "{\n\t\"unassignCartFromCustomerInput\": {\n\t\t\"cartEntityId\": \"{{cart-id}}\"\n\t}\n}"
+                  }
+                },
+                "url": {
+                  "raw": "https://store-{{store-hash}}.mybigcommerce.com/graphql",
+                  "protocol": "https",
+                  "host": [
+                    "store-{{store-hash}}",
+                    "mybigcommerce",
+                    "com"
+                  ],
+                  "path": [
+                    "graphql"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2023-06-02T10:11:34.000Z",
+              "updatedAt": "2023-06-02T10:11:34.000Z",
+              "uid": "45334-ed56b358-c165-4687-a6d8-aef234dc8ed8"
+            }
+          ],
+          "id": "1fc87a6c-0215-43af-b514-8cc74dfd7a9e",
+          "createdAt": "2023-06-02T10:11:33.000Z",
+          "updatedAt": "2023-06-02T10:11:34.000Z",
+          "uid": "45334-1fc87a6c-0215-43af-b514-8cc74dfd7a9e"
+        },
+        {
+          "name": "Get Cart",
+          "id": "9cc88c7d-5836-4ba5-a82a-ec8a2f767a75",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{graphql-bearer-token-impersonation}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Bc-Customer-Id",
+                "value": "1"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query Cart($entityId: String!) {\n    site {\n        cart(entityId: $entityId) {\n            entityId\n            currencyCode\n            isTaxIncluded\n            baseAmount {\n                ...moneyFields\n            }\n            discountedAmount {\n                ...moneyFields\n            }\n            amount {\n                ...moneyFields\n            }\n            discounts {\n                entityId\n                discountedAmount {\n                    ...moneyFields\n                }\n            }\n            lineItems {\n                totalQuantity\n                physicalItems {\n                    ...physicalItem\n                }\n                digitalItems {\n                    ...digitalItem\n                }\n                customItems {\n                    ...customItem\n                }\n                giftCertificates {\n                    name\n                }\n            }\n            createdAt {\n                utc\n            }\n            updatedAt {\n                utc\n            }\n            locale\n        }\n    }\n}\n\nfragment physicalItem on CartPhysicalItem {\n    entityId\n    parentEntityId\n    variantEntityId\n    productEntityId\n    sku\n    name\n    url\n    imageUrl\n    brand\n    quantity\n    isTaxable\n    discounts {\n        entityId\n        discountedAmount {\n            ...moneyFields\n        }\n    }\n    discountedAmount {\n        ...moneyFields\n    }\n    couponAmount {\n        ...moneyFields\n    }\n    listPrice {\n        ...moneyFields\n    }\n    originalPrice {\n        ...moneyFields\n    }\n    salePrice {\n        ...moneyFields\n    }\n    extendedListPrice {\n        ...moneyFields\n    }\n    extendedSalePrice {\n        ...moneyFields\n    }\n    isShippingRequired\n    selectedOptions {\n        entityId\n        name\n        ... on CartSelectedCheckboxOption {\n            value\n            valueEntityId\n        }\n        ... on CartSelectedDateFieldOption {\n            date {\n                utc\n            }\n        }\n        ... on CartSelectedFileUploadOption {\n            fileName\n        }\n        ... on CartSelectedMultiLineTextFieldOption {\n            text\n        }\n        ... on CartSelectedMultipleChoiceOption {\n            value\n            valueEntityId\n        }\n        ... on CartSelectedNumberFieldOption {\n            number\n        }\n        ... on CartSelectedTextFieldOption {\n            text\n        }\n    }\n    giftWrapping {\n        name\n        amount {\n            ...moneyFields\n        }\n        message\n    }\n}\n\nfragment digitalItem on CartDigitalItem {\n    entityId\n    parentEntityId\n    variantEntityId\n    productEntityId\n    sku\n    name\n    url\n    imageUrl\n    brand\n    quantity\n    isTaxable\n    discounts {\n        entityId\n        discountedAmount {\n            ...moneyFields\n        }\n    }\n    discountedAmount {\n        ...moneyFields\n    }\n    couponAmount {\n        ...moneyFields\n    }\n    listPrice {\n        ...moneyFields\n    }\n    originalPrice {\n        ...moneyFields\n    }\n    salePrice {\n        ...moneyFields\n    }\n    extendedListPrice {\n        ...moneyFields\n    }\n    extendedSalePrice {\n        ...moneyFields\n    }\n    selectedOptions {\n        entityId\n        name\n        ... on CartSelectedCheckboxOption {\n            value\n            valueEntityId\n        }\n        ... on CartSelectedDateFieldOption {\n            date {\n                utc\n            }\n        }\n        ... on CartSelectedFileUploadOption {\n            fileName\n        }\n        ... on CartSelectedMultiLineTextFieldOption {\n            text\n        }\n        ... on CartSelectedMultipleChoiceOption {\n            value\n            valueEntityId\n        }\n        ... on CartSelectedNumberFieldOption {\n            number\n        }\n        ... on CartSelectedTextFieldOption {\n            text\n        }\n    }\n}\n\nfragment customItem on CartCustomItem {\n    entityId\n    sku\n    name\n    quantity\n    extendedListPrice {\n        ...moneyFields\n    }\n    listPrice {\n        ...moneyFields\n    }\n}\n\nfragment moneyFields on Money {\n   value\n   currencyCode\n}",
+                "variables": "{\n    \"entityId\": \"5ec94ea1-cc69-488e-bbac-4e1268e8fd5f\"\n}"
+              }
+            },
+            "url": {
+              "raw": "https://store-{{store-hash}}.mybigcommerce.com/graphql",
+              "protocol": "https",
+              "host": [
+                "store-{{store-hash}}",
+                "mybigcommerce",
+                "com"
+              ],
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": [],
+          "createdAt": "2023-06-02T10:11:33.000Z",
+          "updatedAt": "2023-06-02T10:11:33.000Z",
+          "uid": "45334-9cc88c7d-5836-4ba5-a82a-ec8a2f767a75"
+        }
+      ],
+      "id": "76d60433-11f7-45c8-af71-5cc07c364fb0",
+      "description": "Cart and Checkout API requires can use regular storefront token for most operations. But for headless Customer Impersonation tokens is adviced in any case.\n\nThe API is subject to change so keep an eye on discrepancies and update accordingly.",
+      "createdAt": "2023-06-02T10:11:33.000Z",
+      "updatedAt": "2023-06-02T10:11:33.000Z",
+      "uid": "45334-76d60433-11f7-45c8-af71-5cc07c364fb0"
+    },
+    {
+      "name": "Checkout",
+      "item": [
+        {
+          "name": "Mutations",
+          "item": [
+            {
+              "name": "addCheckoutBillingAddress",
+              "id": "6f435267-7b84-4b9e-9f79-be2a8a941b54",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{graphql-bearer-token-impersonation}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Bc-Customer-Id",
+                    "value": "{{customer-id}}"
+                  }
+                ],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation MyMutation($input: AddCheckoutBillingAddressInput!) {\n  checkout {\n    addCheckoutBillingAddress(\n      input: $input\n    ) {\n      checkout {\n        entityId\n      }\n    }\n  }\n}",
+                    "variables": "{\n  \"input\": {\n    \"checkoutEntityId\": \"fb3fc57b-0654-4022-bdf3-b7cd334e9581\",\n    \"data\": {\n        \"address\": {\n            \"firstName\": \"Johan\",\n            \"lastName\": \"Nielsen\",\n            \"address1\": \"Hessensgade 32\",\n            \"postalCode\": \"2300\",\n            \"city\": \"Copenhagen\",\n            \"countryCode\": \"DK\",\n            \"phone\": \"28552705\",\n            \"email\": \"johan.nielsen@commerce.com\",\n            \"shouldSaveAddress\": false\n\n        }\n    }\n  }\n}"
+                  }
+                },
+                "url": {
+                  "raw": "https://store-{{store-hash}}.mybigcommerce.com/graphql",
+                  "protocol": "https",
+                  "host": [
+                    "store-{{store-hash}}",
+                    "mybigcommerce",
+                    "com"
+                  ],
+                  "path": [
+                    "graphql"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-08-12T09:46:37.000Z",
+              "updatedAt": "2025-08-12T09:46:37.000Z",
+              "uid": "45334-6f435267-7b84-4b9e-9f79-be2a8a941b54"
+            },
+            {
+              "name": "addCheckoutShippingConsignment",
+              "id": "8a55208c-ba36-4e27-a0f1-189ca3e7a143",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{graphql-bearer-token-impersonation}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Bc-Customer-Id",
+                    "value": "{{customer-id}}"
+                  }
+                ],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation MyMutation($input: AddCheckoutShippingConsignmentsInput!) {\n  checkout {\n    addCheckoutShippingConsignments(\n      input: $input\n    ) {\n      checkout {\n        entityId\n        shippingConsignments {\n          entityId\n        }\n      }        \n    }\n  }\n}",
+                    "variables": "{\n  \"input\": {\n    \"checkoutEntityId\": \"fb3fc57b-0654-4022-bdf3-b7cd334e9581\",\n    \"data\": {\n        \"consignments\": [\n            {\n          \"address\": {\n            \"firstName\": \"Johan\",\n            \"lastName\": \"Nielsen\",\n            \"address1\": \"Hessensgade 32\",\n            \"postalCode\": \"2300\",\n            \"city\": \"Copenhagen\",\n            \"countryCode\": \"DK\",\n            \"phone\": \"28552705\",\n            \"email\": \"johan.nielsen@commerce.com\",\n            \"shouldSaveAddress\": false\n          },\n          \"lineItems\": [\n            {\n            \"lineItemsEntityId\": \"3cde114d-faf1-4d1b-ab6e-a7026a10a817\",\n            \"quantity\": 1\n            }\n          ]\n            }\n        ]\n    }\n    }\n}"
+                  }
+                },
+                "url": {
+                  "raw": "https://store-{{store-hash}}.mybigcommerce.com/graphql",
+                  "protocol": "https",
+                  "host": [
+                    "store-{{store-hash}}",
+                    "mybigcommerce",
+                    "com"
+                  ],
+                  "path": [
+                    "graphql"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-08-12T09:46:37.000Z",
+              "updatedAt": "2025-08-12T09:46:37.000Z",
+              "uid": "45334-8a55208c-ba36-4e27-a0f1-189ca3e7a143"
+            },
+            {
+              "name": "selectCehckoutShippingOption",
+              "id": "7eb30e65-866e-4711-a780-2ada80efb61a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{graphql-bearer-token-impersonation}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Bc-Customer-Id",
+                    "value": "{{customer-id}}"
+                  }
+                ],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation MyMutation($input: SelectCheckoutShippingOptionInput!) {\n  checkout {\n    selectCheckoutShippingOption(\n      input: $input\n    ) {\n      checkout {\n        entityId\n      }\n    }\n  }\n}",
+                    "variables": "{\n  \"input\": {\n    \"checkoutEntityId\": \"fb3fc57b-0654-4022-bdf3-b7cd334e9581\",\n    \"consignmentEntityId\": \"689b04692161a\",\n    \"data\": {\n        \"shippingOptionEntityId\" :\"668098e7c7cd356cf2c314e4b84b8abd\"\n    }\n  }\n}\n\n"
+                  }
+                },
+                "url": {
+                  "raw": "https://store-{{store-hash}}.mybigcommerce.com/graphql",
+                  "protocol": "https",
+                  "host": [
+                    "store-{{store-hash}}",
+                    "mybigcommerce",
+                    "com"
+                  ],
+                  "path": [
+                    "graphql"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-08-12T09:46:37.000Z",
+              "updatedAt": "2025-08-12T09:46:37.000Z",
+              "uid": "45334-7eb30e65-866e-4711-a780-2ada80efb61a"
+            },
+            {
+              "name": "completeCheckout",
+              "id": "4b2dcc4c-34b8-41ad-949d-afd4a22271eb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{graphql-bearer-token-impersonation}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Bc-Customer-Id",
+                    "value": "{{customer-id}}"
+                  }
+                ],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation MyMutation($input: CompleteCheckoutInput!) {\n  checkout {\n    completeCheckout(input: $input) {\n      paymentAccessToken\n      orderEntityId\n    }\n  }\n}",
+                    "variables": "{\n  \"input\": {\n    \"checkoutEntityId\": \"fb3fc57b-0654-4022-bdf3-b7cd334e9581\"\n  }\n}\n\n"
+                  }
+                },
+                "url": {
+                  "raw": "https://store-{{store-hash}}.mybigcommerce.com/graphql",
+                  "protocol": "https",
+                  "host": [
+                    "store-{{store-hash}}",
+                    "mybigcommerce",
+                    "com"
+                  ],
+                  "path": [
+                    "graphql"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-08-12T09:46:37.000Z",
+              "updatedAt": "2025-08-12T09:46:37.000Z",
+              "uid": "45334-4b2dcc4c-34b8-41ad-949d-afd4a22271eb"
+            }
+          ],
+          "id": "63a8010b-7986-4477-a70d-c647a1c2f874",
+          "createdAt": "2025-08-12T09:46:37.000Z",
+          "updatedAt": "2025-08-12T09:46:38.000Z",
+          "uid": "45334-63a8010b-7986-4477-a70d-c647a1c2f874"
+        },
+        {
+          "name": "Queries",
+          "item": [
+            {
+              "name": "getCheckout",
+              "id": "9c75e033-24f0-4870-881e-747392a2fa3f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{graphql-bearer-token-impersonation}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Bc-Customer-Id",
+                    "value": "{{customer-id}}"
+                  }
+                ],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "query getCheckout($entityId: String!) {\n  site {\n    checkout(entityId: $entityId) {\n      entityId\n      billingAddress {\n        ...CheckoutBillingAddressFields\n      }\n      shippingConsignments {\n        ...CheckoutShippingConsignmentFields\n      }\n      order {\n        entityId\n      }\n      shippingCostTotal {\n        ...MoneyFields\n      }\n      giftWrappingCostTotal {\n        ...MoneyFields\n      }\n      handlingCostTotal {\n        ...MoneyFields\n      }\n      taxTotal {\n        ...MoneyFields\n      }\n      taxes {\n        ...CheckoutTaxFields\n      }\n      subtotal {\n        ...MoneyFields\n      }\n      grandTotal {\n        ...MoneyFields\n      }\n      createdAt {\n        utc\n      }\n      updatedAt {\n        utc\n      }\n      customerMessage\n      outstandingBalance {\n        ...MoneyFields\n      }\n      coupons {\n        ...CheckoutCouponFields\n      }\n      promotions {\n        ...CheckoutPromotionFields\n      }\n    }\n  }\n}\n \nfragment CheckoutConsignmentAddressFields on CheckoutConsignmentAddress {\n  ...CheckoutAddressFields\n}\n \nfragment CheckoutBillingAddressFields on CheckoutBillingAddress {\n  entityId\n  ...CheckoutAddressFields\n}\n \nfragment CheckoutAddressFields on CheckoutAddress {\n  firstName\n  lastName\n  email\n  company\n  address1\n  address2\n  city\n  stateOrProvince\n  stateOrProvinceCode\n  countryCode\n  postalCode\n  phone\n  customFields {\n    entityId\n    ... on CheckoutAddressCheckboxesCustomField {\n      valueEntityIds\n    }\n    ... on CheckoutAddressDateCustomField {\n      date {\n        utc\n      }\n    }\n    ... on CheckoutAddressMultipleChoiceCustomField {\n      valueEntityId\n    }\n    ... on CheckoutAddressNumberCustomField {\n      number\n    }\n    ... on CheckoutAddressPasswordCustomField {\n      password\n    }\n    ... on CheckoutAddressTextFieldCustomField {\n      text\n    }\n  }\n}\n \nfragment CheckoutShippingConsignmentFields on CheckoutShippingConsignment {\n  entityId\n  address {\n    ...CheckoutConsignmentAddressFields\n  }\n  availableShippingOptions {\n    ...CheckoutAvailableShippingOptionFields\n  }\n  selectedShippingOption {\n    ...CheckoutSelectedShippingOptionFields\n  }\n  coupons {\n    ...CheckoutCouponFields\n  }\n  shippingCost {\n    ...MoneyFields\n  }\n  handlingCost {\n    ...MoneyFields\n  }\n  lineItemIds\n}\n \nfragment CheckoutAvailableShippingOptionFields on CheckoutAvailableShippingOption {\n  entityId\n  description\n  type\n  imageUrl\n  cost {\n    ...MoneyFields\n  }\n  transitTime\n  isRecommended\n}\n \nfragment CheckoutSelectedShippingOptionFields on CheckoutSelectedShippingOption {\n  entityId\n  description\n  type\n  imageUrl\n  cost {\n    ...MoneyFields\n  }\n  transitTime\n}\n \nfragment MoneyFields on Money {\n  value\n  currencyCode\n}\n \nfragment CheckoutCouponFields on CheckoutCoupon {\n  entityId\n  code\n  couponType\n  discountedAmount {\n    ...MoneyFields\n  }\n}\n \nfragment CheckoutTaxFields on CheckoutTax {\n  name\n  amount {\n    ...MoneyFields\n  }\n}\n \nfragment CheckoutPromotionFields on CheckoutPromotion {\n  banners {\n    entityId\n    type\n    locations\n    text\n  }\n}",
+                    "variables": "{\n    \"entityId\": \"fb3fc57b-0654-4022-bdf3-b7cd334e9581\"\n}"
+                  }
+                },
+                "url": {
+                  "raw": "https://store-{{store-hash}}.mybigcommerce.com/graphql",
+                  "protocol": "https",
+                  "host": [
+                    "store-{{store-hash}}",
+                    "mybigcommerce",
+                    "com"
+                  ],
+                  "path": [
+                    "graphql"
+                  ]
+                }
+              },
+              "response": [],
+              "createdAt": "2025-08-12T09:46:38.000Z",
+              "updatedAt": "2025-08-12T09:46:38.000Z",
+              "uid": "45334-9c75e033-24f0-4870-881e-747392a2fa3f"
+            }
+          ],
+          "id": "e4308ba3-9710-433f-988b-72b3a007732f",
+          "createdAt": "2025-08-12T09:46:37.000Z",
+          "updatedAt": "2025-08-12T09:46:38.000Z",
+          "uid": "45334-e4308ba3-9710-433f-988b-72b3a007732f"
+        }
+      ],
+      "id": "756c5c88-fc09-4e61-abfe-4ac9e96bead8",
+      "createdAt": "2025-08-12T09:46:37.000Z",
+      "updatedAt": "2025-08-12T09:46:37.000Z",
+      "uid": "45334-756c5c88-fc09-4e61-abfe-4ac9e96bead8"
+    }
+  ]
+}

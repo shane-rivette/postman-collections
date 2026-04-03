@@ -1,0 +1,87 @@
+{
+  "info": {
+    "_postman_id": "f083e9a1-daad-46ab-8558-02767da563f5",
+    "name": "Create Many Products with Brands",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2020-06-30T15:06:55.000Z",
+    "updatedAt": "2022-03-16T17:08:48.000Z",
+    "lastUpdatedBy": "45334",
+    "uid": "45334-f083e9a1-daad-46ab-8558-02767da563f5"
+  },
+  "item": [
+    {
+      "name": "Create a Product with a Brand",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "97cf422a-03cb-4d25-b94c-a9d3fc237a44",
+            "exec": [
+              "const i = pm.environment.get('brand-id')",
+              "pm.environment.set('brand-id', parseInt(i) + 1)",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "22df835d-269a-45a6-9a93-5c54d23ce8aa",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Product with brand_id: {{brand-id}}\",\n    \"type\": \"physical\",\n    \"price\": 10.25,\n    \"weight\": 1.20,\n    \"categories\": [\n    ],\n    \"brand_id\": {{brand-id}}\n}"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/catalog/products",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "catalog",
+            "products"
+          ]
+        },
+        "description": "Sample request for creating a new product with variants through V3 Catalog API"
+      },
+      "response": [],
+      "createdAt": "2020-06-30T15:07:16.000Z",
+      "updatedAt": "2022-03-16T17:10:58.000Z",
+      "uid": "45334-22df835d-269a-45a6-9a93-5c54d23ce8aa"
+    }
+  ]
+}

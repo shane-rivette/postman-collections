@@ -1,0 +1,1186 @@
+{
+  "info": {
+    "_postman_id": "5a7186a9-6f07-4507-852e-e78df56e53d9",
+    "name": "Headless cart, checkout, and line item refund",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2020-04-24T19:08:36.000Z",
+    "updatedAt": "2020-04-29T18:04:50.000Z",
+    "lastUpdatedBy": "45334",
+    "uid": "45334-5a7186a9-6f07-4507-852e-e78df56e53d9"
+  },
+  "item": [
+    {
+      "name": "#1 Retrieve first 250 Products with variants",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "8b1d1b36-c9b1-444c-8b9c-a1d980074c82",
+            "exec": [
+              "pm.test(\"Response is not an error\", () => {",
+              "    pm.response.to.not.be.error",
+              "    pm.response.to.not.have.jsonBody(\"error\")",
+              "})",
+              "pm.test(\"Response is JSON with data\", () => {",
+              "    pm.response.to.have.jsonBody(\"data\")",
+              "})",
+              "pm.test(\"Response includes at least one product\", () => {",
+              "    pm.expect(pm.response.json().data.length).to.be.above(0)",
+              "})",
+              "",
+              "const products = pm.response.json().data",
+              "const firstSaleableProduct = products.find(product => {",
+              "    if (product.availability !== 'disabled')",
+              "        if (product.inventory_tracking !== 'none')",
+              "            return product.inventory_level > 1",
+              "        else return true",
+              "})",
+              "const firstSaleableVariant = firstSaleableProduct.inventory_tracking !== 'variant'",
+              "    ? firstSaleableProduct.variants[0]",
+              "    : firstSaleableProduct.variants.find(variant => variant.inventory_level > 1)",
+              "    ",
+              "// Test values before storing them",
+              "pm.test('Found a saleable product with a product ID', () => {",
+              "    pm.expect(firstSaleableProduct.id).to.be.a('number')",
+              "})",
+              "pm.test('Found a saleable variant with a variant ID', () => {",
+              "    pm.expect(firstSaleableVariant.id).to.be.a('number')",
+              "})",
+              "pm.test('Saleable variant\\'s option values is an array', () => {",
+              "    pm.expect(firstSaleableVariant.option_values).to.be.a('array')",
+              "})",
+              "console.log('firstSalesableProduct:')",
+              "console.log(firstSaleableProduct)",
+              "console.log('firstSaleableVariant:')",
+              "console.log(firstSaleableVariant)",
+              "// Clear any previously stored collection variables",
+              "pm.collectionVariables.unset('product-id')",
+              "pm.collectionVariables.unset('variant-id')",
+              "pm.collectionVariables.unset('option-values')",
+              "// Store new collection variables",
+              "pm.collectionVariables.set('product-id', firstSaleableProduct.id)",
+              "pm.collectionVariables.set('variant-id', firstSaleableVariant.id)",
+              "pm.collectionVariables.set('option-values', JSON.stringify(firstSaleableVariant.option_values))"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "8f9b5894-df37-4a5a-90bc-bc66c72eadc8",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/catalog/products?limit=250&include=variants",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "catalog",
+            "products"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "250"
+            },
+            {
+              "key": "include",
+              "value": "variants"
+            }
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2020-04-24T19:08:37.000Z",
+      "updatedAt": "2020-04-24T19:38:28.000Z",
+      "uid": "45334-8f9b5894-df37-4a5a-90bc-bc66c72eadc8"
+    },
+    {
+      "name": "#2 Create a Cart",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "66745f0a-e727-47b3-a97d-194bbb1dc03d",
+            "exec": [
+              "const optionValues = JSON.parse(pm.collectionVariables.get('option-values'))",
+              "",
+              "const optionSelections = optionValues.map(value => ({",
+              "    option_id: value.option_id,",
+              "    option_value: value.id",
+              "}))",
+              "",
+              "// unset any previous variable",
+              "pm.collectionVariables.unset('option-selections')",
+              "// set the new option selections",
+              "pm.collectionVariables.set('option-selections', JSON.stringify(optionSelections))"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "019569fe-9d96-47e7-a7f3-b4a000f4e730",
+            "exec": [
+              "pm.test('Response is not an error', () => {",
+              "    pm.response.to.not.be.error",
+              "    pm.response.to.not.have.jsonBody(\"error\")",
+              "})",
+              "pm.test('Response is JSON with data', () => {",
+              "    pm.response.to.have.jsonBody(\"data\")",
+              "})",
+              "pm.test('Response includes a cart ID that', () => {",
+              "    pm.expect(pm.response.json().data.id).to.be.a('string')",
+              "})",
+              "",
+              "const cart = pm.response.json().data",
+              "const cartId = cart.id",
+              "// Check both physical_items and digital_items",
+              "const lineItemId = cart.line_items.physical_items.length",
+              "    ? cart.line_items.physical_items[0].id",
+              "    : cart.line_items.digital_items[0].id",
+              "    ",
+              "// Test the value before storing it",
+              "pm.test('Line Item Id is a string that is not empty', () => {",
+              "    pm.expect(lineItemId).to.be.a('string').that.is.not.empty",
+              "})",
+              "    ",
+              "// Unset any previous variables",
+              "pm.collectionVariables.unset('cart-id')",
+              "pm.collectionVariables.unset('line-item-id')",
+              "// Set the new variables",
+              "pm.collectionVariables.set('cart-id', cartId)",
+              "pm.collectionVariables.set('line-item-id', lineItemId)"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "7a070451-9fdc-4697-8364-681d858bc89b",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"line_items\": [\n    {\n      \"quantity\": 2,\n      \"product_id\": {{product-id}},\n      \"variant_id\": {{variant-id}},\n      \"option_selections\": {{option-selections}}\n    }\n  ]\n}"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/carts",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "carts"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2020-04-24T19:08:37.000Z",
+      "updatedAt": "2020-04-24T19:38:39.000Z",
+      "uid": "45334-7a070451-9fdc-4697-8364-681d858bc89b"
+    },
+    {
+      "name": "#3 Create a Consignment",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "6a7104a1-a49f-4d3a-b8ca-844779fa9483",
+            "exec": [
+              "pm.test('Response is not an error', () => {",
+              "    pm.response.to.not.be.error",
+              "    pm.response.to.not.have.jsonBody(\"error\")",
+              "})",
+              "pm.test('Response is JSON with data', () => {",
+              "    pm.response.to.have.jsonBody(\"data\")",
+              "})",
+              "pm.test('Response includes exactly one consignment', () => {",
+              "    pm.expect(pm.response.json().data.consignments.length).to.equal(1)",
+              "})",
+              "pm.test('Consignment includes at least one available shipping option', () => {",
+              "    pm.expect(pm.response.json().data.consignments[0].available_shipping_options.length).to.be.above(0)",
+              "})",
+              "",
+              "const checkout = pm.response.json().data",
+              "const consignmentId = checkout.consignments[0].id",
+              "const shippingOptionId = checkout.consignments[0].available_shipping_options[0].id",
+              "",
+              "// Unset any existing variables",
+              "pm.collectionVariables.unset('consignment-id')",
+              "pm.collectionVariables.unset('shipping-option-id')",
+              "",
+              "// Set new variables",
+              "pm.collectionVariables.set('consignment-id', consignmentId)",
+              "pm.collectionVariables.set('shipping-option-id', shippingOptionId)"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "855b8dc4-0d81-4d2e-a997-fc5c9b167c47",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n  {\n    \"line_items\": [\n      {\n        \"item_id\": \"{{line-item-id}}\",\n        \"quantity\": 2\n      }\n    ],\n    \"shipping_address\": {\n      \"first_name\": \"John\",\n      \"last_name\": \"Doe\",\n      \"email\": \"john.doe@example.org\",\n      \"company\": \"\",\n      \"address1\": \"11305 Four Points Dr #300\",\n      \"address2\": \"\",\n      \"city\": \"Austin\",\n      \"state_or_province\": \"Texas\",\n      \"state_or_province_code\": \"TX\",\n      \"country_code\": \"US\",\n      \"postal_code\": \"78726\",\n      \"phone\": \"5128654500\"\n    }\n  }\n]"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/checkouts/{{cart-id}}/consignments?includes=consignments.available_shipping_options",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "checkouts",
+            "{{cart-id}}",
+            "consignments"
+          ],
+          "query": [
+            {
+              "key": "includes",
+              "value": "consignments.available_shipping_options"
+            }
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2020-04-24T19:08:37.000Z",
+      "updatedAt": "2020-04-24T19:38:47.000Z",
+      "uid": "45334-855b8dc4-0d81-4d2e-a997-fc5c9b167c47"
+    },
+    {
+      "name": "#4 Update Consignment with Selected Shipping Option",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "346f2efa-f8e5-495c-91d5-babf778d8d1a",
+            "exec": [
+              "pm.test('Response is not an error', () => {",
+              "    pm.response.to.not.be.error",
+              "    pm.response.to.not.have.jsonBody(\"error\")",
+              "})",
+              "pm.test('Response is JSON with data', () => {",
+              "    pm.response.to.have.jsonBody(\"data\")",
+              "})",
+              "pm.test('Response includes exactly one consignment', () => {",
+              "    pm.expect(pm.response.json().data.consignments.length).to.equal(1)",
+              "})",
+              "pm.test('Selected shipping option ID matches stored shipping option ID', () => {",
+              "    pm.expect(pm.response.json().data.consignments[0].selected_shipping_option.id).to.equal(pm.collectionVariables.get('shipping-option-id'))",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "3f68b35d-499c-4c5e-b6a4-728529f6bf94",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"shipping_option_id\": \"{{shipping-option-id}}\"\n}"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/checkouts/{{cart-id}}/consignments/{{consignment-id}}",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "checkouts",
+            "{{cart-id}}",
+            "consignments",
+            "{{consignment-id}}"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2020-04-24T19:08:37.000Z",
+      "updatedAt": "2020-04-24T19:08:37.000Z",
+      "uid": "45334-3f68b35d-499c-4c5e-b6a4-728529f6bf94"
+    },
+    {
+      "name": "#5 Create a Billing Address",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "333f594d-6e94-48bd-8598-910c9e3c9a54",
+            "exec": [
+              "pm.test('Response is not an error', () => {",
+              "    pm.response.to.not.be.error",
+              "    pm.response.to.not.have.jsonBody(\"error\")",
+              "})",
+              "pm.test('Response is JSON with data', () => {",
+              "    pm.response.to.have.jsonBody(\"data\")",
+              "})",
+              "pm.test('Billing address includes an id that is a string', () => {",
+              "    pm.expect(pm.response.json().data.billing_address.id).to.be.a('string')",
+              "})",
+              "pm.test('Billing address includes an email that is a non-empty string', () => {",
+              "    pm.expect(pm.response.json().data.billing_address.email).to.be.a('string').that.is.not.empty",
+              "})",
+              "pm.test('Billing address includes a country_code that is 2 characters', () => {",
+              "    pm.expect(pm.response.json().data.billing_address.country_code).to.be.a('string').that.has.lengthOf(2)",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "b085a4d2-e0e0-4736-a214-6b7bd35a2917",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"first_name\": \"John\",\n  \"last_name\": \"Doe\",\n  \"email\": \"john.doe@example.org\",\n  \"company\": \"BigCommerce\",\n  \"address1\": \"11305 Four Points Dr #300\",\n  \"address2\": \"\",\n  \"city\": \"Austin\",\n  \"state_or_province\": \"Texas\",\n  \"state_or_province_code\": \"TX\",\n  \"country_code\": \"US\",\n  \"postal_code\": \"78726\",\n  \"phone\": \"5128654500\"\n}"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/checkouts/{{cart-id}}/billing-address",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "checkouts",
+            "{{cart-id}}",
+            "billing-address"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2020-04-24T19:08:37.000Z",
+      "updatedAt": "2020-04-24T19:08:37.000Z",
+      "uid": "45334-b085a4d2-e0e0-4736-a214-6b7bd35a2917"
+    },
+    {
+      "name": "#6 Create an Order",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "57f2afe6-0aee-413e-8517-5641f6e4a098",
+            "exec": [
+              "pm.test('Response is not an error', () => {",
+              "    pm.response.to.not.be.error",
+              "    pm.response.to.not.have.jsonBody(\"error\")",
+              "})",
+              "pm.test('Response is JSON with data', () => {",
+              "    pm.response.to.have.jsonBody(\"data\")",
+              "})",
+              "pm.test('Response includes a numeric order ID', () => {",
+              "    pm.expect(pm.response.json().data.id).to.be.a('number')",
+              "})",
+              "",
+              "const orderId = pm.response.json().data.id",
+              "// Unset any previous variable",
+              "pm.collectionVariables.unset('order-id')",
+              "// Set the new variable",
+              "pm.collectionVariables.set('order-id', orderId)"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "9f6ba862-4a56-4b0a-b751-c598c78f3582",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/checkouts/{{cart-id}}/orders",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "checkouts",
+            "{{cart-id}}",
+            "orders"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2020-04-24T19:08:37.000Z",
+      "updatedAt": "2020-04-24T19:08:37.000Z",
+      "uid": "45334-9f6ba862-4a56-4b0a-b751-c598c78f3582"
+    },
+    {
+      "name": "#7 Retrieve Accepted Payment Methods",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "5faee698-5f8d-4bfe-8431-19f8435f8a5d",
+            "exec": [
+              "pm.test('Response is not an error', () => {",
+              "    pm.response.to.not.be.error",
+              "    pm.response.to.not.have.jsonBody(\"error\")",
+              "})",
+              "",
+              "pm.test('Response is JSON with data', () => {",
+              "    pm.response.to.have.jsonBody(\"data\")",
+              "})",
+              "",
+              "pm.test('At least one payment method is available', () => {",
+              "    pm.expect(pm.response.json().data.length).to.be.above(0)",
+              "})",
+              "",
+              "const methodInTestMode = pm.response.json().data.find(method => method.test_mode)",
+              "pm.test('At least one payment method is in test mode', () => {",
+              "    pm.expect(methodInTestMode).not.to.be.an('undefined')",
+              "})",
+              "",
+              "// Unset any previous variable",
+              "pm.collectionVariables.unset('payment-method-id')",
+              "// Set the new variable",
+              "pm.collectionVariables.set('payment-method-id', methodInTestMode.id)"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "977a4f52-c3f9-4700-9ed1-76a01b8c7948",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/payments/methods?order_id={{order-id}}",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "payments",
+            "methods"
+          ],
+          "query": [
+            {
+              "key": "order_id",
+              "value": "{{order-id}}"
+            }
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2020-04-24T19:08:37.000Z",
+      "updatedAt": "2020-04-24T19:08:37.000Z",
+      "uid": "45334-977a4f52-c3f9-4700-9ed1-76a01b8c7948"
+    },
+    {
+      "name": "#8 Generate Payment Access Token",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "2792bdb7-f608-4064-8295-0648afeece3f",
+            "exec": [
+              "pm.test('Response is not an error', () => {",
+              "    pm.response.to.not.be.error",
+              "    pm.response.to.not.have.jsonBody(\"error\")",
+              "})",
+              "",
+              "pm.test('Response is JSON with data', () => {",
+              "    pm.response.to.have.jsonBody(\"data\")",
+              "})",
+              "",
+              "pm.test('Response includes a PAT that is a string and is not empty', () => {",
+              "    pm.expect(pm.response.json().data.id).to.be.a('string').that.is.not.empty",
+              "})",
+              "",
+              "pm.collectionVariables.unset('PAT')",
+              "pm.collectionVariables.set('PAT', pm.response.json().data.id)"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "dad9f946-1b3f-4089-90ec-b988eaff616c",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"order\": {\n\t\t\"id\": {{order-id}}\n\t}\n}"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/payments/access_tokens",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "payments",
+            "access_tokens"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2020-04-24T19:08:37.000Z",
+      "updatedAt": "2020-04-24T19:08:37.000Z",
+      "uid": "45334-dad9f946-1b3f-4089-90ec-b988eaff616c"
+    },
+    {
+      "name": "#9 Process Payment with a Test Credit Card",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "f610dfe5-775c-42b5-94f3-650b8f8a6c6c",
+            "exec": [
+              "pm.test('Response is not an error', () => {",
+              "    pm.response.to.not.be.error",
+              "    pm.response.to.not.have.jsonBody(\"errors\")",
+              "})",
+              "",
+              "pm.test('Response is JSON with data', () => {",
+              "    pm.response.to.have.jsonBody(\"data\")",
+              "})",
+              "",
+              "pm.test('Response has a transaction_type that is not an empty string', () => {",
+              "    pm.expect(pm.response.json().data.transaction_type).to.be.a('string').that.is.not.empty",
+              "})",
+              "",
+              "pm.test('Response is JSON with status that is \"pending\" or \"success\"', () => {",
+              "    pm.expect(pm.response.json().data).to.satisfy(data => data.status === 'pending' || data.status === 'success')",
+              "})",
+              "",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "fce5532b-a6fe-4004-afa7-4506ce9d06ce",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/vnd.bc.v1+json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "PAT {{PAT}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"payment\": {\r\n    \"instrument\": {\r\n      \"type\": \"card\",\r\n      \"number\": \"4111111111111111\",\r\n      \"cardholder_name\": \"John Doe\",\r\n      \"expiry_month\": 12,\r\n      \"expiry_year\": 2027,\r\n      \"verification_value\": \"123\"\r\n    },\r\n    \"payment_method_id\": \"{{payment-method-id}}\"\r\n\t\t\r\n  }\r\n}"
+        },
+        "url": {
+          "raw": "https://payments.bigcommerce.com/stores/{{store-hash}}/payments",
+          "protocol": "https",
+          "host": [
+            "payments",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "payments"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2020-04-24T19:08:37.000Z",
+      "updatedAt": "2020-04-24T19:08:37.000Z",
+      "uid": "45334-fce5532b-a6fe-4004-afa7-4506ce9d06ce"
+    },
+    {
+      "name": "#10 Get Order Products",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "b2d4cb5d-e521-4444-9725-be4bfa73120d",
+            "exec": [
+              "pm.test('Response is not an error', () => {",
+              "    pm.response.to.not.be.error",
+              "    pm.response.to.not.have.jsonBody(\"errors\")",
+              "})",
+              "",
+              "pm.test('Response is an array with length', () => {",
+              "    pm.expect(pm.response.json()).to.have.lengthOf.at.least(1)",
+              "})",
+              "",
+              "const orderProduct = pm.response.json()[0]",
+              "",
+              "pm.test('Order product ID is a number', () => {",
+              "    pm.expect(orderProduct.id).to.be.a('number')",
+              "})",
+              "",
+              "// Clear any previously stored collection variables",
+              "pm.collectionVariables.unset('order-product-id')",
+              "// Store new collection variables",
+              "pm.collectionVariables.set('order-product-id', orderProduct.id)"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "7e71ad72-9c0a-4680-83a7-cd92596326dc",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v2/orders/{{order-id}}/products",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v2",
+            "orders",
+            "{{order-id}}",
+            "products"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2020-04-24T19:37:01.000Z",
+      "updatedAt": "2020-04-24T19:49:25.000Z",
+      "uid": "45334-7e71ad72-9c0a-4680-83a7-cd92596326dc"
+    },
+    {
+      "name": "#11 Create Refund Quote",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "7e994607-ff30-4a66-a5dc-859dc867edca",
+            "exec": [
+              "pm.test('Response is not an error', () => {",
+              "    pm.response.to.not.be.error",
+              "    pm.response.to.not.have.jsonBody(\"errors\")",
+              "})",
+              "",
+              "pm.test('Response is JSON with data', () => {",
+              "    pm.response.to.have.jsonBody(\"data\")",
+              "})",
+              "",
+              "const payments = pm.response.json().data.refund_methods.find(payment => payment.find(method => method.provider_id !== 'storecredit'))",
+              "",
+              "pm.test('Found a refund_method with a sum of payment amounts that is a number', () => {",
+              "    pm.expect(payments.reduce((amount, payment) => amount + payment.amount, 0)).to.be.a('number')",
+              "})",
+              "",
+              "// Clear any previously stored collection variables",
+              "pm.collectionVariables.unset('payments')",
+              "// Store new collection variables",
+              "pm.collectionVariables.set('payments', JSON.stringify(payments, null, 2))"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "a0c016b2-a233-4f5e-8a85-4f2e73cc44e4",
+            "exec": [
+              "console.log('Waiting 2 minutes before proceeding with the refund')",
+              "setTimeout(() => console.log('Waited 2 minutes before proceeding with refund'), 120000)"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "255d2030-0b7d-4fb4-bf36-4495bf5aae95",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"items\": [\n\t\t{\n\t\t\t\"item_type\": \"PRODUCT\",\n\t\t\t\"item_id\": {{order-product-id}},\n\t\t\t\"quantity\": 1,\n\t\t\t\"reason\": \"Demo Automated Refund\"\n\t\t}\n\t]\n}"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/orders/{{order-id}}/payment_actions/refund_quotes",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "orders",
+            "{{order-id}}",
+            "payment_actions",
+            "refund_quotes"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2020-04-24T19:50:21.000Z",
+      "updatedAt": "2020-04-29T18:04:50.000Z",
+      "uid": "45334-255d2030-0b7d-4fb4-bf36-4495bf5aae95"
+    },
+    {
+      "name": "#12 Process a Refund for a Product",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "41f96ab5-167b-4824-b998-544e22b19d56",
+            "exec": [
+              "pm.test('Response is not an error', () => {",
+              "    pm.response.to.not.be.error",
+              "    pm.response.to.not.have.jsonBody(\"errors\")",
+              "})",
+              "",
+              "pm.test('Response is JSON with data', () => {",
+              "    pm.response.to.have.jsonBody(\"data\")",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "01afeb7b-1eb6-4dc6-b8e5-6536793f6f9c",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"items\": [\n\t\t{\n\t\t\t\"item_type\": \"PRODUCT\",\n\t\t\t\"item_id\": {{order-product-id}},\n\t\t\t\"quantity\": 1,\n\t\t\t\"reason\": \"Demo Automated Refund\"\n\t\t}\n\t],\n\t\"payments\": {{payments}}\n}"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/orders/{{order-id}}/payment_actions/refunds",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "orders",
+            "{{order-id}}",
+            "payment_actions",
+            "refunds"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2020-04-24T21:15:31.000Z",
+      "updatedAt": "2020-04-24T21:16:39.000Z",
+      "uid": "45334-01afeb7b-1eb6-4dc6-b8e5-6536793f6f9c"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "5720e145-fb55-43ef-914b-7a2c68933553",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "e93a040a-9723-4bf9-89f0-486ee4d7e9ac",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "option-values",
+      "value": ""
+    },
+    {
+      "key": "product-id",
+      "value": ""
+    },
+    {
+      "key": "variant-id",
+      "value": ""
+    },
+    {
+      "key": "option-selections",
+      "value": ""
+    },
+    {
+      "key": "cart-id",
+      "value": ""
+    },
+    {
+      "key": "line-item-id",
+      "value": ""
+    },
+    {
+      "key": "consignment-id",
+      "value": ""
+    },
+    {
+      "key": "shipping-option-id",
+      "value": ""
+    },
+    {
+      "key": "order-id",
+      "value": ""
+    },
+    {
+      "key": "payment-method-id",
+      "value": ""
+    },
+    {
+      "key": "PAT",
+      "value": ""
+    },
+    {
+      "key": "order-product-id",
+      "value": ""
+    },
+    {
+      "key": "payments",
+      "value": ""
+    }
+  ]
+}

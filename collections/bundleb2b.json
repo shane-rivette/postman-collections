@@ -1,0 +1,328 @@
+{
+  "info": {
+    "_postman_id": "4911cd68-d825-4507-bebd-220b110f696d",
+    "name": "BundleB2B",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2021-06-29T14:46:43.000Z",
+    "updatedAt": "2021-06-29T20:05:34.000Z",
+    "lastUpdatedBy": "45334",
+    "uid": "45334-4911cd68-d825-4507-bebd-220b110f696d"
+  },
+  "item": [
+    {
+      "name": "Create authToken",
+      "id": "93bfaca1-b1b8-42c1-a12a-88235cc5351a",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"storeHash\": {{store-hash}},\n  \"email\": \"string\",\n  \"password\": \"string\",\n  \"channelId\": 1,\n  \"name\": \"test\",\n  \"beginAt\": 1000,\n  \"endAt\": 17219304\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://api.bundleb2b.net/api/io/auth/backend",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bundleb2b",
+            "net"
+          ],
+          "path": [
+            "api",
+            "io",
+            "auth",
+            "backend"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2021-06-29T14:46:59.000Z",
+      "updatedAt": "2022-12-06T10:28:14.000Z",
+      "uid": "45334-93bfaca1-b1b8-42c1-a12a-88235cc5351a"
+    },
+    {
+      "name": "Get Companies",
+      "id": "249bb7d8-b896-42b9-b973-7a027a72fdc3",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "authToken",
+            "value": "{{b3-authToken}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://api.bundleb2b.net/api/v3/io/companies",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bundleb2b",
+            "net"
+          ],
+          "path": [
+            "api",
+            "v3",
+            "io",
+            "companies"
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "8ccde311-94c0-4499-956c-5376205c1f44",
+          "name": "Get Companies",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "authToken",
+                "value": "{{b3-authToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://api.bundleb2b.net/api/v3/io/companies",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "api",
+                "v3",
+                "io",
+                "companies"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Date",
+              "value": "Tue, 29 Jun 2021 20:05:41 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "1677"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Server",
+              "value": "nginx/1.10.3"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, POST, PUT, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Requests-Allocated",
+              "value": "10000 times/3600 s"
+            },
+            {
+              "key": "X-Request-Window-Length",
+              "value": "1 times"
+            },
+            {
+              "key": "X-Requests-Remaining",
+              "value": "9999 times"
+            },
+            {
+              "key": "X-Request-Window-Resets-After",
+              "value": "0.33759951331615445 s"
+            },
+            {
+              "key": "Vary",
+              "value": "Origin, Accept-Language, Cookie"
+            },
+            {
+              "key": "Content-Language",
+              "value": "en"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Access-Control-Allow-Methods",
+              "value": "GET,POST,PUT,DELETE"
+            },
+            {
+              "key": "Access-Control-Allow-Headers",
+              "value": "authToken,DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n    \"code\": 200,\n    \"data\": [\n        {\n            \"companyId\": 146233,\n            \"companyName\": \"BigCommerce\",\n            \"bcGroupName\": \"BigCommerce\",\n            \"description\": \"BigCommerce\",\n            \"companyStatus\": 1,\n            \"catalogId\": 1,\n            \"catalogName\": \"Default B2B Price List\",\n            \"createdAt\": 1618372553,\n            \"updatedAt\": 1623425364,\n            \"uuid\": \"\"\n        },\n        {\n            \"companyId\": 155602,\n            \"companyName\": \"RD_CG001\",\n            \"bcGroupName\": \"RD_CG001\",\n            \"description\": \"RD_CG001\",\n            \"companyStatus\": 1,\n            \"catalogId\": null,\n            \"catalogName\": null,\n            \"createdAt\": 1623425336,\n            \"updatedAt\": 1623425336,\n            \"uuid\": \"\"\n        },\n        {\n            \"companyId\": 145806,\n            \"companyName\": \"Acme Doohickeys LLC\",\n            \"bcGroupName\": \"Acme Doohickeys LLC\",\n            \"description\": \"Acme Doohickeys LLC\",\n            \"companyStatus\": 1,\n            \"catalogId\": null,\n            \"catalogName\": null,\n            \"createdAt\": 1617909167,\n            \"updatedAt\": 1620140259,\n            \"uuid\": \"\"\n        },\n        {\n            \"companyId\": 148389,\n            \"companyName\": \"ACME's Apostrophe Company (San Francisco Location)\",\n            \"bcGroupName\": \"ACME's Apostrophe Company (San Francisco Location)\",\n            \"description\": \"ACME's Apostrophe Company (San Francisco Location)\",\n            \"companyStatus\": 1,\n            \"catalogId\": 1,\n            \"catalogName\": \"Default B2B Price List\",\n            \"createdAt\": 1619188875,\n            \"updatedAt\": 1619188875,\n            \"uuid\": \"\"\n        },\n        {\n            \"companyId\": 148387,\n            \"companyName\": \"ACME's Apostrophe Company (Austin Location)\",\n            \"bcGroupName\": \"ACME's Apostrophe Company (Austin Location)\",\n            \"description\": \"ACME's Apostrophe Company (Austin Location)\",\n            \"companyStatus\": 1,\n            \"catalogId\": 1,\n            \"catalogName\": \"Default B2B Price List\",\n            \"createdAt\": 1619188781,\n            \"updatedAt\": 1619188781,\n            \"uuid\": \"\"\n        },\n        {\n            \"companyId\": 146100,\n            \"companyName\": \"Charles\",\n            \"bcGroupName\": \"Charles\",\n            \"description\": \"Charles\",\n            \"companyStatus\": 1,\n            \"catalogId\": 1,\n            \"catalogName\": \"Default B2B Price List\",\n            \"createdAt\": 1618303219,\n            \"updatedAt\": 1618303287,\n            \"uuid\": \"\"\n        }\n    ],\n    \"meta\": {\n        \"pagination\": {\n            \"totalCount\": 12,\n            \"offset\": 0,\n            \"limit\": 10\n        },\n        \"message\": \"SUCCESS\"\n    }\n}",
+          "createdAt": "2021-06-29T20:05:46.000Z",
+          "updatedAt": "2021-06-29T20:05:46.000Z",
+          "uid": "45334-8ccde311-94c0-4499-956c-5376205c1f44"
+        }
+      ],
+      "createdAt": "2021-06-29T20:01:31.000Z",
+      "updatedAt": "2021-06-29T20:05:46.000Z",
+      "uid": "45334-249bb7d8-b896-42b9-b973-7a027a72fdc3"
+    },
+    {
+      "name": "Get A Company's Details",
+      "id": "bc058268-a6b0-4edb-9278-32c2ccedbd74",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "authToken",
+            "value": "{{b3-authToken}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://api.bundleb2b.net/api/v3/io/companies/{{company-id}}",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bundleb2b",
+            "net"
+          ],
+          "path": [
+            "api",
+            "v3",
+            "io",
+            "companies",
+            "{{company-id}}"
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "14f337a4-d220-43bc-a165-058b7105df68",
+          "name": "Get A Company's Details",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "authToken",
+                "value": "{{b3-authToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://api.bundleb2b.net/api/v3/io/companies/{{company-id}}",
+              "protocol": "https",
+              "host": [
+                "api",
+                "bundleb2b",
+                "net"
+              ],
+              "path": [
+                "api",
+                "v3",
+                "io",
+                "companies",
+                "{{company-id}}"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Date",
+              "value": "Tue, 29 Jun 2021 20:05:19 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "612"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Server",
+              "value": "nginx/1.10.3"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, PUT, DELETE, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Requests-Allocated",
+              "value": "10000 times/3600 s"
+            },
+            {
+              "key": "X-Request-Window-Length",
+              "value": "0 times"
+            },
+            {
+              "key": "X-Requests-Remaining",
+              "value": "10000 times"
+            },
+            {
+              "key": "X-Request-Window-Resets-After",
+              "value": "0.35996400359964004 s"
+            },
+            {
+              "key": "Vary",
+              "value": "Origin, Accept-Language, Cookie"
+            },
+            {
+              "key": "Content-Language",
+              "value": "en"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Access-Control-Allow-Methods",
+              "value": "GET,POST,PUT,DELETE"
+            },
+            {
+              "key": "Access-Control-Allow-Headers",
+              "value": "authToken,DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n    \"code\": 200,\n    \"data\": {\n        \"companyId\": 148387,\n        \"companyName\": \"ACME's Apostrophe Company (Austin Location)\",\n        \"bcGroupName\": \"ACME's Apostrophe Company (Austin Location)\",\n        \"description\": \"ACME's Apostrophe Company (Austin Location)\",\n        \"companyStatus\": 1,\n        \"catalogId\": 1,\n        \"catalogName\": \"Default B2B Price List\",\n        \"companyEmail\": \"patrick.puente+acmeaustin@bigcommerce.com\",\n        \"companyPhone\": \"5128654500\",\n        \"addressLine1\": \"11305 Four Points Dr #300\",\n        \"addressLine2\": \"\",\n        \"city\": \"Austin\",\n        \"state\": \"\",\n        \"country\": \"United States\",\n        \"zipCode\": \"78726\",\n        \"createdAt\": 1619188781,\n        \"updatedAt\": 1619188781,\n        \"uuid\": \"\",\n        \"extraFields\": []\n    },\n    \"meta\": {\n        \"message\": \"SUCCESS\"\n    }\n}",
+          "createdAt": "2021-06-29T20:06:02.000Z",
+          "updatedAt": "2021-06-29T20:06:02.000Z",
+          "uid": "45334-14f337a4-d220-43bc-a165-058b7105df68"
+        }
+      ],
+      "createdAt": "2021-06-29T20:05:34.000Z",
+      "updatedAt": "2021-06-29T20:06:02.000Z",
+      "uid": "45334-bc058268-a6b0-4edb-9278-32c2ccedbd74"
+    }
+  ]
+}

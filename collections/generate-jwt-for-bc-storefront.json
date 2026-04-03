@@ -1,0 +1,119 @@
+{
+  "info": {
+    "_postman_id": "1572bc97-2b7d-48ee-ad04-a133bcdaa13b",
+    "name": "Generate JWT for BC Storefront",
+    "description": "[https://developer.bigcommerce.com/docs/start/authentication/current-customer](https://developer.bigcommerce.com/docs/start/authentication/current-customer)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2024-06-04T09:37:30.000Z",
+    "updatedAt": "2024-06-04T09:38:11.000Z",
+    "lastUpdatedBy": "20887145",
+    "uid": "20887145-1572bc97-2b7d-48ee-ad04-a133bcdaa13b"
+  },
+  "item": [
+    {
+      "name": "Generate Signed JWT",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "// JWT generation script adapted from",
+              "// https://gist.github.com/corbanb/db03150abbe899285d6a86cc480f674d",
+              "",
+              "var jwtSecret = pm.environment.get('client_secret') || ''",
+              "",
+              "// Set headers for JWT",
+              "var header = {",
+              "\t'typ': 'JWT',",
+              "\t'alg': 'HS256'",
+              "};",
+              "",
+              "// Prepare timestamp in seconds",
+              "var currentTimestamp = Math.floor(Date.now() / 1000)",
+              "",
+              "var data = {",
+              "\t'iss': pm.environment.get('client_id') || '',",
+              "\t'iat': currentTimestamp,",
+              "\t'jti': '1',",
+              "    'operation': 'customer_login',",
+              "    'store_hash': pm.environment.get('store_hash') || '',",
+              "    'customer_id': 1",
+              "}",
+              "",
+              "",
+              "function base64url(source) {",
+              "    // Encode in classical base64",
+              "    encodedSource = CryptoJS.enc.Base64.stringify(source)",
+              "    ",
+              "    // Remove padding equal characters",
+              "    encodedSource = encodedSource.replace(/=+$/, '')",
+              "    ",
+              "    // Replace characters according to base64url specifications",
+              "    encodedSource = encodedSource.replace(/\\+/g, '-')",
+              "    encodedSource = encodedSource.replace(/\\//g, '_')",
+              "    ",
+              "    return encodedSource",
+              "}",
+              "",
+              "// encode header",
+              "var stringifiedHeader = CryptoJS.enc.Utf8.parse(JSON.stringify(header))",
+              "var encodedHeader = base64url(stringifiedHeader)",
+              "",
+              "// encode data",
+              "var stringifiedData = CryptoJS.enc.Utf8.parse(JSON.stringify(data))",
+              "var encodedData = base64url(stringifiedData)",
+              "",
+              "// build token",
+              "var token = `${encodedHeader}.${encodedData}`",
+              "",
+              "// sign token",
+              "var signature = CryptoJS.HmacSHA256(token, jwtSecret)",
+              "signature = base64url(signature)",
+              "var signedToken = `${token}.${signature}`",
+              "",
+              "pm.environment.set('jwt_signed', signedToken)",
+              "console.log('Signed and encoded JWT', signedToken)"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "id": "45166acd-26d8-4c57-927b-fc669a14530b"
+          }
+        }
+      ],
+      "id": "e117d8a8-aab5-4865-85fe-46f9d553d02d",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{jwt_signed}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "https://postman-echo.com/post",
+          "protocol": "https",
+          "host": [
+            "postman-echo",
+            "com"
+          ],
+          "path": [
+            "post"
+          ]
+        },
+        "description": "This request creates a signed JWT using the `jwt_secret` variable. It then sets the signed JWT as `Bearer` token in the `Authorization` header.\n\nThis request *does not* encode the JWT as base64 string."
+      },
+      "response": [],
+      "createdAt": "2024-06-04T09:37:31.000Z",
+      "updatedAt": "2024-06-04T09:37:31.000Z",
+      "uid": "20887145-e117d8a8-aab5-4865-85fe-46f9d553d02d"
+    }
+  ]
+}

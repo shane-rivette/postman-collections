@@ -1,0 +1,303 @@
+{
+  "info": {
+    "_postman_id": "b49cd8c8-3dc0-4c99-a748-186fdce56f34",
+    "name": "BC-Visualizer",
+    "description": "BC Visualizer - A custom collection that defines a range of visual presenations (On Brand) for specific API responses. ",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2020-03-17T17:13:56.000Z",
+    "updatedAt": "2020-03-17T17:15:34.000Z",
+    "lastUpdatedBy": "45334",
+    "uid": "45334-b49cd8c8-3dc0-4c99-a748-186fdce56f34"
+  },
+  "item": [
+    {
+      "name": "Get All Customers - Table View",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "1d1d0977-60d6-442d-a977-c2839490665c",
+            "exec": [
+              "// ",
+              "// BigCommerce Postman - Template Structure (Customers)",
+              "//",
+              "",
+              "const template = `",
+              "    //Template style",
+              "    <style type=\"text/css\">",
+              "        .table-lg {font-size:14px; color:#333333; width:100%; border-width: 1px; border-color: #4e34c6; border-collapse: collapse;}",
+              "        .table-lg th {font-size:18px; color: #fff; background-color:#4e34c6; border-width: 1px; padding: 8px; border-style: solid; border-color: #4e34c6; text-align:left;}",
+              "        .table-lg tr {background-color: #ffffff;}",
+              "        .table-lg td {font-size:14px; border-width: 1px; padding: 8px; border-style: solid; border-color: #4e34c6;}",
+              "        .table-lg tr:hover {background-color:#f4f7f9;}",
+              "    </style>",
+              "    ",
+              "    // HTML assets and structure",
+              "    <table class=\"table-lg\" bgcolor=\"#FFFFFF\" border=\"1\">",
+              "        <tr>",
+              "            <th>First Name</th>",
+              "            <th>Last Name</th>",
+              "            <th>Email</th>",
+              "            <th>Phone</th>",
+              "        </tr>",
+              "        ",
+              "        // Handlebar helper",
+              "        {{#each response.data}}",
+              "            <tr>",
+              "                <td>{{first_name}}</td>",
+              "                <td>{{last_name}}</td>",
+              "                <td>{{email}}</td>",
+              "                <td>{{phone}}</td>",
+              "            </tr>",
+              "        {{/each}}",
+              "    </table>",
+              "`;",
+              "",
+              "// Template setup for visualizer ",
+              "pm.visualizer.set(template, {",
+              "    response: pm.response.json()",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "0a53ba98-ae0a-4e0b-b273-24277e29ebba",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "oauth2",
+          "oauth2": [
+            {
+              "key": "addTokenTo",
+              "value": "header",
+              "type": "string"
+            },
+            {
+              "key": "accessToken",
+              "value": "6h2mqk8o48v0qfdxw8zf77x1bsy0hb",
+              "type": "string"
+            },
+            {
+              "key": "callBackUrl",
+              "type": "any"
+            },
+            {
+              "key": "authUrl",
+              "type": "any"
+            },
+            {
+              "key": "accessTokenUrl",
+              "type": "any"
+            },
+            {
+              "key": "clientId",
+              "type": "any"
+            },
+            {
+              "key": "clientSecret",
+              "type": "any"
+            },
+            {
+              "key": "clientAuth",
+              "type": "any"
+            },
+            {
+              "key": "grantType",
+              "type": "any"
+            },
+            {
+              "key": "scope",
+              "type": "any"
+            },
+            {
+              "key": "username",
+              "type": "any"
+            },
+            {
+              "key": "password",
+              "type": "any"
+            },
+            {
+              "key": "tokenType",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "key": "redirectUri",
+              "type": "any"
+            },
+            {
+              "key": "refreshToken",
+              "type": "any"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{X-Auth-Client}}",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{X-Auth-Token}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/customers",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "customers"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2020-03-17T17:13:56.000Z",
+      "updatedAt": "2020-03-17T17:14:14.000Z",
+      "uid": "45334-0a53ba98-ae0a-4e0b-b273-24277e29ebba"
+    },
+    {
+      "name": "Retrieve all orders - Table View",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "abd52fe1-4ce6-4c6f-890f-45539b151a2f",
+            "exec": [
+              "// ",
+              "// BigCommerce Postman - Template Structure (Orders)",
+              "//",
+              "",
+              "const template = `",
+              "    //Template style",
+              "    <style type=\"text/css\">",
+              "        .table-lg {font-size:14px; color:#333333; width:100%; border-width: 1px; border-color: #4e34c6; border-collapse: collapse;}",
+              "        .table-lg th {font-size:18px; color: #fff; background-color:#4e34c6; border-width: 1px; padding: 8px; border-style: solid; border-color: #4e34c6; text-align:left;}",
+              "        .table-lg tr {background-color: #ffffff;}",
+              "        .table-lg td {font-size:14px; border-width: 1px; padding: 8px; border-style: solid; border-color: #4e34c6;}",
+              "        .table-lg tr:hover {background-color:#f4f7f9;}",
+              "    </style>",
+              "    ",
+              "    // HTML assets and structure",
+              "    <table class=\"table-lg\" bgcolor=\"#FFFFFF\" border=\"1\">",
+              "        <tr>",
+              "            <th>Order No.</th>",
+              "            <th>Customer</th>",
+              "            <th>Date Created</th>",
+              "            <th>Status</th>",
+              "            <th>Total (Ex-Tax)</th>",
+              "        </tr>",
+              "        ",
+              "        // Handlebar helper ",
+              "        {{#each response}}",
+              "            <tr>",
+              "                <td>{{id}}</td>",
+              "                <td>{{customer_id}}</td>",
+              "                <td>{{date_created}}</td>",
+              "                <td>{{status}}</td>",
+              "                <td>{{total_ex_tax}}</td>",
+              "            </tr>",
+              "        {{/each}}",
+              "    </table>",
+              "`;",
+              "",
+              "// Template setup for visualizer ",
+              "pm.visualizer.set(template, {",
+              "    response: pm.response.json()",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "2830d5a0-5803-4e32-a5cc-e1cc59ac7215",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v2/orders",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v2",
+            "orders"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2020-03-17T17:13:56.000Z",
+      "updatedAt": "2020-03-17T17:15:34.000Z",
+      "uid": "45334-2830d5a0-5803-4e32-a5cc-e1cc59ac7215"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "f645a01d-7a94-424c-b415-cc0c7e7b421e",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "42cf3a99-8dc8-4802-8324-2f1166205e70",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
+}

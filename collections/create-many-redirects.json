@@ -1,0 +1,145 @@
+{
+  "info": {
+    "_postman_id": "8fb574b8-c021-4d36-b0de-7a0a7fd02d70",
+    "name": "Create Many Redirects",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2021-06-08T15:54:24.000Z",
+    "updatedAt": "2021-06-08T16:03:23.000Z",
+    "lastUpdatedBy": "45334",
+    "uid": "45334-8fb574b8-c021-4d36-b0de-7a0a7fd02d70"
+  },
+  "item": [
+    {
+      "name": "Create Redirects from Collection Variable",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "514046be-7027-4308-9f4c-2272e8dfbb84",
+            "exec": [
+              "const iterator = parseInt(pm.collectionVariables.get('iterator'))",
+              "const redirects = []",
+              "for (let i = 0; i < 10; i++) {",
+              "    redirects.push({",
+              "       from_path: `/redirectme-${iterator+i}`,",
+              "       site_id: 1000,",
+              "       to: {",
+              "           type: \"url\",",
+              "           url: `/new-page-${iterator+i}`",
+              "       } ",
+              "    })",
+              "}",
+              "",
+              "pm.collectionVariables.set('redirects-json', JSON.stringify(redirects))",
+              "pm.collectionVariables.set('iterator', iterator+10)"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "c9f62512-fd87-4efc-b480-3bd1dd453f48",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "744aa1b9-8a30-495b-9c14-361f9ac80cd6",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{{redirects-json}}"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/storefront/redirects?limit=250",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "storefront",
+            "redirects"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "250"
+            }
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2021-06-08T15:54:54.000Z",
+      "updatedAt": "2021-06-08T17:06:07.000Z",
+      "uid": "45334-744aa1b9-8a30-495b-9c14-361f9ac80cd6"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "99feb5e9-356d-4d85-8099-f546e6885dc6",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "608c778d-77fe-4d8b-818f-a32569905d9d",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "iterator",
+      "value": "0"
+    },
+    {
+      "key": "redirects-json",
+      "value": "[{\"from_path\": \"/redirectme-a\", \"site_id\": 1000, \"to\": {\"type\": \"url\", \"url\": \"/new-page/\"}}]"
+    }
+  ]
+}

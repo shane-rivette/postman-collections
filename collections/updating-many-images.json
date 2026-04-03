@@ -1,0 +1,94 @@
+{
+  "info": {
+    "_postman_id": "8f86d480-ecd5-43be-86fd-3ab879095c01",
+    "name": "Updating Many Images",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2021-07-07T19:27:16.000Z",
+    "updatedAt": "2021-07-07T19:27:28.000Z",
+    "lastUpdatedBy": "45334",
+    "uid": "45334-8f86d480-ecd5-43be-86fd-3ab879095c01"
+  },
+  "item": [
+    {
+      "name": "Update 2x images on 10x products",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "bd8dcf95-9587-4310-a4d3-c18c726851c5",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response includes 10x products\", function () {",
+              "    var json = pm.response.json();",
+              "    pm.expect(json.data).to.have.lengthOf(10);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "618d9d6b-49ce-47a2-bfcf-594d5e811720",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}",
+            "type": "text"
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n    {\n        \"id\": 2105,\n        \"images\": [\n            {\n                \"id\": 411,\n                \"product_id\": 2105,\n                \"image_url\": \"https://via.placeholder.com/1280x1280\"\n            },\n            {\n                \"id\": 421,\n                \"product_id\": 2105,\n                \"image_url\": \"https://via.placeholder.com/1280x1280\"\n            }\n        ]\n    },\n    {\n        \"id\": 2106,\n        \"images\": [\n            {\n                \"id\": 412,\n                \"product_id\": 2106,\n                \"image_url\": \"https://via.placeholder.com/1280x1280\"\n            },\n            {\n                \"id\": 422,\n                \"product_id\": 2106,\n                \"image_url\": \"https://via.placeholder.com/1280x1280\"\n            }\n        ]\n    },\n    {\n        \"id\": 2107,\n        \"images\": [\n            {\n                \"id\": 413,\n                \"product_id\": 2107,\n                \"image_url\": \"https://via.placeholder.com/1280x1280\"\n            },\n            {\n                \"id\": 423,\n                \"product_id\": 2107,\n                \"image_url\": \"https://via.placeholder.com/1280x1280\"\n            }\n        ]\n    },\n    {\n        \"id\": 2108,\n        \"images\": [\n            {\n                \"id\": 414,\n                \"product_id\": 2108,\n                \"image_url\": \"https://via.placeholder.com/1280x1280\"\n            },\n            {\n                \"id\": 424,\n                \"product_id\": 2108,\n                \"image_url\": \"https://via.placeholder.com/1280x1280\"\n            }\n        ]\n    },\n    {\n        \"id\": 2109,\n        \"images\": [\n            {\n                \"id\": 415,\n                \"product_id\": 2109,\n                \"image_url\": \"https://via.placeholder.com/1280x1280\"\n            },\n            {\n                \"id\": 425,\n                \"product_id\": 2109,\n                \"image_url\": \"https://via.placeholder.com/1280x1280\"\n            }\n        ]\n    },\n    {\n        \"id\": 2110,\n        \"images\": [\n            {\n                \"id\": 416,\n                \"product_id\": 2110,\n                \"image_url\": \"https://via.placeholder.com/1280x1280\"\n            },\n            {\n                \"id\": 426,\n                \"product_id\": 2110,\n                \"image_url\": \"https://via.placeholder.com/1280x1280\"\n            }\n        ]\n    },\n    {\n        \"id\": 2111,\n        \"images\": [\n            {\n                \"id\": 417,\n                \"product_id\": 2111,\n                \"image_url\": \"https://via.placeholder.com/1280x1280\"\n            },\n            {\n                \"id\": 427,\n                \"product_id\": 2111,\n                \"image_url\": \"https://via.placeholder.com/1280x1280\"\n            }\n        ]\n    },\n    {\n        \"id\": 2112,\n        \"images\": [\n            {\n                \"id\": 418,\n                \"product_id\": 2112,\n                \"image_url\": \"https://via.placeholder.com/1280x1280\"\n            },\n            {\n                \"id\": 428,\n                \"product_id\": 2112,\n                \"image_url\": \"https://via.placeholder.com/1280x1280\"\n            }\n        ]\n    },\n    {\n        \"id\": 2113,\n        \"images\": [\n            {\n                \"id\": 419,\n                \"product_id\": 2113,\n                \"image_url\": \"https://via.placeholder.com/1280x1280\"\n            },\n            {\n                \"id\": 429,\n                \"product_id\": 2113,\n                \"image_url\": \"https://via.placeholder.com/1280x1280\"\n            }\n        ]\n    },\n    {\n        \"id\": 2114,\n        \"images\": [\n            {\n                \"id\": 420,\n                \"product_id\": 2114,\n                \"image_url\": \"https://via.placeholder.com/1280x1280\"\n            },\n            {\n                \"id\": 430,\n                \"product_id\": 2114,\n                \"image_url\": \"https://via.placeholder.com/1280x1280\"\n            }\n        ]\n    }\n]\n"
+        },
+        "url": {
+          "raw": "https://api.bigcommerce.com/stores/{{store-hash}}/v3/catalog/products?include=images",
+          "protocol": "https",
+          "host": [
+            "api",
+            "bigcommerce",
+            "com"
+          ],
+          "path": [
+            "stores",
+            "{{store-hash}}",
+            "v3",
+            "catalog",
+            "products"
+          ],
+          "query": [
+            {
+              "key": "include",
+              "value": "images"
+            }
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2021-07-07T19:27:28.000Z",
+      "updatedAt": "2021-07-07T19:47:23.000Z",
+      "uid": "45334-618d9d6b-49ce-47a2-bfcf-594d5e811720"
+    }
+  ]
+}

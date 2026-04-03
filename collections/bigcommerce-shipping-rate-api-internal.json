@@ -1,0 +1,295 @@
+{
+  "info": {
+    "_postman_id": "e4101bbd-2110-4300-a81f-b0d651307d93",
+    "name": "BigCommerce Shipping Rate API [INTERNAL]",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2019-06-19T21:48:18.000Z",
+    "updatedAt": "2021-12-14T19:21:32.000Z",
+    "lastUpdatedBy": "45334",
+    "uid": "45334-e4101bbd-2110-4300-a81f-b0d651307d93"
+  },
+  "item": [
+    {
+      "name": "Register Carrier with Ngrok",
+      "id": "46b95388-0ea9-4541-a7c7-d20fc813ed5a",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "{{legacy-password}}",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "{{legacy-username}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"carrier\": {\n        \"name\": \"Mock Carrier\",\n        \"description\": \"Mock service for testing carrier service API\",\n        \"is_public\": false,\n        \"app_id\": {{app-id}},\n        \"logo_path\": \"/not-a-logo.png\"\n    },\n    \"config\": {\n        \"quote_url\": \"{{ngrok}}/rate-request\",\n        \"zones_enabled\": true,\n        \"supported_origin_countries\": [],\n        \"multi_carrier_support\": false,\n        \"settings_schema\": {\n            \"connection\": {\n                \"fields\": [\n\n                ]\n            }\n        }\n    },\n    \"publish\": true\n}"
+        },
+        "url": {
+          "raw": "https://{{domain}}/api/v2/shipping/carrier/config",
+          "protocol": "https",
+          "host": [
+            "{{domain}}"
+          ],
+          "path": [
+            "api",
+            "v2",
+            "shipping",
+            "carrier",
+            "config"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2019-06-19T21:48:18.000Z",
+      "updatedAt": "2019-07-17T16:57:31.000Z",
+      "uid": "45334-46b95388-0ea9-4541-a7c7-d20fc813ed5a"
+    },
+    {
+      "name": "Remove a Carrier from a Store",
+      "id": "1802d05a-38d3-4fe3-b519-6d4682ab4291",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "{{legacy-password}}",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "{{legacy-username}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "https://{{domain}}/api/v2/shipping/carrier/{{carrier-id}}/scope",
+          "protocol": "https",
+          "host": [
+            "{{domain}}"
+          ],
+          "path": [
+            "api",
+            "v2",
+            "shipping",
+            "carrier",
+            "{{carrier-id}}",
+            "scope"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2019-06-19T21:48:18.000Z",
+      "updatedAt": "2019-07-19T15:25:38.000Z",
+      "uid": "45334-1802d05a-38d3-4fe3-b519-6d4682ab4291"
+    },
+    {
+      "name": "register carrier with fields",
+      "id": "9106eeeb-d0f9-4cbb-906e-7a654257f329",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "{{legacy-password}}",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "{{legacy-username}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"carrier\": {\n        \"name\": \"My Demo Carrier\",\n        \"description\": \"Patrick's demo carrier service\",\n        \"is_public\": false,\n        \"app_id\": 19733,\n        \"logo_path\": \"https://s3.amazonaws.com/integrated-apps/keybulcz/twidmnvc.png\"\n    },\n    \"config\": {\n        \"quote_url\": \"https://vro39yskeg.execute-api.us-east-1.amazonaws.com/prodcs/rates\",\n        \"zones_enabled\": true,\n        \"supported_origin_countries\": [],\n        \"multi_carrier_support\": false,\n        \"settings_schema\": {\n            \"connection\": {\n                \"fields\": [\n                    {\n                        \"code\": \"api_key\",\n                        \"label\": \"API Key\",\n                        \"type\": \"password\",\n                        \"description\": \"API Key\",\n                        \"required\": true,\n                        \"default\": [],\n                        \"map\": []\n                    },\n                    {\n                    \t\"code\": \"expedited\",\n                    \t\"label\": \"Enable Expedited Shipping?\",\n                    \t\"type\": \"checkbox\",\n                    \t\"description\": \"Setting to enable expedited shipping\",\n                    \t\"required\": false,\n                    \t\"default\": [],\n                    \t\"map\": []\n                    }\n                ]\n            }\n        }\n    },\n    \"publish\": true\n}"
+        },
+        "url": {
+          "raw": "https://{{domain}}/api/v2/shipping/carrier/config",
+          "protocol": "https",
+          "host": [
+            "{{domain}}"
+          ],
+          "path": [
+            "api",
+            "v2",
+            "shipping",
+            "carrier",
+            "config"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2019-06-19T21:48:18.000Z",
+      "updatedAt": "2019-09-25T17:45:34.000Z",
+      "uid": "45334-9106eeeb-d0f9-4cbb-906e-7a654257f329"
+    },
+    {
+      "name": "Reactivate Carrier on a Store",
+      "id": "1dcb895a-af83-4a86-991b-42346a6ade98",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "{{legacy-password}}",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "{{legacy-username}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Auth-Client",
+            "value": "{{client-id}}",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "X-Auth-Token",
+            "value": "{{token}}",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "https://{{domain}}/api/v2/shipping/carrier/{{carrier-id}}/scope",
+          "protocol": "https",
+          "host": [
+            "{{domain}}"
+          ],
+          "path": [
+            "api",
+            "v2",
+            "shipping",
+            "carrier",
+            "{{carrier-id}}",
+            "scope"
+          ]
+        }
+      },
+      "response": [],
+      "createdAt": "2019-07-22T15:09:32.000Z",
+      "updatedAt": "2019-07-22T15:09:32.000Z",
+      "uid": "45334-1dcb895a-af83-4a86-991b-42346a6ade98"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "password",
+        "value": "{{legacy-password}}",
+        "type": "string"
+      },
+      {
+        "key": "username",
+        "value": "{{legacy-username}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "9a235a45-77e8-4d43-bcc9-b983d9fc94c6",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "a00e4559-5df9-4b45-8a78-c938c1880b41",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "legacy-username",
+      "value": "<LEGACY_API_UN>"
+    },
+    {
+      "key": "legacy-password",
+      "value": "<LEGACY_API_PW>"
+    }
+  ]
+}
