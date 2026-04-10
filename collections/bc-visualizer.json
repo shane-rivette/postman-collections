@@ -77,7 +77,7 @@
             },
             {
               "key": "accessToken",
-              "value": "6h2mqk8o48v0qfdxw8zf77x1bsy0hb",
+              "value": "{{access-token}}",
               "type": "string"
             },
             {

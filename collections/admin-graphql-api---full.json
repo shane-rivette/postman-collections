@@ -1011,7 +1011,7 @@
           },
           {
             "key": "X-Auth-Token",
-            "value": "nl3d41vx53xkod6imb2muvbw3oqlpig",
+            "value": "{{X-Auth-Token}}",
             "type": "text"
           }
         ],
@@ -1104,7 +1104,7 @@
           },
           {
             "key": "X-Auth-Token",
-            "value": "nl3d41vx53xkod6imb2muvbw3oqlpig",
+            "value": "{{X-Auth-Token}}",
             "type": "text"
           }
         ],
@@ -1156,7 +1156,7 @@
           },
           {
             "key": "X-Auth-Token",
-            "value": "nl3d41vx53xkod6imb2muvbw3oqlpig",
+            "value": "{{X-Auth-Token}}",
             "type": "text"
           }
         ],
@@ -1262,7 +1262,7 @@
           },
           {
             "key": "X-Auth-Token",
-            "value": "nl3d41vx53xkod6imb2muvbw3oqlpig",
+            "value": "{{X-Auth-Token}}",
             "type": "text"
           }
         ],

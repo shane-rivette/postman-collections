@@ -63,7 +63,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"id\": \"A0000001\",\n  \"name\": \"The Austin Partner Group, LLC\",\n  \"user_email\": \"ceo@theaustinpartnergroupcommallc.com\",\n  \"primary_contact\": {\n    \"first_name\": \"Erik\",\n    \"last_name\": \"Lehnsherr\",\n    \"email\": \"ceo@theaustinpartnergroupcommallc.com\",\n    \"address_line_1\": \"211 E 7th St\",\n    \"district\": \"TX\",\n    \"city\": \"Austin\",\n    \"postal_code\": \"78701\",\n    \"country\": \"US\",\n    \"phone_number\": \"512-947-5872\"\n  }\n}"
+              "raw": "{\n  \"id\": \"A0000001\",\n  \"name\": \"The Austin Partner Group, LLC\",\n  \"user_email\": \"user@example.com\",\n  \"primary_contact\": {\n    \"first_name\": \"Erik\",\n    \"last_name\": \"Lehnsherr\",\n    \"email\": \"user@example.com\",\n    \"address_line_1\": \"211 E 7th St\",\n    \"district\": \"TX\",\n    \"city\": \"Austin\",\n    \"postal_code\": \"78701\",\n    \"country\": \"US\",\n    \"phone_number\": \"512-947-5872\"\n  }\n}"
             },
             "url": {
               "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/accounts",
@@ -105,7 +105,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"id\": \"S0000001\",\n  \"name\": \"Gummy Bears, LTD\",\n  \"user_email\": \"ceogummybears@bigcommerce.com\",\n  \"primary_contact\": {\n    \"first_name\": \"Randy\",\n    \"last_name\": \"Stepherson\",\n    \"email\": \"randy.stepherson@bigcommerce.com\",\n    \"address_line_1\": \"211 E 7th St\",\n    \"district\": \"TX\",\n    \"city\": \"Austin\",\n    \"postal_code\": \"78701\",\n    \"country\": \"US\",\n    \"phone_number\": \"512-947-5872\"\n  }\n}"
+                  "raw": "{\n  \"id\": \"S0000001\",\n  \"name\": \"Gummy Bears, LTD\",\n  \"user_email\": \"user@example.com\",\n  \"primary_contact\": {\n    \"first_name\": \"Randy\",\n    \"last_name\": \"Stepherson\",\n    \"email\": \"user@example.com\",\n    \"address_line_1\": \"211 E 7th St\",\n    \"district\": \"TX\",\n    \"city\": \"Austin\",\n    \"postal_code\": \"78701\",\n    \"country\": \"US\",\n    \"phone_number\": \"512-947-5872\"\n  }\n}"
                 },
                 "url": {
                   "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/accounts",
@@ -131,7 +131,7 @@
                 },
                 {
                   "key": "bc-auth-client",
-                  "value": "8ngkdp608y0fklmkf7217zchuucx291"
+                  "value": "{{bc-auth-client}}"
                 },
                 {
                   "key": "Content-Encoding",
@@ -213,7 +213,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"id\": \"A0000001\",\n  \"name\": \"The Austin Partner Group, LLC\",\n  \"user_email\": \"ceo@theaustinpartnergroupcommallc.com\",\n  \"password\": \"UTr!d30rd13\",\n  \"primary_contact\": {\n    \"first_name\": \"Erik\",\n    \"last_name\": \"Lehnsherr\",\n    \"email\": \"ceo@theaustinpartnergroupcommallc.com\",\n    \"address_line_1\": \"211 E 7th St\",\n    \"district\": \"TX\",\n    \"city\": \"Austin\",\n    \"postal_code\": \"78701\",\n    \"country\": \"US\",\n    \"phone_number\": \"512-947-5872\"\n  }\n}"
+              "raw": "{\n  \"id\": \"A0000001\",\n  \"name\": \"The Austin Partner Group, LLC\",\n  \"user_email\": \"user@example.com\",\n  \"password\": \"UTr!d30rd13\",\n  \"primary_contact\": {\n    \"first_name\": \"Erik\",\n    \"last_name\": \"Lehnsherr\",\n    \"email\": \"user@example.com\",\n    \"address_line_1\": \"211 E 7th St\",\n    \"district\": \"TX\",\n    \"city\": \"Austin\",\n    \"postal_code\": \"78701\",\n    \"country\": \"US\",\n    \"phone_number\": \"512-947-5872\"\n  }\n}"
             },
             "url": {
               "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/accounts/with-password",
@@ -256,7 +256,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"id\": \"A0000001\",\n  \"name\": \"The Austin Partner Group, LLC\",\n  \"user_email\": \"ceo@theaustinpartnergroupcommallc.com\",\n  \"password\": \"UTr!d30rd13\",\n  \"primary_contact\": {\n    \"first_name\": \"Erik\",\n    \"last_name\": \"Lehnsherr\",\n    \"email\": \"ceo@theaustinpartnergroupcommallc.com\",\n    \"address_line_1\": \"211 E 7th St\",\n    \"district\": \"TX\",\n    \"city\": \"Austin\",\n    \"postal_code\": \"78701\",\n    \"country\": \"US\",\n    \"phone_number\": \"512-947-5872\"\n  }\n}"
+                  "raw": "{\n  \"id\": \"A0000001\",\n  \"name\": \"The Austin Partner Group, LLC\",\n  \"user_email\": \"user@example.com\",\n  \"password\": \"UTr!d30rd13\",\n  \"primary_contact\": {\n    \"first_name\": \"Erik\",\n    \"last_name\": \"Lehnsherr\",\n    \"email\": \"user@example.com\",\n    \"address_line_1\": \"211 E 7th St\",\n    \"district\": \"TX\",\n    \"city\": \"Austin\",\n    \"postal_code\": \"78701\",\n    \"country\": \"US\",\n    \"phone_number\": \"512-947-5872\"\n  }\n}"
                 },
                 "url": {
                   "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/accounts/with-password",
@@ -338,7 +338,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"id\": \"A0000099\",\n  \"name\": \"The Austin Partner Group, LLC\",\n  \"user_email\": \"ceo@theaustinpartnergroupcommallc.com\",\n  \"password\": \"UTr!d30rd13\",\n  \"primary_contact\": {\n    \"first_name\": \"Erik\",\n    \"last_name\": \"Lehnsherr\",\n    \"email\": \"ceo@theaustinpartnergroupcommallc.com\",\n    \"address_line_1\": \"211 E 7th St\",\n    \"district\": \"TX\",\n    \"city\": \"Austin\",\n    \"postal_code\": \"78701\",\n    \"country\": \"US\",\n    \"phone_number\": \"512-947-5872\"\n  }\n}"
+                  "raw": "{\n  \"id\": \"A0000099\",\n  \"name\": \"The Austin Partner Group, LLC\",\n  \"user_email\": \"user@example.com\",\n  \"password\": \"UTr!d30rd13\",\n  \"primary_contact\": {\n    \"first_name\": \"Erik\",\n    \"last_name\": \"Lehnsherr\",\n    \"email\": \"user@example.com\",\n    \"address_line_1\": \"211 E 7th St\",\n    \"district\": \"TX\",\n    \"city\": \"Austin\",\n    \"postal_code\": \"78701\",\n    \"country\": \"US\",\n    \"phone_number\": \"512-947-5872\"\n  }\n}"
                 },
                 "url": {
                   "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/accounts/with-password",
@@ -552,7 +552,7 @@
               }
             ],
             "url": {
-              "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v0/accounts/exists-with-email?email_address=ceo@theaustinpartnergroupcommallc.com",
+              "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v0/accounts/exists-with-email?email_address=user@example.com",
               "protocol": "https",
               "host": [
                 "{{environment}}"
@@ -567,7 +567,7 @@
               "query": [
                 {
                   "key": "email_address",
-                  "value": "ceo@theaustinpartnergroupcommallc.com"
+                  "value": "user@example.com"
                 }
               ]
             }
@@ -597,7 +597,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v0/accounts/exists-with-email?email_address=ceo@theaustinpartnergroupcommallc.com",
+                  "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v0/accounts/exists-with-email?email_address=user@example.com",
                   "protocol": "https",
                   "host": [
                     "{{environment}}"
@@ -612,7 +612,7 @@
                   "query": [
                     {
                       "key": "email_address",
-                      "value": "ceo@theaustinpartnergroupcommallc.com"
+                      "value": "user@example.com"
                     }
                   ]
                 }
@@ -1440,7 +1440,7 @@
                 },
                 {
                   "key": "bc-auth-client",
-                  "value": "8ngkdp608y0fklmkf7217zchuucx291"
+                  "value": "{{bc-auth-client}}"
                 },
                 {
                   "key": "Content-Encoding",
@@ -1519,7 +1519,7 @@
                 },
                 {
                   "key": "bc-auth-client",
-                  "value": "8ngkdp608y0fklmkf7217zchuucx291"
+                  "value": "{{bc-auth-client}}"
                 },
                 {
                   "key": "Content-Encoding",
@@ -1640,7 +1640,7 @@
                 },
                 {
                   "key": "bc-auth-client",
-                  "value": "8ngkdp608y0fklmkf7217zchuucx291"
+                  "value": "{{bc-auth-client}}"
                 },
                 {
                   "key": "Content-Encoding",
@@ -1714,7 +1714,7 @@
                 },
                 {
                   "key": "bc-auth-client",
-                  "value": "8ngkdp608y0fklmkf7217zchuucx291"
+                  "value": "{{bc-auth-client}}"
                 },
                 {
                   "key": "Content-Encoding",
@@ -2276,7 +2276,7 @@
                 },
                 {
                   "key": "bc-auth-client",
-                  "value": "8ngkdp608y0fklmkf7217zchuucx291"
+                  "value": "{{bc-auth-client}}"
                 },
                 {
                   "key": "Content-Encoding",
@@ -2820,7 +2820,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"user_email\": \"shane.rivette+15@bigcommerce.com\"\n}"
+              "raw": "{\n    \"user_email\": \"user@example.com\"\n}"
             },
             "url": {
               "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/stores/{{store_id}}/login-url",
@@ -2903,7 +2903,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"user_email\": \"patrick.puente+powered-by@bigcommerce.com\"\n}"
+              "raw": "{\n    \"user_email\": \"user@example.com\"\n}"
             },
             "url": {
               "raw": "https://{{environment}}/franchises/{{franchise_uuid}}/v1/stores/{{store_id}}/login-url",

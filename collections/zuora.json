@@ -66,12 +66,12 @@
                   },
                   {
                     "key": "apiAccessKeyId",
-                    "value": "eng-services+devenv@bigcommerce.com",
+                    "value": "{{zuora-api-access-key-id}}",
                     "type": "text"
                   },
                   {
                     "key": "apiSecretAccessKey",
-                    "value": "8P761MLh1C67ug7IyutF",
+                    "value": "{{zuora-api-secret-key}}",
                     "type": "text"
                   }
                 ],
@@ -146,7 +146,7 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "{\n    \"basicInfo\": {\n        \"id\": \"2c92c0f97ab2243c017ab750506f670e\",\n        \"name\": \"testcoW5AG0Xe5QW20210718015157zzj27\",\n        \"accountNumber\": \"769464b3-e825-4fb5-9861-edaed4e39ecc\",\n        \"notes\": null,\n        \"status\": \"Active\",\n        \"crmId\": null,\n        \"batch\": \"Batch1\",\n        \"invoiceTemplateId\": \"2c92c0f84a70a9ab014a730ed45a11f0\",\n        \"communicationProfileId\": \"2c92c0f84a70a9ab014a730ecf4e115e\",\n        \"FranchiseCode__c\": \"BigCommerce\",\n        \"ShipFrom__c\": null,\n        \"PromoProduct__c\": null,\n        \"MVP_Account__c\": \"false\",\n        \"AccountLevelBilling__c\": \"FALSE\",\n        \"EAM_Service_Tier__c\": null,\n        \"CollectionsAgent__c\": null,\n        \"MerchantPONumber__c\": null,\n        \"AccountExternalRefID__c\": \"769464b3-e825-4fb5-9861-edaed4e39ecc\",\n        \"InCollections__c\": null,\n        \"UKVATID__c\": null,\n        \"MessageSentDueDay__c\": null,\n        \"PromoEndDate__c\": null,\n        \"MessageSentInvoice__c\": null,\n        \"BCJurisdiction__c\": null,\n        \"RetryStatus__c\": null,\n        \"salesRep\": null,\n        \"parentId\": null,\n        \"sequenceSetId\": null\n    },\n    \"billingAndPayment\": {\n        \"billCycleDay\": 17,\n        \"currency\": \"USD\",\n        \"paymentTerm\": \"Due Upon Receipt\",\n        \"paymentGateway\": null,\n        \"invoiceDeliveryPrefsPrint\": false,\n        \"invoiceDeliveryPrefsEmail\": true,\n        \"additionalEmailAddresses\": []\n    },\n    \"metrics\": {\n        \"balance\": 0,\n        \"totalInvoiceBalance\": 0,\n        \"creditBalance\": 0,\n        \"contractedMrr\": 0\n    },\n    \"billToContact\": {\n        \"address1\": \"123 Congress Ave\",\n        \"address2\": null,\n        \"city\": \"Austin\",\n        \"country\": \"United States\",\n        \"county\": null,\n        \"fax\": null,\n        \"firstName\": \"sit first9JABuh\",\n        \"homePhone\": \"+1 512-555-1212\",\n        \"lastName\": \"sit lasthAzcyd\",\n        \"mobilePhone\": null,\n        \"nickname\": null,\n        \"otherPhone\": null,\n        \"otherPhoneType\": null,\n        \"personalEmail\": \"omnichannelqe+test20210718015157zzj27@bigcommerce.com\",\n        \"state\": \"Texas\",\n        \"taxRegion\": null,\n        \"workEmail\": \"omnichannelqe+test20210718015157zzj27@bigcommerce.com\",\n        \"workPhone\": \"+1 512-555-1212\",\n        \"zipCode\": \"78701\",\n        \"contactDescription\": \"\"\n    },\n    \"soldToContact\": {\n        \"address1\": \"123 Congress Ave\",\n        \"address2\": null,\n        \"city\": \"Austin\",\n        \"country\": \"United States\",\n        \"county\": null,\n        \"fax\": null,\n        \"firstName\": \"sit first9JABuh\",\n        \"homePhone\": \"+1 512-555-1212\",\n        \"lastName\": \"sit lasthAzcyd\",\n        \"mobilePhone\": null,\n        \"nickname\": null,\n        \"otherPhone\": null,\n        \"otherPhoneType\": null,\n        \"personalEmail\": \"omnichannelqe+test20210718015157zzj27@bigcommerce.com\",\n        \"state\": \"Texas\",\n        \"taxRegion\": null,\n        \"workEmail\": \"omnichannelqe+test20210718015157zzj27@bigcommerce.com\",\n        \"workPhone\": \"+1 512-555-1212\",\n        \"zipCode\": \"78701\",\n        \"contactDescription\": \"\"\n    },\n    \"taxInfo\": {\n        \"exemptStatus\": \"No\",\n        \"exemptCertificateId\": null,\n        \"exemptCertificateType\": null,\n        \"exemptIssuingJurisdiction\": null,\n        \"exemptEffectiveDate\": null,\n        \"exemptExpirationDate\": null,\n        \"exemptDescription\": null,\n        \"exemptEntityUseCode\": null,\n        \"companyCode\": null,\n        \"VATId\": null\n    },\n    \"success\": true\n}",
+              "body": "{\n    \"basicInfo\": {\n        \"id\": \"2c92c0f97ab2243c017ab750506f670e\",\n        \"name\": \"testcoW5AG0Xe5QW20210718015157zzj27\",\n        \"accountNumber\": \"769464b3-e825-4fb5-9861-edaed4e39ecc\",\n        \"notes\": null,\n        \"status\": \"Active\",\n        \"crmId\": null,\n        \"batch\": \"Batch1\",\n        \"invoiceTemplateId\": \"2c92c0f84a70a9ab014a730ed45a11f0\",\n        \"communicationProfileId\": \"2c92c0f84a70a9ab014a730ecf4e115e\",\n        \"FranchiseCode__c\": \"BigCommerce\",\n        \"ShipFrom__c\": null,\n        \"PromoProduct__c\": null,\n        \"MVP_Account__c\": \"false\",\n        \"AccountLevelBilling__c\": \"FALSE\",\n        \"EAM_Service_Tier__c\": null,\n        \"CollectionsAgent__c\": null,\n        \"MerchantPONumber__c\": null,\n        \"AccountExternalRefID__c\": \"769464b3-e825-4fb5-9861-edaed4e39ecc\",\n        \"InCollections__c\": null,\n        \"UKVATID__c\": null,\n        \"MessageSentDueDay__c\": null,\n        \"PromoEndDate__c\": null,\n        \"MessageSentInvoice__c\": null,\n        \"BCJurisdiction__c\": null,\n        \"RetryStatus__c\": null,\n        \"salesRep\": null,\n        \"parentId\": null,\n        \"sequenceSetId\": null\n    },\n    \"billingAndPayment\": {\n        \"billCycleDay\": 17,\n        \"currency\": \"USD\",\n        \"paymentTerm\": \"Due Upon Receipt\",\n        \"paymentGateway\": null,\n        \"invoiceDeliveryPrefsPrint\": false,\n        \"invoiceDeliveryPrefsEmail\": true,\n        \"additionalEmailAddresses\": []\n    },\n    \"metrics\": {\n        \"balance\": 0,\n        \"totalInvoiceBalance\": 0,\n        \"creditBalance\": 0,\n        \"contractedMrr\": 0\n    },\n    \"billToContact\": {\n        \"address1\": \"123 Congress Ave\",\n        \"address2\": null,\n        \"city\": \"Austin\",\n        \"country\": \"United States\",\n        \"county\": null,\n        \"fax\": null,\n        \"firstName\": \"sit first9JABuh\",\n        \"homePhone\": \"+1 512-555-1212\",\n        \"lastName\": \"sit lasthAzcyd\",\n        \"mobilePhone\": null,\n        \"nickname\": null,\n        \"otherPhone\": null,\n        \"otherPhoneType\": null,\n        \"personalEmail\": \"user@example.com\",\n        \"state\": \"Texas\",\n        \"taxRegion\": null,\n        \"workEmail\": \"user@example.com\",\n        \"workPhone\": \"+1 512-555-1212\",\n        \"zipCode\": \"78701\",\n        \"contactDescription\": \"\"\n    },\n    \"soldToContact\": {\n        \"address1\": \"123 Congress Ave\",\n        \"address2\": null,\n        \"city\": \"Austin\",\n        \"country\": \"United States\",\n        \"county\": null,\n        \"fax\": null,\n        \"firstName\": \"sit first9JABuh\",\n        \"homePhone\": \"+1 512-555-1212\",\n        \"lastName\": \"sit lasthAzcyd\",\n        \"mobilePhone\": null,\n        \"nickname\": null,\n        \"otherPhone\": null,\n        \"otherPhoneType\": null,\n        \"personalEmail\": \"user@example.com\",\n        \"state\": \"Texas\",\n        \"taxRegion\": null,\n        \"workEmail\": \"user@example.com\",\n        \"workPhone\": \"+1 512-555-1212\",\n        \"zipCode\": \"78701\",\n        \"contactDescription\": \"\"\n    },\n    \"taxInfo\": {\n        \"exemptStatus\": \"No\",\n        \"exemptCertificateId\": null,\n        \"exemptCertificateType\": null,\n        \"exemptIssuingJurisdiction\": null,\n        \"exemptEffectiveDate\": null,\n        \"exemptExpirationDate\": null,\n        \"exemptDescription\": null,\n        \"exemptEntityUseCode\": null,\n        \"companyCode\": null,\n        \"VATId\": null\n    },\n    \"success\": true\n}",
               "createdAt": "2022-02-28T16:32:20.000Z",
               "updatedAt": "2022-02-28T16:32:20.000Z",
               "uid": "2104987-1ced2097-1f01-4d24-a69a-d1cc91c21d4e"
@@ -164,12 +164,12 @@
                   },
                   {
                     "key": "apiAccessKeyId",
-                    "value": "eng-services+devenv@bigcommerce.com",
+                    "value": "{{zuora-api-access-key-id}}",
                     "type": "text"
                   },
                   {
                     "key": "apiSecretAccessKey",
-                    "value": "8P761MLh1C67ug7IyutF",
+                    "value": "{{zuora-api-secret-key}}",
                     "type": "text"
                   }
                 ],
@@ -321,12 +321,12 @@
                   },
                   {
                     "key": "apiAccessKeyId",
-                    "value": "eng-services+devenv@bigcommerce.com",
+                    "value": "{{zuora-api-access-key-id}}",
                     "type": "text"
                   },
                   {
                     "key": "apiSecretAccessKey",
-                    "value": "8P761MLh1C67ug7IyutF",
+                    "value": "{{zuora-api-secret-key}}",
                     "type": "text"
                   }
                 ],
@@ -423,12 +423,12 @@
                   },
                   {
                     "key": "apiAccessKeyId",
-                    "value": "eng-services+devenv@bigcommerce.com",
+                    "value": "{{zuora-api-access-key-id}}",
                     "type": "text"
                   },
                   {
                     "key": "apiSecretAccessKey",
-                    "value": "8P761MLh1C67ug7IyutF",
+                    "value": "{{zuora-api-secret-key}}",
                     "type": "text"
                   }
                 ],
@@ -538,7 +538,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "6d151216ef504f65b8ff6e9e9e8356d3",
+                  "value": "{{zuora-bearer-token}}",
                   "type": "string"
                 }
               ]
@@ -552,12 +552,12 @@
               },
               {
                 "key": "apiAccessKeyId",
-                "value": "eng-services+devenv@bigcommerce.com",
+                "value": "{{zuora-api-access-key-id}}",
                 "type": "text"
               },
               {
                 "key": "apiSecretAccessKey",
-                "value": "8P761MLh1C67ug7IyutF",
+                "value": "{{zuora-api-secret-key}}",
                 "type": "text"
               }
             ],
@@ -591,12 +591,12 @@
                   },
                   {
                     "key": "apiAccessKeyId",
-                    "value": "eng-services+devenv@bigcommerce.com",
+                    "value": "{{zuora-api-access-key-id}}",
                     "type": "text"
                   },
                   {
                     "key": "apiSecretAccessKey",
-                    "value": "8P761MLh1C67ug7IyutF",
+                    "value": "{{zuora-api-secret-key}}",
                     "type": "text"
                   }
                 ],
@@ -698,12 +698,12 @@
                   },
                   {
                     "key": "apiAccessKeyId",
-                    "value": "eng-services+devenv@bigcommerce.com",
+                    "value": "{{zuora-api-access-key-id}}",
                     "type": "text"
                   },
                   {
                     "key": "apiSecretAccessKey",
-                    "value": "8P761MLh1C67ug7IyutF",
+                    "value": "{{zuora-api-secret-key}}",
                     "type": "text"
                   }
                 ],
@@ -805,12 +805,12 @@
                   },
                   {
                     "key": "apiAccessKeyId",
-                    "value": "eng-services+devenv@bigcommerce.com",
+                    "value": "{{zuora-api-access-key-id}}",
                     "type": "text"
                   },
                   {
                     "key": "apiSecretAccessKey",
-                    "value": "8P761MLh1C67ug7IyutF",
+                    "value": "{{zuora-api-secret-key}}",
                     "type": "text"
                   }
                 ],

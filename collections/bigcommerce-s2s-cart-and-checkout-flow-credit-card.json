@@ -1379,7 +1379,7 @@
           ],
           "cookie": [],
           "responseTime": null,
-          "body": "{\n    \"data\": {\n        \"id\": \"eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2Mjg4ODQ0MzYsIm5iZiI6MTYyODg4MDgzNiwiaXNzIjoicGF5bWVudHMuYmlnY29tbWVyY2UuY29tIiwic3ViIjoicGd0eHJrMmF4ZyIsImp0aSI6Ijg5MWU2OThlLTI3MTUtNDlhZC05YjA2LWU4Y2U2YWM4MDdmMyIsImlhdCI6MTYyODg4MDgzNiwiZGF0YSI6eyJzdG9yZV9pZCI6IjEwMDE5MjUzNTgiLCJvcmRlcl9pZCI6IjEyNCIsImFtb3VudCI6NDc3NCwiY3VycmVuY3kiOiJVU0QifX0.zg7MKEg0FxvdG2QtjEBgKUVBE0t8bS6YI5kwxcMB2qA\"\n    },\n    \"meta\": {}\n}",
+          "body": "{\n    \"data\": {\n        \"id\": \"{{payment-access-token}}\"\n    },\n    \"meta\": {}\n}",
           "createdAt": "2021-08-13T18:53:59.000Z",
           "updatedAt": "2021-08-13T18:53:59.000Z",
           "uid": "45334-a198c291-6fb6-4a69-bca6-3f3e4e16f7aa"

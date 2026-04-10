@@ -24,7 +24,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJjaWQiOjEzNzM4MjQsImNvcnMiOlsiaHR0cDovL2xvY2FsaG9zdCJdLCJlYXQiOjE3MzU2ODYwMDAsImlhdCI6MTY4MTQ1ODczNCwiaXNzIjoiQkMiLCJzaWQiOjEwMDI0Mzk3NzUsInN1YiI6ImVnaXBiODJyc3FqNm9hYXllODN2am8wdXBqbG9pZTIiLCJzdWJfdHlwZSI6MiwidG9rZW5fdHlwZSI6MX0.27NStZakfeoA3cdB2e6N7A4bxFvMxpG8MBoEUkCvlodtLNWqbNaFStU_bAFp3yHoN3X5rleAWCK2L0Hnf_PmsA",
+                  "value": "{{storefront-jwt-token}}",
                   "type": "string"
                 }
               ]
@@ -33,7 +33,7 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJjaWQiOjEzNzM4MjQsImNvcnMiOlsiaHR0cDovL2xvY2FsaG9zdCJdLCJlYXQiOjE3MzU2ODYwMDAsImlhdCI6MTY4MTQ1ODczNCwiaXNzIjoiQkMiLCJzaWQiOjEwMDI0Mzk3NzUsInN1YiI6ImVnaXBiODJyc3FqNm9hYXllODN2am8wdXBqbG9pZTIiLCJzdWJfdHlwZSI6MiwidG9rZW5fdHlwZSI6MX0.27NStZakfeoA3cdB2e6N7A4bxFvMxpG8MBoEUkCvlodtLNWqbNaFStU_bAFp3yHoN3X5rleAWCK2L0Hnf_PmsA",
+                "value": "Bearer {{storefront-jwt-token}}",
                 "disabled": true
               },
               {
@@ -83,7 +83,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJjaWQiOjEsImNvcnMiOltdLCJlYXQiOjE3MTA5MzQ5NTcsImlhdCI6MTcxMDMzMDE1NywiaXNzIjoiQkMiLCJzaWQiOjEwMDMxMDgyNTUsInN1YiI6IjYzdDJ2b3E3Y3MwOWxoNGNhdHNicG93dnZldm0wcXYiLCJzdWJfdHlwZSI6MiwidG9rZW5fdHlwZSI6Mn0.9Xr3xLt_THARN0Dtjx2Azk-Oq1w9ESPwDVhE9yvdeIwnjiZWHptUfVQ3roS9r6cypQuA1E0mRwKpvWo-5I88bQ",
+                  "value": "{{storefront-jwt-token}}",
                   "type": "string"
                 }
               ]
@@ -92,7 +92,7 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJlYXQiOjE2OTA1NzQ1NDQsInN1Yl90eXBlIjoyLCJ0b2tlbl90eXBlIjoxLCJjb3JzIjpbImdvb2dsZS5jb20iLCJleGFtcGxlLmNvbSJdLCJjaWQiOjYsImlhdCI6MTU2OTYxNDU0NCwic3ViIjoiMXhpN3cyMTQ4cml4aWl5aDNramV1aGR2ZnAzZWVpayIsInNpZCI6OTk5OTU4MDg5LCJpc3MiOiJCQyJ9.XUu4uIfeeu8FDqVH2FLJAoCRZ9fHz5QbWWxMRPvKOybN7iRlYoS-xEiT482_L7ER0uG1x6f6XxOTBaARGIsuPA",
+                "value": "Bearer {{storefront-jwt-token}}",
                 "disabled": true
               },
               {
@@ -141,7 +141,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJjaWQiOjEsImNvcnMiOlsiaHR0cHM6Ly9sb2NhbGhvc3QiXSwiZWF0IjoxNjkzNDA4MjQ1LCJpYXQiOjE2OTI4MDM0NDYsImlzcyI6IkJDIiwic2lkIjoxMDAyNDM5Nzc1LCJzdWIiOiIzMXVjYmR5bzJ3eWZoMTRka3h1OGJyMGR1OHVvN3Z1Iiwic3ViX3R5cGUiOjIsInRva2VuX3R5cGUiOjF9.RV19G5RyREcr-RQiWn2_tzr8plAjpAyD5QNyw67TBJhXpcjxdGAxa0edbmXlOiPSnqnttca9mnEhyGESl7PN6w",
+                  "value": "{{storefront-jwt-token}}",
                   "type": "string"
                 }
               ]
@@ -150,7 +150,7 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJlYXQiOjE2OTA1NzQ1NDQsInN1Yl90eXBlIjoyLCJ0b2tlbl90eXBlIjoxLCJjb3JzIjpbImdvb2dsZS5jb20iLCJleGFtcGxlLmNvbSJdLCJjaWQiOjYsImlhdCI6MTU2OTYxNDU0NCwic3ViIjoiMXhpN3cyMTQ4cml4aWl5aDNramV1aGR2ZnAzZWVpayIsInNpZCI6OTk5OTU4MDg5LCJpc3MiOiJCQyJ9.XUu4uIfeeu8FDqVH2FLJAoCRZ9fHz5QbWWxMRPvKOybN7iRlYoS-xEiT482_L7ER0uG1x6f6XxOTBaARGIsuPA",
+                "value": "Bearer {{storefront-jwt-token}}",
                 "type": "text",
                 "disabled": true
               },
@@ -206,7 +206,7 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJlYXQiOjE2OTA1NzQ1NDQsInN1Yl90eXBlIjoyLCJ0b2tlbl90eXBlIjoxLCJjb3JzIjpbImdvb2dsZS5jb20iLCJleGFtcGxlLmNvbSJdLCJjaWQiOjYsImlhdCI6MTU2OTYxNDU0NCwic3ViIjoiMXhpN3cyMTQ4cml4aWl5aDNramV1aGR2ZnAzZWVpayIsInNpZCI6OTk5OTU4MDg5LCJpc3MiOiJCQyJ9.XUu4uIfeeu8FDqVH2FLJAoCRZ9fHz5QbWWxMRPvKOybN7iRlYoS-xEiT482_L7ER0uG1x6f6XxOTBaARGIsuPA",
+                "value": "Bearer {{storefront-jwt-token}}",
                 "type": "text",
                 "disabled": true
               },
@@ -260,7 +260,7 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJlYXQiOjE2OTA1NzQ1NDQsInN1Yl90eXBlIjoyLCJ0b2tlbl90eXBlIjoxLCJjb3JzIjpbImdvb2dsZS5jb20iLCJleGFtcGxlLmNvbSJdLCJjaWQiOjYsImlhdCI6MTU2OTYxNDU0NCwic3ViIjoiMXhpN3cyMTQ4cml4aWl5aDNramV1aGR2ZnAzZWVpayIsInNpZCI6OTk5OTU4MDg5LCJpc3MiOiJCQyJ9.XUu4uIfeeu8FDqVH2FLJAoCRZ9fHz5QbWWxMRPvKOybN7iRlYoS-xEiT482_L7ER0uG1x6f6XxOTBaARGIsuPA",
+                "value": "Bearer {{storefront-jwt-token}}",
                 "type": "text",
                 "disabled": true
               },
@@ -314,7 +314,7 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJlYXQiOjE2OTA1NzQ1NDQsInN1Yl90eXBlIjoyLCJ0b2tlbl90eXBlIjoxLCJjb3JzIjpbImdvb2dsZS5jb20iLCJleGFtcGxlLmNvbSJdLCJjaWQiOjYsImlhdCI6MTU2OTYxNDU0NCwic3ViIjoiMXhpN3cyMTQ4cml4aWl5aDNramV1aGR2ZnAzZWVpayIsInNpZCI6OTk5OTU4MDg5LCJpc3MiOiJCQyJ9.XUu4uIfeeu8FDqVH2FLJAoCRZ9fHz5QbWWxMRPvKOybN7iRlYoS-xEiT482_L7ER0uG1x6f6XxOTBaARGIsuPA",
+                "value": "Bearer {{storefront-jwt-token}}",
                 "type": "text",
                 "disabled": true
               },
@@ -622,7 +622,7 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJlYXQiOjE2OTA1NzQ1NDQsInN1Yl90eXBlIjoyLCJ0b2tlbl90eXBlIjoxLCJjb3JzIjpbImdvb2dsZS5jb20iLCJleGFtcGxlLmNvbSJdLCJjaWQiOjYsImlhdCI6MTU2OTYxNDU0NCwic3ViIjoiMXhpN3cyMTQ4cml4aWl5aDNramV1aGR2ZnAzZWVpayIsInNpZCI6OTk5OTU4MDg5LCJpc3MiOiJCQyJ9.XUu4uIfeeu8FDqVH2FLJAoCRZ9fHz5QbWWxMRPvKOybN7iRlYoS-xEiT482_L7ER0uG1x6f6XxOTBaARGIsuPA",
+                "value": "Bearer {{storefront-jwt-token}}",
                 "type": "text",
                 "disabled": true
               },
@@ -677,7 +677,7 @@
               {
                 "warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
                 "key": "Authorization",
-                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJlYXQiOjE2OTA1NzQ1NDQsInN1Yl90eXBlIjoyLCJ0b2tlbl90eXBlIjoxLCJjb3JzIjpbImdvb2dsZS5jb20iLCJleGFtcGxlLmNvbSJdLCJjaWQiOjYsImlhdCI6MTU2OTYxNDU0NCwic3ViIjoiMXhpN3cyMTQ4cml4aWl5aDNramV1aGR2ZnAzZWVpayIsInNpZCI6OTk5OTU4MDg5LCJpc3MiOiJCQyJ9.XUu4uIfeeu8FDqVH2FLJAoCRZ9fHz5QbWWxMRPvKOybN7iRlYoS-xEiT482_L7ER0uG1x6f6XxOTBaARGIsuPA",
+                "value": "Bearer {{storefront-jwt-token}}",
                 "type": "text",
                 "disabled": true
               },
@@ -732,7 +732,7 @@
               {
                 "warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
                 "key": "Authorization",
-                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJlYXQiOjE2OTA1NzQ1NDQsInN1Yl90eXBlIjoyLCJ0b2tlbl90eXBlIjoxLCJjb3JzIjpbImdvb2dsZS5jb20iLCJleGFtcGxlLmNvbSJdLCJjaWQiOjYsImlhdCI6MTU2OTYxNDU0NCwic3ViIjoiMXhpN3cyMTQ4cml4aWl5aDNramV1aGR2ZnAzZWVpayIsInNpZCI6OTk5OTU4MDg5LCJpc3MiOiJCQyJ9.XUu4uIfeeu8FDqVH2FLJAoCRZ9fHz5QbWWxMRPvKOybN7iRlYoS-xEiT482_L7ER0uG1x6f6XxOTBaARGIsuPA",
+                "value": "Bearer {{storefront-jwt-token}}",
                 "type": "text",
                 "disabled": true
               },
@@ -826,7 +826,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJjaWQiOjEsImNvcnMiOlsiaHR0cHM6Ly9sb2NhbGhvc3QiXSwiZWF0IjoxNjkzNDA4MjQ1LCJpYXQiOjE2OTI4MDM0NDYsImlzcyI6IkJDIiwic2lkIjoxMDAyNDM5Nzc1LCJzdWIiOiIzMXVjYmR5bzJ3eWZoMTRka3h1OGJyMGR1OHVvN3Z1Iiwic3ViX3R5cGUiOjIsInRva2VuX3R5cGUiOjF9.RV19G5RyREcr-RQiWn2_tzr8plAjpAyD5QNyw67TBJhXpcjxdGAxa0edbmXlOiPSnqnttca9mnEhyGESl7PN6w",
+                  "value": "{{storefront-jwt-token}}",
                   "type": "string"
                 }
               ]
@@ -835,7 +835,7 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJlYXQiOjE2OTA1NzQ1NDQsInN1Yl90eXBlIjoyLCJ0b2tlbl90eXBlIjoxLCJjb3JzIjpbImdvb2dsZS5jb20iLCJleGFtcGxlLmNvbSJdLCJjaWQiOjYsImlhdCI6MTU2OTYxNDU0NCwic3ViIjoiMXhpN3cyMTQ4cml4aWl5aDNramV1aGR2ZnAzZWVpayIsInNpZCI6OTk5OTU4MDg5LCJpc3MiOiJCQyJ9.XUu4uIfeeu8FDqVH2FLJAoCRZ9fHz5QbWWxMRPvKOybN7iRlYoS-xEiT482_L7ER0uG1x6f6XxOTBaARGIsuPA",
+                "value": "Bearer {{storefront-jwt-token}}",
                 "disabled": true
               },
               {
@@ -900,7 +900,7 @@
               "mode": "graphql",
               "graphql": {
                 "query": "mutation Login($email: String!, $password: String!) {\n    login(email: $email, password: $password) {\n        result\n    }\n}",
-                "variables": "{\n    \"email\": \"johan.nielsen@bigcommerce.com\",\n    \"password\": \"3UH2BLFsEwTSw6a!\"\n}"
+                "variables": "{\n    \"email\": \"user@example.com\",\n    \"password\": \"{{password}}\"\n}"
               }
             },
             "url": {
@@ -1474,7 +1474,7 @@
                   "mode": "graphql",
                   "graphql": {
                     "query": "mutation MyMutation($input: AddCheckoutBillingAddressInput!) {\n  checkout {\n    addCheckoutBillingAddress(\n      input: $input\n    ) {\n      checkout {\n        entityId\n      }\n    }\n  }\n}",
-                    "variables": "{\n  \"input\": {\n    \"checkoutEntityId\": \"fb3fc57b-0654-4022-bdf3-b7cd334e9581\",\n    \"data\": {\n        \"address\": {\n            \"firstName\": \"Johan\",\n            \"lastName\": \"Nielsen\",\n            \"address1\": \"Hessensgade 32\",\n            \"postalCode\": \"2300\",\n            \"city\": \"Copenhagen\",\n            \"countryCode\": \"DK\",\n            \"phone\": \"28552705\",\n            \"email\": \"johan.nielsen@commerce.com\",\n            \"shouldSaveAddress\": false\n\n        }\n    }\n  }\n}"
+                    "variables": "{\n  \"input\": {\n    \"checkoutEntityId\": \"fb3fc57b-0654-4022-bdf3-b7cd334e9581\",\n    \"data\": {\n        \"address\": {\n            \"firstName\": \"Johan\",\n            \"lastName\": \"Nielsen\",\n            \"address1\": \"Hessensgade 32\",\n            \"postalCode\": \"2300\",\n            \"city\": \"Copenhagen\",\n            \"countryCode\": \"DK\",\n            \"phone\": \"28552705\",\n            \"email\": \"user@example.com\",\n            \"shouldSaveAddress\": false\n\n        }\n    }\n  }\n}"
                   }
                 },
                 "url": {
@@ -1523,7 +1523,7 @@
                   "mode": "graphql",
                   "graphql": {
                     "query": "mutation MyMutation($input: AddCheckoutShippingConsignmentsInput!) {\n  checkout {\n    addCheckoutShippingConsignments(\n      input: $input\n    ) {\n      checkout {\n        entityId\n        shippingConsignments {\n          entityId\n        }\n      }        \n    }\n  }\n}",
-                    "variables": "{\n  \"input\": {\n    \"checkoutEntityId\": \"fb3fc57b-0654-4022-bdf3-b7cd334e9581\",\n    \"data\": {\n        \"consignments\": [\n            {\n          \"address\": {\n            \"firstName\": \"Johan\",\n            \"lastName\": \"Nielsen\",\n            \"address1\": \"Hessensgade 32\",\n            \"postalCode\": \"2300\",\n            \"city\": \"Copenhagen\",\n            \"countryCode\": \"DK\",\n            \"phone\": \"28552705\",\n            \"email\": \"johan.nielsen@commerce.com\",\n            \"shouldSaveAddress\": false\n          },\n          \"lineItems\": [\n            {\n            \"lineItemsEntityId\": \"3cde114d-faf1-4d1b-ab6e-a7026a10a817\",\n            \"quantity\": 1\n            }\n          ]\n            }\n        ]\n    }\n    }\n}"
+                    "variables": "{\n  \"input\": {\n    \"checkoutEntityId\": \"fb3fc57b-0654-4022-bdf3-b7cd334e9581\",\n    \"data\": {\n        \"consignments\": [\n            {\n          \"address\": {\n            \"firstName\": \"Johan\",\n            \"lastName\": \"Nielsen\",\n            \"address1\": \"Hessensgade 32\",\n            \"postalCode\": \"2300\",\n            \"city\": \"Copenhagen\",\n            \"countryCode\": \"DK\",\n            \"phone\": \"28552705\",\n            \"email\": \"user@example.com\",\n            \"shouldSaveAddress\": false\n          },\n          \"lineItems\": [\n            {\n            \"lineItemsEntityId\": \"3cde114d-faf1-4d1b-ab6e-a7026a10a817\",\n            \"quantity\": 1\n            }\n          ]\n            }\n        ]\n    }\n    }\n}"
                   }
                 },
                 "url": {

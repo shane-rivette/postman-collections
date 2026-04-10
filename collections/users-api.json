@@ -93,7 +93,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"email\": \"anthony.leach+prodtest@bigcommerce.com\",\n    \"password\": \"Password@1\"\n}"
+          "raw": "{\n    \"email\": \"user@example.com\",\n    \"password\": \"{{password}}\"\n}"
         },
         "url": {
           "raw": "{{bc_api}}/v3/alpha/users",

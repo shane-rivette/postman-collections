@@ -20,17 +20,17 @@
         "header": [
           {
             "key": "Bearer",
-            "value": "eyJhbGciOiJIUzM4NCJ9.eyJwYXJ0bmVySWQiOiIwMTgwMDkifQ.ZvFfxIe4Rp-lKPLcAm7k0Pht42wXM4EUyCAADq-Gt6o5HdwNItJnpayWODwB6Zmg",
+            "value": "{{ups-jwt-token}}",
             "type": "text"
           },
           {
             "key": "X-IBM-Client-Id",
-            "value": "1e326652-7627-41be-b8bc-159581331946",
+            "value": "{{X-IBM-Client-Id}}",
             "type": "text"
           },
           {
             "key": "X-IBM-Client-Secret",
-            "value": "Q2qG0tQ8aM6dP5eD7lM0uR5fP8nK3iX6oQ2kC4bI2yO0jT6qE4",
+            "value": "{{X-IBM-Client-Secret}}",
             "type": "text"
           },
           {
@@ -75,17 +75,17 @@
         "header": [
           {
             "key": "Bearer",
-            "value": "eyJhbGciOiJIUzM4NCJ9.eyJwYXJ0bmVySWQiOiIwMTgwMDkifQ.ZvFfxIe4Rp-lKPLcAm7k0Pht42wXM4EUyCAADq-Gt6o5HdwNItJnpayWODwB6Zmg",
+            "value": "{{ups-jwt-token}}",
             "type": "text"
           },
           {
             "key": "X-IBM-Client-Id",
-            "value": "1e326652-7627-41be-b8bc-159581331946",
+            "value": "{{X-IBM-Client-Id}}",
             "type": "text"
           },
           {
             "key": "X-IBM-Client-Secret",
-            "value": "Q2qG0tQ8aM6dP5eD7lM0uR5fP8nK3iX6oQ2kC4bI2yO0jT6qE4",
+            "value": "{{X-IBM-Client-Secret}}",
             "type": "text"
           },
           {

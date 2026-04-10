@@ -350,7 +350,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"storeHash\": \"string\",\n  \"email\": \"axe@snapmail.cc\",\n  \"password\": \"test12345\",\n  \"channelId\": 1,\n  \"name\": \"test\",\n  \"beginAt\": 1000,\n  \"endAt\": 1721930486\n}",
+                  "raw": "{\n  \"storeHash\": \"{{store-hash}}\",\n  \"email\": \"user@example.com\",\n  \"password\": \"{{password}}\",\n  \"channelId\": 1,\n  \"name\": \"test\",\n  \"beginAt\": 1000,\n  \"endAt\": 1721930486\n}",
                   "options": {
                     "raw": {
                       "language": "json"

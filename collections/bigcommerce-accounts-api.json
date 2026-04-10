@@ -249,7 +249,7 @@
               "mode": "graphql",
               "graphql": {
                 "query": "mutation (\n      $userEmail: String!\n){\n  account {\n    addUserToAccount(\n      input: {\n        email: $userEmail\n      }\n    ) {\n      account {\n        accountInfo {\n          name\n        }\n      }\n    }\n  }\n}",
-                "variables": "{\"userEmail\": \"test@bigcommerce.com\"}"
+                "variables": "{\"userEmail\": \"user@example.com\"}"
               }
             },
             "url": {
@@ -301,7 +301,7 @@
               "mode": "graphql",
               "graphql": {
                 "query": "mutation (\n      $userEmail: String!,\n      $userId: ID!\n){\n  account {\n    removeUserFromAccount(\n      input: {\n        email: $userEmail, \n        userId: $userId\n      }\n    ) {\n      accountId,\n      userId\n    }\n  }\n}",
-                "variables": "{\n    \"userEmail\": \"test@bigcommerce.com\",\n    \"userId\": \"bc/account/user/5801\"\n}"
+                "variables": "{\n    \"userEmail\": \"user@example.com\",\n    \"userId\": \"bc/account/user/5801\"\n}"
               }
             },
             "url": {
@@ -353,7 +353,7 @@
               "mode": "graphql",
               "graphql": {
                 "query": "mutation (\n      $userEmail: String!,\n      $userFirst: String!,\n      $userLast: String!,\n      $password: String!\n){\n  user {\n    createUserWithPassword(\n      input: {\n        email: $userEmail, \n        firstName: $userFirst, \n        lastName: $userLast,  \n        locale: \"en-US\", \n        password: $password, \n        passwordConfirmation: $password\n      }\n    ) {\n        user {\n            id\n            email\n            firstName\n            lastName\n            locale\n        }\n    }\n  }\n}",
-                "variables": "{\n    \"userEmail\": \"test+anything1@bigcommerce.com\",\n    \"userFirst\": \"API\",\n    \"userLast\": \"Test\",\n    \"password\": \"Teting123!\"\n}"
+                "variables": "{\n    \"userEmail\": \"user@example.com\",\n    \"userFirst\": \"API\",\n    \"userLast\": \"Test\",\n    \"password\": \"{{password}}\"\n}"
               }
             },
             "url": {

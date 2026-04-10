@@ -291,7 +291,7 @@
               "    \"shipping_address\": {",
               "      \"first_name\": `Patrick ${i}`,",
               "      \"last_name\": \"Puente\",",
-              "      \"email\": \"patrick.puente@bigcommerce.com\",",
+              "      \"email\": \"user@example.com\",",
               "      \"company\": \"\",",
               "      \"address1\": \"11305 Four Points Dr #300\",",
               "      \"address2\": \"\",",
